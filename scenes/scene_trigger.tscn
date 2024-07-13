@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dolikv6wqqxnm"]
+
+[ext_resource type="Script" path="res://scripts/scene_trigger.gd" id="1_bcljo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmtn"]
+size = Vector2(16, 16)
+
+[node name="scene_trigger" type="Area2D"]
+collision_layer = 16
+priority = 2
+script = ExtResource("1_bcljo")
+connected_scene = "sala-azul-in"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_lpmtn")

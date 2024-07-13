@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://caa76bi64trvq"]
 
-[ext_resource type="Script" path="res://scripts/Scene_manager.gd" id="1_l1cy5"]
-[ext_resource type="PackedScene" uid="uid://b4koc4ijprod" path="res://scenes/Corredor_terreo_academico.tscn" id="2_4y3ob"]
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_l1cy5"]
+[ext_resource type="PackedScene" uid="uid://b4koc4ijprod" path="res://scenes/corredor_terreo_academico.tscn" id="2_4y3ob"]
 
 [sub_resource type="Animation" id="Animation_iqntj"]
 resource_name = "FadeToBlack"

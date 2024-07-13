@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var sprite = $Sprite2D2
 @onready var anim_player = $AnimationPlayer
-@export var next_scene_path = load("res://scenes/Salas_Aula/sala_azul.tscn")
+
 
 func _ready():
 	sprite.visible = true
@@ -15,7 +15,3 @@ func enter_door():
 
 func close_door():
 	anim_player.play("closing")
-
-func door_closed():
-	#get_tree().change_scene_to_file(next_scene_path)
-	get_node("/root/CenaManager").transitionToScene(next_scene_path)
