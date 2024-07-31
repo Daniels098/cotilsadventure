@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 QuestManager="*res://addons/quest_manager/QuestManager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SceneManager="*res://scripts/scene_manager.gd"
 
 [display]
 
@@ -35,7 +37,7 @@ project/assembly_name="cotiladventures"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/quest_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/quest_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 

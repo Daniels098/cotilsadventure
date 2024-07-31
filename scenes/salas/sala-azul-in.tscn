@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4hjk5pkivdhy"]
+[gd_scene load_steps=10 format=3 uid="uid://c4hjk5pkivdhy"]
 
+[ext_resource type="Script" path="res://scripts/sala-azul-in.gd" id="1_3ux2a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_y7m6b"]
 [ext_resource type="Texture2D" uid="uid://byqt6ff55rbom" path="res://assets/sala-azul-in.png" id="2_m7b7k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="4_6yc4h"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_36be2"]
+[ext_resource type="PackedScene" uid="uid://ce1gxt0b60dl2" path="res://scenes/door.tscn" id="6_wgcxh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pelex"]
 texture = ExtResource("2_m7b7k")
@@ -890,6 +892,7 @@ transition = 0
 ease = 2
 
 [node name="sala-azul-in" type="Node2D"]
+script = ExtResource("1_3ux2a")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -264.0
@@ -917,3 +920,8 @@ script = ExtResource("4_6yc4h")
 priority = 5
 zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_lk3ed")
+
+[node name="door" parent="." instance=ExtResource("6_wgcxh")]
+position = Vector2(208, 128)
+
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
