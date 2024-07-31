@@ -1,4 +1,22 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+"""
+@export_category("Variables")
+@export var walk_speed:float = 3.0
+@export var initial_position = Vector2.ZERO
+@export var input_direction = Vector2.ZERO
+#@onready var rayPa = $RayParede
+#@onready var rayPo = $RayPorta
+@onready var anim_player = $AnimationPlayer
+
+func _ready():
+	pass
+
+func _physics_process(delta):
+	pass
+"""
+
+
+
 
 signal player_entering_door
 signal player_entered_door
@@ -12,9 +30,9 @@ signal camera_desapar
 @export var percent_moved:float = 0.0
 @onready var rayPa = $RayParede
 @onready var rayPo = $RayPorta
-const TILE_SIZE = 16.0
 @onready var anim_player = $AnimationPlayer
 @onready var can_walk: bool = true
+const TILE_SIZE = 16
 
 func _ready():
 	initial_position = position
