@@ -5,23 +5,28 @@ class_name Level extends Node2D
 var data:LevelDataHandoff
 
 func _ready():
-	player.disable_mode
-	player.visible = false
+	if player != null:
+		player.disable_mode
+		player.visible = false
 	if data == null:
 		enter_level()
 
 func enter_level() -> void:
+	# ele ta dando erro pq o level n
 	if data != null:
 		init_player_location()
-	player.enable()
+	if player != null:
+		player.enable()
 	_connect_to_doors()
 
 func init_player_location() -> void:
+	#ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign
 	if data != null:
 		for door in doors:
 			if door.name == data.entry_door_name:
 				player.position = door.get_player_entry_vector()
-		player.orient(data.move_dir)
+		if player != null:
+			player.orient(data.move_dir)
 
 func _on_player_entered_door(door:Door) -> void:
 	_disconnect_from_doors()
@@ -41,3 +46,6 @@ func _disconnect_from_doors() -> void:
 	for door in doors:
 		if door.player_entered_door.is_connected(_on_player_entered_door):
 			door.player_entered_door.disconnect(_on_player_entered_door)
+
+
+#funçao pra camera

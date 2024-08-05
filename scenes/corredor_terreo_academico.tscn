@@ -1,12 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4koc4ijprod"]
+[gd_scene load_steps=9 format=3 uid="uid://b4koc4ijprod"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_hhgpx"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_se2xr"]
 [ext_resource type="Texture2D" uid="uid://ouumiayikcbo" path="res://assets/Sprites.png" id="2_pby0s"]
 [ext_resource type="Texture2D" uid="uid://begu132qx1xg0" path="res://assets/corredor_completo.png" id="3_u8u2y"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="4_xxwkq"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="5_36oat"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_hqubf"]
 [ext_resource type="PackedScene" uid="uid://ce1gxt0b60dl2" path="res://scenes/door.tscn" id="7_qdkiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xuoq"]
@@ -3535,16 +3532,10 @@ physics_layer_0/collision_mask = 9
 sources/2 = SubResource("TileSetAtlasSource_0xuoq")
 sources/3 = SubResource("TileSetAtlasSource_7os7y")
 
-[sub_resource type="Resource" id="Resource_fen2u"]
-script = ExtResource("6_hqubf")
-duration = 1.0
-transition = 0
-ease = 2
-
 [node name="CorredorTerreoAcademico" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_hhgpx")
 player = NodePath("Player")
-doors = [NodePath("sala-03"), NodePath("sala-04"), NodePath("sala-05")]
+doors = [NodePath("sala-03"), NodePath("sala_04"), NodePath("sala-05")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1104.0
@@ -3552,13 +3543,6 @@ offset_top = -280.0
 offset_right = 864.0
 offset_bottom = 376.0
 color = Color(0, 0, 0, 1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-112, 48)
-zoom = Vector2(0.8, 0.8)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-script = ExtResource("1_se2xr")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fxvqt")
@@ -3571,19 +3555,14 @@ z_index = 1
 position = Vector2(-112, 48)
 disable_mode = 1
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-112, 48)
-script = ExtResource("5_36oat")
-follow_mode = 1
-follow_target = NodePath("../Player")
-zoom = Vector2(0.8, 0.8)
-tween_resource = SubResource("Resource_fen2u")
-
 [node name="sala-03" parent="." instance=ExtResource("7_qdkiu")]
 position = Vector2(-528, 16)
 
-[node name="sala-04" parent="." instance=ExtResource("7_qdkiu")]
-position = Vector2(208, 16)
+[node name="sala_04" parent="." instance=ExtResource("7_qdkiu")]
+position = Vector2(16, 16)
+entry_direction = 2
+transition_type = "fade_to_black"
+entry_door_name = "saida_04"
 
 [node name="sala-05" parent="." instance=ExtResource("7_qdkiu")]
 position = Vector2(336, 16)

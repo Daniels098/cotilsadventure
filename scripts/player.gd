@@ -1,49 +1,49 @@
 class_name Player extends CharacterBody2D
-"""
-@export_category("Variables")
-@export var walk_speed:float = 3.0
-@export var initial_position = Vector2.ZERO
-@export var input_direction = Vector2.ZERO
-#@onready var rayPa = $RayParede
-#@onready var rayPo = $RayPorta
-@onready var anim_player = $AnimationPlayer
 
-func _ready():
-	pass
-
-func _physics_process(delta):
-	pass
-"""
-
-
-
-
-signal player_entering_door
-signal player_entered_door
-signal camera_desapar
+#signal player_entering_door
+#signal player_entered_door
+#signal camera_desapar
 
 @export_category("Variables")
-@export var walk_speed:float = 2.5
+@export var walk_speed:float = 4.5
 @export var initial_position = Vector2.ZERO
 @export var input_direction = Vector2.ZERO
 @export var is_moving:bool = false
 @export var percent_moved:float = 0.0
+@export var input_enabled:bool = true
 @onready var rayPa = $RayParede
 @onready var rayPo = $RayPorta
 @onready var anim_player = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var can_walk: bool = true
 const TILE_SIZE = 16
+
 
 func _ready():
 	initial_position = position
 
+func orient(input_direction:Vector2) -> void:
+	if input_direction.x:
+		sprite.flip_h = input_direction.x < 0
+
+func disable():
+	input_enabled = false
+	anim_player.play("Down")
+	
+func enable():
+	input_enabled = true
+	visible = true
+
 func _physics_process(delta):
-	if !is_moving or !can_walk:
-		player_input()
-	elif input_direction != Vector2.ZERO:
-		move(delta)
+	if not input_enabled:
+		return 
 	else:
-		is_moving = false
+		if !is_moving or !can_walk:
+			player_input()
+		elif input_direction != Vector2.ZERO:
+			move(delta)
+		else:
+			is_moving = false
 
 func player_input():
 	if input_direction.y == 0:
@@ -56,8 +56,6 @@ func player_input():
 	
 func entered_door():
 	emit_signal("player_entered_door")
-
-#func 
 
 func move(delta):
 	if Input.is_anything_pressed():
