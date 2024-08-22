@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ri7jk2aki1jb"]
 
 [ext_resource type="Texture2D" uid="uid://362nku5ne8gm" path="res://assets/desfoque.jpg" id="1_78211"]
-[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_l17ku"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_l17ku"]
 [ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_xwngl"]
 [ext_resource type="Theme" uid="uid://w3u0d2w854ih" path="res://temas/menu.tres" id="4_qk8pv"]
 
@@ -28,12 +28,14 @@ grow_vertical = 2
 script = ExtResource("1_l17ku")
 
 [node name="background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
 texture = ExtResource("1_78211")
 expand_mode = 1
 
 [node name="title" type="Label" parent="."]
+layout_mode = 0
 offset_left = 60.0
 offset_right = 260.0
 offset_bottom = 26.0

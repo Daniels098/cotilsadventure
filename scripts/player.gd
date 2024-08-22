@@ -1,26 +1,14 @@
 class_name Player extends CharacterBody2D
 
-#signal player_entering_door
-#signal player_entered_door
-#signal camera_desapar
-
 @export_category("Variables")
-@export var walk_speed:float = 4.5
-@export var initial_position = Vector2.ZERO
-@export var input_direction = Vector2.ZERO
-@export var is_moving:bool = false
-@export var percent_moved:float = 0.0
+@export var speed:int = 65
 @export var input_enabled:bool = true
-@onready var rayPa = $RayParede
-@onready var rayPo = $RayPorta
+@export var direction = Vector2.ZERO
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var can_walk: bool = true
-const TILE_SIZE = 16
-
 
 func _ready():
-	initial_position = position
+	pass
 
 func orient(input_direction:Vector2) -> void:
 	if input_direction.x:
@@ -29,75 +17,38 @@ func orient(input_direction:Vector2) -> void:
 func disable():
 	input_enabled = false
 	anim_player.play("Down")
-	
+
 func enable():
 	input_enabled = true
 	visible = true
 
-func _physics_process(delta):
-	if not input_enabled:
-		return 
-	else:
-		if !is_moving or !can_walk:
-			player_input()
-		elif input_direction != Vector2.ZERO:
-			move(delta)
-		else:
-			is_moving = false
-
-func player_input():
-	if input_direction.y == 0:
-		input_direction.x = Input.get_axis("move_left","move_right")
-	if input_direction.x == 0:
-		input_direction.y = Input.get_axis("move_up","move_down")
-	if input_direction != Vector2.ZERO:
-		initial_position = position
-		is_moving = true
-	
 func entered_door():
 	emit_signal("player_entered_door")
 
+func _physics_process(delta):
+	if input_enabled:
+		direction = Vector2.ZERO
+		if Input.is_action_pressed("move_right"): #get_action_strength
+			direction.x = 1
+		elif Input.is_action_pressed("move_left"):
+			direction.x = -1
+		elif Input.is_action_pressed("move_down"):
+			direction.y = 1
+		elif Input.is_action_pressed("move_up"):
+			direction.y = -1
+		if direction != Vector2.ZERO:
+			direction = direction.normalized()
+			velocity = direction * speed
+			move_and_slide()
+			move(delta)
+
 func move(delta):
 	if Input.is_anything_pressed():
-			if input_direction.y > 0:
+			if direction.y > 0:
 				anim_player.play("WalkDown")
-			elif input_direction.x > 0:
+			elif direction.x > 0:
 				anim_player.play("WalkRight")
-			elif input_direction.x < 0:
+			elif direction.x < 0:
 				anim_player.play("WalkLeft")
-			elif input_direction.y < 0:
+			elif direction.y < 0:
 				anim_player.play("WalkUp")
-	
-	var desired_step: Vector2 = input_direction*TILE_SIZE/2
-	
-	rayPa.target_position = desired_step
-	rayPa.force_raycast_update()
-	
-	rayPo.target_position = desired_step
-	rayPo.force_raycast_update()
-	
-	if rayPo.is_colliding():
-		if percent_moved == 0.0:
-			emit_signal("player_entering_door")
-		percent_moved += walk_speed*delta
-		if percent_moved >= 1.0:
-			position = initial_position+(input_direction*TILE_SIZE)
-			percent_moved = 0.0
-			is_moving = false
-			can_walk = false
-			anim_player.play("desapar")
-			emit_signal("player_entered_door")
-			#emit_signal("camera_desapar")
-		else:
-			position = initial_position+(TILE_SIZE*input_direction*percent_moved)
-	elif !rayPa.is_colliding():
-		percent_moved += walk_speed*delta
-		if percent_moved >= 1.0:
-			position = initial_position+(TILE_SIZE*input_direction)
-			percent_moved = 0.0
-			is_moving = false
-		else:
-			position = initial_position+(TILE_SIZE*input_direction*percent_moved)
-	else:
-		is_moving = false
-		percent_moved = 0.0

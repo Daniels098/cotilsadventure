@@ -1,7 +1,7 @@
 extends Node
 
-const LEVEL_H:int = 144
-const LEVEL_W:int = 240
+const LEVEL_H:int = 180
+const LEVEL_W:int = 320
 
 signal content_finished_loading(content)
 signal zelda_content_finished_loading(content)
@@ -79,7 +79,7 @@ func on_content_failed_to_load(path:String) -> void:
 
 func on_content_invalid(path:String) -> void:
 	printerr("error: Cannot load resource: '%s'" % [path])
-	
+
 func on_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	
@@ -110,8 +110,7 @@ func on_content_finished_loading(content) -> void:
 		# samesies^
 		if content is Level:
 			content.enter_level()
-				
-# load in a level, does NOT use the loading screen (which comes with tradeoffs)
+
 func on_zelda_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	# If we're moving between Levels, pass LevelDataHandoff here

@@ -284,18 +284,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.000849605, 0.989418)
 parameters/walk/blend_position = Vector2(-0.011045, -0.037037)
 
-[node name="RayParede" type="RayCast2D" parent="."]
-position = Vector2(8, 8)
-target_position = Vector2(0, 8)
-collision_mask = 10
-
-[node name="RayPorta" type="RayCast2D" parent="."]
-position = Vector2(8, 8)
-target_position = Vector2(0, 8)
-collision_mask = 16
-hit_from_inside = true
-collide_with_areas = true
-
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_exhpo")
 priority = 1
