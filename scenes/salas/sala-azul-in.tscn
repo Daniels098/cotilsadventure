@@ -119,7 +119,7 @@ texture = ExtResource("2_m7b7k")
 14:1/0 = 0
 14:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:1/0/physics_layer_0/angular_velocity = 0.0
-14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.625, -8, 8, -8, 8, 8, 0.875, 8)
 15:1/0 = 0
 15:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:1/0/physics_layer_0/angular_velocity = 0.0
@@ -888,7 +888,7 @@ sources/2 = SubResource("TileSetAtlasSource_pelex")
 
 [sub_resource type="Resource" id="Resource_lk3ed"]
 script = ExtResource("5_36be2")
-duration = 1.0
+duration = 5.0
 transition = 0
 ease = 2
 
@@ -897,16 +897,16 @@ script = ExtResource("1_3ux2a")
 player = NodePath("Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(1.8, 1.8)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("1_y7m6b")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -488.0
-offset_top = -320.0
-offset_right = 496.0
-offset_bottom = 328.0
+offset_left = -792.0
+offset_top = -480.0
+offset_right = 784.0
+offset_bottom = 496.0
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -917,17 +917,17 @@ layer_0/tile_data = PackedInt32Array(6, 917506, 8, 65542, 917506, 9, 131078, 917
 
 [node name="saida_04" parent="." instance=ExtResource("6_wgcxh")]
 position = Vector2(-96, -128)
-path_to_new_scene = "res://scenes/corredor_terreo_academico.tscn"
-entry_door_name = "sala_04"
 entry_direction = 2
 transition_type = "fade_to_black"
+path_to_new_scene = "res://scenes/corredor_terreo_academico.tscn"
+entry_door_name = "sala_04"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_6yc4h")
-priority = 5
+priority = 2
 follow_mode = 1
 follow_target = NodePath("../TileMap")
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(1.8, 1.8)
 tween_resource = SubResource("Resource_lk3ed")
 
 [node name="Player" parent="." instance=ExtResource("2_k3jr5")]

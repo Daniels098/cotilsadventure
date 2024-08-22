@@ -9,8 +9,6 @@ size = Vector2(16, 16)
 collision_layer = 16
 collision_mask = 9
 script = ExtResource("1_vb83e")
-path_to_new_scene = "res://scenes/salas/sala-azul-in.tscn"
-entry_door_name = "sala-04"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)

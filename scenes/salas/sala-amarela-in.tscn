@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://2182xijwg4yd"]
+[gd_scene load_steps=9 format=3 uid="uid://2182xijwg4yd"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_4uxtv"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_8t8ah"]
 [ext_resource type="Texture2D" uid="uid://nt8eovhhtncy" path="res://assets/sala-amarela-in.png" id="2_yly8b"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="5_sjce1"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_7ovse"]
@@ -890,6 +891,7 @@ transition = 0
 ease = 2
 
 [node name="sala-amarela-in" type="Node2D"]
+script = ExtResource("1_8t8ah")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -288.0

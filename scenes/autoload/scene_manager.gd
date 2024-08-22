@@ -1,15 +1,18 @@
 extends Node
 
-const LEVEL_H:int = 180
-const LEVEL_W:int = 320
+# Bacon and Games on YouTube: https://www.youtube.com/watch?v=2uYaoQj_6o0
+
+const LEVEL_H:int = 144
+const LEVEL_W:int = 240
 
 signal content_finished_loading(content)
 signal zelda_content_finished_loading(content)
 signal content_invalid(content_path:String)
 signal content_failed_to_load(content_path:String)
 
+
 var loading_screen:LoadingScreen
-var _loading_screen_scene:PackedScene = preload("res://scenes/loading_screen.tscn")
+var _loading_screen_scene:PackedScene = preload("res://scenes/autoload/loading_screen.tscn")
 var _transition:String
 var _content_path:String
 var _load_progress_timer:Timer
@@ -34,6 +37,7 @@ func load_level_zelda(content_path:String) -> void:
 	
 func _load_content(content_path:String) -> void:
 	
+	# zelda transition doesn't use a loading screen - personal preference
 	if loading_screen != null:
 		await loading_screen.transition_in_complete
 		
@@ -41,7 +45,7 @@ func _load_content(content_path:String) -> void:
 	var loader = ResourceLoader.load_threaded_request(content_path)
 	if not ResourceLoader.exists(content_path) or loader == null:
 		content_invalid.emit(content_path)
-		return
+		return 		
 	
 	_load_progress_timer = Timer.new()
 	_load_progress_timer.wait_time = 0.1
@@ -49,6 +53,8 @@ func _load_content(content_path:String) -> void:
 	get_tree().root.add_child(_load_progress_timer)
 	_load_progress_timer.start()
 
+# checks in on loading status - this can also be done with a while loop, but I found that ran too fast
+# and ended up skipping over the loading display. 
 func monitor_load_status() -> void:
 	var load_progress = []
 	var load_status = ResourceLoader.load_threaded_get_status(_content_path, load_progress)
@@ -72,14 +78,14 @@ func monitor_load_status() -> void:
 				zelda_content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
 			else:
 				content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
-			return
+			return # this last return isn't necessary but I like how the 3 dead ends stand out as similar
 
 func on_content_failed_to_load(path:String) -> void:
 	printerr("error: Failed to load resource: '%s'" % [path])	
 
 func on_content_invalid(path:String) -> void:
 	printerr("error: Cannot load resource: '%s'" % [path])
-
+	
 func on_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	
@@ -110,7 +116,8 @@ func on_content_finished_loading(content) -> void:
 		# samesies^
 		if content is Level:
 			content.enter_level()
-
+				
+# load in a level, does NOT use the loading screen (which comes with tradeoffs)
 func on_zelda_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	# If we're moving between Levels, pass LevelDataHandoff here
@@ -149,6 +156,7 @@ func on_zelda_content_finished_loading(content) -> void:
 		content.enter_level()
 	
 	# Remove the old scene
-	outgoing_scene.queue_free()
+	if is_instance_valid(Level):
+		outgoing_scene.queue_free()
 	# Add and set the new scene to current - so we can get its data obj next time we move between Levels
 	get_tree().current_scene = content

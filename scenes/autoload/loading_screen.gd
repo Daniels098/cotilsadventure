@@ -10,7 +10,6 @@ var starting_animation_name: String
 func _ready() -> void:
 	if progress_bar != null:
 		progress_bar.visible = false
-	
 
 func start_transition(animation_name:String) -> void:
 	if !anim_player.has_animation(animation_name):

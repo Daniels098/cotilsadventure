@@ -23,16 +23,17 @@ script = ExtResource("1_ky2tm")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("2_dvl4g")
 expand_mode = 1
 
 [node name="title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 60.0
-offset_right = 260.0
-offset_bottom = 26.0
+offset_left = 541.0
+offset_top = 270.0
+offset_right = 741.0
+offset_bottom = 296.0
 text = "Cotil's Adventure
 "
 label_settings = SubResource("LabelSettings_4ttqv")
@@ -40,38 +41,38 @@ uppercase = true
 
 [node name="btn_start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 71.0
-offset_right = 177.0
-offset_bottom = 86.0
+offset_left = 624.0
+offset_top = 341.0
+offset_right = 658.0
+offset_bottom = 356.0
 theme = ExtResource("4_juhgc")
 text = "start"
 
 [node name="btn_options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 95.0
-offset_right = 180.0
-offset_bottom = 110.0
+offset_left = 621.0
+offset_top = 365.0
+offset_right = 661.0
+offset_bottom = 380.0
 theme = ExtResource("4_juhgc")
 text = "options
 "
 
 [node name="btn_credits" type="Button" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 119.0
-offset_right = 180.0
-offset_bottom = 134.0
+offset_left = 621.0
+offset_top = 389.0
+offset_right = 661.0
+offset_bottom = 404.0
 theme = ExtResource("4_juhgc")
 text = "credits"
 
 [node name="btn_quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 143.0
-offset_right = 177.0
-offset_bottom = 158.0
+offset_left = 624.0
+offset_top = 413.0
+offset_right = 658.0
+offset_bottom = 428.0
 theme = ExtResource("4_juhgc")
 text = "quit"
 
