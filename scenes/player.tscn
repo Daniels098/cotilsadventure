@@ -243,13 +243,14 @@ states/walk/position = Vector2(533, 100)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_upgph"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_hqt3f")]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 10
+collision_mask = 26
 script = ExtResource("1_lknmn")
 speed = 70
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 8)
 zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)

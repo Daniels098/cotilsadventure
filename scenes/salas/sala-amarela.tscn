@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqf67ro0efues"]
+[gd_scene load_steps=11 format=3 uid="uid://dqf67ro0efues"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_6aqh5"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_exkh4"]
 [ext_resource type="Texture2D" uid="uid://bqmmy6ot7obvr" path="res://assets/sala-amarela.png" id="2_docfh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="5_2mj4a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6vb6y"]
+[ext_resource type="PackedScene" uid="uid://ce1gxt0b60dl2" path="res://scenes/door.tscn" id="6_bvrbv"]
+[ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="7_6y15w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbd0u"]
 texture = ExtResource("2_docfh")
@@ -78,7 +80,7 @@ texture = ExtResource("2_docfh")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -0.6875, -8, -0.75, 8, -8, 8)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
@@ -890,8 +892,10 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="sala-amarela" type="Node2D"]
+[node name="sala-amarela" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_exkh4")
+player = NodePath("Player")
+doors = [NodePath("saida_10")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -248.0
@@ -902,7 +906,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(208, 128)
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(2.2, 2.2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("1_6aqh5")
@@ -916,5 +920,15 @@ layer_0/tile_data = PackedInt32Array(196620, 458754, 3, 262156, 458754, 4, 32769
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 position = Vector2(208, 128)
 script = ExtResource("5_2mj4a")
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(2.2, 2.2)
 tween_resource = SubResource("Resource_lk3ed")
+
+[node name="saida_10" parent="." instance=ExtResource("6_bvrbv")]
+position = Vector2(288, 0)
+entry_direction = 2
+transition_type = "fade_to_black"
+path_to_new_scene = "res://scenes/corredor_1andar_academico.tscn"
+entry_door_name = "sala_10"
+
+[node name="Player" parent="." instance=ExtResource("7_6y15w")]
+position = Vector2(208, 32)

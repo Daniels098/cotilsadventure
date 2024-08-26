@@ -1,9 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://coc17i4mueof0"]
 
 [ext_resource type="Script" path="res://scenes/autoload/loading_screen.gd" id="1_pb6ot"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e5r0"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://bo4i2u18kduu3" path="res://icon.svg" id="2_r7ijt"]
 
 [sub_resource type="Animation" id="Animation_7b1u5"]
 resource_name = "RESET"
@@ -11,7 +9,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Panel:modulate")
+tracks/0/path = NodePath("Control/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +25,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Panel:modulate")
+tracks/0/path = NodePath("Control/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,31 +38,31 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_13bqp"]
 resource_name = "fade_to_black"
 length = 0.5
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Panel:modulate")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"report_midpoint"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cpqle"]
@@ -79,27 +77,48 @@ script = ExtResource("1_pb6ot")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
 modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2e5r0")
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(602, -130)
+color = Color(0, 0, 0, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 visible = false
 top_level = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_left = 136.0
-offset_top = 106.0
-offset_right = 295.0
-offset_bottom = 133.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -13.5
+offset_right = 79.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
 show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
+scale = Vector2(10, 5.625)
+texture = ExtResource("2_r7ijt")
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

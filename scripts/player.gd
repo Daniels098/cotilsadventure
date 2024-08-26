@@ -7,15 +7,13 @@ class_name Player extends CharacterBody2D
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
-func _ready():
-	pass
-
 func orient(input_direction:Vector2) -> void:
 	if input_direction.x:
 		sprite.flip_h = input_direction.x < 0
 
 func disable():
 	input_enabled = false
+	visible = false
 	anim_player.play("Down")
 
 func enable():

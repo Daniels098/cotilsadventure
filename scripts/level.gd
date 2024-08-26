@@ -12,7 +12,6 @@ func _ready():
 		enter_level()
 
 func enter_level() -> void:
-	# ele ta dando erro pq o level n
 	if data != null:
 		init_player_location()
 	if player != null:
@@ -37,7 +36,7 @@ func _on_player_entered_door(door:Door) -> void:
 	data.move_dir = door.get_move_dir()
 	set_process(false)
 
-func _connect_to_doors() -> void:                                                      
+func _connect_to_doors() -> void:
 	for door in doors:
 		if not door.player_entered_door.is_connected(_on_player_entered_door):
 			door.player_entered_door.connect(_on_player_entered_door)
@@ -46,6 +45,3 @@ func _disconnect_from_doors() -> void:
 	for door in doors:
 		if door.player_entered_door.is_connected(_on_player_entered_door):
 			door.player_entered_door.disconnect(_on_player_entered_door)
-
-
-#funçao pra camera

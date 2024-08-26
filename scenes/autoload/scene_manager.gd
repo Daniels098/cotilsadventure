@@ -72,7 +72,7 @@ func monitor_load_status() -> void:
 			_load_progress_timer.stop()
 			return
 		ResourceLoader.THREAD_LOAD_LOADED:
-			_load_progress_timer.stop()
+			_load_progress_timer.stop() ######################################
 			_load_progress_timer.queue_free()
 			if _transition == "zelda":
 				zelda_content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
