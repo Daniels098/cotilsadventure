@@ -23,4 +23,4 @@ rmdir pasta - deleta a pasta (só vazia)
 rm arquivo.txt - deleta o arquivo
 rm -r pasta - deleta a pasta e conteúdo
 mv /camin/arq /camin/novoaqr - move o arquivo
-cp /camin/arq /camin/novoaqr - copia o arquivo
+cp /camin/arq /camin/novoaqr - copia o arquivo   
