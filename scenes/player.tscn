@@ -249,6 +249,7 @@ speed = 70
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 8)
+enabled = false
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
