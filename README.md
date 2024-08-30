@@ -1,5 +1,7 @@
 Comandos Git 
 
+git config user.name - confirmar o usuario certo
+git config user.email - confirmar o usuario certo
 git status - status dos arquivos
 git add README.txt - rastreia o arquivo
 git commit -m "first commit with message"
