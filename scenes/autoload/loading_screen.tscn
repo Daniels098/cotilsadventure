@@ -4,6 +4,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awhaq"]
 bg_color = Color(1, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.627451)
+shadow_size = 40
+shadow_offset = Vector2(30, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17cna"]
 bg_color = Color(1, 1, 1, 1)

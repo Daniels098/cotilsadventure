@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export_category("Variables")
-@export var speed:int = 65
+@export var speed:int = 75
 @export var input_enabled:bool = true
 @export var direction = Vector2.ZERO
 @onready var anim_player = $AnimationPlayer
