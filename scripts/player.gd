@@ -8,8 +8,16 @@ class_name Player extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 func orient(input_direction:Vector2) -> void:
-	if input_direction.x:
-		sprite.flip_h = input_direction.x < 0
+	"""if input_direction.x > 0:
+		anim_player.play("Right")
+	elif input_direction.x < 0:
+		anim_player.play("Left")
+	elif input_direction.y > 0:
+		anim_player.play("Down")
+	elif input_direction.y < 0:
+		anim_player.play("Up")"""
+	#sprite.flip_h = input_direction.x < 0
+	pass
 
 func disable():
 	input_enabled = false

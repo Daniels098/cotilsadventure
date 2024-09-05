@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce1gxt0b60dl2"]
+[gd_scene load_steps=3 format=3 uid="uid://gjgvv588hh4h"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_vb83e"]
 
@@ -11,7 +11,6 @@ collision_mask = 9
 script = ExtResource("1_vb83e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_pi0ci")
 
 [node name="Timer" type="Timer" parent="."]
