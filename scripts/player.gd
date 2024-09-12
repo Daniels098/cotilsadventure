@@ -22,11 +22,11 @@ func orient(input_direction:Vector2) -> void:
 func disable():
 	input_enabled = false
 	visible = false
-	anim_player.play("Down")
 
 func enable():
 	input_enabled = true
 	visible = true
+	anim_player.play("Down")
 
 func entered_door():
 	emit_signal("player_entered_door")

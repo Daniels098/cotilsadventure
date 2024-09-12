@@ -1,9 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfuxucadf64cm"]
 
 [ext_resource type="Script" path="res://scripts/door_animation.gd" id="1_c5xgi"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5whdx"]
-load_path = "res://.godot/imported/Sprite-porta-01.png-937db5afce2a069cd513e356503b90fe.ctex"
+[ext_resource type="Texture2D" uid="uid://dy5utp1slqhkf" path="res://assets/porta_azul_anim.png" id="2_e3o6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmtn"]
 size = Vector2(16, 16)
@@ -83,10 +81,10 @@ script = ExtResource("1_c5xgi")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-texture = SubResource("CompressedTexture2D_5whdx")
+texture = ExtResource("2_e3o6x")
 hframes = 5
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_lpmtn")
 
