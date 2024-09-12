@@ -1,24 +1,32 @@
 class_name Player extends CharacterBody2D
 
 @export_category("Variables")
-@export var speed:int = 65
+@export var speed:int = 75
 @export var input_enabled:bool = true
 @export var direction = Vector2.ZERO
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
 func orient(input_direction:Vector2) -> void:
-	if input_direction.x:
-		sprite.flip_h = input_direction.x < 0
+	"""if input_direction.x > 0:
+		anim_player.play("Right")
+	elif input_direction.x < 0:
+		anim_player.play("Left")
+	elif input_direction.y > 0:
+		anim_player.play("Down")
+	elif input_direction.y < 0:
+		anim_player.play("Up")"""
+	#sprite.flip_h = input_direction.x < 0
+	pass
 
 func disable():
 	input_enabled = false
 	visible = false
-	anim_player.play("Down")
 
 func enable():
 	input_enabled = true
 	visible = true
+	anim_player.play("Down")
 
 func entered_door():
 	emit_signal("player_entered_door")

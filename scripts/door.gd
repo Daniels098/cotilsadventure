@@ -11,7 +11,7 @@ signal player_entered_door(door:Door,transition_type:String)
 @onready var timer = $Timer
 
 func _ready():
-	timer.start(1.5)
+	timer.start(1.0)
 	enable = false
 
 func _on_timer_timeout():

@@ -29,16 +29,17 @@ script = ExtResource("1_l17ku")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 640.0
+offset_bottom = 361.0
 texture = ExtResource("1_78211")
 expand_mode = 1
 
 [node name="title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 60.0
-offset_right = 260.0
-offset_bottom = 26.0
+offset_left = 204.0
+offset_top = 80.0
+offset_right = 404.0
+offset_bottom = 106.0
 text = "Cotil's Adventure
 "
 label_settings = SubResource("LabelSettings_w0q5b")
@@ -46,10 +47,10 @@ uppercase = true
 
 [node name="lb_bruno" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 65.0
-offset_right = 169.0
-offset_bottom = 110.0
+offset_left = 152.0
+offset_top = 145.0
+offset_right = 313.0
+offset_bottom = 190.0
 text = "Bruno Oliveira Francischetti
 cl201024@g.unicamp.br
 @brunoo_francischetti"
@@ -57,10 +58,10 @@ label_settings = SubResource("LabelSettings_65jak")
 
 [node name="lb_araujo" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 127.0
-offset_right = 169.0
-offset_bottom = 172.0
+offset_left = 152.0
+offset_top = 207.0
+offset_right = 313.0
+offset_bottom = 252.0
 text = "Eduardo dos Santos de Araujo
 cl201105@g.unicamp.br
 @edu2311araujo"
@@ -68,10 +69,10 @@ label_settings = SubResource("LabelSettings_65jak")
 
 [node name="lb_daniel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 84.0
-offset_right = 339.0
-offset_bottom = 129.0
+offset_left = 322.0
+offset_top = 164.0
+offset_right = 483.0
+offset_bottom = 209.0
 text = "Daniel de Sousa Ferreira
 cl201117@g.unicamp.br
 @daniiels098"
@@ -79,10 +80,10 @@ label_settings = SubResource("LabelSettings_65jak")
 
 [node name="btn_back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 155.0
-offset_right = 302.0
-offset_bottom = 170.0
+offset_left = 420.0
+offset_top = 235.0
+offset_right = 446.0
+offset_bottom = 250.0
 theme = ExtResource("4_qk8pv")
 text = "back"
 

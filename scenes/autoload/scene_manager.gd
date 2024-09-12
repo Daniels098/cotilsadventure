@@ -1,9 +1,7 @@
 extends Node
 
-# Bacon and Games on YouTube: https://www.youtube.com/watch?v=2uYaoQj_6o0
-
-const LEVEL_H:int = 144
-const LEVEL_W:int = 240
+const LEVEL_H:int = 360
+const LEVEL_W:int = 640
 
 signal content_finished_loading(content)
 signal zelda_content_finished_loading(content)
@@ -25,7 +23,6 @@ func _ready() -> void:
 
 func load_new_scene(content_path:String, transition_type:String="fade_to_black") -> void:
 	_transition = transition_type
-	# add loading screen
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
@@ -53,8 +50,7 @@ func _load_content(content_path:String) -> void:
 	get_tree().root.add_child(_load_progress_timer)
 	_load_progress_timer.start()
 
-# checks in on loading status - this can also be done with a while loop, but I found that ran too fast
-# and ended up skipping over the loading display. 
+
 func monitor_load_status() -> void:
 	var load_progress = []
 	var load_status = ResourceLoader.load_threaded_get_status(_content_path, load_progress)
@@ -116,8 +112,7 @@ func on_content_finished_loading(content) -> void:
 		# samesies^
 		if content is Level:
 			content.enter_level()
-				
-# load in a level, does NOT use the loading screen (which comes with tradeoffs)
+
 func on_zelda_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	# If we're moving between Levels, pass LevelDataHandoff here
