@@ -1,5 +1,7 @@
 Comandos Git 
 
+git config user.name - confirmar o usuario certo
+git config user.email - confirmar o usuario certo
 git status - status dos arquivos
 git add README.txt - rastreia o arquivo
 git commit -m "first commit with message"
@@ -23,4 +25,4 @@ rmdir pasta - deleta a pasta (só vazia)
 rm arquivo.txt - deleta o arquivo
 rm -r pasta - deleta a pasta e conteúdo
 mv /camin/arq /camin/novoaqr - move o arquivo
-cp /camin/arq /camin/novoaqr - copia o arquivo
+cp /camin/arq /camin/novoaqr - copia o arquivo   
