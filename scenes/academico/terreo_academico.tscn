@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4koc4ijprod"]
+[gd_scene load_steps=8 format=3 uid="uid://b4koc4ijprod"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_xo1qc"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_nep6t"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_5ucg7"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_b7sux"]
+[ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_1k5pq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbpvx"]
 texture = ExtResource("2_nep6t")
@@ -3842,3 +3843,5 @@ transition_type = "zelda"
 push_distance = 32
 path_to_new_scene = "res://scenes/academico/terreo_academico_oeste.tscn"
 entry_door_name = "pass_leste_terr"
+
+[node name="ButtonLayer" parent="." instance=ExtResource("5_1k5pq")]

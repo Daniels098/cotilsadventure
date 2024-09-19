@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://b45r27waol4ke"]
+
+[ext_resource type="Texture2D" uid="uid://twudbc3unlqa" path="res://assets/button_up.png" id="1_xj1jq"]
+[ext_resource type="Texture2D" uid="uid://ckqrc8ncgefnf" path="res://assets/button_down.png" id="2_7fgdx"]
+[ext_resource type="Texture2D" uid="uid://bavbeyqka8lwr" path="res://assets/button_left.png" id="3_6wu7b"]
+[ext_resource type="Texture2D" uid="uid://d05yl7g5s185o" path="res://assets/button_right.png" id="4_bmwmv"]
+[ext_resource type="Texture2D" uid="uid://dmdj0kr05khnn" path="res://assets/button_b.png" id="5_iwtu2"]
+[ext_resource type="Texture2D" uid="uid://02smsekjs60j" path="res://assets/button_a.png" id="6_1vj1g"]
+[ext_resource type="Texture2D" uid="uid://dlcd71ay5ymw4" path="res://assets/button_pause.png" id="7_o4hxb"]
+
+[node name="ButtonLayer" type="CanvasLayer"]
+
+[node name="button_up" type="TouchScreenButton" parent="."]
+position = Vector2(72, 216)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_xj1jq")
+action = "move_up"
+visibility_mode = 1
+
+[node name="button_down" type="TouchScreenButton" parent="."]
+position = Vector2(72, 296)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("2_7fgdx")
+action = "move_down"
+visibility_mode = 1
+
+[node name="button_left" type="TouchScreenButton" parent="."]
+position = Vector2(32, 256)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("3_6wu7b")
+action = "move_left"
+visibility_mode = 1
+
+[node name="button_right" type="TouchScreenButton" parent="."]
+position = Vector2(112, 256)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("4_bmwmv")
+action = "move_right"
+visibility_mode = 1
+
+[node name="button_b" type="TouchScreenButton" parent="."]
+position = Vector2(544, 256)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("5_iwtu2")
+visibility_mode = 1
+
+[node name="button_a" type="TouchScreenButton" parent="."]
+position = Vector2(464, 256)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("6_1vj1g")
+visibility_mode = 1
+
+[node name="button_pause" type="TouchScreenButton" parent="."]
+position = Vector2(304, 8)
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("7_o4hxb")
+visibility_mode = 1

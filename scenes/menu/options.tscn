@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://3iyui2sdvsmy"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_et3pc"]
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_ojbci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdghp"]
+font = ExtResource("2_ojbci")
+font_size = 32
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_et3pc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 40.0
+offset_right = -48.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Titulolbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Som
+"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="VolumeLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MuteLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="Mute" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Titulolbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Som
+"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="VolumeLbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MuteLbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[node name="Mute" type="CheckBox" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+
+[node name="MuteLbl2" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "https://www.youtube.com/watch?v=ZDPM45cHHlI
+
+link do video que eu tava me guiando"
+label_settings = SubResource("LabelSettings_vdghp")
+justification_flags = 0
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Mute" to="." method="_on_check_box_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer2/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer2/VBoxContainer/Mute" to="." method="_on_check_box_pressed"]

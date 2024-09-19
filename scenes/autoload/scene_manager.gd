@@ -50,7 +50,6 @@ func _load_content(content_path:String) -> void:
 	get_tree().root.add_child(_load_progress_timer)
 	_load_progress_timer.start()
 
-
 func monitor_load_status() -> void:
 	var load_progress = []
 	var load_status = ResourceLoader.load_threaded_get_status(_content_path, load_progress)
