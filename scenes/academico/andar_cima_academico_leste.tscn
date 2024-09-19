@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://djwq3u37lrixr"]
+[gd_scene load_steps=9 format=3 uid="uid://djwq3u37lrixr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_urcuv"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_s4hru"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_46nio"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_p717k"]
 [ext_resource type="PackedScene" uid="uid://drjs4upnb0lv8" path="res://scenes/portas_anim/door_vermelha_anim.tscn" id="5_0rf8b"]
+[ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="6_ugt0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjunc"]
 texture = ExtResource("2_s4hru")
@@ -3827,3 +3828,5 @@ entry_door_name = "saida_13"
 
 [node name="door_anim" parent="." instance=ExtResource("5_0rf8b")]
 position = Vector2(16, 176)
+
+[node name="ButtonLayer" parent="." instance=ExtResource("6_ugt0q")]

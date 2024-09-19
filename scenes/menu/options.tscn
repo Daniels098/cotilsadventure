@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://3iyui2sdvsmy"]
+[gd_scene load_steps=3 format=3 uid="uid://3iyui2sdvsmy"]
 
 [ext_resource type="Script" path="res://scripts/options.gd" id="1_et3pc"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_ojbci"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vdghp"]
-font = ExtResource("2_ojbci")
-font_size = 32
+[ext_resource type="PackedScene" uid="uid://bxjbxi3ayxu4d" path="res://scenes/menu/button.tscn" id="2_entvl"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -18,89 +14,50 @@ script = ExtResource("1_et3pc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 48.0
-offset_top = 40.0
-offset_right = -48.0
-offset_bottom = -40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Titulolbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Som
-"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
+size_flags_vertical = 3
 
-[node name="VolumeLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="action_list" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-text = "Volume"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
+size_flags_horizontal = 3
 
-[node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
 
-[node name="MuteLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Mute"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
-
-[node name="Mute" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Mute"
-
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer"]
+[node name="Button2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2"]
+[node name="Button3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
 
-[node name="Titulolbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Som
-"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
-
-[node name="VolumeLbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Volume"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
-
-[node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+[node name="Button4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
 
-[node name="MuteLbl" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+[node name="Button5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
-text = "Mute"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
 
-[node name="Mute" type="CheckBox" parent="PanelContainer/MarginContainer2/VBoxContainer"]
+[node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
-text = "Mute"
-
-[node name="MuteLbl2" type="Label" parent="PanelContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "https://www.youtube.com/watch?v=ZDPM45cHHlI
-
-link do video que eu tava me guiando"
-label_settings = SubResource("LabelSettings_vdghp")
-justification_flags = 0
-
-[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Mute" to="." method="_on_check_box_pressed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer2/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer2/VBoxContainer/Mute" to="." method="_on_check_box_pressed"]

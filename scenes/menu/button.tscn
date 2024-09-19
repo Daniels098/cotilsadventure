@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxjbxi3ayxu4d"]
+
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="1_b7jgw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sow7f"]
+bg_color = Color(0, 0, 0, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxlg1"]
+bg_color = Color(1, 1, 1, 0.666667)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lnp3"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sow7f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qxlg1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qxlg1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2lnp3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_b7jgw")
+theme_override_font_sizes/font_size = 16
+text = "ACTION NAME"
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_b7jgw")
+text = "INPUT"
+vertical_alignment = 1
