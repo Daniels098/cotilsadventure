@@ -3855,3 +3855,4 @@ entry_door_name = "saida_03"
 position = Vector2(464, 176)
 
 [node name="ButtonLayer" parent="." instance=ExtResource("6_n23dm")]
+follow_viewport_scale = 371.967

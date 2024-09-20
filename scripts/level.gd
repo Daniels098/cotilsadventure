@@ -3,6 +3,8 @@ class_name Level extends Node2D
 @export var player:Player
 @export var doors:Array[Door]
 var data:LevelDataHandoff
+@onready var celular_menu = null # $GUI/InputSettingsSlaOq
+var game_paused = false
 
 func _ready():
 	if player != null:
@@ -17,6 +19,17 @@ func enter_level() -> void:
 	if player != null:
 		player.enable()
 	_connect_to_doors()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		game_paused = !game_paused
+		if game_paused:
+			Engine.time_scale = 0
+			celular_menu.visible = true
+		else:
+			Engine.time_scale = 1
+			celular_menu.visible = false
+		get_tree().root.get_viewport().set_input_as_handled()
 
 func init_player_location() -> void:
 	#ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3iyui2sdvsmy"]
+[gd_scene load_steps=4 format=3 uid="uid://3iyui2sdvsmy"]
 
 [ext_resource type="Script" path="res://scripts/options.gd" id="1_et3pc"]
 [ext_resource type="PackedScene" uid="uid://bxjbxi3ayxu4d" path="res://scenes/menu/button.tscn" id="2_entvl"]
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="3_36n0n"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -46,6 +47,10 @@ size_flags_horizontal = 3
 
 [node name="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Button6")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button6")
 
 [node name="Button2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
@@ -61,3 +66,19 @@ layout_mode = 2
 
 [node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_36n0n")
+theme_override_font_sizes/font_size = 32
+text = "Reset to default"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_36n0n")
+theme_override_font_sizes/font_size = 32
+text = "Voltar"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
