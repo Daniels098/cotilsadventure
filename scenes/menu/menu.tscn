@@ -43,17 +43,17 @@ uppercase = true
 [node name="btn_start" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 307.0
-offset_top = 143.0
-offset_right = 341.0
-offset_bottom = 158.0
+offset_left = 304.0
+offset_top = 144.0
+offset_right = 338.0
+offset_bottom = 159.0
 theme = ExtResource("4_ox82w")
 text = "start"
 
 [node name="btn_options" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 304.0
+offset_left = 296.0
 offset_top = 167.0
 offset_right = 344.0
 offset_bottom = 182.0
@@ -64,24 +64,38 @@ text = "options
 [node name="btn_credits" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 304.0
+offset_left = 296.0
 offset_top = 191.0
 offset_right = 344.0
 offset_bottom = 206.0
 theme = ExtResource("4_ox82w")
 text = "credits"
 
+[node name="btn_login" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 296.0
+offset_top = 216.0
+offset_right = 344.0
+offset_bottom = 231.0
+theme = ExtResource("4_ox82w")
+theme_override_fonts/font = ExtResource("3_o5tla")
+theme_override_font_sizes/font_size = 16
+button_mask = 0
+text = "Login"
+
 [node name="btn_quit" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 307.0
-offset_top = 215.0
-offset_right = 341.0
-offset_bottom = 230.0
+offset_left = 304.0
+offset_top = 240.0
+offset_right = 338.0
+offset_bottom = 255.0
 theme = ExtResource("4_ox82w")
 text = "quit"
 
 [connection signal="pressed" from="btn_start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="btn_credits" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="btn_login" to="." method="_on_btn_login_pressed"]
 [connection signal="pressed" from="btn_quit" to="." method="_on_button_4_pressed"]

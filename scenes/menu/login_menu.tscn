@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwldnw50xw7n"]
+
+[ext_resource type="Script" path="res://scripts/login_menu.gd" id="1_6bby3"]
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_cqku1"]
+
+[node name="LoginMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bby3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 16.0
+offset_right = 434.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_cqku1")
+theme_override_font_sizes/font_size = 32
+text = "Crie sua conta!
+Salve seu progresso!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 104.0
+offset_right = 448.0
+offset_bottom = 136.0
+placeholder_text = "Usuario"
+
+[node name="Email" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 136.0
+offset_right = 448.0
+offset_bottom = 168.0
+placeholder_text = "Email"
+
+[node name="Password" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 168.0
+offset_right = 448.0
+offset_bottom = 200.0
+placeholder_text = "Digite sua senha"
+
+[node name="RePassword" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 200.0
+offset_right = 448.0
+offset_bottom = 232.0
+placeholder_text = "Confirme sua senha"
+
+[node name="Entrar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 288.0
+offset_right = 368.0
+offset_bottom = 320.0
+text = "Registrar-se
+"
+
+[connection signal="button_down" from="Entrar" to="." method="_on_button_button_down"]

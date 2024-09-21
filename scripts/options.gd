@@ -8,8 +8,9 @@ var input_actions = {
 	"move_down": "Baixo",
 	"move_right": "Direita",
 	"move_left": "Esquerda",
+	"run": "Correr",
 	"interact": "Interagir",
-	"run": "Correr"
+	"menu": "Celular",
 }
 
 var is_remapping = false

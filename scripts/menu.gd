@@ -12,3 +12,7 @@ func _on_btn_options_pressed():
 
 func _on_button_3_pressed():
 	SceneManager.load_new_scene("res://scenes/menu/credits.tscn", "wipe_to_right")
+
+
+func _on_btn_login_pressed():
+	SceneManager.load_new_scene("res://scenes/menu/login_menu.tscn", "wipe_to_right")
