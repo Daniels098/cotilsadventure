@@ -45,6 +45,14 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="TituloControles" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_36n0n")
+theme_override_font_sizes/font_size = 16
+text = "Controles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Button6")
@@ -66,6 +74,16 @@ layout_mode = 2
 
 [node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("2_entvl")]
 layout_mode = 2
+
+[node name="TituloConfig" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_36n0n")
+theme_override_font_sizes/font_size = 16
+text = "Configuraçoes
+
+aqui coloco as configuraçoes normais"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
