@@ -1,9 +1,10 @@
 class_name Player extends CharacterBody2D
 
-@export_category("Variables")
-@export var speed:int = 75
-@export var input_enabled:bool = true
+@export var speed: int = 75
+@export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
+var invi: Inv = preload("res://inventory/player_inv.tres")
+@export var bolsa: bool = false
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -18,6 +19,11 @@ func orient(input_direction:Vector2) -> void:
 		anim_player.play("Up")"""
 	#sprite.flip_h = input_direction.x < 0
 	pass
+
+# if Input.is_action_just_pressed("interact"):
+
+func collect(item):
+	invi.insert(item) # erro de funçao nula
 
 func disable():
 	input_enabled = false

@@ -4,6 +4,8 @@ var username = ""
 var password
 var email
 var rePassword
+var nome
+var dao = DAO.new()
 
 var created = false
 
@@ -52,6 +54,7 @@ func _on_registrar_button_down():
 		if password == rePassword:
 			$Aviso.visible = false
 			username = $UsernameRe.text
+			nome = $NomeRe.text
 			email = $EmailRe.text
 			password = $PasswordRe.text.sha256_text()
 			created = true
@@ -64,10 +67,13 @@ func _on_registrar_button_down():
 		else:
 			$Aviso.visible = true
 	if created:
-		$Aviso2.visible = true
+		$Aviso2.visible = false
+	
+	dao.insertUserData(username, nome, email, password)
+	print("inserido")
 
 func _on_voltar_button_down():
 	SceneManager.load_new_scene("res://scenes/menu/menu.tscn")
 
 func _on_entrar_button_down():
-	pass
+	print("entrado")

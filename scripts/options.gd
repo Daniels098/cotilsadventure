@@ -11,6 +11,7 @@ var input_actions = {
 	"run": "Correr",
 	"interact": "Interagir",
 	"menu": "Celular",
+	"inventory": "Bolsa",
 }
 
 var is_remapping = false
