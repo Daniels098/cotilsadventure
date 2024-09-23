@@ -10,7 +10,7 @@ signal content_failed_to_load(content_path:String)
 
 
 var loading_screen:LoadingScreen
-var _loading_screen_scene:PackedScene = preload("res://scenes/autoload/loading_screen.tscn")
+var _loading_screen_scene:PackedScene = preload("res://autoload/loading_screen.tscn")
 var _transition:String
 var _content_path:String
 var _load_progress_timer:Timer

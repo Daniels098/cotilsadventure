@@ -7,6 +7,7 @@ var invi: Inv = preload("res://inventory/player_inv.tres")
 @export var bolsa: bool = false
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@export var nome: String
 
 func orient(input_direction:Vector2) -> void:
 	"""if input_direction.x > 0:
@@ -23,7 +24,7 @@ func orient(input_direction:Vector2) -> void:
 # if Input.is_action_just_pressed("interact"):
 
 func collect(item):
-	invi.insert(item) # erro de funçao nula
+	invi.insert(item)
 
 func disable():
 	input_enabled = false
