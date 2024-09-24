@@ -3,7 +3,7 @@ class_name Level extends Node2D
 @export var player:Player
 @export var doors:Array[Door]
 var data:LevelDataHandoff
-@onready var celular_menu = null # $GUI/InputSettingsSlaOq
+@onready var pause_menu = $MenuPause
 var game_paused = false
 
 func _ready():
@@ -25,10 +25,10 @@ func _unhandled_input(event):
 		game_paused = !game_paused
 		if game_paused:
 			Engine.time_scale = 0
-			celular_menu.visible = true
+			pause_menu.visible = true
 		else:
 			Engine.time_scale = 1
-			celular_menu.visible = false
+			pause_menu.visible = false
 		get_tree().root.get_viewport().set_input_as_handled()
 
 func init_player_location() -> void:

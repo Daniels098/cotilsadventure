@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddvlytrd6ag5q"]
+[gd_scene load_steps=5 format=3 uid="uid://h1pmturty2kx"]
 
 [ext_resource type="Script" path="res://inventory/inventory.gd" id="1_q4xb7"]
 [ext_resource type="Texture2D" uid="uid://b0jwdnes87knh" path="res://assets/inventory_slot.png" id="2_g8jev"]
 [ext_resource type="PackedScene" uid="uid://cncjqfx6cknw4" path="res://inventory/inv_slot.tscn" id="3_ptuk2"]
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="4_hsqss"]
 
 [node name="Inv_GUI" type="Control"]
 layout_mode = 3
@@ -15,10 +16,10 @@ script = ExtResource("1_q4xb7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = -80.0
-offset_top = -40.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = -88.0
+offset_top = -72.0
+offset_right = 88.0
+offset_bottom = 96.0
 texture = ExtResource("2_g8jev")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -63,3 +64,26 @@ layout_mode = 2
 
 [node name="Inv_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
+
+[node name="Inv_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+layout_mode = 2
+
+[node name="Inv_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+layout_mode = 2
+
+[node name="Inv_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+layout_mode = 2
+
+[node name="Inv_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+layout_mode = 2
+
+[node name="titulo" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 120.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("4_hsqss")
+theme_override_font_sizes/font_size = 32
+text = "BOLSA"
+horizontal_alignment = 1
+vertical_alignment = 1

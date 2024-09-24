@@ -72,12 +72,13 @@ theme = ExtResource("4_ox82w")
 text = "credits"
 
 [node name="btn_login" type="Button" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 296.0
-offset_top = 216.0
-offset_right = 344.0
-offset_bottom = 231.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 23.0
 theme = ExtResource("4_ox82w")
 theme_override_fonts/font = ExtResource("3_o5tla")
 theme_override_font_sizes/font_size = 16
@@ -87,9 +88,9 @@ text = "Login"
 texture_filter = 1
 layout_mode = 0
 offset_left = 304.0
-offset_top = 240.0
+offset_top = 216.0
 offset_right = 338.0
-offset_bottom = 255.0
+offset_bottom = 231.0
 theme = ExtResource("4_ox82w")
 text = "quit"
 

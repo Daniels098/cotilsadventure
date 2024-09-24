@@ -56,7 +56,7 @@ func _physics_process(delta):
 			move(delta)
 
 func move(delta):
-	if Input.is_anything_pressed():
+	if Input.is_anything_pressed() and Engine.time_scale == 1:
 			if direction.y > 0:
 				anim_player.play("WalkDown")
 			elif direction.x > 0:

@@ -8,11 +8,15 @@ func _on_button_4_pressed():
 	get_tree().quit()
 
 func _on_btn_options_pressed():
-	SceneManager.load_new_scene("res://scenes/menu/options.tscn", "wipe_to_right")
+	var device = OS.get_name()
+	if device == "Windows" or device == "Linux" or device == "MacOS" or device == "Web" or "BSD" in device:
+		SceneManager.load_new_scene("res://scenes/menu/options_PC.tscn", "wipe_to_right")
+	else: 
+		SceneManager.load_new_scene("res://scenes/menu/options_MOBILE.tscn", "wipe_to_right")
 
 func _on_button_3_pressed():
 	SceneManager.load_new_scene("res://scenes/menu/credits.tscn", "wipe_to_right")
 
 
 func _on_btn_login_pressed():
-	SceneManager.load_new_scene("res://scenes/menu/login_menu.tscn", "wipe_to_right")
+	pass #SceneManager.load_new_scene("res://scenes/menu/login_menu.tscn", "wipe_to_right")

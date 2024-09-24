@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://bb78rp30ssm5l"]
+[gd_scene load_steps=27 format=3 uid="uid://bb78rp30ssm5l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lknmn"]
 [ext_resource type="Texture2D" uid="uid://c47vhgi2dch51" path="res://assets/sprite-perso-t.png" id="1_tast3"]
-[ext_resource type="PackedScene" uid="uid://ddvlytrd6ag5q" path="res://inventory/inventory.tscn" id="4_b6op3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqd7u"]
 radius = 6.5
@@ -275,13 +274,3 @@ tree_root = SubResource("AnimationNodeStateMachine_jpvvx")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.000849605, 0.989418)
 parameters/walk/blend_position = Vector2(-0.011045, -0.037037)
-
-[node name="Inv_GUI" parent="." instance=ExtResource("4_b6op3")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = -16.0
-offset_bottom = -16.0
-grow_horizontal = 1
-grow_vertical = 1

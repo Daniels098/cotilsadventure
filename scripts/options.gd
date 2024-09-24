@@ -68,7 +68,7 @@ func load_window():
 func on_window_mode_selected(index: int) -> void:
 	match index:
 		0: # Tela cheia
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 			ConfigFileHandler.save_video_settings("display", 0)
 			
