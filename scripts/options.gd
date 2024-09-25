@@ -9,6 +9,12 @@ extends Control
 @onready var display = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/MarginContainer/HBoxContainer/Display
 @onready var vsync = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/Vsync
 @onready var fps =$PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/buttons_fps
+var disp
+var is_remapping = false
+var action_to_remap = null
+var remapping_button = null
+var fpsval
+var is_fps_button_pressed: bool = false
 
 var input_actions = {
 	"move_up": "Frente",
@@ -36,10 +42,6 @@ const WINDOW_MODES: Array[String] = [
 	fps show se for f
 	brightness
 """
-var disp
-var is_remapping = false
-var action_to_remap = null
-var remapping_button = null
 
 func _ready():
 	add_window_mode_items()
@@ -47,17 +49,22 @@ func _ready():
 	display.item_selected.connect(_on_display_item_selected)
 	_load_keybinding_from_setting()
 	_create_action_list()
-	
+	load_fps()
+	load_vsync()
 	
 	var audio_settings = ConfigFileHandler.load_audio_settings()
 	vol_master.value = min(audio_settings.master_volume, 1.0)*100
 	vol_music.value = min(audio_settings.get("music_volume", 1.0), 1.0)*100
 	vol_sfx.value = min(audio_settings.sfx_volume, 1.0)*100
+	Engine.max_fps = 30
 
+# ------------------------- Tela --------------------------
+# Funçao de sal var display selecionado
 func _on_display_item_selected(index: int) -> void:
 	on_window_mode_selected(index)
 	ConfigFileHandler.save_video_settings("display", index)
 
+# funçao de carregar display
 func load_window():
 	var video_settings = ConfigFileHandler.load_video_settings()
 	if video_settings.has("display"):
@@ -65,6 +72,7 @@ func load_window():
 		display.select(display_mode)
 		on_window_mode_selected(display_mode)
 
+# Display de Modo de tela
 func on_window_mode_selected(index: int) -> void:
 	match index:
 		0: # Tela cheia
@@ -85,11 +93,13 @@ func on_window_mode_selected(index: int) -> void:
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 			ConfigFileHandler.save_video_settings("display", 3)
 
+# funçao de adicionar telas ao DisplayButton
 func add_window_mode_items() -> void:
 	for windows in WINDOW_MODES:
 		display.add_item(windows)
 
-# Resetar action_list_controls
+# ---------------------- Input Map --------------------------
+# Button resetar action_list_controls
 func _create_action_list():
 	for item in action_list.get_children():
 		item.queue_free()
@@ -111,6 +121,7 @@ func _create_action_list():
 		action_list.add_child(button)
 		button.pressed.connect(_on_input_button_pressed.bind(button, action))
 
+# funçao remap
 func _on_input_button_pressed(button, action):
 	if !is_remapping:
 		is_remapping = true
@@ -118,6 +129,7 @@ func _on_input_button_pressed(button, action):
 		remapping_button = button
 		button.find_child("LabelInput").text = "Pressione a tecla..."
 
+# funçao remap
 func _input(event):
 	if is_remapping:
 		if ( event is InputEventKey ||
@@ -148,28 +160,35 @@ func _input(event):
 			
 			accept_event()
 
+# simplificar InputMap
 func _update_action_list(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
 
-func _on_volume_value_changed(value):
-	AudioServer.set_bus_volume_db(0,value)
-
-func _on_check_box_pressed(toggled_on):
-	AudioServer.set_bus_mute(0,toggled_on)
-
+# Adicionar teclas no InputMap
 func _load_keybinding_from_setting():
 	var keybinding = ConfigFileHandler.load_keybinding()
 	for action in keybinding.keys():
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, keybinding[action])
 
+# ----------------------- Sliders --------------------------
+# Reset dos sliders do volume
 func vol_reset():
 	brilho.value = 50
 	vol_master.value = 100
 	vol_music.value = 100
 	vol_sfx.value = 100
 
-# Volumes and Buttons
+# Setar volume Master
+func _on_volume_value_changed(value):
+	AudioServer.set_bus_volume_db(0,value)
+
+# Setar volume Master
+func _on_check_box_pressed(toggled_on):
+	AudioServer.set_bus_mute(0,toggled_on)
+
+# ------------- Buttons reset and to back ------------------------
+# Save buttons
 func _on_reset_button_pressed():
 	InputMap.load_from_project_settings()
 	for action in input_actions:
@@ -178,33 +197,115 @@ func _on_reset_button_pressed():
 			ConfigFileHandler.save_keybinding(action, events[0])
 	_create_action_list()
 
+# Button Voltar
 func _on_button_pressed():
 	SceneManager.load_new_scene("res://scenes/menu/menu.tscn", "wipe_to_right")
 
+# Button reset volume
 func _on_reset_button_button_down():
 	vol_reset()
 
+# --------------------- Sliders ---------------------------
+# Salvar slider Master
 func _on_vol_master_drag_ended(value_changed):
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("master_volume", vol_master.value / 100)
 
+# Salvar slider da musica
 func _on_vol_music_drag_ended(value_changed):
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("music_volume", vol_music.value / 100)
 
+# Salvar slider do sfx
 func _on_vol_sfx_drag_ended(value_changed):
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("sfx_volume", vol_sfx.value / 100)
 
-
+# Salvar slider do brilho
 func _on_slider_brilho_drag_ended(value_changed):
-	pass # Replace with function body. ////
+	if value_changed:
+		ConfigFileHandler.save_audio_settings("brightness", brilho.value / 100)
 
+# ---------------------- Buttons Config esquerda ---------------------------
+# Logica para o maximo de fps
 func _on_buttons_fps_pressed():
-	pass # Replace with function body. /
+	is_fps_button_pressed = !is_fps_button_pressed
+	if is_fps_button_pressed:
+		Engine.max_fps = 60
+		fps.text = "FPS: 60"
+		fpsval = Engine.max_fps
+	else:
+		Engine.max_fps = 30
+		fps.text = "FPS: 30"
+		fpsval = Engine.max_fps
+		ConfigFileHandler.save_video_settings("fps_button_pressed", is_fps_button_pressed)
+	
+	save_video_settings()
+	
+	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED:
+		Engine.max_fps = 0 
+		fps.text = "FPS: Ilimitado"
+		fps.disabled = false
+	else:
+		fps.disabled = true
 
-func _on_check_button_pressed():
-	pass # Replace with function body. /
+# load fps fixo
+func load_fps():
+	var video_settings = ConfigFileHandler.load_video_settings()
+	if video_settings.has("fps_button_pressed"):
+		is_fps_button_pressed = video_settings["fps_button_pressed"]
+		if is_fps_button_pressed:
+			Engine.max_fps = 60
+			fps.text = "FPS: 60"
+			fps.button_pressed = true
+		else:
+			Engine.max_fps = 30
+			fps.text = "FPS: 30"
+			fps.button_pressed = false
+	else:
+		Engine.max_fps = 30
+		fps.text = "FPS: 30"
+		fps.button_pressed = false
 
-func _on_h_slider_drag_ended(value_changed):
-	pass # Replace with function body.
+# Salvar fps fixo
+func save_fps():
+	ConfigFileHandler.save_video_settings("fps", fpsval)
+
+# logica para o botao vsync
+func _on_vsync_pressed():
+	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		fps.disabled = false
+		if fpsval == 60:
+			fps.text = "FPS: 60"
+			fpsval = 60
+		else:
+			fps.text = "FPS: 30"
+			fpsval = 30
+		Engine.max_fps = fpsval
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		Engine.max_fps = 0
+		fps.text = "FPS: Ilimitado"
+		fps.disabled = true
+	save_video_settings()
+
+func load_vsync():
+	var video_settings = ConfigFileHandler.load_video_settings()
+	if video_settings.has("vsync"):
+		var vsync_enabled = video_settings["vsync"]
+		if vsync_enabled:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+			fps.disabled = false
+			vsync.button_pressed = true
+		else:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			Engine.max_fps = 0
+			fps.text = "FPS: Ilimitado"
+			fps.disabled = true
+			vsync.button_pressed = false
+
+
+func save_video_settings():
+	ConfigFileHandler.save_video_settings("fps_button_pressed", is_fps_button_pressed)
+	ConfigFileHandler.save_video_settings("vsync", DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED)

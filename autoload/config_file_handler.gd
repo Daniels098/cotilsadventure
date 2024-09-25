@@ -17,7 +17,9 @@ func _ready():
 		config.set_value("keybinding", "pause", "Escape")
 		
 		config.set_value("video", "show_fps", false)
+		config.set_value("video", "fps", 30)
 		config.set_value("video", "vsync", true)
+		config.set_value("video", "fps_button_pressed", false)
 		config.set_value("video", "fps_val", 30)
 		config.set_value("video", "brightness", 1.0)
 		config.set_value("video", "display", 0)
