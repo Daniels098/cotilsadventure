@@ -31,32 +31,36 @@ expand_mode = 1
 [node name="title" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 224.0
+offset_left = 216.0
 offset_top = 72.0
 offset_right = 424.0
 offset_bottom = 98.0
 text = "Cotil's Adventure
 "
 label_settings = SubResource("LabelSettings_4ttqv")
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="btn_start" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 304.0
-offset_top = 144.0
-offset_right = 338.0
-offset_bottom = 159.0
+offset_left = 296.0
+offset_top = 128.0
+offset_right = 330.0
+offset_bottom = 143.0
+scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "start"
 
 [node name="btn_options" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 296.0
-offset_top = 167.0
-offset_right = 344.0
-offset_bottom = 182.0
+offset_left = 288.0
+offset_top = 168.0
+offset_right = 336.0
+offset_bottom = 183.0
+scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "options
 "
@@ -64,10 +68,11 @@ text = "options
 [node name="btn_credits" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 296.0
-offset_top = 191.0
-offset_right = 344.0
-offset_bottom = 206.0
+offset_left = 288.0
+offset_top = 208.0
+offset_right = 336.0
+offset_bottom = 223.0
+scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "credits"
 
@@ -87,10 +92,11 @@ text = "Login"
 [node name="btn_quit" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 304.0
-offset_top = 216.0
-offset_right = 338.0
-offset_bottom = 231.0
+offset_left = 296.0
+offset_top = 248.0
+offset_right = 330.0
+offset_bottom = 263.0
+scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "quit"
 
