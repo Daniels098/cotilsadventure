@@ -3829,13 +3829,15 @@ position = Vector2(304, 208)
 disable_mode = 1
 
 [node name="ItemDocumento" parent="." instance=ExtResource("3_m6uhx")]
-position = Vector2(368, 224)
+position = Vector2(312, 152)
+rotation = 0.436332
+scale = Vector2(0.6, 0.6)
 
 [node name="escada_terreo" parent="." instance=ExtResource("4_b7sux")]
 position = Vector2(344, 112)
 scale = Vector2(3, 3)
 entry_direction = 2
-transition_type = "fade_to_black"
+transition_type = "fade_to_white"
 push_distance = 32
 path_to_new_scene = "res://scenes/academico/andar_cima_academico.tscn"
 entry_door_name = "escada_cima"

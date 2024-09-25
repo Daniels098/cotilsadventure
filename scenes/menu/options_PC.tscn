@@ -71,6 +71,10 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/margin_left = 6
 
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 layout_mode = 2
 
@@ -78,8 +82,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cu6h1")
 theme_override_font_sizes/font_size = 16
-text = "Modo
-de Tela:"
+text = "Modo de Tela:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,19 +97,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cu6h1")
 theme_override_font_sizes/font_size = 16
 
-[node name="spacer" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer"]
-custom_minimum_size = Vector2(5, 0)
+[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-mouse_filter = 1
 
-[node name="Vsync" type="CheckButton" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
+layout_mode = 2
+
+[node name="Vsync" type="CheckButton" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_cu6h1")
 theme_override_font_sizes/font_size = 16
 button_pressed = true
-text = "Sincronizaçao
-Vertical"
+text = "Sincronizaçao Vertical"
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
 
 [node name="HBox_Brilho" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 layout_mode = 2
@@ -285,7 +293,7 @@ theme_override_fonts/font = ExtResource("2_cu6h1")
 theme_override_font_sizes/font_size = 32
 text = "Voltar"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/Vsync" to="." method="_on_vsync_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync" to="." method="_on_vsync_pressed"]
 [connection signal="drag_ended" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho" to="." method="_on_slider_brilho_drag_ended"]
 [connection signal="drag_ended" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master" to="." method="_on_vol_master_drag_ended"]
 [connection signal="drag_ended" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music" to="." method="_on_vol_music_drag_ended"]

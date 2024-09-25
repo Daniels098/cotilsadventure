@@ -16,18 +16,14 @@ func _ready():
 		config.set_value("keybinding", "run", "Shift")
 		config.set_value("keybinding", "pause", "Escape")
 		
-		config.set_value("video", "show_fps", false)
-		config.set_value("video", "fps", 30)
 		config.set_value("video", "vsync", true)
-		config.set_value("video", "fps_button_pressed", false)
-		config.set_value("video", "fps_val", 30)
 		config.set_value("video", "brightness", 1.0)
 		config.set_value("video", "display", 0)
 		
 		config.set_value("Player", "player_name", jog.name)
 		
 		config.set_value("audio", "master_volume", 1.0)
-		config.set_value("audio", "music_volum", 1.0)
+		config.set_value("audio", "music_volume", 1.0)
 		config.set_value("audio", "sfx_volume", 1.0)
 		
 		config.save(SETTINGS_FILE_PATH)
