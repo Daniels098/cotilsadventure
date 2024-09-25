@@ -38745,7 +38745,7 @@ scale = Vector2(3, 3)
 entry_direction = 3
 transition_type = "fade_to_black"
 push_distance = 32
-path_to_new_scene = "res://scenes/academico/patio.tscn"
+path_to_new_scene = "res://scenes/patio/patio.tscn"
 entry_door_name = "pass_oeste_terr_2"
 
 [node name="pass_estacionamento" parent="." instance=ExtResource("9_alhve")]
@@ -38772,5 +38772,5 @@ scale = Vector2(4, 4)
 entry_direction = 3
 transition_type = "fade_to_black"
 push_distance = 40
-path_to_new_scene = "res://scenes/academico/patio.tscn"
-entry_door_name = "pass_oeste_terr_1"
+path_to_new_scene = "res://scenes/patio/patio.tscn"
+entry_door_name = "pass_oeste_5555terr_1"
