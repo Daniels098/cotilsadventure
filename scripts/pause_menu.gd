@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var pause_menu = $"."
 var game_paused = true
+@onready var menu_pc = preload("res://scenes/menu/menu_pause_pc.tscn")
+@onready var menu_mobile = preload("res://scenes/menu/menu_pause_mobile.tscn")
 
 func _on_button_resume_pressed():
 	if game_paused:
@@ -12,14 +14,15 @@ func _on_button_resume_pressed():
 
 func _on_buttons_options_pressed(): ########### Ta travando ############
 	if game_paused:
-		Engine.time_scale = 1
-		pause_menu.visible = false
+		Engine.time_scale = 0
+		pause_menu.visible = true
+		var menu_instance
 		var device = OS.get_name()
 		if device == "Windows" or device == "Linux" or device == "MacOS" or device == "Web" or "BSD" in device:
-			SceneManager.load_new_scene("res://scenes/menu/options_PC.tscn", "wipe_to_right") 
-		else: # tem que ser outras cenas se nn o jogo reseta
-			SceneManager.load_new_scene("res://scenes/menu/options_MOBILE.tscn", "wipe_to_right")
-
+			menu_instance = menu_pc.instantiate()
+		else:
+			menu_instance = menu_mobile.instantiate()
+		pause_menu.add_child(menu_instance)
 
 func _on_buttons_menu_principal_pressed():
 	if game_paused:

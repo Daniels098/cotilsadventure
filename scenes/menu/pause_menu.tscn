@@ -8,6 +8,7 @@ shader = ExtResource("2_7t2l1")
 shader_parameter/amount = 2.0
 
 [node name="PauseMenu" type="CanvasLayer"]
+layer = 9
 script = ExtResource("1_3yeci")
 
 [node name="ColorRect" type="ColorRect" parent="."]
