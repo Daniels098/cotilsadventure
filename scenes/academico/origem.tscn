@@ -38732,7 +38732,7 @@ layer_0/tile_data = PackedInt32Array(458764, 1376257, 18, 458765, 1441793, 18, 5
 [node name="Player" parent="." instance=ExtResource("6_vy224")]
 process_priority = 2
 z_index = 1
-position = Vector2(304, 208)
+position = Vector2(248, 192)
 disable_mode = 1
 
 [node name="escada_terreo" parent="." instance=ExtResource("8_gqmbd")]
