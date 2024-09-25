@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_s0fii"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_fbeir"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_8mdlf"]
-[ext_resource type="PackedScene" uid="uid://cb5j0528uhcog" path="res://scenes/portas_anim/door_verde_anim.tscn" id="5_k8isx"]
+[ext_resource type="PackedScene" uid="uid://cb5j0528uhcog" path="res://scenes/portasAnim/door_verde_anim.tscn" id="5_k8isx"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="6_n23dm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbpvx"]
