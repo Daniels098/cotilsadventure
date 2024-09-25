@@ -38739,7 +38739,7 @@ sources/3 = SubResource("TileSetAtlasSource_nn7j5")
 [node name="PredioAdministrativo" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_74xad")
 player = NodePath("Player")
-doors = [NodePath("saida_predio_adm_esquerda"), NodePath("saida_predio_adm_direita"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_patio2"), NodePath("saida_patio3")]
+doors = [NodePath("saida_predio_adm_esquerda"), NodePath("saida_predio_adm_direita"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_frente_cotil_esquerda"), NodePath("saida_frente_cotil_direita")]
 
 [node name="Inv_GUI" parent="." instance=ExtResource("2_6jw1r")]
 visible = false
@@ -38767,7 +38767,7 @@ position = Vector2(248, 192)
 disable_mode = 1
 
 [node name="saida_predio_adm_esquerda" parent="." instance=ExtResource("9_vah36")]
-position = Vector2(280, 72)
+position = Vector2(280, 64)
 entry_direction = 2
 transition_type = "fade_to_white"
 path_to_new_scene = "res://scenes/patio/patio.tscn"
@@ -38792,22 +38792,22 @@ path_to_new_scene = "res://scenes/academico/terreo_academico_oeste.tscn"
 entry_door_name = "pass_leste_terr"
 
 [node name="saida_predio_adm_direita" parent="." instance=ExtResource("9_vah36")]
-position = Vector2(344, 72)
+position = Vector2(344, 64)
 entry_direction = 2
 transition_type = "fade_to_white"
 path_to_new_scene = "res://scenes/patio/patio.tscn"
 entry_door_name = "saida_predio_adm_direita"
 
-[node name="saida_patio2" parent="." instance=ExtResource("9_vah36")]
+[node name="saida_frente_cotil_esquerda" parent="." instance=ExtResource("9_vah36")]
 position = Vector2(280, 312)
 entry_direction = 0
 transition_type = "fade_to_white"
-path_to_new_scene = "res://scenes/patio/patio.tscn"
-entry_door_name = "entrada_predio_adm_direita"
+path_to_new_scene = "res://scenes/areaLivreCotil/frente_predio_admin.tscn"
+entry_door_name = "entrada_frente_cotil_esquerda"
 
-[node name="saida_patio3" parent="." instance=ExtResource("9_vah36")]
+[node name="saida_frente_cotil_direita" parent="." instance=ExtResource("9_vah36")]
 position = Vector2(344, 312)
 entry_direction = 0
 transition_type = "fade_to_white"
-path_to_new_scene = "res://scenes/patio/patio.tscn"
-entry_door_name = "entrada_predio_adm_direita"
+path_to_new_scene = "res://scenes/areaLivreCotil/frente_predio_admin.tscn"
+entry_door_name = "entrada_frente_cotil_direita"

@@ -210,19 +210,19 @@ func _on_reset_button_button_down():
 
 # --------------------- Sliders ---------------------------
 # Salvar slider Master
-func _on_vol_master_drag_ended(value_changed):
+func _on_vol_master_drag_ended():
 	ConfigFileHandler.save_audio_settings("master_volume", vol_master.value / 100)
 
 # Salvar slider da musica
-func _on_vol_music_drag_ended(value_changed):
+func _on_vol_music_drag_ended():
 	ConfigFileHandler.save_audio_settings("music_volume", vol_music.value / 100)
 
 # Salvar slider do sfx
-func _on_vol_sfx_drag_ended(value_changed):
+func _on_vol_sfx_drag_ended():
 	ConfigFileHandler.save_audio_settings("sfx_volume", vol_sfx.value / 100)
 
 # Salvar slider do brilho
-func _on_slider_brilho_drag_ended(value_changed):
+func _on_slider_brilho_drag_ended():
 	ConfigFileHandler.save_video_settings("brightness", brilho.value / 100)
 
 # ---------------------- Buttons Config esquerda ---------------------------
