@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0qdq00xbc6r1"]
+[gd_scene load_steps=11 format=3 uid="uid://b0qdq00xbc6r1"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_wpc37"]
 [ext_resource type="Texture2D" uid="uid://5yaop3jyqiar" path="res://assets/sala-azul.png" id="2_l2g15"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="5_f4g7s"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="6_hpvlh"]
 [ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://scenes/items/item_documento.tscn" id="6_qgjei"]
+[ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="7_opyxd"]
+[ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="8_5idvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrku"]
 texture = ExtResource("2_l2g15")
@@ -915,3 +917,9 @@ path_to_new_scene = "res://scenes/academico/terreo_academico_leste.tscn"
 entry_door_name = "sala_06"
 
 [node name="ButtonLayer" parent="." instance=ExtResource("5_dll5g")]
+
+[node name="Inv_GUI" parent="." instance=ExtResource("7_opyxd")]
+visible = false
+
+[node name="MenuPause" parent="." instance=ExtResource("8_5idvc")]
+visible = false
