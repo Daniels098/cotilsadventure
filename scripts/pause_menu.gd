@@ -12,7 +12,7 @@ func _on_button_resume_pressed():
 	#get_tree().root.get_viewport().set_input_as_handled()
 
 
-func _on_buttons_options_pressed(): ########### Ta travando ############
+func _on_buttons_options_pressed():
 	if game_paused:
 		Engine.time_scale = 0
 		pause_menu.visible = true
