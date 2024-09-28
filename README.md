@@ -19,13 +19,32 @@ O jogador embarca em uma jornada através de cenários do colégio, interagindo 
 - Godot Engine 4.2.2
 - Aseprite
 
-## Getting Started
+## Fotos
 
-1. **Instalar Dependências**: `npm install` ou `yarn`
-2. **Configurar variáveis de ambiente**: Copie `.env.example` para um novo arquivo `.env.local`
-3. **Iniciar o jogo na Godot**: Abra o projeto na Godot Engine 4.2.2 e clique em **Run** para testar.
-4. **Configurar Pixel Art**: Utilize o Aseprite para editar sprites e animações.
-5. **Subir as alterações no GitHub**: `git push origin main`
+
+## Primeiros Passos
+
+Siga estas etapas para configurar o projeto na sua máquina e começar a desenvolver *Cotil's Adventure*:
+
+1. **Instalar a Godot Engine 4.2.2**: 
+   - Baixe e instale a [Godot Engine](https://godotengine.org/download/archive/4.2.2-stable/) para rodar o projeto.
+
+2. **Clonar o repositório**:
+   - Clone o projeto para sua máquina local:
+     ```bash
+     git clone https://github.com/Daniiels098/cotilsadventure.git
+     ```
+
+3. **Abrir o projeto na Godot**:
+   - Na Godot Engine, abra o projeto através da opção **Import** e selecione o arquivo `project.godot` na pasta clonada.
+
+
+4. **Rodar o projeto**:
+   - Com o projeto aberto, clique em **Run** ou pressione `F5` para testar o jogo.
+
+5. **(Opcional) Editar sprites no Aseprite**:
+   - Se for contribuir com arte ou animações, utilize o Aseprite <!--Pode Utilizar qualquer tipo de editor de imagem com suporte pra pixel art né?--> para modificar os sprites.
+
 
 ## Contribuir
 
