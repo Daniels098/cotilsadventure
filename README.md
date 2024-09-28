@@ -11,8 +11,7 @@
 <!--Licença e -->
 # Cotil's Adventure
 
-Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explorar o campus do Colégio Técnico de Limeira (COTIL), inspirado por alguns jogos antigos.
-O jogador embarca em uma jornada através de cenários do colégio, interagindo com os professores e funcionários, completando missões para progredir. <!--Falar mais coisas nesta linha e após-->
+Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explorar o campus do Colégio Técnico de Limeira (COTIL), inspirado por jogos clássicos. <!--como Pokémon Fire Red e Zelda.--> O jogador embarca em uma jornada pelo campus, interagindo com professores e funcionários, enquanto resolve puzzles e completa missões para avançar na história. Cada personagem oferece dicas e missões que ajudam o jogador a entender melhor o ambiente do COTIL, trazendo uma mistura de <!--nostalgia--> e aprendizado.
 
 
 ## Tecnologias Utilizadas
@@ -21,6 +20,9 @@ O jogador embarca em uma jornada através de cenários do colégio, interagindo 
 
 ## Fotos
 
+![foto1](ser/#)
+![foto2](ser/#)
+![foto3](ser/#)
 
 ## Primeiros Passos
 
@@ -70,5 +72,6 @@ Siga estas etapas para configurar o projeto na sua máquina e começar a desenvo
 5. **Fazer merge do PR**:
    - Se o PR for aprovado, ele será feito o merge na branch `main`. Parabéns pela sua contribuição!
 
+## Licença
 
-<!-- ## Licença Em Andamento -->
+Este projeto ainda não possui uma licença oficial definida. Estamos avaliando as opções mais adequadas para a natureza do projeto.
