@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+ConfigGeral="*res://autoload/config_geral.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 QuestManager="*res://addons/quest_manager/QuestManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
@@ -28,8 +29,8 @@ ConfigFileHandler="*res://autoload/config_file_handler.gd"
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=3
-window/size/window_width_override=1024
-window/size/window_height_override=768
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/enabled=false
 

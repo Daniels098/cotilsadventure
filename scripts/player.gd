@@ -1,28 +1,28 @@
 class_name Player extends CharacterBody2D
 
-@export var speed: int = 75
+@export var speed: int = 80
 @export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
 var invi: Inv = preload("res://inventory/player_inv.tres")
 @export var bolsa: bool = false
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@export var nome: String
+@export var nome: String = "Aluno"
 var is_moving = false
 var last_direction = Vector2.DOWN
 
 func orient(input_direction: Vector2) -> void:
-	# Verifica se a direção mudou
-	if input_direction.x > 0:
-		anim_player.play("WalkRight")
-		sprite.flip_h = true
-	elif input_direction.x < 0:
-		anim_player.play("WalkLeft")
-		sprite.flip_h = false
-	elif input_direction.y > 0:
-		anim_player.play("WalkDown")
-	elif input_direction.y < 0:
-		anim_player.play("WalkUp")
+	if anim_player != null:
+		if input_direction.x > 0:
+			anim_player.play("WalkRight")
+			sprite.flip_h = true
+		elif input_direction.x < 0:
+			anim_player.play("WalkLeft")
+			sprite.flip_h = false
+		elif input_direction.y > 0:
+			anim_player.play("WalkDown")
+		elif input_direction.y < 0:
+			anim_player.play("WalkUp")
 
 # if Input.is_action_just_pressed("interact"):
 
@@ -80,10 +80,10 @@ func move(direction: Vector2):
 
 func idle_animation():
 	if last_direction == Vector2.DOWN:
-		anim_player.play("IdleDown")
+		anim_player.play("Down")
 	elif last_direction == Vector2.UP:
-		anim_player.play("IdleUp")
+		anim_player.play("Up")
 	elif last_direction == Vector2.LEFT:
-		anim_player.play("IdleLeft")
+		anim_player.play("Left")
 	elif last_direction == Vector2.RIGHT:
-		anim_player.play("IdleRight")
+		anim_player.play("Right")

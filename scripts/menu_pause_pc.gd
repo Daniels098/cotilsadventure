@@ -49,7 +49,7 @@ func _ready():
 	load_sliders()
 
 func _process(delta) -> void:
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and main.visible == true:
 		main.visible = false
 
 # ------------------------- Tela --------------------------

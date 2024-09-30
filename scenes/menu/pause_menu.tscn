@@ -50,7 +50,7 @@ text = "Resume"
 
 [node name="buttons_options" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Opcoes"
+text = "Opções"
 
 [node name="buttons_menu_principal" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

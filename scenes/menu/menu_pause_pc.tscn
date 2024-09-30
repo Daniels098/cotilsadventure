@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://duhcbfmihcxcu"]
+[gd_scene load_steps=10 format=3 uid="uid://duhcbfmihcxcu"]
 
+[ext_resource type="Shader" path="res://scenes/menu/pause_menu.gdshader" id="1_0mk3f"]
 [ext_resource type="Script" path="res://scripts/menu_pause_pc.gd" id="1_1jq53"]
 [ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_bebhb"]
 [ext_resource type="Texture2D" uid="uid://ccpdcum0eeytj" path="res://assets/grabber.png" id="3_3ly7k"]
 [ext_resource type="Texture2D" uid="uid://cklng2hps6a0e" path="res://assets/grabbe_highlightr.png" id="4_0fetc"]
 [ext_resource type="PackedScene" uid="uid://bxjbxi3ayxu4d" path="res://scenes/menu/button.tscn" id="5_lucju"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8qtg"]
+shader = ExtResource("1_0mk3f")
+shader_parameter/amount = 2.0
 
 [sub_resource type="ImageTexture" id="ImageTexture_mg0ls"]
 
@@ -12,6 +17,14 @@
 
 [node name="MenuPausePC" type="CanvasLayer"]
 layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_v8qtg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -46,7 +59,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_bebhb")
 theme_override_font_sizes/font_size = 32
-text = "Configuraçoes"
+text = "Configurações"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -113,7 +126,7 @@ size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_bebhb")
 theme_override_font_sizes/font_size = 16
 button_pressed = true
-text = "Sincronizaçao Vertical"
+text = "Sincronização Vertical"
 
 [node name="Control" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 custom_minimum_size = Vector2(0, 15)
@@ -188,7 +201,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bebhb")
 theme_override_font_sizes/font_size = 16
-text = "Musica"
+text = "Música"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -238,7 +251,7 @@ layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_bebhb")
 theme_override_font_sizes/font_size = 32
-text = "Reset to default"
+text = "Voltar ao padrão"
 
 [node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -291,7 +304,7 @@ layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_bebhb")
 theme_override_font_sizes/font_size = 32
-text = "Reset to default"
+text = "Voltar ao padrão"
 
 [node name="Button" type="Button" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2

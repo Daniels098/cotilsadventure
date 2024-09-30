@@ -1,6 +1,5 @@
 class_name Menu extends Control
 
-
 func _on_button_pressed():
 	SceneManager.load_new_scene("res://scenes/areaLivreCotil/cantina_pra_escada.tscn", "wipe_to_right")
 

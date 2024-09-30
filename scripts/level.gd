@@ -6,6 +6,7 @@ var data:LevelDataHandoff
 @onready var pause_menu = $MenuPause
 var game_paused = false
 
+
 func _ready():
 	if player != null:
 		player.disable_mode

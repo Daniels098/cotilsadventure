@@ -30,6 +30,5 @@ func _on_buttons_menu_principal_pressed():
 		pause_menu.visible = false
 		SceneManager.load_new_scene("res://scenes/menu/menu.tscn", "wipe_to_right")
 
-
 func _on_buttons_quit_pressed():
 	get_tree().quit()
