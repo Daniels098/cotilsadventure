@@ -1,3 +1,4 @@
+<a id="readme-top"></a>
 <!--- # "Imagem ou GIF das páginas do projeto" -->
 
 <p align="center">
@@ -9,20 +10,38 @@
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 <!--Licença e -->
+## Índice
+<ul>
+<li><a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a></li> 
+<li><a href="#fotos">Fotos</a></li>
+<li><a href="#primeiros-passos">Primeiros Passos</a></li>
+<li><a href="#contribuir">Contribuir</a></li>
+<li><a href="#licença">Licença</a></li>
+</ul>
+<br>
+
 # Cotil's Adventure
 
 Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explorar o campus do Colégio Técnico de Limeira (COTIL), inspirado por jogos clássicos. <!--como Pokémon Fire Red e Zelda.--> O jogador embarca em uma jornada pelo campus, interagindo com professores e funcionários, enquanto resolve puzzles e completa missões para avançar na história. Cada personagem oferece dicas e missões que ajudam o jogador a entender melhor o ambiente do COTIL, trazendo uma mistura de <!--nostalgia--> e aprendizado.
 
+<br>
+<a href="#readme-top">Para o topo</a>
 
 ## Tecnologias Utilizadas
 - Godot Engine 4.2.2
 - Aseprite
+
+<br>
+<a href="#readme-top">Para o topo</a>
 
 ## Fotos
 
 ![foto1](ser/#)
 ![foto2](ser/#)
 ![foto3](ser/#)
+
+<br>
+<a href="#readme-top">Para o topo</a>
 
 ## Primeiros Passos
 
@@ -47,6 +66,8 @@ Siga estas etapas para configurar o projeto na sua máquina e começar a desenvo
 5. **(Opcional) Editar sprites no Aseprite**:
    - Se for contribuir com arte ou animações, utilize o Aseprite <!--Pode Utilizar qualquer tipo de editor de imagem com suporte pra pixel art né?--> para modificar os sprites.
 
+<br>
+<a href="#readme-top">Para o topo</a>
 
 ## Contribuir
 
@@ -72,6 +93,11 @@ Siga estas etapas para configurar o projeto na sua máquina e começar a desenvo
 5. **Fazer merge do PR**:
    - Se o PR for aprovado, ele será feito o merge na branch `main`. Parabéns pela sua contribuição!
 
+<br>
+<a href="#readme-top">Para o topo</a>
+
 ## Licença
 
 Este projeto ainda não possui uma licença oficial definida. Estamos avaliando as opções mais adequadas para a natureza do projeto.
+<br>
+<a href="#readme-top">Para o topo</a>
