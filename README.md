@@ -5,19 +5,19 @@
   <img src="../.github/cotils-adventure.png" alt="Cotil's Adventure">
 </p>
 
-![Godot Engine](https://img.shields.io/badge/GODOT-%23FFFFFF.svg?style=for-the-badge&logo=godot-engine)
-![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-<!--Licença e -->
+<div>
+
+  ![Godot Engine](https://img.shields.io/badge/GODOT-%23FFFFFF.svg?style=for-the-badge&logo=godot-engine)
+  ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E)
+  ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+  ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+</div>
+<br>
+
 ## Índice
-<ul>
-<li><a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a></li> 
-<li><a href="#fotos">Fotos</a></li>
-<li><a href="#primeiros-passos">Primeiros Passos</a></li>
-<li><a href="#contribuir">Contribuir</a></li>
-<li><a href="#licença">Licença</a></li>
-</ul>
+
+<a href="#cotils-adventure">Sobre o Projeto</a> | <a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a> | <a href="#fotos">Fotos</a> | <a href="#primeiros-passos">Primeiros Passos</a> | <a href="#contribuir">Contribuir</a> | <a href="#licença">Licença</a>
 <br>
 
 # Cotil's Adventure
@@ -48,7 +48,7 @@ Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explora
 Siga estas etapas para configurar o projeto na sua máquina e começar a desenvolver *Cotil's Adventure*:
 
 1. **Instalar a Godot Engine 4.2.2**: 
-   - Baixe e instale a [Godot Engine](https://godotengine.org/download/archive/4.2.2-stable/) para rodar o projeto.
+   - Baixe e instale essa versão da [Godot Engine](https://godotengine.org/download/archive/4.2.2-stable/) para rodar o projeto.
 
 2. **Clonar o repositório**:
    - Clone o projeto para sua máquina local:
