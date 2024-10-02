@@ -106,11 +106,10 @@ func load_video_settings():
 		print("Erro ao carregar o arquivo de configurações.")
 	return video_settings
 
-"""
 func save_audio_settings(key: String, value):
 	config.set_value("audio", key, value)
 	config.save(SETTINGS_FILE_PATH)
-"""
+
 
 func load_audio_settings():
 	var audio_settings = {}

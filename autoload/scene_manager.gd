@@ -57,7 +57,8 @@ func monitor_load_status() -> void:
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 			content_invalid.emit(_content_path)
-			_load_progress_timer.stop()
+			if is_instance_valid(_load_progress_timer):
+				_load_progress_timer.stop()
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			if loading_screen != null:
@@ -67,8 +68,9 @@ func monitor_load_status() -> void:
 			_load_progress_timer.stop()
 			return
 		ResourceLoader.THREAD_LOAD_LOADED:
-			_load_progress_timer.stop() ######################################
-			_load_progress_timer.queue_free()
+			if is_instance_valid(_load_progress_timer):
+				_load_progress_timer.stop() ######################################
+				_load_progress_timer.queue_free()
 			if _transition == "zelda":
 				zelda_content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
 			else:

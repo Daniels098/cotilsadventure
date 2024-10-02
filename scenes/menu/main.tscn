@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=3 uid="uid://lj8ilng2x7d4"]
+
+[ext_resource type="Script" path="res://scenes/menu/main.gd" id="1_sg7n6"]
+[ext_resource type="Texture2D" uid="uid://dbjr6vx60jb6y" path="res://assets/logo_dark.svg" id="2_88d6a"]
+
+[sub_resource type="Animation" id="Animation_0kxdx"]
+resource_name = "fade_godot"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("godot_engine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wawc5"]
+resource_name = "new_animation"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("feito_por:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w1m2h"]
+resource_name = "fade_out_godot"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("godot_engine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvdjc"]
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("feito_por:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8w3c"]
+_data = {
+"fade_in_godot": SubResource("Animation_0kxdx"),
+"fade_in_nomes": SubResource("Animation_wawc5"),
+"fade_out_godot": SubResource("Animation_w1m2h"),
+"fade_out_nomes": SubResource("Animation_jvdjc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkmjk"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_krrba"]
+font_size = 22
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sg7n6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x8w3c")
+}
+
+[node name="feito_por" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 112.0
+offset_right = 480.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Feito por:
+Bruno Oliveira Fransiquétí
+Daniel de Zouza Ferreira
+Édúáŕdó dóś Śáńtóś dé Áŕáúj́ó"
+label_settings = SubResource("LabelSettings_mkmjk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="godot_engine" type="Label" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 232.0
+offset_top = 152.0
+offset_right = 320.0
+offset_bottom = 183.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Feito na "
+label_settings = SubResource("LabelSettings_krrba")
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(368, 168)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_88d6a")

@@ -84,7 +84,6 @@ func _ready():
 	display.item_selected.connect(_on_display_item_selected)
 	_load_keybinding_from_setting()
 	load_vsync()
-	load_sliders()
 	load_settings()
 	check_button.toggled.connect(_on_check_button_toggled)
 	_load_current_keybindings()
@@ -123,6 +122,7 @@ func _on_check_button_toggled(pressed: bool) -> void:
 	else:
 		current_control = "Controle1"
 	print(current_control)
+	ConfigFileHandler.save_settings()
 	_load_current_keybindings()
 
 func _load_current_keybindings():
@@ -182,17 +182,35 @@ func load_sliders():
 		if audio_settings.has("volumeSFX"):
 			vol_sfx.value = audio_settings["volumeSFX"] * 100
 
+func load_slider_value(slider: Slider, settings_key: String, section: String, default_value: float = 1.0):
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has(section):
+		var section_settings = settings[section]
+		if section_settings.has(settings_key):
+			slider.value = section_settings[settings_key] * 100 
+		else:
+			print("A chave '%s' não está presente nas configurações de %s." % [settings_key, section])
+			slider.value = default_value * 100
+	else:
+		print("A seção '%s' não está presente nas configurações." % section)
+		slider.value = default_value * 100
+
+
 func _on_vol_master_drag_ended():
 	ConfigGeral.set_master_volume(vol_master.value / 100)
+	ConfigFileHandler.save_settings()
 
 func _on_vol_music_drag_ended():
 	ConfigGeral.set_music_volume(vol_music.value / 100)
+	ConfigFileHandler.save_settings()
 
 func _on_vol_sfx_drag_ended():
 	ConfigGeral.set_sfx_volume(vol_sfx.value / 100)
+	ConfigFileHandler.save_settings()
 
 func _on_slider_brilho_drag_ended():
 	ConfigGeral.set_brightness(brilho.value / 100)
+	ConfigFileHandler.save_settings()
 
 # ---------------------- Vsync ---------------------------
 func load_vsync():
@@ -208,3 +226,4 @@ func _on_button_pressed():
 func _on_vsync_pressed():
 	ConfigGeral.toggle_vsync()
 	load_vsync()
+

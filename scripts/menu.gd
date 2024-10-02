@@ -1,5 +1,17 @@
 class_name Menu extends Control
 
+var settings = {}
+
+func _ready():
+	load_user_settings()
+
+func load_user_settings():
+	settings = ConfigFileHandler.load_settings()
+
+	if settings.has("video"):
+		var display_mode = settings["video"].get("display", 1)
+		ConfigGeral.set_display_mode(display_mode)
+
 func _on_button_pressed():
 	SceneManager.load_new_scene("res://scenes/areaLivreCotil/cantina_pra_escada.tscn", "wipe_to_right")
 
