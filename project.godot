@@ -8,6 +8,8 @@
 
 config_version=5
 
+recent_projects=["res://addons/quest_manager/Examples/All Nodes.quest"]
+
 [application]
 
 config/name="cotilsadventure"
