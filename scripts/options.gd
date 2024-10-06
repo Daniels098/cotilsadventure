@@ -1,14 +1,14 @@
 extends Control
 
 @onready var input_button_scene = preload("res://scenes/menu/button.tscn")
-@onready var vol_master = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master
-@onready var vol_music = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music
-@onready var vol_sfx = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx
-@onready var brilho = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho
-@onready var display = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/Display
-@onready var vsync = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
-@onready var check_button = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/CheckButton
-@onready var action_list = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer/ScrollContainer/action_list_controls
+@onready var vol_master = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master
+@onready var vol_music = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music
+@onready var vol_sfx = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx
+@onready var brilho = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho
+@onready var display = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/Display
+@onready var vsync = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
+@onready var check_button = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/CheckButton
+@onready var action_list = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer/ScrollContainer/action_list_controls
 
 var control_schemes = {
 	"Controle1": {
@@ -84,7 +84,7 @@ func _ready():
 	display.item_selected.connect(_on_display_item_selected)
 	_load_keybinding_from_setting()
 	load_vsync()
-	load_settings()
+	load_sliders()
 	check_button.toggled.connect(_on_check_button_toggled)
 	_load_current_keybindings()
 
@@ -117,13 +117,16 @@ func add_window_mode_items() -> void:
 
 # ---------------------- Input Map --------------------------
 func _on_check_button_toggled(pressed: bool) -> void:
+	var val: bool
 	if pressed:
 		current_control = "Controle2"
+		val = true
 	else:
 		current_control = "Controle1"
+		val = false
 	print(current_control)
-	ConfigFileHandler.save_settings()
 	_load_current_keybindings()
+	# Executar algo do ConfigGeral para ele pra trocar o valor passar como parâmetro
 
 func _load_current_keybindings():
 	# Limpa a lista de ações existentes
@@ -134,11 +137,6 @@ func _load_current_keybindings():
 		var button = Button.new()  # Cria um novo botão para cada ação
 		button.text = action + ": " + key  # Define o texto do botão
 		action_list.add_child(button)  # Adiciona o botão à lista de ações
-
-func load_settings():
-	var settings = ConfigFileHandler.load_settings()
-	if !settings.has("keybinding"):
-		settings["keybinding"] = control_schemes["Controle1"]
 
 func _update_action_list(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
@@ -162,56 +160,14 @@ func _load_keybinding_from_setting():
 	else:
 		print("Warning: Current control configuration not found: ", current_control)
 
-# ----------------------- Sliders --------------------------
 func load_sliders():
 	var settings = ConfigFileHandler.load_settings()
-	if settings.has("video"):
-		var video_settings = settings["video"]
-		if video_settings.has("brightness"):
-			brilho.value = video_settings["brightness"] * 100
-		else:
-			print("A chave 'brightness' não está presente nas configurações de vídeo.")
-	else:
-		print("A seção 'video' não está presente nas configurações.")
 	if settings.has("audio"):
-		var audio_settings = settings["audio"]
-		if audio_settings.has("volumeMaster"):
-			vol_master.value = audio_settings["volumeMaster"] * 100
-		if audio_settings.has("volumeMusic"):
-			vol_music.value = audio_settings["volumeMusic"] * 100
-		if audio_settings.has("volumeSFX"):
-			vol_sfx.value = audio_settings["volumeSFX"] * 100
-
-func load_slider_value(slider: Slider, settings_key: String, section: String, default_value: float = 1.0):
-	var settings = ConfigFileHandler.load_settings()
-	if settings.has(section):
-		var section_settings = settings[section]
-		if section_settings.has(settings_key):
-			slider.value = section_settings[settings_key] * 100 
-		else:
-			print("A chave '%s' não está presente nas configurações de %s." % [settings_key, section])
-			slider.value = default_value * 100
-	else:
-		print("A seção '%s' não está presente nas configurações." % section)
-		slider.value = default_value * 100
-
-
-func _on_vol_master_drag_ended():
-	ConfigGeral.set_master_volume(vol_master.value / 100)
-	ConfigFileHandler.save_settings()
-
-func _on_vol_music_drag_ended():
-	ConfigGeral.set_music_volume(vol_music.value / 100)
-	ConfigFileHandler.save_settings()
-
-func _on_vol_sfx_drag_ended():
-	ConfigGeral.set_sfx_volume(vol_sfx.value / 100)
-	ConfigFileHandler.save_settings()
-
-func _on_slider_brilho_drag_ended():
-	ConfigGeral.set_brightness(brilho.value / 100)
-	ConfigFileHandler.save_settings()
-
+		vol_master.value = settings["audio"].get("volumeMaster", 1) * 100
+		vol_music.value = settings["audio"].get("volumeMusic", 1) * 100
+		vol_sfx.value = settings["audio"].get("volumeSFX", 1) * 100
+	if settings.has("video"):
+		brilho.value = settings["video"].get("brightness", 1) * 100
 # ---------------------- Vsync ---------------------------
 func load_vsync():
 	var settings = ConfigFileHandler.load_settings()
@@ -227,3 +183,61 @@ func _on_vsync_pressed():
 	ConfigGeral.toggle_vsync()
 	load_vsync()
 
+# ----------------------- Sliders --------------------------
+
+func _on_slider_brilho_value_changed(value):
+	var val = brilho.value/100
+	ConfigGeral.set_brightness(val)
+
+func _on_vol_master_value_changed(value):
+	var val = vol_master.value/100
+	ConfigGeral.set_master_volume(val)
+
+func _on_vol_music_value_changed(value):
+	var val = vol_music.value/100
+	ConfigGeral.set_music_volume(val)
+
+func _on_vol_sfx_value_changed(value):
+	var val = vol_sfx.value/100
+	ConfigGeral.set_sfx_volume(val)
+
+func _on_reset_button_pressed():
+	# Valores padrão para áudio
+	vol_master.value = 100
+	vol_music.value = 100
+	vol_sfx.value = 100
+	ConfigGeral.set_master_volume(1)
+	ConfigGeral.set_music_volume(1)
+	ConfigGeral.set_sfx_volume(1)
+	
+	# Valor padrão para brilho
+	brilho.value = 50
+	ConfigGeral.set_brightness(0.5)
+	
+	# Valor padrão para Vsync e CheckButton
+	vsync.button_pressed = true
+	ConfigGeral.toggle_vsync()
+	
+	check_button.button_pressed = false
+	current_control = "Controle1"
+	_load_current_keybindings()
+	
+	ConfigGeral.set_display_mode(0)
+	display.select(0)
+	
+	# Salvar configurações padrão no arquivo settings.ini
+	var settings = ConfigFileHandler.load_settings()
+	settings["audio"] = {
+		"volumeMaster": 1,
+		"volumeMusic": 1,
+		"volumeSFX": 1
+	}
+	settings["video"] = {
+		"brightness": 0.5,
+		"vsync": true,
+		"display": 0
+	}
+	settings["Controle"] = {
+		"controle": false
+	}
+	ConfigFileHandler.save_settings(settings)

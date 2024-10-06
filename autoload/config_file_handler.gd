@@ -17,6 +17,8 @@ func _ready():
 	keybindings = load_settings()
 
 func _initialize_settings():
+	config.set_value("Controle", "controle", false)
+	config.set_value("Controle", "canhoto", false)
 	# Inicializa as configurações padrão
 	config.set_value("Controle1", "move_up", "W")
 	config.set_value("Controle1", "move_down", "S")
@@ -43,7 +45,7 @@ func _initialize_settings():
 	config.set_value("video", "brightness", 0.5)
 	config.set_value("video", "display", 0)
 	config.set_value("Player", "player_name", jog.name)
-
+	
 	config.set_value("audio", "volumeMaster", 1.0)
 	config.set_value("audio", "volumeMusic", 1.0)
 	config.set_value("audio", "volumeSFX", 1.0)
@@ -74,20 +76,23 @@ func save_settings(settings: Dictionary):
 	if typeof(settings) != TYPE_DICTIONARY:
 		print("Erro: 'settings' não é um dicionário válido.")
 		return
-	#print(settings)
+	# Loop sobre as seções (primeiro nível do dicionário)
 	for section in settings.keys():
+		# Certifique-se de que cada seção seja um Dictionary
+		if typeof(settings[section]) != TYPE_DICTIONARY:
+			print("Erro: A seção '%s' não é um dicionário." % section)
+			continue  # Pula para a próxima seção
+		# Loop sobre as chaves dentro de cada seção
 		for key in settings[section].keys():
 			config.set_value(section, key, settings[section][key])
+	# Tenta salvar o arquivo de configurações
 	var err = config.save(SETTINGS_FILE_PATH)
 	if err != OK:
 		print("Erro ao salvar configurações:", err)
-"""
-func save_video_settings(key: String, value):
-	config.set_value("video", key, value)
-	config.save(SETTINGS_FILE_PATH)
-	if key == "display":
-		print("Nao deveria passar aqui")
-"""
+	else:
+		config.save(SETTINGS_FILE_PATH)
+
+
 func load_video_settings():
 	var video_settings = {}
 	if config.load(SETTINGS_FILE_PATH) == OK:
@@ -110,7 +115,6 @@ func save_audio_settings(key: String, value):
 	config.set_value("audio", key, value)
 	config.save(SETTINGS_FILE_PATH)
 
-
 func load_audio_settings():
 	var audio_settings = {}
 	for key in config.get_section_keys("audio"):
@@ -131,3 +135,19 @@ func _load_keybinding_from_setting(current_control):
 		event.scancode = InputEventKey[keybinding[action]]
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, event)
+
+func save_control_settings(botao):
+	config.set_value("Controle", "controle", botao.pressed)
+	config.save(SETTINGS_FILE_PATH)
+
+# Função para carregar configurações de sliders e checkbutton
+func load_control_settings():
+	var botao
+	if config.load(SETTINGS_FILE_PATH) == OK:
+		if config.has_section("controls"):
+			var control_settings = config.get_section_keys("Controle")
+			botao = config.get_value("Controle", "controle")
+		else:
+			print("Erro: Seção 'controls' não encontrada no arquivo de configurações.")
+	else:
+		print("Erro ao carregar o arquivo de configurações.")

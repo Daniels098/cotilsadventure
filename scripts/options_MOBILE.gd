@@ -21,32 +21,6 @@ func _ready():
 	load_vsync()
 	load_sliders()
 
-
-# ----------------------- Sliders --------------------------
-# Reset dos sliders do volume
-func vol_reset():
-	brilho.value = 50
-	vol_master.value = 100
-	vol_music.value = 100
-	vol_sfx.value = 100
-
-# Setar volume Master
-func _on_volume_value_changed(value):
-	AudioServer.set_bus_volume_db(0,value)
-
-# Setar volume Master
-func _on_check_box_pressed(toggled_on):
-	AudioServer.set_bus_mute(0,toggled_on)
-
-func load_sliders():
-	var audio_settings = ConfigFileHandler.load_audio_settings()
-	var video_settings = ConfigFileHandler.load_video_settings()
-	
-	brilho.value = min(video_settings.get("brightness"), 1.0)*100
-	vol_master.value = min(audio_settings.get("master_volume"), 1.0)*100
-	vol_music.value = min(audio_settings.get("music_volume"), 1.0)*100
-	vol_sfx.value = min(audio_settings.get("sfx_volume"), 1.0)*100
-
 # ------------- Buttons reset and to back ------------------------
 # Button Voltar
 func _on_button_pressed():
@@ -54,55 +28,90 @@ func _on_button_pressed():
 
 # Button reset volume
 func _on_reset_button_button_down():
-	vol_reset()
-
-# --------------------- Sliders ---------------------------
-# Salvar slider Master
-func _on_vol_master_drag_ended(value_changed):
-	ConfigFileHandler.save_audio_settings("master_volume", vol_master.value / 100)
-
-# Salvar slider da musica
-func _on_vol_music_drag_ended(value_changed):
-	ConfigFileHandler.save_audio_settings("music_volume", vol_music.value / 100)
-
-# Salvar slider do sfx
-func _on_vol_sfx_drag_ended(value_changed):
-	ConfigFileHandler.save_audio_settings("sfx_volume", vol_sfx.value / 100)
-
-# Salvar slider do brilho
-func _on_slider_brilho_drag_ended(value_changed):
-	ConfigFileHandler.save_video_settings("brightness", brilho.value / 100)
+	# Valores padrão para áudio
+	vol_master.value = 100
+	vol_music.value = 100
+	vol_sfx.value = 100
+	ConfigGeral.set_master_volume(1)
+	ConfigGeral.set_music_volume(1)
+	ConfigGeral.set_sfx_volume(1)
+	
+	# Valor padrão para brilho
+	brilho.value = 50
+	ConfigGeral.set_brightness(0.5)
+	
+	# Valor padrão para Vsync e CheckButton
+	vsync.button_pressed = true
+	ConfigGeral.toggle_vsync()
+	
+	canhoto.button_pressed = false
+	var current_control = "Destro"
+	
+	# Salvar configurações padrão no arquivo settings.ini
+	var settings = ConfigFileHandler.load_settings()
+	settings["audio"] = {
+		"volumeMaster": 1,
+		"volumeMusic": 1,
+		"volumeSFX": 1
+	}
+	settings["video"] = {
+		"brightness": 0.5,
+		"vsync": true,
+	}
+	settings["Controle"] = {
+		"canhoto": false
+	}
+	ConfigFileHandler.save_settings(settings)
 
 # ---------------------- Buttons Config esquerda ---------------------------
 # logica para o botao vsync
 func _on_vsync_pressed():
-	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-		vsync.button_pressed = true
-	else:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-		vsync.button_pressed = false
-		Engine.max_fps = 0
-	ConfigFileHandler.save_video_settings("vsync", DisplayServer.window_get_vsync_mode())# == DisplayServer.VSYNC_ENABLED)
+	ConfigGeral.toggle_vsync()
+	load_vsync()
 
 func load_vsync():
-	var video_settings = ConfigFileHandler.load_video_settings()
-	if video_settings.has("vsync"):
-		var vsync_enabled = video_settings["vsync"]
-		if vsync_enabled:
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-			vsync.button_pressed = true
-		else:
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-			Engine.max_fps = 0
-			vsync.button_pressed = false
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("video") and settings["video"].has("vsync"):
+		vsync.button_pressed = settings["video"]["vsync"]
+	else:
+		print("Configuração de Vsync não encontrada.")
 
 # ---------------------- Modo Canhoto --------------------------
 func load_canhoto():
-	pass
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("Controle") and settings["Controle"].has("canhoto"):
+		canhoto.button_pressed = settings["Controle"]["canhoto"]
+	else:
+		print("Configuração de Canhoto não encontrada.")
 
 func _on_mode_canhoto_pressed():
 	pass
 
-func save_canhoto():
-	pass
+# Função no ConfigGeral
+
+# ----------------------- Sliders --------------------------
+
+func load_sliders():
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("audio"):
+		vol_master.value = settings["audio"].get("volumeMaster", 1) * 100
+		vol_music.value = settings["audio"].get("volumeMusic", 1) * 100
+		vol_sfx.value = settings["audio"].get("volumeSFX", 1) * 100
+	if settings.has("video"):
+		brilho.value = settings["video"].get("brightness", 1) * 100
+
+func _on_slider_brilho_value_changed(value):
+	var val = brilho.value/100
+	ConfigGeral.set_brightness(val)
+
+func _on_vol_master_value_changed(value):
+	var val = vol_master.value/100
+	ConfigGeral.set_master_volume(val)
+
+func _on_vol_music_value_changed(value):
+	var val = vol_music.value/100
+	ConfigGeral.set_music_volume(val)
+
+func _on_vol_sfx_value_changed(value):
+	var val = vol_sfx.value/100
+	ConfigGeral.set_sfx_volume(val)

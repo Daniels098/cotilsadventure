@@ -59,7 +59,7 @@ func load_window():
 
 # Ajustar o brilho
 func set_brightness(value: float):
-	settings["brightness"] = clamp(value, 0, 1)
+	settings["video"]["brightness"] = value
 	RenderingServer.set_default_clear_color(Color(value, value, value))
 	save_settings()
 
@@ -67,19 +67,19 @@ func set_brightness(value: float):
 
 # Ajustar volume master
 func set_master_volume(value: float):
-	settings["VolumeMaster"] = clamp(value, 0, 1)
+	settings["audio"]["volumeMaster"] = value
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume da música
 func set_music_volume(value: float):
-	settings["VolumeMusic"] = clamp(value, 0, 1)
+	settings["audio"]["volumeMusic"] = value
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume dos efeitos sonoros (SFX)
 func set_sfx_volume(value: float):
-	settings["VolumeSFX"] = clamp(value, 0, 1)
+	settings["audio"]["volumeSFX"] = value
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 	save_settings()
 
@@ -97,16 +97,9 @@ func toggle_vsync():
 		settings["video"]["vsync"] = true
 	save_settings()
 
-# -------------------- Configurações de Keybinding --------------------
-
-# Definir novo keybinding
-func set_keybinding(action: String, event: InputEvent):
-	InputMap.action_erase_events(action)
-	InputMap.action_add_event(action, event)
-	if settings.has("Keybinding"):
-		settings["Keybinding"][action] = event
-	else:
-		settings["Keybinding"] = {action: event}
+func toggle_controls(): # Lógica pra mudar os botoes 
+	var settings = ConfigFileHandler.load_settings()
+	# settings["gameplay"]["button_toggle"] = button_pressed
 	save_settings()
 
 # -------------------- Funções Auxiliares --------------------
@@ -119,3 +112,6 @@ func linear_to_db(value: float) -> float:
 
 func log10(value: float) -> float:
 	return log(value) / log(10)
+
+func save_canhoto():
+	pass

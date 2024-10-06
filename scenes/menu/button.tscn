@@ -40,7 +40,7 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_b7jgw")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "ACTION NAME"
 vertical_alignment = 1
 
@@ -53,5 +53,6 @@ mouse_filter = 1
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_b7jgw")
+theme_override_font_sizes/font_size = 12
 text = "INPUT"
 vertical_alignment = 1
