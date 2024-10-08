@@ -27,4 +27,5 @@ func anim_letters() -> void:
 
 func terminar_inicio() -> void:
 	await get_tree().create_timer(7).timeout
+	# ConfigGeral.center_window()
 	SceneManager.load_new_scene("res://scenes/menu/menu.tscn")

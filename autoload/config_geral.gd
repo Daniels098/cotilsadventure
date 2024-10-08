@@ -1,6 +1,27 @@
 extends Node
 
 var settings = {}
+var current_control = "Controle1"
+
+const ControleGeral = {
+	"W": KEY_W,
+	"A": KEY_A,
+	"S": KEY_S,
+	"D": KEY_D,
+	"Up": KEY_UP,
+	"Down": KEY_DOWN,
+	"Left": KEY_LEFT,
+	"Right": KEY_RIGHT,
+	"E": KEY_E,
+	"B": KEY_B,
+	"F": KEY_F,
+	"C": KEY_C,
+	"V": KEY_V,
+	"Shift": KEY_SHIFT,
+	"Escape": KEY_ESCAPE,
+	"X": KEY_X
+}
+
 
 const WINDOW_MODES: Array[String] = [
 	"Tela Cheia",
@@ -11,6 +32,7 @@ const WINDOW_MODES: Array[String] = [
 func _ready():
 	load_settings()
 	load_window()
+	load_controles()
 
 # ------------------- Gerenciamento de Configurações -------------------
 
@@ -55,6 +77,11 @@ func load_window():
 			else:
 				print("Erro: display_mode fora dos limites válidos.")
 
+func center_window():
+	var screen = DisplayServer.screen_get_position() +  DisplayServer.screen_get_size() / 2
+	var window_size = get_window().get_size_with_decorations()
+	get_window().set_position(screen - window_size / 2)
+
 # -------------------- Configuração de Brilho --------------------
 
 # Ajustar o brilho
@@ -97,10 +124,44 @@ func toggle_vsync():
 		settings["video"]["vsync"] = true
 	save_settings()
 
-func toggle_controls(): # Lógica pra mudar os botoes 
-	var settings = ConfigFileHandler.load_settings()
-	# settings["gameplay"]["button_toggle"] = button_pressed
-	save_settings()
+# -------------------- Configuração do Keybinding --------------------
+func update_keybinding():
+	if settings and settings.has("Controle"):
+		var controle_key = "Controle1"
+		if settings["Controle"]["controle"] == false:
+			controle_key = "Controle2" # talvez fique invertido -------
+		var controle = settings[controle_key]
+		for key in controle.keys():
+			if not controle.has(key):
+				print("Erro: Chave não encontrada no settings:", key)
+				continue
+			InputMap.action_erase_events(key)
+			var event = InputEventKey.new()
+			var pressed = controle[key]
+			if ControleGeral.has(pressed):
+				event.physical_keycode = ControleGeral[pressed]
+				InputMap.action_add_event(key, event)
+			else:
+				print("Erro ao colocar a tecla no Controle:", key)
+
+func toggle_controls(val: bool):
+	if settings and settings.has("Controle"):
+		settings["Controle"]["controle"] = val
+		update_keybinding()
+		save_settings()
+	else:
+		print("Configuração de 'Controle' não encontrada.")
+
+func load_controles():
+	var settings = ConfigFileHandler.load_control_settings()
+	if settings and settings.has("Controle"):
+		# Verifica qual controle está definido
+		var controle_ativo = settings["Controle"]["controle"]
+		if controle_ativo == true:
+			current_control = "Controle1"
+		else:
+			current_control = "Controle2"
+		update_keybinding()
 
 # -------------------- Funções Auxiliares --------------------
 

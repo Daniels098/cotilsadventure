@@ -2,7 +2,7 @@ extends Node
 
 var config = ConfigFile.new()
 var jog = Player.new()
-const SETTINGS_FILE_PATH = "user://setting.ini"
+const SETTINGS_FILE_PATH = "user://settings.ini"
 var keybindings = {}
 
 func _ready():
@@ -62,7 +62,7 @@ func get_keybinding(control: String, action: String):
 
 func load_settings() -> Dictionary:
 	var settings = {}
-	var config = ConfigFile.new()
+	# var config = ConfigFile.new()
 	if config.load(SETTINGS_FILE_PATH) == OK:
 		for section in config.get_sections():
 			settings[section] = {}
@@ -142,12 +142,12 @@ func save_control_settings(botao):
 
 # Função para carregar configurações de sliders e checkbutton
 func load_control_settings():
-	var botao
+	var _botao
 	if config.load(SETTINGS_FILE_PATH) == OK:
-		if config.has_section("controls"):
-			var control_settings = config.get_section_keys("Controle")
-			botao = config.get_value("Controle", "controle")
+		if config.has_section("Controle"):
+			var _control_settings = config.get_section_keys("Controle")
+			_botao = config.get_value("Controle", "controle")
 		else:
-			print("Erro: Seção 'controls' não encontrada no arquivo de configurações.")
+			print("Erro: Seção 'Controle' não encontrada no arquivo de configurações.")
 	else:
 		print("Erro ao carregar o arquivo de configurações.")

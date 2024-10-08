@@ -4,6 +4,7 @@ var settings = {}
 
 func _ready():
 	load_user_settings()
+	ConfigGeral.center_window()
 
 func load_user_settings():
 	settings = ConfigFileHandler.load_settings()
@@ -21,7 +22,7 @@ func _on_button_4_pressed():
 func _on_btn_options_pressed():
 	var device = OS.get_name()
 	if device == "Windows" or device == "Linux" or device == "MacOS" or device == "Web" or "BSD" in device:
-		SceneManager.load_new_scene("res://scenes/menu/options_MOBILE.tscn", "wipe_to_right") ######
+		SceneManager.load_new_scene("res://scenes/menu/options_PC.tscn", "wipe_to_right") ######
 	else: 
 		SceneManager.load_new_scene("res://scenes/menu/options_MOBILE.tscn", "wipe_to_right")
 

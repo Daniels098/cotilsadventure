@@ -5,7 +5,8 @@ class_name Level extends Node2D
 var data:LevelDataHandoff
 @onready var pause_menu = $MenuPause
 var game_paused = false
-
+var button_layer = preload("res://scenes/controlsTouch.tscn")
+var button_layer_canhoto = preload("res://scenes/controlsTouchCanhoto.tscn")
 
 func _ready():
 	if player != null:
@@ -13,6 +14,12 @@ func _ready():
 		player.visible = false
 	if data == null:
 		enter_level()
+
+func choose_button_layer():
+	if data:
+		pass
+	else:
+		pass
 
 func enter_level() -> void:
 	if data != null:

@@ -54,7 +54,6 @@ const KeyMap = {
 	"X": KEY_X,
 }
 
-var current_control = "Controle1"
 var disp
 var is_remapping = false
 var action_to_remap = null
@@ -85,7 +84,8 @@ func _ready():
 	_load_keybinding_from_setting()
 	load_vsync()
 	load_sliders()
-	check_button.toggled.connect(_on_check_button_toggled)
+	load_button_input()
+	#check_button.connect("toggled", self)
 	_load_current_keybindings()
 
 # ------------------------- Tela --------------------------
@@ -109,6 +109,7 @@ func load_window():
 # Modo de tela
 func on_window_mode_selected(index: int) -> void:
 	ConfigGeral.set_display_mode(index)
+	ConfigGeral.center_window()
 
 # Adicionar modos de tela ao DisplayButton
 func add_window_mode_items() -> void:
@@ -117,35 +118,39 @@ func add_window_mode_items() -> void:
 
 # ---------------------- Input Map --------------------------
 func _on_check_button_toggled(pressed: bool) -> void:
-	var val: bool
 	if pressed:
-		current_control = "Controle2"
-		val = true
+		ConfigGeral.current_control = "Controle2"
 	else:
-		current_control = "Controle1"
-		val = false
-	print(current_control)
+		ConfigGeral.current_control = "Controle1"
+	ConfigGeral.toggle_controls(pressed)
 	_load_current_keybindings()
-	# Executar algo do ConfigGeral para ele pra trocar o valor passar como parâmetro
+
+func load_button_input():
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("Controle") and settings["Controle"].has("controle"):
+		check_button.button_pressed = settings["Controle"]["controle"]
+	else:
+		print("Configuração de 'controle' não encontrada.")
 
 func _load_current_keybindings():
 	# Limpa a lista de ações existentes
 	for item in action_list.get_children():
 		item.queue_free()
 	for action in ["move_up", "move_down", "move_right", "move_left", "interact", "inventory", "menu", "run", "pause"]:
-		var key = ConfigFileHandler.get_keybinding(current_control, action)
-		var button = Button.new()  # Cria um novo botão para cada ação
-		button.text = action + ": " + key  # Define o texto do botão
-		action_list.add_child(button)  # Adiciona o botão à lista de ações
+		var key = ConfigFileHandler.get_keybinding(ConfigGeral.current_control, action)
+		var button = Button.new() 
+		button.text = action + ": " + key
+		action_list.add_child(button) 
 
 func _update_action_list(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
 
 func _load_keybinding_from_setting():
 	var keybindings = ConfigFileHandler.keybindings
+	var current_contro = ConfigGeral.current_control
 	# Certifique-se de que a chave 'keybinding' está no dicionário de configurações
-	if keybindings.has(current_control):
-		var keybinding = keybindings[current_control]
+	if keybindings.has(current_contro):
+		var keybinding = keybindings[current_contro]
 		
 		for action in keybinding.keys():
 			var event = InputEventKey.new()
@@ -158,7 +163,7 @@ func _load_keybinding_from_setting():
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, event)
 	else:
-		print("Warning: Current control configuration not found: ", current_control)
+		print("Warning: Current control configuration not found: ", current_contro)
 
 func load_sliders():
 	var settings = ConfigFileHandler.load_settings()
@@ -219,7 +224,7 @@ func _on_reset_button_pressed():
 	ConfigGeral.toggle_vsync()
 	
 	check_button.button_pressed = false
-	current_control = "Controle1"
+	ConfigGeral.current_control = "Controle1"
 	_load_current_keybindings()
 	
 	ConfigGeral.set_display_mode(0)

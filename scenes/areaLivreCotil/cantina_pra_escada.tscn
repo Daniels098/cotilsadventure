@@ -39040,7 +39040,6 @@ visible = false
 visible = false
 
 [node name="ButtonLayer" parent="." instance=ExtResource("4_67ljx")]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
