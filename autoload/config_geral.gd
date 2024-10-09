@@ -2,7 +2,7 @@ extends Node
 
 var settings = {}
 var current_control = "Controle1"
-
+var is_canhoto
 const ControleGeral = {
 	"W": KEY_W,
 	"A": KEY_A,
@@ -163,14 +163,11 @@ func load_controles():
 			current_control = "Controle2"
 		update_keybinding()
 
-func toggle_canhoto(val: bool):
-	if settings and settings.has("Controle"):
-		settings["Controle"]["canhoto"] = val
-		save_settings()
-		load_button_layout()
-	else:
-		print("Configuração de 'canhoto' não encontrada.")
 
+func set_canhoto(val: bool):
+	settings["Controle"]["canhoto"] = val
+	is_canhoto = val
+	save_settings()
 
 # -------------------- Funções Auxiliares --------------------
 

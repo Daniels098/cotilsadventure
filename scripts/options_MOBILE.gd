@@ -20,6 +20,7 @@ extends Control
 func _ready():
 	load_vsync()
 	load_sliders()
+	load_canhoto()
 
 # ------------- Buttons reset and to back ------------------------
 # Button Voltar
@@ -82,16 +83,10 @@ func load_canhoto():
 	if settings.has("Controle") and settings["Controle"].has("canhoto"):
 		canhoto.button_pressed = settings["Controle"]["canhoto"]
 	else:
-		print("Configuração de Canhoto não encontrada.")
+		print("Configuração de 'canhoto' não encontrada.")
 
 func _on_mode_canhoto_pressed():
-	var settings = ConfigFileHandler.load_settings()
-	if settings.has("Controle"):
-		settings["Controle"]["canhoto"] = !settings["Controle"]["canhoto"]
-		ConfigFileHandler.save_settings(settings)
-		ConfigGeral.load_button_layout()
-	else:
-		print("Configuração de 'canhoto' não encontrada.")
+	ConfigGeral.set_canhoto(canhoto.button_pressed)
 
 # Função no ConfigGeral
 

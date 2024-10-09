@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dlcd71ay5ymw4" path="res://assets/button_pause.png" id="13_b82un"]
 [ext_resource type="Texture2D" uid="uid://rplhtt3biqxa" path="res://assets/button_pause_pressed.png" id="14_8kq7o"]
 
-[node name="ButtonLayer" type="CanvasLayer"]
+[node name="ButtonLayerCanhoto" type="CanvasLayer"]
 
 [node name="button_up" type="TouchScreenButton" parent="."]
 position = Vector2(472, 152)
