@@ -85,7 +85,13 @@ func load_canhoto():
 		print("Configuração de Canhoto não encontrada.")
 
 func _on_mode_canhoto_pressed():
-	pass
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("Controle"):
+		settings["Controle"]["canhoto"] = !settings["Controle"]["canhoto"]
+		ConfigFileHandler.save_settings(settings)
+		ConfigGeral.load_button_layout()
+	else:
+		print("Configuração de 'canhoto' não encontrada.")
 
 # Função no ConfigGeral
 

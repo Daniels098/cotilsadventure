@@ -49,9 +49,9 @@ const KeyMap = {
 	"F": KEY_F,
 	"C": KEY_C,
 	"V": KEY_V,
+	"X": KEY_X,
 	"Shift": KEY_SHIFT,
 	"Escape": KEY_ESCAPE,
-	"X": KEY_X,
 }
 
 var disp
@@ -85,7 +85,6 @@ func _ready():
 	load_vsync()
 	load_sliders()
 	load_button_input()
-	#check_button.connect("toggled", self)
 	_load_current_keybindings()
 
 # ------------------------- Tela --------------------------
@@ -126,11 +125,8 @@ func _on_check_button_toggled(pressed: bool) -> void:
 	_load_current_keybindings()
 
 func load_button_input():
-	var settings = ConfigFileHandler.load_settings()
-	if settings.has("Controle") and settings["Controle"].has("controle"):
-		check_button.button_pressed = settings["Controle"]["controle"]
-	else:
-		print("Configuração de 'controle' não encontrada.")
+	var butt = ConfigFileHandler.load_control_settings()
+	check_button.button_pressed = butt
 
 func _load_current_keybindings():
 	# Limpa a lista de ações existentes

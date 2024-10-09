@@ -14,12 +14,35 @@ func _ready():
 		player.visible = false
 	if data == null:
 		enter_level()
+	choose_button_layer()
 
 func choose_button_layer():
-	if data:
-		pass
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("Controle") and settings["Controle"].has("canhoto"):
+		if settings["Controle"]["canhoto"]:
+			var canhoto_instance = button_layer_canhoto.instance()
+			add_child(canhoto_instance)
+		else:
+			var destro_instance = button_layer.instance()
+			add_child(destro_instance)
 	else:
-		pass
+		print("Configuração de 'canhoto' não encontrada.")
+
+func load_button_layout():
+	var settings = ConfigFileHandler.load_settings()
+	if settings.has("Controle") and settings["Controle"].has("canhoto"):
+		var is_canhoto = settings["Controle"]["canhoto"]
+		var scene_to_load
+		if is_canhoto:
+			scene_to_load = preload("res://scenes/controlsTouchCanhoto.tscn")
+		else:
+			scene_to_load = preload("res://scenes/controlsTouch.tscn")
+		var current_scene = get_tree().current_scene
+		if current_scene:
+			current_scene.queue_free()
+		get_tree().root.add_child(scene_to_load.instance())
+	else:
+		print("Configuração de 'canhoto' não encontrada.")
 
 func enter_level() -> void:
 	if data != null:

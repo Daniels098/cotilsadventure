@@ -17,9 +17,9 @@ const ControleGeral = {
 	"F": KEY_F,
 	"C": KEY_C,
 	"V": KEY_V,
+	"X": KEY_X,
 	"Shift": KEY_SHIFT,
 	"Escape": KEY_ESCAPE,
-	"X": KEY_X
 }
 
 
@@ -128,8 +128,8 @@ func toggle_vsync():
 func update_keybinding():
 	if settings and settings.has("Controle"):
 		var controle_key = "Controle1"
-		if settings["Controle"]["controle"] == false:
-			controle_key = "Controle2" # talvez fique invertido -------
+		if settings["Controle"]["controle"] == true:
+			controle_key = "Controle2"
 		var controle = settings[controle_key]
 		for key in controle.keys():
 			if not controle.has(key):
@@ -147,21 +147,30 @@ func update_keybinding():
 func toggle_controls(val: bool):
 	if settings and settings.has("Controle"):
 		settings["Controle"]["controle"] = val
+		print("Novo estado do controle: ", val)
+		ConfigFileHandler.save_control_settings(val)
 		update_keybinding()
 		save_settings()
 	else:
 		print("Configuração de 'Controle' não encontrada.")
 
 func load_controles():
-	var settings = ConfigFileHandler.load_control_settings()
 	if settings and settings.has("Controle"):
-		# Verifica qual controle está definido
 		var controle_ativo = settings["Controle"]["controle"]
 		if controle_ativo == true:
 			current_control = "Controle1"
 		else:
 			current_control = "Controle2"
 		update_keybinding()
+
+func toggle_canhoto(val: bool):
+	if settings and settings.has("Controle"):
+		settings["Controle"]["canhoto"] = val
+		save_settings()
+		load_button_layout()
+	else:
+		print("Configuração de 'canhoto' não encontrada.")
+
 
 # -------------------- Funções Auxiliares --------------------
 
@@ -173,6 +182,3 @@ func linear_to_db(value: float) -> float:
 
 func log10(value: float) -> float:
 	return log(value) / log(10)
-
-func save_canhoto():
-	pass

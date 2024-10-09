@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8sw8x236vp68"]
+[gd_scene load_steps=21 format=3 uid="uid://c8sw8x236vp68"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_r5quy"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_2kter"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="3_s3p0o"]
-[ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="4_67ljx"]
 [ext_resource type="Texture2D" uid="uid://bs8oa5ip8666d" path="res://assets/arvorees.png" id="5_nhe23"]
 [ext_resource type="Texture2D" uid="uid://b0j0r7fr68abl" path="res://assets/biblioteca-0.1.png" id="6_tw8qy"]
 [ext_resource type="Texture2D" uid="uid://d36h6272sysbf" path="res://assets/mapa-0.1-f.png" id="7_2uqfy"]
@@ -39038,8 +39037,6 @@ visible = false
 
 [node name="MenuPause" parent="." instance=ExtResource("3_s3p0o")]
 visible = false
-
-[node name="ButtonLayer" parent="." instance=ExtResource("4_67ljx")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
