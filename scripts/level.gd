@@ -3,6 +3,10 @@ class_name Level extends Node2D
 @export var player:Player
 @export var doors:Array[Door]
 var data:LevelDataHandoff
+@onready var pause_menu = $MenuPause
+var game_paused = false
+var button_layer = preload("res://scenes/controlsTouch.tscn")
+var button_layer_canhoto = preload("res://scenes/controlsTouchCanhoto.tscn")
 
 func _ready():
 	if player != null:
@@ -10,6 +14,19 @@ func _ready():
 		player.visible = false
 	if data == null:
 		enter_level()
+	load_button_layout()
+
+func load_button_layout():
+	if ConfigGeral.is_canhoto:
+		var canhoto_layer = preload("res://scenes/controlsTouchCanhoto.tscn").instantiate()
+		if $ButtonLayerDestro != null:
+			$ButtonLayerDestro.queue_free() # Remove o layout de destro
+		add_child(canhoto_layer)
+	else:
+		var destro_layer = preload("res://scenes/controlsTouch.tscn").instantiate()
+		if $ButtonLayerCanhoto != null:
+			$ButtonLayerCanhoto.queue_free() # Remove o layout de canhoto
+		add_child(destro_layer)
 
 func enter_level() -> void:
 	if data != null:
@@ -18,8 +35,19 @@ func enter_level() -> void:
 		player.enable()
 	_connect_to_doors()
 
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		game_paused = !game_paused
+		if game_paused:
+			Engine.time_scale = 0
+			pause_menu.visible = true
+		else:
+			Engine.time_scale = 1
+			pause_menu.visible = false
+		get_tree().root.get_viewport().set_input_as_handled()
+
 func init_player_location() -> void:
-	#ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign
+	# ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign
 	if data != null:
 		for door in doors:
 			if door.name == data.entry_door_name:

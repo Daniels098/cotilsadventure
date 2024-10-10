@@ -1,22 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5weuv7hnaoig"]
+[gd_scene load_steps=5 format=3 uid="uid://b5weuv7hnaoig"]
 
 [ext_resource type="Texture2D" uid="uid://bfy5i003vv667" path="res://assets/Sprite-C.png" id="1_78mto"]
 [ext_resource type="Script" path="res://scripts/animacao_logo.gd" id="1_mok7x"]
-
-[sub_resource type="Animation" id="Animation_4itch"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
 
 [sub_resource type="Animation" id="Animation_m453n"]
 resource_name = "anim_C"
@@ -38,7 +23,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pimm1"]
 _data = {
-"RESET": SubResource("Animation_4itch"),
 "anim_C": SubResource("Animation_m453n")
 }
 
@@ -51,7 +35,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_78mto")
 hframes = 6
 vframes = 6
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

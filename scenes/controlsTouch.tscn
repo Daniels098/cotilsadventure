@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=3 uid="uid://b45r27waol4ke"]
+
+[ext_resource type="Texture2D" uid="uid://twudbc3unlqa" path="res://assets/button_up.png" id="1_xj1jq"]
+[ext_resource type="Texture2D" uid="uid://ckqrc8ncgefnf" path="res://assets/button_down.png" id="2_7fgdx"]
+[ext_resource type="Texture2D" uid="uid://crfns2nf0ksj8" path="res://assets/button_up_pressed.png" id="2_aiu75"]
+[ext_resource type="Texture2D" uid="uid://bavbeyqka8lwr" path="res://assets/button_left.png" id="3_6wu7b"]
+[ext_resource type="Texture2D" uid="uid://d05yl7g5s185o" path="res://assets/button_right.png" id="4_bmwmv"]
+[ext_resource type="Texture2D" uid="uid://bbncvi8cx5l6t" path="res://assets/button_down_pressed.png" id="4_p2fcl"]
+[ext_resource type="Texture2D" uid="uid://dmdj0kr05khnn" path="res://assets/button_b.png" id="5_iwtu2"]
+[ext_resource type="Texture2D" uid="uid://02smsekjs60j" path="res://assets/button_a.png" id="6_1vj1g"]
+[ext_resource type="Texture2D" uid="uid://d1t1s3pdhx6ts" path="res://assets/button_left_pressed.png" id="6_snvic"]
+[ext_resource type="Texture2D" uid="uid://dlcd71ay5ymw4" path="res://assets/button_pause.png" id="7_o4hxb"]
+[ext_resource type="Texture2D" uid="uid://dvkvan7d81ra4" path="res://assets/button_right_pressed.png" id="8_xskk2"]
+[ext_resource type="Texture2D" uid="uid://dr7kv8twyp1ao" path="res://assets/button_b_pressed.png" id="10_cq7kr"]
+[ext_resource type="Texture2D" uid="uid://51f8ctelg2gc" path="res://assets/buttons_a_pressed.png" id="12_hrn84"]
+[ext_resource type="Texture2D" uid="uid://rplhtt3biqxa" path="res://assets/button_pause_pressed.png" id="14_gj1t2"]
+
+[node name="ButtonLayerDestro" type="CanvasLayer"]
+
+[node name="button_up" type="TouchScreenButton" parent="."]
+position = Vector2(104, 152)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_xj1jq")
+texture_pressed = ExtResource("2_aiu75")
+action = "move_up"
+visibility_mode = 1
+
+[node name="button_down" type="TouchScreenButton" parent="."]
+position = Vector2(104, 280)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_7fgdx")
+texture_pressed = ExtResource("4_p2fcl")
+action = "move_down"
+visibility_mode = 1
+
+[node name="button_left" type="TouchScreenButton" parent="."]
+position = Vector2(40, 216)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_6wu7b")
+texture_pressed = ExtResource("6_snvic")
+action = "move_left"
+visibility_mode = 1
+
+[node name="button_right" type="TouchScreenButton" parent="."]
+position = Vector2(168, 216)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_bmwmv")
+texture_pressed = ExtResource("8_xskk2")
+action = "move_right"
+visibility_mode = 1
+
+[node name="button_celular" type="TouchScreenButton" parent="."]
+position = Vector2(512, 136)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("10_cq7kr")
+action = "menu"
+visibility_mode = 1
+
+[node name="button_b" type="TouchScreenButton" parent="."]
+position = Vector2(512, 240)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_iwtu2")
+texture_pressed = ExtResource("10_cq7kr")
+action = "inventory"
+visibility_mode = 1
+
+[node name="button_a" type="TouchScreenButton" parent="."]
+position = Vector2(408, 240)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("6_1vj1g")
+texture_pressed = ExtResource("12_hrn84")
+action = "interact"
+visibility_mode = 1
+
+[node name="button_pause" type="TouchScreenButton" parent="."]
+position = Vector2(296, 24)
+scale = Vector2(1.75, 1.75)
+texture_normal = ExtResource("7_o4hxb")
+texture_pressed = ExtResource("14_gj1t2")
+action = "pause"
+visibility_mode = 1

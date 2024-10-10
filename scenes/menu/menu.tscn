@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfujpluwp7nux"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_l3qxp"]
+[ext_resource type="Texture2D" uid="uid://362nku5ne8gm" path="res://assets/desfoque.jpg" id="2_238j0"]
+[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="3_o5tla"]
+[ext_resource type="Theme" uid="uid://w3u0d2w854ih" path="res://temas/menu.tres" id="4_ox82w"]
+[ext_resource type="PackedScene" uid="uid://b5weuv7hnaoig" path="res://scenes/animacao_logo.tscn" id="5_u8t1i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ttqv"]
+line_spacing = 0.0
+font = ExtResource("3_o5tla")
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(1, 0, 0, 1)
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3qxp")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_238j0")
+expand_mode = 1
+
+[node name="title" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 128.0
+text = "Cotil's Adventure
+"
+label_settings = SubResource("LabelSettings_4ttqv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="btn_start" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 294.0
+offset_top = 160.0
+offset_right = 328.0
+offset_bottom = 175.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("4_ox82w")
+text = "START"
+
+[node name="btn_options" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 284.0
+offset_top = 200.0
+offset_right = 335.0
+offset_bottom = 215.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("4_ox82w")
+text = "OPTIONS
+"
+
+[node name="btn_credits" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 284.0
+offset_top = 240.0
+offset_right = 332.0
+offset_bottom = 255.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("4_ox82w")
+text = "CREDITS"
+
+[node name="btn_login" type="Button" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 23.0
+theme = ExtResource("4_ox82w")
+theme_override_fonts/font = ExtResource("3_o5tla")
+theme_override_font_sizes/font_size = 16
+text = "Login"
+
+[node name="btn_quit" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 294.0
+offset_top = 280.0
+offset_right = 327.0
+offset_bottom = 295.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("4_ox82w")
+text = "QUIT"
+
+[node name="Animacao_Logo" parent="." instance=ExtResource("5_u8t1i")]
+position = Vector2(592, 296)
+scale = Vector2(1.2, 1.2)
+
+[connection signal="pressed" from="btn_start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="btn_credits" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="btn_login" to="." method="_on_btn_login_pressed"]
+[connection signal="pressed" from="btn_quit" to="." method="_on_button_4_pressed"]
