@@ -7,14 +7,14 @@ extends Control
 @onready var brilho = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho
 @onready var vsync = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
 @onready var canhoto = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer3/ModeCanhoto
+@onready var main = $".."
 
 """
 	vsync //
 	display //
 	volumes master, music, sfx //
 	max fps //
-	fps show se for f
-	brightness
+	brightness //
 """
 
 func _ready():
@@ -25,7 +25,7 @@ func _ready():
 # ------------- Buttons reset and to back ------------------------
 # Button Voltar
 func _on_button_pressed():
-	SceneManager.load_new_scene("res://scenes/menu/menu.tscn", "wipe_to_right")
+	main.visible = false
 
 # Button Reset
 func _on_reset_button_pressed():
@@ -52,6 +52,40 @@ func _on_reset_button_pressed():
 	
 	# Salvar configurações padrão no arquivo settings.ini
 	var settings = ConfigFileHandler.load_settings()
+	settings["audio"] = {
+		"volumeMaster": 1,
+		"volumeMusic": 1,
+		"volumeSFX": 1
+	}
+	settings["video"] = {
+		"brightness": 0.5,
+		"vsync": true,
+	}
+	settings["Controle"] = {
+		"canhoto": false
+	}
+	ConfigFileHandler.save_settings(settings)
+	# Valores padrão para áudio
+	vol_master.value = 100
+	vol_music.value = 100
+	vol_sfx.value = 100
+	ConfigGeral.set_master_volume(1)
+	ConfigGeral.set_music_volume(1)
+	ConfigGeral.set_sfx_volume(1)
+	
+	# Valor padrão para brilho
+	brilho.value = 50
+	ConfigGeral.set_brightness(0.5)
+	
+	# Valor padrão para Vsync e CheckButton
+	vsync.button_pressed = true
+	ConfigGeral.toggle_vsync()
+	
+	canhoto.button_pressed = false
+	var current_control = "Controle1"
+	
+	# Salvar configurações padrão no arquivo settings.ini
+	settings = ConfigFileHandler.load_settings()
 	settings["audio"] = {
 		"volumeMaster": 1,
 		"volumeMusic": 1,

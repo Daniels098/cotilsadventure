@@ -47,7 +47,7 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 
 func init_player_location() -> void:
-	#ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign
+	# ta dando erro de null pq o level que o boneco vai nao tem player pra dar assign
 	if data != null:
 		for door in doors:
 			if door.name == data.entry_door_name:

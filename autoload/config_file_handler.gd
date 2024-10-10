@@ -148,15 +148,3 @@ func load_control_settings():
 	else:
 		print("Erro: Seção 'Controle' não encontrada nas configurações.")
 		return false
-
-
-"""func load_control_settings(): ####################################
-	var _botao
-	if config.load(SETTINGS_FILE_PATH) == OK:
-		if config.has_section("Controle"):
-			var _control_settings = config.get_section_keys("Controle")
-			_botao = config.get_value("Controle", "controle")
-		else:
-			print("Erro: Seção 'Controle' não encontrada no arquivo de configurações.")
-	else:
-		print("Erro ao carregar o arquivo de configurações.")"""

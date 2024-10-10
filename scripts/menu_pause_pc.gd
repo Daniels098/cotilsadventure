@@ -9,6 +9,7 @@ extends Control
 @onready var vsync = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
 @onready var check_button = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/CheckButton
 @onready var action_list = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer/ScrollContainer/action_list_controls
+@onready var main = $".."
 
 var control_schemes = {
 	"Controle1": {
@@ -178,7 +179,7 @@ func load_vsync():
 		print("Configuração de Vsync não encontrada.")
 
 func _on_button_pressed():
-	SceneManager.load_new_scene("res://scenes/menu/menu.tscn")
+	main.visible = false
 
 func _on_vsync_pressed():
 	ConfigGeral.toggle_vsync()
@@ -242,4 +243,3 @@ func _on_reset_button_pressed():
 		"controle": false
 	}
 	ConfigFileHandler.save_settings(settings)
-

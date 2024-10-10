@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://b3xun5rowowog"]
 
 [ext_resource type="Shader" path="res://scenes/menu/pause_menu.gdshader" id="1_mtjxx"]
-[ext_resource type="Script" path="res://scripts/options_MOBILE.gd" id="2_dmhpn"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_ter0i"]
+[ext_resource type="Script" path="res://scenes/menu/options_MOBILE_pause.gd" id="2_v0ur5"]
+[ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="3_qlk45"]
 [ext_resource type="Texture2D" uid="uid://ccpdcum0eeytj" path="res://assets/grabber.png" id="3_x8a0w"]
 [ext_resource type="Texture2D" uid="uid://cklng2hps6a0e" path="res://assets/grabbe_highlightr.png" id="4_g2yvo"]
 
@@ -32,7 +32,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_dmhpn")
+script = ExtResource("2_v0ur5")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -56,10 +56,11 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="TituloControles" type="Label" parent="Control/PanelContainer/MarginContainer"]
+texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 16
 text = "Configurações"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -97,10 +98,11 @@ layout_mode = 2
 alignment = 1
 
 [node name="Vsync" type="CheckButton" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2"]
+texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 button_pressed = true
 text = "Sincronização Vertical"
 
@@ -113,10 +115,11 @@ layout_mode = 2
 alignment = 1
 
 [node name="ModeCanhoto" type="CheckButton" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer3"]
+texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Modo Canhoto"
 
 [node name="Control3" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
@@ -128,15 +131,16 @@ layout_mode = 2
 alignment = 1
 
 [node name="title_brilho" type="Label" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho"]
+texture_filter = 2
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Brilho"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="spacer" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho"]
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -152,9 +156,10 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="title_vol" type="Label" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
+texture_filter = 2
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -163,15 +168,16 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="title_vol_master" type="Label" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master"]
+texture_filter = 2
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Geral"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="spacer" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master"]
-custom_minimum_size = Vector2(19.64, 0)
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -189,15 +195,16 @@ ticks_on_borders = true
 layout_mode = 2
 
 [node name="title_vol_music" type="Label" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music"]
+texture_filter = 2
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Musica"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="spacer" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music"]
-custom_minimum_size = Vector2(12.99, 0)
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -215,9 +222,10 @@ ticks_on_borders = true
 layout_mode = 2
 
 [node name="title_vol_sfx" type="Label" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx"]
+texture_filter = 2
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 12
 text = "Efeitos "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -238,10 +246,11 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="ResetButton" type="Button" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
+texture_filter = 2
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 16
 text = "Reset to default"
 
 [node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer"]
@@ -249,10 +258,18 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Control/PanelContainer/MarginContainer"]
+texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_ter0i")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_qlk45")
+theme_override_font_sizes/font_size = 16
 text = "Voltar"
 
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync" to="Control" method="_on_vsync_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer3/ModeCanhoto" to="Control" method="_on_mode_canhoto_pressed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho" to="Control" method="_on_slider_brilho_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master" to="Control" method="_on_vol_master_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music" to="Control" method="_on_vol_music_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx" to="Control" method="_on_vol_sfx_value_changed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ResetButton" to="Control" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/Button" to="Control" method="_on_button_pressed"]
