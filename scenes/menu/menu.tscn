@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfujpluwp7nux"]
+[gd_scene load_steps=8 format=3 uid="uid://bfujpluwp7nux"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_l3qxp"]
 [ext_resource type="Texture2D" uid="uid://362nku5ne8gm" path="res://assets/desfoque.jpg" id="2_238j0"]
 [ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="3_o5tla"]
 [ext_resource type="Theme" uid="uid://w3u0d2w854ih" path="res://temas/menu.tres" id="4_ox82w"]
 [ext_resource type="PackedScene" uid="uid://b5weuv7hnaoig" path="res://scenes/animacao_logo.tscn" id="5_u8t1i"]
+[ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="6_6qjbt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ttqv"]
 line_spacing = 0.0
@@ -33,8 +34,9 @@ expand_mode = 1
 [node name="title" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
+offset_top = -24.0
 offset_right = 640.0
-offset_bottom = 128.0
+offset_bottom = 104.0
 text = "Cotil's Adventure
 "
 label_settings = SubResource("LabelSettings_4ttqv")
@@ -45,10 +47,10 @@ uppercase = true
 [node name="btn_start" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 294.0
-offset_top = 160.0
-offset_right = 328.0
-offset_bottom = 175.0
+offset_left = 298.0
+offset_top = 168.0
+offset_right = 332.0
+offset_bottom = 183.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "START"
@@ -56,10 +58,10 @@ text = "START"
 [node name="btn_options" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 284.0
-offset_top = 200.0
-offset_right = 335.0
-offset_bottom = 215.0
+offset_left = 288.0
+offset_top = 208.0
+offset_right = 339.0
+offset_bottom = 223.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "OPTIONS
@@ -68,10 +70,10 @@ text = "OPTIONS
 [node name="btn_credits" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 284.0
-offset_top = 240.0
-offset_right = 332.0
-offset_bottom = 255.0
+offset_left = 288.0
+offset_top = 248.0
+offset_right = 336.0
+offset_bottom = 263.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "CREDITS"
@@ -92,10 +94,10 @@ text = "Login"
 [node name="btn_quit" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 294.0
-offset_top = 280.0
-offset_right = 327.0
-offset_bottom = 295.0
+offset_left = 298.0
+offset_top = 288.0
+offset_right = 331.0
+offset_bottom = 303.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_ox82w")
 text = "QUIT"
@@ -103,6 +105,30 @@ text = "QUIT"
 [node name="Animacao_Logo" parent="." instance=ExtResource("5_u8t1i")]
 position = Vector2(592, 296)
 scale = Vector2(1.2, 1.2)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 240.0
+offset_top = 120.0
+offset_right = 400.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("6_6qjbt")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Nome"
+expand_to_text_length = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 96.0
+offset_right = 424.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("6_6qjbt")
+theme_override_font_sizes/font_size = 14
+text = "Digite seu nome para iniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="btn_start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]

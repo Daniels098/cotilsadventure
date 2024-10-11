@@ -11,18 +11,20 @@ shadow_offset = Vector2(30, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17cna"]
 bg_color = Color(1, 1, 1, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljhlj"]
-bg_color = Color(0.760784, 0.341176, 0.411765, 1)
+bg_color = Color(0.739809, 0, 0, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
 
 [sub_resource type="Animation" id="Animation_p3sxh"]
 length = 0.001
@@ -502,6 +504,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_awhaq")
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 unique_name_in_owner = true
 visible = false
+texture_filter = 2
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 1
 anchors_preset = 8
@@ -517,6 +520,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_17cna")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ljhlj")
+value = 20.0
 show_percentage = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_eee55"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_nep6t"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_5ucg7"]
-[ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://scenes/items/item_documento.tscn" id="3_m6uhx"]
+[ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://inventory/items/item_documento.tscn" id="3_m6uhx"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_b7sux"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_1k5pq"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_axsjg"]
@@ -3804,13 +3804,14 @@ script = ExtResource("1_xo1qc")
 player = NodePath("Player")
 doors = [NodePath("escada_terreo"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_patio")]
 
-[node name="Inv_GUI" parent="." instance=ExtResource("2_eee55")]
-visible = false
-
 [node name="MenuPause" parent="." instance=ExtResource("7_axsjg")]
 visible = false
 
-[node name="ButtonLayer" parent="." instance=ExtResource("5_1k5pq")]
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("5_1k5pq")]
+
+[node name="Inv_GUI" parent="." instance=ExtResource("2_eee55")]
+layer = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0

@@ -6,6 +6,7 @@ extends Node2D
 @onready var img = $Sprite2D
 
 func _ready():
+	ConfigGeral.center_window()
 	anim_letters()
 	terminar_inicio()
 

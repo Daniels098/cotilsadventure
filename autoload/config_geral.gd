@@ -3,6 +3,8 @@ extends Node
 var settings = {}
 var current_control = "Controle1"
 var is_canhoto
+var nome_player
+
 const ControleGeral = {
 	"W": KEY_W,
 	"A": KEY_A,
@@ -86,6 +88,8 @@ func center_window():
 
 # Ajustar o brilho
 func set_brightness(value: float):
+	if not settings.has("video"):
+		settings["video"] = {}
 	settings["video"]["brightness"] = value
 	RenderingServer.set_default_clear_color(Color(value, value, value))
 	save_settings()
@@ -94,18 +98,24 @@ func set_brightness(value: float):
 
 # Ajustar volume master
 func set_master_volume(value: float):
+	if not settings.has("audio"):
+		settings["audio"] = {}
 	settings["audio"]["volumeMaster"] = value
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume da música
 func set_music_volume(value: float):
+	if not settings.has("audio"):
+		settings["audio"] = {}
 	settings["audio"]["volumeMusic"] = value
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume dos efeitos sonoros (SFX)
 func set_sfx_volume(value: float):
+	if not settings.has("audio"):
+		settings["audio"] = {}
 	settings["audio"]["volumeSFX"] = value
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 	save_settings()
@@ -170,6 +180,11 @@ func set_canhoto(val: bool):
 	save_settings()
 
 # -------------------- Funções Auxiliares --------------------
+
+# Função do nome do jogador
+func set_name_player(nome: String):
+	nome_player = nome
+	print(nome_player)
 
 # Converter valor linear para dB (usado em volumes)
 func linear_to_db(value: float) -> float:

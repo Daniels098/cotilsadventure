@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bcb8p606w2plt" path="res://assets/documento.png" id="1_7l8wo"]
 [ext_resource type="Script" path="res://scripts/item_documento.gd" id="1_a1r03"]
-[ext_resource type="Resource" uid="uid://bth58ik00vaai" path="res://inventory/documento.tres" id="2_e64rn"]
+[ext_resource type="Resource" uid="uid://bth58ik00vaai" path="res://inventory/items/documento.tres" id="2_6o8cl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72d7n"]
 size = Vector2(16, 16)
 
 [node name="ItemDocumento" type="Node2D"]
 script = ExtResource("1_a1r03")
-item = ExtResource("2_e64rn")
+item = ExtResource("2_6o8cl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7l8wo")

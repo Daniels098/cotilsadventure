@@ -7,6 +7,7 @@ var data:LevelDataHandoff
 var game_paused = false
 var button_layer = preload("res://scenes/controlsTouch.tscn")
 var button_layer_canhoto = preload("res://scenes/controlsTouchCanhoto.tscn")
+var _save: SaveGame
 
 func _ready():
 	if player != null:

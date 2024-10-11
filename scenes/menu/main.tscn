@@ -136,9 +136,9 @@ offset_bottom = 253.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Feito por:
-Bruno Oliveira Fransiquétí
-Daniel de Zouza Ferreira
-Édúáŕdó dóś Śáńtóś dé Áŕáúj́ó"
+Bruno Oliveira Francischetti
+Daniel de Sousa Ferreira
+Eduardo dos Santos de Araujo"
 label_settings = SubResource("LabelSettings_mkmjk")
 horizontal_alignment = 1
 vertical_alignment = 1

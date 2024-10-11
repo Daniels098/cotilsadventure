@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var item: InvItem
-var jog = Player.new()
 
-func _on_area_2d_body_entered(body):
-	if not body is Player:
+func _on_area_2d_body_entered(player: Player):
+	if not player is Player:
 		return
-	jog.collect(item)
+	var collected = item
+	player.collect(collected)
 	queue_free()
