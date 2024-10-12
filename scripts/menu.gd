@@ -36,7 +36,7 @@ func _process(delta):
 
 func _on_button_pressed():
 	if get_playername():
-		invi.load_inventory()
+		# invi.load_inventory()
 		SceneManager.load_new_scene(last_scene, "wipe_to_right")
 
 func _on_button_4_pressed():

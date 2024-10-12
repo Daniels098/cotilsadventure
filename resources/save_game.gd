@@ -7,73 +7,77 @@ var inv := Inv.new()
 var jso := JSON.new()
 
 # Função para salvar os dados do jogador
-func save_game(cfg: String, player: Player, inv: Inv, scene_name: String, mission: String) -> void:
-	cfg = ConfigGeral.nome_player
+func save_game(name: String, player: Player, invi: Inv, scene_name: String, mission: String) -> void:
+	name = ConfigGeral.nome_player
 	var save_data = {
-		"player_name": cfg,
+		"player_name": name,
 		"position": {
 			"x": player.position.x,
 			"y": player.position.y
 		},
 		"scene": scene_name,
 		"mission": mission, # ID da missão possivelmente
-		"inventory": get_node("/root/GlobalInventory").invi.save()
+		"inventory": []
 	}
-	"""# Salvar inventário
-	for slot in inv.slots:
-		if slot.item:
-			save_data["inventory"].append({
-			"item_name": slot.item.nome,
-			"amount": slot.amount
-			})"""
+	# Salvar inventário
+	if invi.slots.size() > 0:
+		for slot in invi.slots:
+			if slot.item:
+				save_data["inventory"].append({
+				"item_name": slot.item.nome,
+				"amount": slot.amount
+				})
 	
 	# Escrever o arquivo de save
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
-		file.store_string(
-			jso.stringify(save_data, "\t")
-		)
+		file.store_string(jso.stringify(save_data, "\t"))
 		file.close()
 		print("Jogo salvo com sucesso!")
+	else:
+		print("Falha ao salvar o jogo!")
 
 # Função para carregar os dados do jogador
-func load_game(cfg: String, player: Player, inv: Inv) -> Dictionary:
+func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()
 		var error = jso.parse(json_string)
-		# cfg = ConfigGeral.nome_player
 		if error == OK:
 			var data = jso.data
 			if typeof(data) == TYPE_DICTIONARY:
-				# print(data)
-				cfg = data["player_name"]
+				name = data["player_name"]
 				player.current_scene = data["scene"]
 				player.position.x = data["position"]["x"]
 				player.position.y = data["position"]["y"]
 				player.current_mission = data["mission"]
-				for i in range(min(inv.slots.size(), data["inventory"].size())):
-					var item_data = data["inventory"][i]
-					var item = get_item_by_name(item_data["item_name"])
-					if item:
-						inv.slots[i].item = item
-						inv.slots[i].amount = item_data["amount"]
+				var saved_inventory = data["inventory"]
+				print("INVENTARIO ABAIXO")
+				print(saved_inventory)
+				for i in range(saved_inventory.size()):
+					var item_data = saved_inventory[i]
+					var item_name = item_data["item_name"]
+					var item_amount = item_data["amount"]
+					
+					if i < inv.slots.size():
+						var slot = inv.slots[i]
+						
+						# Cria um novo item e o coloca no slot
+						if item_name != "" and item_amount > 0:
+							var new_item = invi.get_item_by_name(item_name)
+							if new_item:
+								slot.item = new_item
+								slot.amount = item_amount
+				
 				file.close()
 				print("Jogo carregado com sucesso!")
 				return data
 			else:
-				print("'Data' são é um Dictionary")
-				return data
+				print("'Data' são é um Dictionary, dados inválidos no arquivo de save")
+				return {}
 		else:
-			print("Erro ao carregar JSON: ", jso.error)
+			print("Erro ao carregar JSON: ", jso.get_error_message())
 			return {}
 	else:
 		print("Arquivo de save não encontrado.")
 		return {}
-
-# Função auxiliar para encontrar o item pelo nome
-func get_item_by_name(item_name: String) -> InvItem:
-	for item in inv.slots:
-		if item.item and item.item.nome == item_name:
-			return item.item
-	return null

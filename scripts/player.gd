@@ -34,13 +34,13 @@ func collect(item: InvItem):
 func save_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var mission = "Missão atual" # Salvar ID da missão
-	invi.save()
+	invi.save_inventory(savgm.SAVE_PATH)
 	savgm.save_game(nome, self, invi, scene_path_name, mission)
 
 func load_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var data = savgm.load_game(nome, self, invi)
-	invi.load(data["inventory"])
+	invi.load_inventory(savgm.SAVE_PATH)
 	var scene_name = data["scene"]
 	if scene_name != scene_path_name:
 		print(data["inventory"])
