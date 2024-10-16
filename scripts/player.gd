@@ -34,15 +34,14 @@ func collect(item: InvItem):
 func save_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var mission = "Missão atual" # Salvar ID da missão
-	invi.save_inventory(savgm.SAVE_PATH)
-	savgm.save_game(nome, self, invi, scene_path_name, mission)
+	savgm.save_game(self, invi, scene_path_name, mission)
 
 func load_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var data = savgm.load_game(nome, self, invi)
-	invi.load_inventory(savgm.SAVE_PATH)
 	var scene_name = data["scene"]
 	if scene_name != scene_path_name:
+		print("INVENTAAAARIOOOO PELO LOAD PLAYER DATA")
 		print(data["inventory"])
 		SceneManager.load_new_scene(scene_name)
 	else:
@@ -51,9 +50,7 @@ func load_player_data():
 
 
 func get_save_data() -> Dictionary:
-	print(ConfigGeral.nome_player)
 	return {
-		"player_name": ConfigGeral.nome_player,
 		"inventory_items": invi,
 		"mission": current_mission,
 		"current_scene": get_tree().current_scene.name,
@@ -61,7 +58,6 @@ func get_save_data() -> Dictionary:
 		}
 
 func load_save_data(data: Dictionary) -> void:
-	ConfigGeral.nome_player = data.get("player_name", "")
 	invi = data.get("inventory_items", [])
 	current_mission = data.get("mission", "")
 	current_scene = data.get("current_scene", "")

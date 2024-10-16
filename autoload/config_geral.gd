@@ -183,8 +183,11 @@ func set_canhoto(val: bool):
 
 # Função do nome do jogador
 func set_name_player(nome: String):
-	nome_player = nome
+	nome_player = nome # Função pra setar o nome pelo settings.ini
 	print(nome_player)
+
+func get_name_player():
+	pass # Função pra pegar o nome pelo settings.ini
 
 # Converter valor linear para dB (usado em volumes)
 func linear_to_db(value: float) -> float:

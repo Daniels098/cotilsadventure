@@ -3,14 +3,12 @@ class_name SaveGame
 # Caminho para o arquivo de save
 const SAVE_PATH = "user://save_game.json"
 var data = {}
-var inv := Inv.new()
+# var inv := Inv.new()
 var jso := JSON.new()
 
 # Função para salvar os dados do jogador
-func save_game(name: String, player: Player, invi: Inv, scene_name: String, mission: String) -> void:
-	name = ConfigGeral.nome_player
+func save_game(player: Player, invi: Inv, scene_name: String, mission: String) -> void:
 	var save_data = {
-		"player_name": name,
 		"position": {
 			"x": player.position.x,
 			"y": player.position.y
@@ -46,29 +44,23 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 		if error == OK:
 			var data = jso.data
 			if typeof(data) == TYPE_DICTIONARY:
-				name = data["player_name"]
 				player.current_scene = data["scene"]
 				player.position.x = data["position"]["x"]
 				player.position.y = data["position"]["y"]
 				player.current_mission = data["mission"]
 				var saved_inventory = data["inventory"]
-				print("INVENTARIO ABAIXO")
-				print(saved_inventory)
-				for i in range(saved_inventory.size()):
-					var item_data = saved_inventory[i]
-					var item_name = item_data["item_name"]
-					var item_amount = item_data["amount"]
-					
-					if i < inv.slots.size():
-						var slot = inv.slots[i]
-						
-						# Cria um novo item e o coloca no slot
-						if item_name != "" and item_amount > 0:
-							var new_item = invi.get_item_by_name(item_name)
-							if new_item:
-								slot.item = new_item
-								slot.amount = item_amount
-				
+				# print("INVENTARIO ABAIXO")
+				# print(saved_inventory)
+				invi.populate_all_items()
+				for slot in invi.slots:
+					slot.item = null
+					slot.amount = 0
+				for i in range(min(saved_inventory.size(), invi.slots.size())):
+					var item_data = data["inventory"][i]
+					var item = invi.get_item_by_name(item_data["item_name"])
+					if item:
+						invi.slots[i].item = item
+						invi.slots[i].amount = item_data["amount"]
 				file.close()
 				print("Jogo carregado com sucesso!")
 				return data

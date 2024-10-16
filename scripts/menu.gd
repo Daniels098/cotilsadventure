@@ -31,6 +31,7 @@ func load_user_settings():
 		ConfigGeral.set_display_mode(display_mode)
 
 func _process(delta):
+	# analize_name()
 	get_playername()
 	$Label.text = "Digite seu nome para iniciar!"
 
@@ -52,6 +53,14 @@ func _on_btn_options_pressed():
 func _on_button_3_pressed():
 	SceneManager.load_new_scene("res://scenes/menu/credits.tscn", "wipe_to_right")
 
+func analize_name(): # Pegar nome da função do settings
+	if ConfigGeral.nome_player != null:
+		$LineEdit.editable = true
+		get_playername()
+	else:
+		$LineEdit.editable = false
+		$LineEdit.text = ConfigGeral.nome_player
+
 func get_playername():
 	var name = input.text
 	if !name.is_empty() && name.length() > 3 && !name.is_valid_int() && !name.is_valid_float():
@@ -61,7 +70,7 @@ func get_playername():
 		return true
 	else:
 		$btn_start.disabled = true
-		print("Insira apenas letras")
+		# print("Insira apenas letras")
 		return false
 
 func _on_btn_login_pressed():
