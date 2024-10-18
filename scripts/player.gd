@@ -14,6 +14,8 @@ var is_moving = false
 var last_direction = Vector2.DOWN
 var charac = Character.new()
 var savgm = SaveGame.new()
+const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
+var emot = EmotionAnim.new()
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
@@ -41,8 +43,8 @@ func load_player_data():
 	var data = savgm.load_game(nome, self, invi)
 	var scene_name = data["scene"]
 	if scene_name != scene_path_name:
-		print("INVENTAAAARIOOOO PELO LOAD PLAYER DATA")
-		print(data["inventory"])
+		# print("INVENTAAAARIOOOO PELO LOAD PLAYER DATA")
+		# print(data["inventory"])
 		SceneManager.load_new_scene(scene_name)
 	else:
 		#print(data)
@@ -66,6 +68,11 @@ func load_save_data(data: Dictionary) -> void:
 func disable():
 	input_enabled = false
 	visible = false
+
+func in_dialogue():
+	input_enabled = false
+	if !has_node("../DialogBalloon"):
+		input_enabled = true
 
 func enable():
 	input_enabled = true
@@ -100,10 +107,12 @@ func _physics_process(delta):
 		else:
 			move(direction)
 			idle_animation()
+	
 	if Input.is_action_just_pressed("interact"):
 		save_player_data()
 	if Input.is_action_just_pressed("run"):
-		load_player_data()                
+		load_player_data()
+	in_dialogue()        
 
 func move(input_direct: Vector2):
 	if input_direct.x > 0:
@@ -126,3 +135,26 @@ func idle_animation():
 		anim_player.play("Left")
 	elif last_direction == Vector2.RIGHT:
 		anim_player.play("Right")
+
+func balloon_anim(time = 2.0, offset_x = 0.0, offset_y = 0.0) -> EmotionAnim:
+	var instance = EMOTE_SCENE.instantiate()
+	add_child(instance)
+	instance.destroy(time)
+	instance.global_position = Vector2(global_position.x + offset_x, global_position.y + offset_y)
+	return instance
+
+func anim_exclama(time = 2.0):
+	var instance = balloon_anim(time, 11.0, -21.0)
+	instance.play_exclama()
+
+func anim_feliz(time = 2.0):
+	var instance = balloon_anim(time, 11.0, -21.0)
+	instance.play_feliz()
+
+func anim_reticen(time = 2.0):
+	var instance = balloon_anim(time, 11.0, -21.0)
+	instance.play_reticen()
+
+func anim_interr(time = 2.0):
+	var instance = balloon_anim(time, 11.0, -21.0)
+	instance.play_interr()

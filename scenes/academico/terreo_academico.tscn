@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4koc4ijprod"]
+[gd_scene load_steps=12 format=3 uid="uid://b4koc4ijprod"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_xo1qc"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_eee55"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_5ucg7"]
 [ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://inventory/items/item_documento.tscn" id="3_m6uhx"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_b7sux"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_knofr"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_1k5pq"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_axsjg"]
 
@@ -353,6 +354,7 @@ texture = ExtResource("2_nep6t")
 13:4/0 = 0
 13:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:4/0/physics_layer_0/angular_velocity = 0.0
+13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:4/0 = 0
 14:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:4/0/physics_layer_0/angular_velocity = 0.0
@@ -3808,6 +3810,10 @@ doors = [NodePath("escada_terreo"), NodePath("pass_leste_terr"), NodePath("pass_
 visible = false
 
 [node name="ButtonLayerDestro" parent="." instance=ExtResource("5_1k5pq")]
+visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_knofr")]
+visible = false
 
 [node name="Inv_GUI" parent="." instance=ExtResource("2_eee55")]
 layer = 3
@@ -3830,9 +3836,8 @@ position = Vector2(304, 208)
 disable_mode = 1
 
 [node name="ItemDocumento" parent="." instance=ExtResource("3_m6uhx")]
-position = Vector2(312, 152)
-rotation = 0.436332
-scale = Vector2(0.6, 0.6)
+position = Vector2(312, 150)
+scale = Vector2(0.5, 0.5)
 
 [node name="escada_terreo" parent="." instance=ExtResource("4_b7sux")]
 position = Vector2(344, 112)

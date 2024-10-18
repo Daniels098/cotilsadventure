@@ -23,11 +23,13 @@ func load_button_layout():
 		if $ButtonLayerDestro != null:
 			$ButtonLayerDestro.queue_free() # Remove o layout de destro
 		add_child(canhoto_layer)
+		canhoto_layer.visible = true
 	else:
 		var destro_layer = preload("res://scenes/controlsTouch.tscn").instantiate()
 		if $ButtonLayerCanhoto != null:
 			$ButtonLayerCanhoto.queue_free() # Remove o layout de canhoto
 		add_child(destro_layer)
+		destro_layer.visible = true
 
 func enter_level() -> void:
 	if data != null:

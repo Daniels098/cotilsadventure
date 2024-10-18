@@ -1,0 +1,9 @@
+~ startDocument
+Voz do Além: Você achou um documento!
+Voz do Além: Acho melhor guardar na sua mochila para não perder!
+=> END
+
+~ startMochila
+[ConfigGeral.name_player]: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
+=> END
+
