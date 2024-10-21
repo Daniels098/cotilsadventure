@@ -7,8 +7,9 @@ var data = {}
 var jso := JSON.new()
 
 # Função para salvar os dados do jogador
-func save_game(player: Player, invi: Inv, scene_name: String, mission: String) -> void:
+func save_game(nome: String, player: Player, invi: Inv, scene_name: String, mission: String) -> void:
 	var save_data = {
+		"player": nome,
 		"position": {
 			"x": player.position.x,
 			"y": player.position.y
@@ -44,6 +45,7 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 		if error == OK:
 			var data = jso.data
 			if typeof(data) == TYPE_DICTIONARY:
+				name = data["player"]
 				player.current_scene = data["scene"]
 				player.position.x = data["position"]["x"]
 				player.position.y = data["position"]["y"]

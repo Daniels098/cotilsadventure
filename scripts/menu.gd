@@ -5,6 +5,7 @@ var last_scene = "res://scenes/areaLivreCotil/cantina_pra_escada.tscn"  # Cena p
 var jso = JSON.new()
 var invi = Inv.new()
 var inventory: Array
+var nome: String
 @onready var input = $LineEdit
 
 func _ready():
@@ -31,8 +32,8 @@ func load_user_settings():
 		ConfigGeral.set_display_mode(display_mode)
 
 func _process(delta):
-	# analize_name()
-	get_playername()
+	analize_name()
+	# get_playername()
 	$Label.text = "Digite seu nome para iniciar!"
 
 func _on_button_pressed():
@@ -53,19 +54,22 @@ func _on_btn_options_pressed():
 func _on_button_3_pressed():
 	SceneManager.load_new_scene("res://scenes/menu/credits.tscn", "wipe_to_right")
 
-func analize_name(): # Pegar nome da função do settings
-	if ConfigGeral.nome_player != null:
+func analize_name():
+	var nome = ConfigGeral.get_name_player()
+	print("DENTRO DE ANALIZE NAME")
+	print(nome)
+	if nome != "" and nome != null:
 		$LineEdit.editable = true
 		get_playername()
 	else:
 		$LineEdit.editable = false
-		$LineEdit.text = ConfigGeral.nome_player
+		$LineEdit.text = ConfigGeral.get_name_player()
 
 func get_playername():
-	var name = input.text
-	if !name.is_empty() && name.length() > 3 && !name.is_valid_int() && !name.is_valid_float():
+	nome = input.text
+	if !nome.is_empty() && nome.length() > 3 && !nome.is_valid_int() && !nome.is_valid_float():
 		$btn_start.disabled = false
-		name = name.to_lower().capitalize()
+		nome = nome.to_lower().capitalize()
 		ConfigGeral.set_name_player(name)
 		return true
 	else:
@@ -74,5 +78,4 @@ func get_playername():
 		return false
 
 func _on_btn_login_pressed():
-	pass #SceneManager.load_new_scene("res://scenes/menu/login_menu.tscn", "wipe_to_right")
-
+	SceneManager.load_new_scene("res://scenes/menu/login_menu.tscn", "wipe_to_right")

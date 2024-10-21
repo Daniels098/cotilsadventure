@@ -17,6 +17,10 @@ var savgm = SaveGame.new()
 const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
 var emot = EmotionAnim.new()
 
+func _ready():
+	nome = ConfigGeral.get_name_player()
+	print(nome)
+
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
 		if input_direct.x > 0:
@@ -36,7 +40,7 @@ func collect(item: InvItem):
 func save_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var mission = "Missão atual" # Salvar ID da missão
-	savgm.save_game(self, invi, scene_path_name, mission)
+	savgm.save_game(nome, self, invi, scene_path_name, mission)
 
 func load_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
@@ -50,9 +54,9 @@ func load_player_data():
 		#print(data)
 		print("Já está na cena")
 
-
 func get_save_data() -> Dictionary:
 	return {
+		"player": nome,
 		"inventory_items": invi,
 		"mission": current_mission,
 		"current_scene": get_tree().current_scene.name,
@@ -60,6 +64,7 @@ func get_save_data() -> Dictionary:
 		}
 
 func load_save_data(data: Dictionary) -> void:
+	nome = data.get("player", "")
 	invi = data.get("inventory_items", [])
 	current_mission = data.get("mission", "")
 	current_scene = data.get("current_scene", "")

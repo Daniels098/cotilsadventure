@@ -69,7 +69,7 @@ func _on_registrar_button_down():
 	if created:
 		$Aviso2.visible = false
 	
-	dao.insertUserData(username, nome, email, password)
+	# dao.insertUserData(username, nome, email, password)
 	print("inserido")
 
 func _on_voltar_button_down():

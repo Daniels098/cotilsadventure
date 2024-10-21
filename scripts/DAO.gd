@@ -4,7 +4,6 @@ class_name DAO
 var db
 
 func _init():
-	db = SQLite.new()
 	db.path = "user://data.db"
 	db.open_db()
 	
