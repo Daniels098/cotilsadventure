@@ -17,7 +17,7 @@ func _ready():
 		enter_level()
 	load_button_layout()
 
-func load_button_layout():
+func load_button_layout(): ## Arrumar
 	if ConfigGeral.is_canhoto:
 		var canhoto_layer = preload("res://scenes/controlsTouchCanhoto.tscn").instantiate()
 		if $ButtonLayerDestro != null:

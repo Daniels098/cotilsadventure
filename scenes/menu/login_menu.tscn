@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfwldnw50xw7n"]
 
 [ext_resource type="Script" path="res://scripts/login_menu.gd" id="1_6bby3"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_cqku1"]
+[ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="2_21l0e"]
 
 [node name="LoginMenu" type="Control"]
 layout_mode = 3
@@ -20,12 +20,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="Titulo" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 8.0
-offset_right = 598.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 32
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 592.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 text = "Salve seu progresso criando uma conta!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -33,151 +33,130 @@ vertical_alignment = 1
 [node name="Aviso" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 248.0
-offset_top = 216.0
-offset_right = 392.0
-offset_bottom = 240.0
+offset_left = 224.0
+offset_top = 48.0
+offset_right = 416.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-text = "As senhas nao coincidem!"
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Aviso2" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 248.0
-offset_top = 216.0
-offset_right = 392.0
-offset_bottom = 240.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-text = "Uma conta ja foi criada!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="UsernameRe" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 96.0
-offset_right = 408.0
-offset_bottom = 121.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-placeholder_text = "Usuario"
-scroll_fit_content_height = true
-
-[node name="UsernameLo" type="TextEdit" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 248.0
-offset_top = 136.0
-offset_right = 392.0
-offset_bottom = 160.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-placeholder_text = "Usuario ou Email"
 
 [node name="NomeRe" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 120.0
+offset_top = 80.0
 offset_right = 408.0
-offset_bottom = 145.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-placeholder_text = "Nome"
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Digite seu nome"
 scroll_fit_content_height = true
 
 [node name="EmailRe" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 144.0
+offset_top = 112.0
 offset_right = 408.0
-offset_bottom = 169.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-placeholder_text = "Email"
+offset_bottom = 144.0
+theme_type_variation = &"*"
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Digite seu username"
 scroll_fit_content_height = true
 
 [node name="PasswordRe" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 168.0
+offset_top = 144.0
 offset_right = 408.0
-offset_bottom = 193.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
+offset_bottom = 176.0
+scale = Vector2(1.00306, 0.941085)
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 placeholder_text = "Digite sua senha"
 scroll_fit_content_height = true
-
-[node name="PasswordLo" type="TextEdit" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 248.0
-offset_top = 168.0
-offset_right = 392.0
-offset_bottom = 192.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
-placeholder_text = "Digite sua senha"
 
 [node name="RePasswordRe" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 192.0
+offset_top = 176.0
 offset_right = 408.0
-offset_bottom = 217.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 16
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 placeholder_text = "Confirme sua senha"
 scroll_fit_content_height = true
 
 [node name="Registrar" type="Button" parent="."]
 layout_mode = 0
 offset_left = 248.0
-offset_top = 248.0
+offset_top = 224.0
 offset_right = 392.0
-offset_bottom = 282.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 32
+offset_bottom = 258.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 text = "Registrar-se
 "
 
-[node name="ToggleRegisterLogin" type="Button" parent="."]
+[node name="PasswordLo" type="TextEdit" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 424.0
-offset_top = 304.0
-offset_right = 608.0
-offset_bottom = 331.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 23
-text = "Ja possui uma conta?"
+offset_left = 232.0
+offset_top = 152.0
+offset_right = 408.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Digite sua senha"
+scroll_fit_content_height = true
+structured_text_bidi_override = 6
+
+[node name="EmailLo" type="TextEdit" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 232.0
+offset_top = 120.0
+offset_right = 408.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Digite seu username"
+scroll_fit_content_height = true
 
 [node name="Entrar" type="Button" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 272.0
-offset_top = 216.0
+offset_top = 208.0
 offset_right = 368.0
-offset_bottom = 250.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 32
+offset_bottom = 242.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 text = "Entrar"
+
+[node name="ToggleRegisterLogin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 304.0
+offset_right = 592.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
+text = "Ja possui uma conta?"
 
 [node name="Voltar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 304.0
-offset_right = 106.0
-offset_bottom = 338.0
-theme_override_fonts/font = ExtResource("2_cqku1")
-theme_override_font_sizes/font_size = 32
+offset_left = 48.0
+offset_top = 296.0
+offset_right = 122.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("2_21l0e")
+theme_override_font_sizes/font_size = 14
 text = "Voltar"
 
 [connection signal="button_down" from="Registrar" to="." method="_on_registrar_button_down"]
-[connection signal="button_down" from="ToggleRegisterLogin" to="." method="_on_toggle_register_login_button_down"]
 [connection signal="button_down" from="Entrar" to="." method="_on_entrar_button_down"]
+[connection signal="button_down" from="ToggleRegisterLogin" to="." method="_on_toggle_register_login_button_down"]
 [connection signal="button_down" from="Voltar" to="." method="_on_voltar_button_down"]

@@ -1,9 +1,11 @@
 extends Node
 
 var settings = {}
+var data_cloud
 var current_control = "Controle1"
 var is_canhoto
-var nome_player: String
+var nome_player: String = "Aluno"
+var username: String
 
 const ControleGeral = {
 	"W": KEY_W,

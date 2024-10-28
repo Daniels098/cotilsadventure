@@ -1,10 +1,10 @@
 class_name Player extends CharacterBody2D
 
+@onready var anim_player = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D 
 @export var speed: int = 80
 @export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
-@onready var anim_player = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D 
 @export var nome: String
 @export var pos_player: Vector2
 @export var current_mission: String 
@@ -38,21 +38,26 @@ func collect(item: InvItem):
 	invi.insert(item)
 
 func save_player_data():
+	print("Invi (Inventário):", invi)
+	print("Slots no inventário:", invi.slots)
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var mission = "Missão atual" # Salvar ID da missão
-	savgm.save_game(nome, self, invi, scene_path_name, mission)
+	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, mission)
 
 func load_player_data():
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var data = savgm.load_game(nome, self, invi)
-	var scene_name = data["scene"]
+	# Verifica se 'scene' existe e é válida antes de usar
+	var scene_name = data["scene"] if data.has("scene") and data["scene"] != null else scene_path_name
+	# Carrega a cena se for diferente da atual
 	if scene_name != scene_path_name:
-		# print("INVENTAAAARIOOOO PELO LOAD PLAYER DATA")
-		# print(data["inventory"])
+		print("INVENTÁRIO PELO LOAD PLAYER DATA")
+		print(data.get("inventory", []))
 		SceneManager.load_new_scene(scene_name)
 	else:
-		#print(data)
-		print("Já está na cena")
+		print(data)
+		print("Já está na cena atual")
+
 
 func get_save_data() -> Dictionary:
 	return {
