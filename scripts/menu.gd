@@ -3,8 +3,8 @@ class_name Menu extends Control
 var settings = {}
 var last_scene = "res://scenes/areaLivreCotil/cantina_pra_escada.tscn"  # Cena padrão
 var jso = JSON.new()
-var invi = Inv.new()
 var inventory: Array
+var savgm := SaveGame.new()
 
 func _ready():
 	load_user_settings()
@@ -13,14 +13,15 @@ func _ready():
 func load_last_scene():
 	var cloud = ConfigGeral.data_cloud
 	var file = FileAccess.open("user://save_game.json", FileAccess.READ)
+	# print(cloud)
 	if file:
 		var json_string = file.get_as_text()
 		var error = jso.parse(json_string)
 		if error == OK:
 			last_scene = jso.data["scene"]
 		file.close()
-	elif cloud["scene"] != null:
-		print(cloud["scene"])
+	elif cloud and cloud.has("scene") and cloud["scene"] != null:
+		# print(cloud["scene"])
 		last_scene = cloud["scene"]
 
 func load_user_settings():

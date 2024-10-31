@@ -3801,7 +3801,7 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_sbpvx")
 
-[node name="CorredorTerreoAcademico" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_xo1qc")
 player = NodePath("Player")
 doors = [NodePath("escada_terreo"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_patio")]

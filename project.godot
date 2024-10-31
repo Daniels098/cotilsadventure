@@ -29,6 +29,7 @@ SceneManager="*res://autoload/scene_manager.gd"
 ConfigFileHandler="*res://autoload/config_file_handler.gd"
 HttpsRequest="*res://autoload/https_request.gd"
 CredentialsManager="*res://autoload/credentials_manager.gd"
+ManagerSave="*res://resources/manager_save.gd"
 
 [dialogue_manager]
 

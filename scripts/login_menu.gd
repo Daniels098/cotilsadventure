@@ -82,6 +82,8 @@ func _on_registrar_button_down():
 				print(data)
 				HttpsRequest.send_request_register(data)
 				toggle_register_login()
+				$PasswordLo.text = password
+				$EmailLo.text = username
 			else:
 				$Aviso.visible = true
 				$Aviso.text = "As senhas nao coincidem!"
@@ -108,8 +110,9 @@ func carregando_data():
 	$Aviso.visible = true
 	$Aviso.text = "Carregando dados da nuvem..."
 
-func _on_data_receive():
-	var cloud = HttpsRequest.mostra_json()
+func _on_data_receive(): ## Tratar o "Username já está em uso"
+	print("DATA RECEBIDA")
+	cloud = HttpsRequest.mostra_json() # não ta salvo
 	print(cloud)
 	$Aviso.text = "Login efetuado!"
 	ConfigGeral.data_cloud = cloud["playerData"]

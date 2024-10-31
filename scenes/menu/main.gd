@@ -44,6 +44,7 @@ func automatic_login(credentials: Dictionary) -> void:
 	if username != "" and nome != "" and password != "":
 		print("Login automático com o usuário: ", username, " e nome: ", nome)
 		ConfigGeral.set_name_player(nome)
+		ConfigGeral.username = username
 		# Chame o autoload que cuida do login com as credenciais salvas
 		var data = {
 			"username": username,
