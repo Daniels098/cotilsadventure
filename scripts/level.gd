@@ -1,6 +1,6 @@
 class_name Level extends Node2D
 
-@export var player:Player
+@export var player: Player
 @export var doors:Array[Door]
 var data:LevelDataHandoff
 @onready var pause_menu = $MenuPause
@@ -13,11 +13,13 @@ func _ready():
 	if player != null:
 		player.disable_mode
 		player.visible = false
+		if not ManagerSave.game_loaded:
+			player.load_player_data()
 	if data == null:
 		enter_level()
 	load_button_layout()
 
-func load_button_layout():
+func load_button_layout(): ## Arrumar
 	if ConfigGeral.is_canhoto:
 		var canhoto_layer = preload("res://scenes/controlsTouchCanhoto.tscn").instantiate()
 		if $ButtonLayerDestro != null:

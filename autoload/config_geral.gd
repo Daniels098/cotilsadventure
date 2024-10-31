@@ -1,9 +1,11 @@
 extends Node
 
 var settings = {}
+var data_cloud
 var current_control = "Controle1"
 var is_canhoto
-var nome_player
+var nome_player: String = "Aluno"
+var username: String
 
 const ControleGeral = {
 	"W": KEY_W,
@@ -173,7 +175,6 @@ func load_controles():
 			current_control = "Controle2"
 		update_keybinding()
 
-
 func set_canhoto(val: bool):
 	settings["Controle"]["canhoto"] = val
 	is_canhoto = val
@@ -183,11 +184,13 @@ func set_canhoto(val: bool):
 
 # Função do nome do jogador
 func set_name_player(nome: String):
-	nome_player = nome # Função pra setar o nome pelo settings.ini
-	print(nome_player)
+	nome_player = nome
+	return nome_player
 
-func get_name_player():
-	pass # Função pra pegar o nome pelo settings.ini
+func get_name_player() -> String:
+	print("RETORNO DE NOME ABAIXO")
+	print(nome_player)
+	return nome_player
 
 # Converter valor linear para dB (usado em volumes)
 func linear_to_db(value: float) -> float:

@@ -1,10 +1,10 @@
 class_name Player extends CharacterBody2D
 
+@onready var anim_player = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D 
 @export var speed: int = 80
 @export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
-@onready var anim_player = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D 
 @export var nome: String
 @export var pos_player: Vector2
 @export var current_mission: String 
@@ -16,6 +16,13 @@ var charac = Character.new()
 var savgm = SaveGame.new()
 const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
 var emot = EmotionAnim.new()
+var device: String
+var save_timer: Timer
+
+func _ready():
+	nome = ConfigGeral.get_name_player()
+	ManagerSave.connect("save_game_request", Callable(self, "save_player_data"))
+	# print(nome)
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
@@ -34,25 +41,34 @@ func collect(item: InvItem):
 	invi.insert(item)
 
 func save_player_data():
+	print("Invi (SAVE): ", invi)
+	print("Slots no inventário (SAVE): ", invi.slots)
 	var scene_path_name = get_tree().current_scene.scene_file_path
 	var mission = "Missão atual" # Salvar ID da missão
-	savgm.save_game(self, invi, scene_path_name, mission)
+	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, mission)
 
 func load_player_data():
-	var scene_path_name = get_tree().current_scene.scene_file_path
-	var data = savgm.load_game(nome, self, invi)
-	var scene_name = data["scene"]
-	if scene_name != scene_path_name:
-		# print("INVENTAAAARIOOOO PELO LOAD PLAYER DATA")
-		# print(data["inventory"])
-		SceneManager.load_new_scene(scene_name)
-	else:
-		#print(data)
-		print("Já está na cena")
-
+	if not ManagerSave.game_loaded:
+		savgm.load_game(nome, self, invi)
+		ManagerSave.game_loaded = true
+	# print("----------------------------------- CARREGANGO -----------------------------------")
+	# print("Invi (LOAD): ", invi)
+	# print("Slots no inventário (LOAD): ", invi.slots)
+	#var data = 
+	# var scene_path_name = get_tree().current_scene.scene_file_path
+	# var scene_name = data["scene"] if data.has("scene") and data["scene"] != null else scene_path_name
+	# Carrega a cena se for diferente da atual
+	#if scene_name != scene_path_name:
+	#	SceneManager.load_new_scene(scene_name)
+		# print("INVENTÁRIO PELO LOAD PLAYER DATA")
+		# print(data.get("inventory", []))
+	#else:
+	#	print(data)
+	#	print("Já está na cena atual")
 
 func get_save_data() -> Dictionary:
 	return {
+		"player": nome,
 		"inventory_items": invi,
 		"mission": current_mission,
 		"current_scene": get_tree().current_scene.name,
@@ -60,6 +76,7 @@ func get_save_data() -> Dictionary:
 		}
 
 func load_save_data(data: Dictionary) -> void:
+	nome = data.get("player", "")
 	invi = data.get("inventory_items", [])
 	current_mission = data.get("mission", "")
 	current_scene = data.get("current_scene", "")

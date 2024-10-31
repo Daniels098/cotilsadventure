@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://c87fmw47o38uh"
+path="res://.godot/imported/funcionarios.dialogue-5a8a896d3cb94080bd501ccedbd29fe3.tres"
+
+[deps]
+
+source_file="res://dialogue/funcionarios.dialogue"
+dest_files=["res://.godot/imported/funcionarios.dialogue-5a8a896d3cb94080bd501ccedbd29fe3.tres"]
+
+[params]
+
+defaults=true

@@ -9,9 +9,9 @@ var all_items: Dictionary = {}
 
 func populate_all_items():
 	all_items["documento"] = preload("res://inventory/items/documento.tres")
-	all_items["shield"] = preload("res://inventory/items/documento.tres")
-	all_items["potion"] = preload("res://inventory/items/documento.tres")
-	print("Itens no dicionário: ", all_items.keys()) 
+	# all_items["shield"] = preload("res://inventory/items/documento.tres")
+	# all_items["potion"] = preload("res://inventory/items/documento.tres")
+	# print("Itens no dicionário: ", all_items.keys()) 
 
 func get_item_by_name(item_name: String) -> InvItem:
 	if all_items.has(item_name):
@@ -34,4 +34,3 @@ func insert(item: InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
 	update.emit()
-

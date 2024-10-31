@@ -1,0 +1,7 @@
+~ dorothi
+Dorothi: Bom dia {{ConfigGeral.nome_player}} tudo bem?
+{{ConfigGeral.nome_player}}: Tudo sim e você?
+Dorothi: Estou bem sim, você trouxe as cópias dos documentos que foi pedido no e-mail?
+{{ConfigGeral.nome_player}}: Huum, acho que trouxe sim, deixa eu ver aqui[wait=1].[wait=1].[wait=1].
+## if tiver documento (que vai ter ou vai pegar na bolsa) continua o diálogo e cumpre a primeira missão.
+## Tenho que fazer a "história" depois de umas coisas.

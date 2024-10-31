@@ -3801,7 +3801,7 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_sbpvx")
 
-[node name="CorredorTerreoAcademico" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_xo1qc")
 player = NodePath("Player")
 doors = [NodePath("escada_terreo"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_patio")]
@@ -3832,7 +3832,7 @@ layer_0/tile_data = PackedInt32Array(589824, 1048576, 1, 655360, 1114112, 27, 72
 [node name="Player" parent="." instance=ExtResource("3_5ucg7")]
 process_priority = 2
 z_index = 1
-position = Vector2(304, 208)
+position = Vector2(336, 216)
 disable_mode = 1
 
 [node name="ItemDocumento" parent="." instance=ExtResource("3_m6uhx")]
