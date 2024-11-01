@@ -19,7 +19,8 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		"position": {
 			"x": player.position.x,
 			"y": player.position.y
-		}
+		},
+		"array_missions": [],
 	}
 	# Preencher o inventário
 	if invi != null and invi.slots.size() > 0:
@@ -44,7 +45,7 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		print("Falha ao salvar o jogo localmente!")
 
 # Função para carregar os dados do jogador
-func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
+func load_game(name: String, player: Player, invi: Inv, missions: QuestArray) -> Dictionary:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()

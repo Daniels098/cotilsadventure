@@ -18,6 +18,7 @@ const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
 var emot = EmotionAnim.new()
 var device: String
 var save_timer: Timer
+var missions: QuestArray
 
 func _ready():
 	nome = ConfigGeral.get_name_player()
@@ -49,7 +50,7 @@ func save_player_data():
 
 func load_player_data():
 	if not ManagerSave.game_loaded:
-		savgm.load_game(nome, self, invi)
+		savgm.load_game(nome, self, invi, missions)
 		ManagerSave.game_loaded = true
 	# print("----------------------------------- CARREGANGO -----------------------------------")
 	# print("Invi (LOAD): ", invi)
@@ -71,6 +72,7 @@ func get_save_data() -> Dictionary:
 		"player": nome,
 		"inventory_items": invi,
 		"mission": current_mission,
+		"device": device,
 		"current_scene": get_tree().current_scene.name,
 		 "position": position
 		}
@@ -79,6 +81,8 @@ func load_save_data(data: Dictionary) -> void:
 	nome = data.get("player", "")
 	invi = data.get("inventory_items", [])
 	current_mission = data.get("mission", "")
+	device = data.get("device", "")
+	# compMissions = data.get("array_missions",[])
 	current_scene = data.get("current_scene", "")
 	position = data.get("position", Vector2())
 

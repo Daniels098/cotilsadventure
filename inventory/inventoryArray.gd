@@ -8,11 +8,12 @@ var jso = JSON.new()
 var all_items: Dictionary = {}
 
 func populate_all_items():
-	all_items["documento"] = preload("res://inventory/items/documento.tres")
-	# all_items["shield"] = preload("res://inventory/items/documento.tres")
+	all_items["documento_atestado"] = preload("res://inventory/items/documento.tres")
+	all_items["documentos_matri"] = preload("res://inventory/items/documento.tres")
 	# all_items["potion"] = preload("res://inventory/items/documento.tres")
 	# print("Itens no dicionário: ", all_items.keys()) 
 
+## Da pra usar
 func get_item_by_name(item_name: String) -> InvItem:
 	if all_items.has(item_name):
 		var item_resource = all_items[item_name]
@@ -24,6 +25,7 @@ func get_item_by_name(item_name: String) -> InvItem:
 		print("Item '", item_name, "' não encontrado no dicionário.")
 	return null
 
+## Da pra usar
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)
 	if !itemslots.is_empty():

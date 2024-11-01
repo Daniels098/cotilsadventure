@@ -22,9 +22,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
 ConfigGeral="*res://autoload/config_geral.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
-QuestManager="*res://addons/quest_manager/QuestManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://autoload/scene_manager.gd"
 ConfigFileHandler="*res://autoload/config_file_handler.gd"
@@ -56,7 +56,7 @@ project/assembly_name="cotiladventures"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 
@@ -128,6 +128,12 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/items_general.di
 
 updater/enable_updater=false
 updater/show_new_release_info_on_editor_launch_in_output=false
+
+[quest_system]
+
+config/check_for_updates_on_startup=false
+config/available_quest_pool_path="res://quests/questPools/quest_available.gd"
+config/completed_quest_pool_path="res://quests/questPools/quest_completed.gd"
 
 [rendering]
 

@@ -170,9 +170,9 @@ func load_controles():
 	if settings and settings.has("Controle"):
 		var controle_ativo = settings["Controle"]["controle"]
 		if controle_ativo == true:
-			current_control = "Controle1"
-		else:
 			current_control = "Controle2"
+		else:
+			current_control = "Controle1"
 		update_keybinding()
 
 func set_canhoto(val: bool):

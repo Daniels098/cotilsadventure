@@ -39,7 +39,7 @@ func load_cloud_save(username: String):
 
 func _on_http_request_completed(result, response_code, headers, body):
 	json_string = JSON.parse_string(body.get_string_from_utf8())
-	# print("Corpo da resposta:", body.get_string_from_utf8())
+	print("Corpo da resposta:", body.get_string_from_utf8())
 	print("Código de retorno da API: ", response_code)
 	# print("SINAL SENDO ENVIADO")
 	emit_signal("data_receive")
