@@ -7,6 +7,7 @@ var inventory: Array
 var savgm := SaveGame.new()
 
 func _ready():
+	ManagerSave.game_loaded = false
 	load_user_settings()
 	mostrar_nome_player()
 

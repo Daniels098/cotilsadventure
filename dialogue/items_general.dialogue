@@ -1,9 +1,8 @@
 ~ startDocument
-{{ConfigGeral.nome_player}}: Você achou um documento!
+{{ConfigGeral.nome_player}}: Achei um documento![wait=1] Parece um atestado de matrícula!
 {{ConfigGeral.nome_player}}: Acho melhor guardar na sua mochila para não perder!
 => END
 
 ~ startMochila
 [ConfigGeral.nome_player]: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
 => END
-

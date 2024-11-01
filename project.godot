@@ -8,7 +8,8 @@
 
 config_version=5
 
-recent_projects=["res://addons/quest_manager/Examples/All Nodes.quest"]
+recent_projects=["res://quests/quests-items.quest"]
+quest_file_path="res://quests/quests-items.quest"
 
 [application]
 
@@ -55,7 +56,7 @@ project/assembly_name="cotiladventures"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/quest_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 

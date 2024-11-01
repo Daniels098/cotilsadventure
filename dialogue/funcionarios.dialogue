@@ -1,7 +1,24 @@
-~ dorothi
+~ dorothi_intro
 Dorothi: Bom dia {{ConfigGeral.nome_player}} tudo bem?
 {{ConfigGeral.nome_player}}: Tudo sim e você?
-Dorothi: Estou bem sim, você trouxe as cópias dos documentos que foi pedido no e-mail?
-{{ConfigGeral.nome_player}}: Huum, acho que trouxe sim, deixa eu ver aqui[wait=1].[wait=1].[wait=1].
-## if tiver documento (que vai ter ou vai pegar na bolsa) continua o diálogo e cumpre a primeira missão.
-## Tenho que fazer a "história" depois de umas coisas.
+Dorothi: Você veio entregar um atestado?
+{{ConfigGeral.nome_player}}: Não, estou aqui para entregar meus documentos da matrícula que foram solicitados pelo e-mail.
+
+# Verificar se o jogador tem os documentos no inventário
+
+# Funções necessárias
+# has_item(item_name): Deve ser uma função que retorna true se o jogador tem o item no inventário, e false caso contrário.
+# remove_item(item_name): Deve ser uma função que remove o item do inventário do jogador.
+
+<<if invi.has_item("documento")>>
+Dorothi: Ah, entendi! Deixe-me ver os documentos, por favor[wait=1].[wait=1].[wait=1].
+Dorothi: Perfeito, tudo está em ordem. Muito obrigada!
+{{ConfigGeral.nome_player}}: Beleza, obrigad!
+<<remove_item("documentos_matricula")>>  # Remove o item do inventário após a entrega
+<<else>>
+Dorothi: Ah, parece que você não tem os documentos necessários. Por favor, volte quando estiver com eles.
+{{ConfigGeral.nome_player}}: Ah, certo, vou buscar e já volto.
+<<endif>>
+
+# Colocar uma variável para mudar o gênero do player
+=> END
