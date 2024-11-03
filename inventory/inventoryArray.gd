@@ -25,6 +25,11 @@ func get_item_by_name(item_name: String) -> InvItem:
 		print("Item '", item_name, "' não encontrado no dicionário.")
 	return null
 
+func item_search(item_name: String) -> bool:
+	if all_items.has(item_name):
+		return true
+	return false
+
 ## Da pra usar
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)

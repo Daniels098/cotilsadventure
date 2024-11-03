@@ -112,6 +112,8 @@ func get_available_quests() -> Array[Quest]:
 func get_active_quests() -> Array[Quest]:
 	return active.get_all_quests()
 
+func get_completed_quests() -> Array[Quest]:
+	return completed.get_all_quests()
 
 func is_quest_available(quest: Quest) -> bool:
 	if available.is_quest_inside(quest):

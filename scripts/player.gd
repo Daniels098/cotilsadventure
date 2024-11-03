@@ -18,7 +18,7 @@ const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
 var emot = EmotionAnim.new()
 var device: String
 var save_timer: Timer
-var missions: QuestArray
+var mission: String
 
 func _ready():
 	nome = ConfigGeral.get_name_player()
@@ -41,16 +41,21 @@ func orient(input_direct: Vector2) -> void:
 func collect(item: InvItem):
 	invi.insert(item)
 
+func completed_missions(missions):
+	for mission in missions:
+		QuestsAt.is_quest_completed("")
+
 func save_player_data():
 	print("Invi (SAVE): ", invi)
 	print("Slots no inventário (SAVE): ", invi.slots)
 	var scene_path_name = get_tree().current_scene.scene_file_path
-	var mission = "Missão atual" # Salvar ID da missão
+	var missions = QuestsAt.get_completed_quests()
+	completed_missions(missions)
 	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, mission)
 
 func load_player_data():
 	if not ManagerSave.game_loaded:
-		savgm.load_game(nome, self, invi, missions)
+		# savgm.load_game(nome, self, invi, missions)
 		ManagerSave.game_loaded = true
 	# print("----------------------------------- CARREGANGO -----------------------------------")
 	# print("Invi (LOAD): ", invi)

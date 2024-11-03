@@ -45,7 +45,7 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		print("Falha ao salvar o jogo localmente!")
 
 # Função para carregar os dados do jogador
-func load_game(name: String, player: Player, invi: Inv, missions: QuestArray) -> Dictionary:
+func load_game(name: String, player: Player, invi: Inv, missions: Dictionary) -> Dictionary:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()

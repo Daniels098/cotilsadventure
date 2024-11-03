@@ -13,7 +13,7 @@ func _play():
 	anim_player.play("animate")
 
 func play_exclama():
-	sprite.texture = exclama_sprite # Arrumar o trocar sprite
+	sprite.texture = exclama_sprite
 	_play()
 
 func play_feliz():
