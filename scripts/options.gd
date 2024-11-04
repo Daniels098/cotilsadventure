@@ -108,7 +108,7 @@ func load_window():
 # Modo de tela
 func on_window_mode_selected(index: int) -> void:
 	ConfigGeral.set_display_mode(index)
-	ConfigGeral.center_window()
+	# ConfigGeral.center_window()
 
 # Adicionar modos de tela ao DisplayButton
 func add_window_mode_items() -> void:
@@ -121,6 +121,7 @@ func _on_check_button_toggled(pressed: bool) -> void:
 		ConfigGeral.current_control = "Controle2"
 	else:
 		ConfigGeral.current_control = "Controle1"
+		print("Controle atualizado para:", ConfigGeral.current_control)
 	ConfigGeral.toggle_controls(pressed)
 	_load_current_keybindings()
 
