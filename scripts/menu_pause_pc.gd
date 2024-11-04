@@ -88,6 +88,10 @@ func _ready():
 	load_button_input()
 	_load_current_keybindings()
 
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		main.visible = false
+
 # ------------------------- Tela --------------------------
 # Função para salvar o display selecionado
 func _on_display_item_selected(index: int) -> void:

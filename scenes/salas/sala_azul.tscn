@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_dll5g"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="5_f4g7s"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="6_hpvlh"]
-[ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://scenes/items/item_documento.tscn" id="6_qgjei"]
+[ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://inventory/items/item_documento.tscn" id="6_qgjei"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="7_opyxd"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="8_5idvc"]
 

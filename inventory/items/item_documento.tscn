@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwhawgu1u82ks"]
+
+[ext_resource type="Texture2D" uid="uid://bcb8p606w2plt" path="res://assets/documento.png" id="1_7l8wo"]
+[ext_resource type="Script" path="res://scripts/item_documento.gd" id="1_a1r03"]
+[ext_resource type="Resource" uid="uid://bth58ik00vaai" path="res://inventory/items/documento.tres" id="2_6o8cl"]
+[ext_resource type="Resource" uid="uid://bvl1l13gnmmt3" path="res://dialogue/items_general.dialogue" id="3_xn03r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72d7n"]
+size = Vector2(16, 16)
+
+[node name="ItemDocumento" type="Node2D"]
+script = ExtResource("1_a1r03")
+item = ExtResource("2_6o8cl")
+dialogue_resource = ExtResource("3_xn03r")
+dialogue_start = "pegar_documento"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7l8wo")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_72d7n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

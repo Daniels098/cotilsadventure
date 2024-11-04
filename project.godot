@@ -8,23 +8,38 @@
 
 config_version=5
 
-recent_projects=["res://addons/quest_manager/Examples/All Nodes.quest"]
+recent_projects=["res://quests/quests-items.quest"]
+quest_file_path="res://quests/quests-items.quest"
 
 [application]
 
 config/name="cotilsadventure"
 run/main_scene="res://scenes/menu/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
 ConfigGeral="*res://autoload/config_geral.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
-QuestManager="*res://addons/quest_manager/QuestManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://autoload/scene_manager.gd"
 ConfigFileHandler="*res://autoload/config_file_handler.gd"
+HttpsRequest="*res://autoload/https_request.gd"
+CredentialsManager="*res://autoload/credentials_manager.gd"
+ManagerSave="*res://resources/manager_save.gd"
+QuestsAt="*res://autoload/quests_at.gd"
+
+[dialogue_manager]
+
+general/balloon_path="res://dialogue/balloon.tscn"
+general/new_with_template=false
+general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave"]
+general/include_notes_in_translation_exports=true
+general/wrap_lines=true
 
 [display]
 
@@ -42,7 +57,7 @@ project/assembly_name="cotiladventures"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/quest_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 
@@ -96,6 +111,10 @@ inventory={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogue/items_general.dialogue", "res://dialogue/funcionarios.dialogue", "res://dialogue/professores.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="Boneco"
@@ -103,11 +122,17 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="Itens"
 2d_physics/layer_4="NPC"
 2d_physics/layer_5="Porta"
+3d_navigation/certificate_bundle_override=""
+3d_navigation/threads/thread_model=1
 
 [phantom_camera]
 
 updater/enable_updater=false
 updater/show_new_release_info_on_editor_launch_in_output=false
+
+[quest_system]
+
+config/check_for_updates_on_startup=false
 
 [rendering]
 

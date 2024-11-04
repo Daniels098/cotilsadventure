@@ -6,6 +6,13 @@ extends Node2D
 @onready var img = $Sprite2D
 
 func _ready():
+	# Tenta carregar as credenciais
+	var credentials = CredentialsManager.carregar_credenciais()
+	if credentials:
+		print("Iniciando login automático...")
+		automatic_login(credentials)
+	else:
+		print("Nenhuma credencial salva encontrada.")
 	anim_letters()
 	terminar_inicio()
 
@@ -27,5 +34,24 @@ func anim_letters() -> void:
 
 func terminar_inicio() -> void:
 	await get_tree().create_timer(7).timeout
-	# ConfigGeral.center_window()
 	SceneManager.load_new_scene("res://scenes/menu/menu.tscn")
+
+func automatic_login(credentials: Dictionary) -> void:
+	var username = credentials.get("username", "")
+	var nome = credentials.get("name", "")
+	var password = credentials.get("password", "")
+	
+	if username != "" and nome != "" and password != "":
+		print("Login automático com o usuário: ", username, " e nome: ", nome)
+		ConfigGeral.set_name_player(nome)
+		ConfigGeral.username = username
+		# Chame o autoload que cuida do login com as credenciais salvas
+		var data = {
+			"username": username,
+			"password": password
+		}
+		HttpsRequest.send_request_login(data)
+	else:
+		print("Credenciais salvas estão incompletas. Iniciando animação.")
+		anim_letters()
+		terminar_inicio()

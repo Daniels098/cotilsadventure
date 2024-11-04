@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://o5gon45s8khg"]
+
+[ext_resource type="Texture2D" uid="uid://dm8ku5a83t63d" path="res://assets/Salmazo-0.1.png" id="1_3p02f"]
+[ext_resource type="Script" path="res://NPCs/salmazo.gd" id="1_44h7e"]
+[ext_resource type="Resource" uid="uid://rg6ma33cq6ps" path="res://dialogue/professores.dialogue" id="2_q61ru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1s6hs"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66mmh"]
+radius = 11.0
+
+[node name="Salmazo" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_44h7e")
+nome = "Salmazo"
+dialogue_resource = ExtResource("2_q61ru")
+dialogue_start = "salmazo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1s6hs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_66mmh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_3p02f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

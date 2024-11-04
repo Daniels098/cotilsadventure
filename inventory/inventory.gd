@@ -2,9 +2,8 @@ extends CanvasLayer
 
 @onready var inv: Inv = preload("res://inventory/player_inv.tres")
 @onready var slots: Array = $Control/NinePatchRect/GridContainer.get_children()
-
+var invi = Inv.new()
 var is_open = false
-var jog = Player.new()
 
 func _ready():
 	inv.update.connect(update_slots)
@@ -16,10 +15,12 @@ func update_slots():
 		slots[i].update(inv.slots[i])
 
 func _process(delta):
-	if Input.is_action_just_pressed("inventory") && jog.bolsa == false:
+	update_slots()
+	if Input.is_action_just_pressed("inventory"):
 		if is_open:
 			close()
 		else:
+			
 			open()
 
 func open():

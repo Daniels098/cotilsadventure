@@ -5,16 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://cncjqfx6cknw4" path="res://inventory/inv_slot.tscn" id="3_ptuk2"]
 [ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="4_hsqss"]
 
-[node name="Inv_GUI" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_q4xb7")
+
+[node name="Inv_GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_q4xb7")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="Inv_GUI"]
 layout_mode = 0
 offset_left = -88.0
 offset_top = -72.0
@@ -26,7 +28,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="GridContainer" type="GridContainer" parent="Inv_GUI/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,43 +43,43 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="Inv_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot2" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot3" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot4" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot5" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot6" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot7" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot8" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot9" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot10" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot11" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="Inv_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
+[node name="Inv_slot12" parent="Inv_GUI/NinePatchRect/GridContainer" instance=ExtResource("3_ptuk2")]
 layout_mode = 2
 
-[node name="titulo" type="Label" parent="NinePatchRect"]
+[node name="titulo" type="Label" parent="Inv_GUI"]
 layout_mode = 0
 offset_left = 56.0
 offset_right = 120.0

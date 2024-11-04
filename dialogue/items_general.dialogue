@@ -1,0 +1,17 @@
+~ pegar_documento
+if is_quest_active("matricula"):
+	{{nome_player}}: Achei um documento![wait=0.8] Olha![wait=0.8] É o documento que eu havia perdido!
+	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
+	if is_quest_active("matricula") and get_quest_property(1,"documento") < get_quest_property(1,"documento_necessario"):
+		do update_quest("matricula")
+		do save_by_manager()
+else:
+	{{nome_player}}: Um documento perdido... Não parece o meu documento que eu perdi...
+	# Arrumar depois né kkkk
+=> END
+
+~ abrir_mochila
+{{ConfigGeral.nome_player}}: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
+do remove_item("documento")
+do save_by_manager()
+=> END
