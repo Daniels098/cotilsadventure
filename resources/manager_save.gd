@@ -13,3 +13,6 @@ func _ready():
 
 func _on_save_timer_timeout():
 	emit_signal("save_game_request")
+
+func save_by_manager(): # SEMPRE CHAMAR O SAVE GAME DE FORA DO PLAYER POR ESTA FUNÇÃO
+	emit_signal("save_game_request")

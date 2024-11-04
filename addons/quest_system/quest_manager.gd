@@ -69,6 +69,7 @@ func complete_quest(quest: Quest, args: Dictionary = {}) -> Quest:
 		return quest
 
 	if quest.objective_completed == false and QuestSystemSettings.get_config_setting("require_objective_completed"):
+		print("require_objective")
 		return quest
 
 	quest.complete(args)
@@ -112,7 +113,7 @@ func get_available_quests() -> Array[Quest]:
 func get_active_quests() -> Array[Quest]:
 	return active.get_all_quests()
 
-func get_completed_quests() -> Array[Quest]:
+func get_completed_quests() -> Array[Quest]: # Colocada manualmente
 	return completed.get_all_quests()
 
 func is_quest_available(quest: Quest) -> bool:
@@ -284,7 +285,6 @@ func dict_to_quests(dict: Dictionary, quests: Array[Quest]) -> void:
 				pool.add_quest(quest)
 				quests.erase(quest)
 
-
 func serialize_quests(pool: String = "") -> Dictionary:
 	var _quests: Array[Quest]
 	if pool.is_empty():
@@ -299,8 +299,9 @@ func serialize_quests(pool: String = "") -> Dictionary:
 	for quest in _quests:
 		var quest_data: Dictionary
 		quest_data = quest.serialize()
+		print(quest_data)
 		quest_dictionary[str(quest.id)] = quest_data
-
+	print(quest_dictionary)
 	return quest_dictionary
 
 

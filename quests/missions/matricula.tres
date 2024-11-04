@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_teof2")
 documento_necessario = 1
+nome = "matricula"
 id = 1
 quest_name = "Documentos Matricula"
 quest_description = "Para terminar o processo de matricula você deve entregar a cópia dos seus documentos na secretaria."

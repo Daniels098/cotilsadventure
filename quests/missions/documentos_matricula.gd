@@ -1,6 +1,7 @@
 class_name DocumentosMatricula extends Quest
 
 @export var documento_necessario: int = 1
+@export var nome = "matricula"
 var documento: int = 0
 
 func start(_args: Dictionary = {}) -> void:
@@ -14,4 +15,5 @@ func update(_args: Dictionary = {}) -> void:
 		updated.emit()
 
 func complete(_args: Dictionary = {}) -> void:
-	pass
+	objective_completed = true
+	completed.emit()

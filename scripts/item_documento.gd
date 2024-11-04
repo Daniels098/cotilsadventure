@@ -16,6 +16,10 @@ func _on_area_2d_body_entered(player: Player):
 		queue_free()
 	else:
 		action()
+	var a = QuestsAt.view_quests_completed()
+	print(a)
+	a = QuestsAt.view_quests_active()
+	print(a)
 
 func action() -> void:
 	var ballon: Node = baloon.instantiate()

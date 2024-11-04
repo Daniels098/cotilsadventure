@@ -1,14 +1,14 @@
 ~ salmazo
 Professor Salmazo: Eai estrupício, tudo bem?
-if is_quest_active("matricula") and get_quest_property(1,"documento") < get_quest_property(1,"documento_necessario"):
+if is_quest_completed("matricula"):
+	Professor Salmazo: Quer mais algo? Pode deixar que entrego o documento na secretaria para você!
+elif is_quest_active("matricula") and get_quest_property(1,"documento") < get_quest_property(1,"documento_necessario"):
 	{{nome_player}}: Meu nome é {{nome_player}}
 	Professor Salmazo: Conseguiu achar o documento?
 	{{nome_player}}: Ainda não.
 	Professor Salmazo: Espero que você consiga achar logo.
-elif is_quest_completed("matricula"):
-	Professor Salmazo: Quer mais algo? Pode deixar que entrego o documento na secretaria para você!
 else:
-	if is_quest_active("matricula")  and get_quest_property(1,"documento") == get_quest_property(1,"documento_necessario"):
+	if is_quest_active("matricula") and get_quest_property(1,"documento") == get_quest_property(1,"documento_necessario"):
 		{{nome_player}}: Eu tenho que entregar esse documento para quem?
 		Professor Salmazo: Pode ser para mim.
 		Entregar documento ao Professor Salmazo?
@@ -16,6 +16,7 @@ else:
 		{{nome_player}}: Aqui está.
 		Professor Salmazo: Obrigado!
 		do complete_quest("matricula")
+		do save_by_manager()
 	- Não
 		{{nome_player}}: Pode deixar, obrigad!
 		Professor Salmazo: Tudo bem, se precisar de ajudar é só chamar!
@@ -26,6 +27,7 @@ else:
 		Procurar no corredor?
 		- Sim
 			do start_quest("matricula")
+			do save_by_manager()
 		- Não
 			=> END
 => END

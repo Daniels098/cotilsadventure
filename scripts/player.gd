@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @onready var anim_player = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D 
+@onready var sprite: Sprite2D = $Sprite2D
 @export var speed: int = 80
 @export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
@@ -18,7 +18,8 @@ const EMOTE_SCENE = preload("res://scenes/animations/emotion_anim.tscn")
 var emot = EmotionAnim.new()
 var device: String
 var save_timer: Timer
-var mission: String
+var quests_pool
+var missoes
 
 func _ready():
 	nome = ConfigGeral.get_name_player()
@@ -41,21 +42,16 @@ func orient(input_direct: Vector2) -> void:
 func collect(item: InvItem):
 	invi.insert(item)
 
-func completed_missions(missions):
-	for mission in missions:
-		QuestsAt.is_quest_completed("")
-
+	# print("Invi (SAVE): ", invi)
+	# print("Slots no inventário (SAVE): ", invi.slots)
 func save_player_data():
-	print("Invi (SAVE): ", invi)
-	print("Slots no inventário (SAVE): ", invi.slots)
 	var scene_path_name = get_tree().current_scene.scene_file_path
-	var missions = QuestsAt.get_completed_quests()
-	completed_missions(missions)
-	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, mission)
+	var missions = QuestsAt.save_quests()
+	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, missions)
 
 func load_player_data():
 	if not ManagerSave.game_loaded:
-		# savgm.load_game(nome, self, invi, missions)
+		savgm.load_game(nome, self, invi)
 		ManagerSave.game_loaded = true
 	# print("----------------------------------- CARREGANGO -----------------------------------")
 	# print("Invi (LOAD): ", invi)
@@ -78,6 +74,7 @@ func get_save_data() -> Dictionary:
 		"inventory_items": invi,
 		"mission": current_mission,
 		"device": device,
+		"missions": {},
 		"current_scene": get_tree().current_scene.name,
 		 "position": position
 		}
@@ -85,9 +82,8 @@ func get_save_data() -> Dictionary:
 func load_save_data(data: Dictionary) -> void:
 	nome = data.get("player", "")
 	invi = data.get("inventory_items", [])
-	current_mission = data.get("mission", "")
 	device = data.get("device", "")
-	# compMissions = data.get("array_missions",[])
+	missoes = data.get("missions", {})
 	current_scene = data.get("current_scene", "")
 	position = data.get("position", Vector2())
 

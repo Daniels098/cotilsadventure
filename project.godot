@@ -37,7 +37,7 @@ QuestsAt="*res://autoload/quests_at.gd"
 
 general/balloon_path="res://dialogue/balloon.tscn"
 general/new_with_template=false
-general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt"]
+general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave"]
 general/include_notes_in_translation_exports=true
 general/wrap_lines=true
 
