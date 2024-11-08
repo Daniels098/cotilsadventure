@@ -4,7 +4,7 @@ if is_quest_active("matricula"):
 	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
 	if is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
 		do update_quest("matricula")
-		do start_quest("atestado")
+		# do start_quest("atestado")
 		do save_by_manager()
 else:
 	{{nome_player}}: Um documento perdido... Não parece o meu documento que eu perdi...

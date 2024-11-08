@@ -6,6 +6,7 @@ extends Node2D
 @onready var img = $Sprite2D
 
 func _ready():
+	# HttpsRequest.ping_server()
 	# Tenta carregar as credenciais
 	var credentials = CredentialsManager.carregar_credenciais()
 	if credentials:
