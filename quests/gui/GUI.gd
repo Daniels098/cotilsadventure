@@ -1,32 +1,93 @@
 extends CanvasLayer
 
-var _quest: Quest
+var _active_quests: Array = []  # Lista de missões ativas (até 3)
+@onready var menu = $Panel
+@onready var mission = $Mission
+
+# Referências para a missão atual e para as três posições do menu de missões
+@onready var quest_ui = [
+	{"name": $%CurrentQuest2, "description": $%Description, "progress": $%Progress2, "objective": $%Objective},
+	{"name": $%CurrentQuest3, "description": $%Description1, "progress": $%Progress3, "objective": $%Objective1},
+	{"name": $%CurrentQuest4, "description": $%Description2, "progress": $%Progress4, "objective": $%Objective2}
+]
+
+@onready var mission_current_name = $%CurrentQuest  # Missão atual no canto
+@onready var mission_current_progress = $%Progress
 
 func _ready() -> void:
-	QuestSystem.quest_accepted.connect(set_current_quest)
-	QuestSystem.quest_completed.connect(finish_quest)
+	menu.visible = false
+	QuestSystem.quest_accepted.connect(add_quest)
+	QuestSystem.quest_completed.connect(complete_quest)
 
+	# Inicializa a interface para ocultar missões e mostrar a missão atual
+	reset_ui()
+	update_current_mission()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("menu"):
+		menu.visible = !menu.visible
+		mission.visible = !menu.visible
 
 func _process(_delta: float) -> void:
-	if _quest == null:
-		%CurrentQuest.hide()
-		%Progress.hide()
-		return
+	update_current_mission()
+	update_menu_missions()
+
+func add_quest(quest: Quest) -> void:
+	# Adiciona uma nova missão, limitando o máximo a 3 ativas
+	if _active_quests.size() < 3:
+		_active_quests.append(quest)
+	update_current_mission()
+
+func complete_quest(quest: Quest) -> void:
+	# Remove a missão concluída e atualiza a interface
+	_active_quests.erase(quest)
+	update_current_mission()
+
+func update_current_mission() -> void:
+	# Atualiza a missão atual no canto da tela
+	if _active_quests.size() > 0:
+		var current_quest = _active_quests[0]
+		mission_current_name.text = "Missão Atual: %s" % current_quest.quest_name
+		mission_current_progress.text = "Em progresso: %s/1" % current_quest.item
+		mission_current_name.show()
+		mission_current_progress.show()
 	else:
-		%CurrentQuest.text = "Missão Atual: %s" % _quest.quest_name
-		%Progress.text = "%s/1" % _quest.documento
-		
-		"""if _quest.objective_completed:
-			%Progress.text = "Finalizado"
-		else:
-			%Progress.text = "Em progresso"""
+		mission_current_name.hide()
+		mission_current_progress.hide()
 
-func set_current_quest(quest: Quest) -> void:
-	_quest = quest
-	%CurrentQuest.show()
-	%Progress.show()
+func update_menu_missions() -> void:
+	# Atualiza o menu com as informações de todas as missões ativas
+	for i in range(_active_quests.size()):
+		var quest = _active_quests[i]
+		quest_ui[i]["name"].text = "Missão: %s" % quest.quest_name
+		quest_ui[i]["description"].text = "Descrição: %s" % quest.quest_description
+		quest_ui[i]["objective"].text = "Objetivo: %s" % quest.quest_objective
+		quest_ui[i]["progress"].text = "Progresso: %s/1" % quest.item
 
-func finish_quest(quest: Quest) -> void:
-	print("Completed quest: %s" % quest.quest_name)
-	%CurrentQuest.hide()
-	%Progress.hide()
+		# Exibe cada campo da missão
+		quest_ui[i]["name"].show()
+		quest_ui[i]["description"].show()
+		quest_ui[i]["objective"].show()
+		quest_ui[i]["progress"].show()
+
+	# Esconde espaços de missões vazios se houver menos de 3 missões
+	for j in range(_active_quests.size(), quest_ui.size()):
+		quest_ui[j]["name"].hide()
+		quest_ui[j]["description"].hide()
+		quest_ui[j]["objective"].hide()
+		quest_ui[j]["progress"].hide()
+
+func reset_ui() -> void:
+	# Esconde todos os elementos da UI das missões ao iniciar
+	for element in quest_ui:
+		element["name"].hide()
+		element["description"].hide()
+		element["objective"].hide()
+		element["progress"].hide()
+	mission_current_name.hide()
+	mission_current_progress.hide()
+
+
+func _on_volta_button_pressed():
+	menu.visible = !menu.visible
+	mission.visible = !menu.visible

@@ -24,11 +24,18 @@ func view_quests_active() -> Array:
 		return actives.get("active", "")
 	return []
 
+func view_quests_availables() -> Array:
+	var availables = QuestSystem.quests_as_dict()
+	if availables.has("availables"):
+		return availables.get("availables", "")
+	return []
+
 # Salvar o progresso das quests
 func save_quests() -> Dictionary:
 	var quest_data = {
 		"active": [],
-		"completed": []
+		"completed": [],
+		"available": []
 	}
 	# Coletar nomes das quests ativas usando o método get_active_quests
 	for quest in QuestSystem.get_active_quests():
@@ -47,7 +54,7 @@ func load_quests(quest_data: Dictionary) -> void:
 	# Carregar quests ativas
 	if quest_data.has("missions_active"):
 		for quest_nome in quest_data["missions_active"]:
-			var quest = ResourceLoader.load(QUEST_PATH % quest_nome)
+			var quest: Quest = ResourceLoader.load(QUEST_PATH % quest_nome)
 			if quest != null:
 				QuestSystem.start_quest(quest)
 			else:
@@ -60,13 +67,13 @@ func load_quests(quest_data: Dictionary) -> void:
 				QuestSystem.start_quest(quest)
 				QuestSystem.complete_quest(quest)
 	# Carregar quests disponíveis (se aplicável)
-	"""if quest_data.has("missions_available"):
+	if quest_data.has("missions_available"):
 		for quest_nome in quest_data["missions_available"]:
-			var quest = ResourceLoader.load(QUEST_PATH % quest_nome)
+			var quest: Quest = ResourceLoader.load(QUEST_PATH % quest_nome)
 			if quest != null:
 				QuestSystem.mark_quest_as_available(quest) # Aqui você pode adicionar a quest como disponível
 			else:
-				print("Erro: Quest não encontrada com nome: ", quest_nome)"""
+				print("Erro: Quest não encontrada com nome: ", quest_nome)
 
 func update_quest(quest_name: String) -> void:
 	var quest: Quest = ResourceLoader.load(QUEST_PATH % quest_name)

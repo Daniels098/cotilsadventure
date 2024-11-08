@@ -1,24 +1,168 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd1lmsy0ije4c"]
+[gd_scene load_steps=6 format=3 uid="uid://cd1lmsy0ije4c"]
 
 [ext_resource type="Script" path="res://quests/gui/GUI.gd" id="1_6pcfw"]
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="2_vxyvq"]
+[ext_resource type="FontFile" uid="uid://wqtr35w1bqsc" path="res://fonte/Poppins-Bold.ttf" id="3_s7fc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we1cn"]
+bg_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+border_width_top = 4
+border_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuflf"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
 
 [node name="QuestGUI" type="CanvasLayer"]
 script = ExtResource("1_6pcfw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Mission" type="VBoxContainer" parent="."]
 offset_right = 123.0
-offset_bottom = 71.0
+offset_bottom = 48.0
 
-[node name="CurrentQuest" type="Label" parent="VBoxContainer"]
+[node name="CurrentQuest" type="Label" parent="Mission"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_vxyvq")
 theme_override_font_sizes/font_size = 14
 text = "Current Quest: %s"
 
-[node name="Progress" type="Label" parent="VBoxContainer"]
+[node name="Progress" type="Label" parent="Mission"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_vxyvq")
 theme_override_font_sizes/font_size = 16
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 136.0
+offset_top = 24.0
+offset_right = 504.0
+offset_bottom = 336.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_we1cn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 28
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Lista" type="VBoxContainer" parent="Panel/MarginContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Mission1" type="VBoxContainer" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista"]
+layout_mode = 2
+
+[node name="CurrentQuest2" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s7fc4")
+theme_override_font_sizes/font_size = 14
+text = "Current Quest: %s"
+
+[node name="Description" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+
+[node name="Progress2" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 14
+
+[node name="Objective" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+
+[node name="Mission2" type="VBoxContainer" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista"]
+layout_mode = 2
+
+[node name="CurrentQuest3" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s7fc4")
+theme_override_font_sizes/font_size = 14
+text = "Current Quest: %s"
+
+[node name="Description1" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Progress3" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 16
+
+[node name="Objective1" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Mission3" type="VBoxContainer" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista"]
+layout_mode = 2
+
+[node name="CurrentQuest4" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s7fc4")
+theme_override_font_sizes/font_size = 14
+text = "Current Quest: %s"
+
+[node name="Description2" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Progress4" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 16
+
+[node name="Objective2" type="Label" parent="Panel/MarginContainer/MarginContainer/ScrollContainer/Lista/Mission3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="VoltaButton" type="Button" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_vxyvq")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuflf")
+text = "Voltar"
+
+[connection signal="pressed" from="Panel/MarginContainer/VoltaButton" to="." method="_on_volta_button_pressed"]

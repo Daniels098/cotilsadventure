@@ -1,16 +1,16 @@
-class_name DocumentosMatricula extends Quest
+class_name DocumentoMatricula extends Quest
 
-@export var documento_necessario: int = 1
 @export var nome = "matricula"
-var documento: int = 0
+@export var documento_necessario: int = 1
+var item: int = 0
 
 func start(_args: Dictionary = {}) -> void:
-	documento = 0
+	item = 0
 	documento_necessario = 1
 
 func update(_args: Dictionary = {}) -> void:
-	if documento < documento_necessario:
-		documento = 1
+	if item < documento_necessario:
+		item = 1
 		objective_completed = true
 		updated.emit()
 

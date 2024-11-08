@@ -3817,11 +3817,12 @@ visible = false
 [node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_knofr")]
 visible = false
 
-[node name="QuestGUI" parent="." instance=ExtResource("2_4fyyy")]
-
 [node name="Inv_GUI" parent="." instance=ExtResource("2_eee55")]
 layer = 3
 visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("2_4fyyy")]
+layer = 101
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0

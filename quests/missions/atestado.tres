@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DocumentoAtestado" load_steps=2 format=3 uid="uid://drws71dwmp4jj"]
+
+[ext_resource type="Script" path="res://quests/missions/documento_atestado.gd" id="1_sdpmd"]
+
+[resource]
+script = ExtResource("1_sdpmd")
+atestado_necessario = 1
+nome = "atestado"
+id = 2
+quest_name = "Atestado Médico"
+quest_description = "Vocẽ passou pelo médico ontem e agora tem que entregar o atestado médico na secretaria para *justificar* a falta na aula."
+quest_objective = "Entregar atestado médico na secretaria."
