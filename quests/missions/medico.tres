@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MedicoAtestado" load_steps=2 format=3 uid="uid://baltlrv8dsvwh"]
+
+[ext_resource type="Script" path="res://quests/missions/medico_atestado.gd" id="1_rvoj6"]
+
+[resource]
+script = ExtResource("1_rvoj6")
+medico_atestado = 1
+nome = "medico"
+id = 3
+quest_name = "Atestado Médico"
+quest_description = "Você não veio nos últimos dois dias, entregue o atestado médico na secretaria."
+quest_objective = "Entregar o atestado médico na secretaria."

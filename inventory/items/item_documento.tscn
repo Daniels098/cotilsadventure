@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_a1r03")
 item = ExtResource("2_6o8cl")
 dialogue_resource = ExtResource("3_xn03r")
-dialogue_start = "pegar_documento"
+dialogue_start = "pegar_atestado"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7l8wo")

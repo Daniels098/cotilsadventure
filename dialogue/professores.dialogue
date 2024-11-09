@@ -18,7 +18,7 @@ else:
 		do complete_quest("matricula")
 		do save_by_manager()
 	- Não
-		{{nome_player}}: Pode deixar, obrigad!
+		{{nome_player}}: Pode deixar, obrigado!
 		Professor Salmazo: Tudo bem, se precisar de ajudar é só chamar!
 	else:
 		Professor Salmazo: Precisa de alguma coisa?

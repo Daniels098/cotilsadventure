@@ -7,12 +7,26 @@ if is_quest_active("matricula"):
 		# do start_quest("atestado")
 		do save_by_manager()
 else:
-	{{nome_player}}: Um documento perdido... Não parece o meu documento que eu perdi...
+	{{nome_player}}: Um documento perdido... Não parece o documento que eu perdi...
 	# Arrumar depois né kkkk
 => END
+
 
 ~ abrir_mochila
 {{ConfigGeral.nome_player}}: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
 do remove_item("documento")
 do save_by_manager()
+=> END
+
+~ pegar_atestado
+if is_quest_active("medico"):
+	{{nome_player}}: Achei o meu atestado médico
+	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
+	if is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
+		do update_quest("matricula")
+		# do start_quest("atestado")
+		do save_by_manager()
+else:
+	{{nome_player}}: Um documento perdido... Não parece o documento que eu perdi...
+	# Arrumar depois né kkkk
 => END

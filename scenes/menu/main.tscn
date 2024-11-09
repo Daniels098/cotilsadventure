@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://lj8ilng2x7d4"]
+[gd_scene load_steps=11 format=3 uid="uid://lj8ilng2x7d4"]
 
 [ext_resource type="Script" path="res://scenes/menu/main.gd" id="1_sg7n6"]
 [ext_resource type="Texture2D" uid="uid://dbjr6vx60jb6y" path="res://assets/logo_dark.svg" id="2_88d6a"]
+[ext_resource type="AudioStream" uid="uid://bxx6byrds8lqw" path="res://sounds/vozes_projeto.wav" id="3_u3bvf"]
 
 [sub_resource type="Animation" id="Animation_0kxdx"]
 resource_name = "fade_godot"
@@ -165,3 +166,6 @@ visible = false
 position = Vector2(368, 168)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88d6a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u3bvf")

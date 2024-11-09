@@ -13,6 +13,7 @@ func _on_area_2d_body_entered(player: Player):
 		player.collect(collected)
 		action()
 		player.anim_exclama()
+		# Adicionar um Singleton para manejar os itens e não "aparecer novamente"
 		queue_free()
 	else:
 		action()

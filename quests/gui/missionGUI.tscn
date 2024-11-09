@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://5r15d5d8s12p"]
-
-[node name="Mission" type="Control"]
-layout_mode = 3
-anchors_preset = 0

@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="DocumentosMatricula" load_steps=2 format=3 uid="uid://bg1wdmgh3jr4n"]
+[gd_resource type="Resource" script_class="DocumentoMatricula" load_steps=2 format=3 uid="uid://bg1wdmgh3jr4n"]
 
 [ext_resource type="Script" path="res://quests/missions/documento_matricula.gd" id="1_teof2"]
 
 [resource]
 script = ExtResource("1_teof2")
-documento_necessario = 1
 nome = "matricula"
+documento_necessario = 1
 id = 1
 quest_name = "Documentos Matricula"
 quest_description = "Para terminar o processo de matricula você deve entregar a cópia dos seus documentos na secretaria."
