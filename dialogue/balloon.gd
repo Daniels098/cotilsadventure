@@ -6,7 +6,7 @@ extends CanvasLayer
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
-
+@onready var talk_sound := $TalkSound
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -160,5 +160,10 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
 
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	if not letter in [".", " "]:
+		talk_sound.pitch_scale = randf_range(0.9, 1.0)
+		talk_sound.play()
 
 #endregion

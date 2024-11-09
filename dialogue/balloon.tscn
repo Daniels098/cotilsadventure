@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=14 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://wqtr35w1bqsc" path="res://fonte/Poppins-Bold.ttf" id="3_cjtpw"]
 [ext_resource type="FontFile" uid="uid://ftdynq6e8jt5" path="res://fonte/Poppins-Italic.ttf" id="4_y0w1j"]
 [ext_resource type="FontFile" uid="uid://jy2wuyooep82" path="res://fonte/Poppins-BoldItalic.ttf" id="5_fcm7h"]
+[ext_resource type="AudioStream" uid="uid://dyvslv781jo20" path="res://sounds/1_Watsyn.wav" id="8_3rkbj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -138,6 +139,7 @@ theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
 text = "Dialogue..."
+seconds_per_step = 0.052
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
@@ -167,5 +169,11 @@ theme_override_fonts/font = ExtResource("2_xbyyj")
 theme_override_font_sizes/font_size = 18
 text = "Response example"
 
+[node name="TalkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3rkbj")
+volume_db = -9.0
+bus = &"SFX"
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
