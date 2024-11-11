@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://o5gon45s8khg"]
 
 [ext_resource type="Texture2D" uid="uid://dm8ku5a83t63d" path="res://assets/Salmazo-0.1.png" id="1_3p02f"]
-[ext_resource type="Script" path="res://NPCs/salmazo.gd" id="1_44h7e"]
+[ext_resource type="Script" path="res://NPCs/professores/salmazo.gd" id="1_44h7e"]
 [ext_resource type="Resource" uid="uid://rg6ma33cq6ps" path="res://dialogue/professores.dialogue" id="2_q61ru"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s6hs"]

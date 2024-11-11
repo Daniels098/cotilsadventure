@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnac7sdjrb36"]
+[gd_scene load_steps=13 format=3 uid="uid://bnac7sdjrb36"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ocg2i"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_s0fii"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_fbeir"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_8mdlf"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_rct14"]
 [ext_resource type="PackedScene" uid="uid://cb5j0528uhcog" path="res://scenes/portasAnim/door_verde_anim.tscn" id="5_k8isx"]
+[ext_resource type="PackedScene" uid="uid://cd1lmsy0ije4c" path="res://quests/gui/gui.tscn" id="6_cr7vh"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="6_n23dm"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="7_blyov"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="8_ijiro"]
@@ -3799,10 +3801,26 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_sbpvx")
 
-[node name="CorredorTerreoAcademicoO" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_ocg2i")
 player = NodePath("Player")
 doors = [NodePath("escada_oeste_terr"), NodePath("saida_oeste"), NodePath("pass_leste_terr"), NodePath("sala_03")]
+
+[node name="MenuPause" parent="." instance=ExtResource("8_ijiro")]
+visible = false
+
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("6_n23dm")]
+visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_rct14")]
+visible = false
+
+[node name="Inv_GUI" parent="." instance=ExtResource("7_blyov")]
+layer = 3
+visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("6_cr7vh")]
+layer = 101
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -3821,6 +3839,7 @@ position = Vector2(464, 208)
 disable_mode = 1
 
 [node name="escada_oeste_terr" parent="." instance=ExtResource("4_8mdlf")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(184, 264)
 scale = Vector2(3, 3)
 entry_direction = 0
@@ -3830,6 +3849,7 @@ path_to_new_scene = "res://scenes/academico/andar_cima_academico_oeste.tscn"
 entry_door_name = "escada_oeste_cima"
 
 [node name="saida_oeste" parent="." instance=ExtResource("4_8mdlf")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(264, 264)
 scale = Vector2(3, 3)
 entry_direction = 0
@@ -3839,6 +3859,7 @@ path_to_new_scene = "res://scenes/patio/patio_oeste.tscn"
 entry_door_name = "entrada_academico_oeste"
 
 [node name="pass_leste_terr" parent="." instance=ExtResource("4_8mdlf")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(664, 216)
 scale = Vector2(3, 3)
 entry_direction = 3
@@ -3848,6 +3869,7 @@ path_to_new_scene = "res://scenes/academico/terreo_academico.tscn"
 entry_door_name = "pass_oeste_terr"
 
 [node name="sala_03" parent="." instance=ExtResource("4_8mdlf")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(472, 184)
 entry_direction = 2
 transition_type = "fade_to_black"
@@ -3855,13 +3877,5 @@ path_to_new_scene = "res://scenes/salas/sala-verde.tscn"
 entry_door_name = "saida_03"
 
 [node name="door_anim" parent="." instance=ExtResource("5_k8isx")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(464, 176)
-
-[node name="ButtonLayer" parent="." instance=ExtResource("6_n23dm")]
-follow_viewport_scale = 371.967
-
-[node name="Inv_GUI" parent="." instance=ExtResource("7_blyov")]
-visible = false
-
-[node name="MenuPause" parent="." instance=ExtResource("8_ijiro")]
-visible = false

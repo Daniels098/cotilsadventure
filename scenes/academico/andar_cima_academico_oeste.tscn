@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt62u5j10s4qp"]
+[gd_scene load_steps=12 format=3 uid="uid://dt62u5j10s4qp"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_sakxc"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_tdbof"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_esbrl"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_7crm1"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_yye1c"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_au0en"]
+[ext_resource type="PackedScene" uid="uid://cd1lmsy0ije4c" path="res://quests/gui/gui.tscn" id="6_h84g8"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="6_uewx4"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_ejps5"]
 
@@ -3781,10 +3783,26 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_qjunc")
 
-[node name="Corredor1AndarAcademicoO" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_sakxc")
 player = NodePath("Player")
 doors = [NodePath("escada_oeste_cima"), NodePath("pass_leste_sup")]
+
+[node name="MenuPause" parent="." instance=ExtResource("7_ejps5")]
+visible = false
+
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("5_au0en")]
+visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_yye1c")]
+visible = false
+
+[node name="Inv_GUI" parent="." instance=ExtResource("6_uewx4")]
+layer = 3
+visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("6_h84g8")]
+layer = 101
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -3803,6 +3821,7 @@ position = Vector2(320, 208)
 disable_mode = 1
 
 [node name="escada_oeste_cima" parent="." instance=ExtResource("4_7crm1")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(168, 264)
 scale = Vector2(3, 3)
 entry_direction = 0
@@ -3812,6 +3831,7 @@ path_to_new_scene = "res://scenes/academico/terreo_academico_oeste.tscn"
 entry_door_name = "escada_oeste_terr"
 
 [node name="pass_leste_sup" parent="." instance=ExtResource("4_7crm1")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(664, 216)
 scale = Vector2(3, 3)
 entry_direction = 3
@@ -3819,11 +3839,3 @@ transition_type = "zelda"
 push_distance = 32
 path_to_new_scene = "res://scenes/academico/andar_cima_academico.tscn"
 entry_door_name = "pass_oeste_sup"
-
-[node name="ButtonLayer" parent="." instance=ExtResource("5_au0en")]
-
-[node name="Inv_GUI" parent="." instance=ExtResource("6_uewx4")]
-visible = false
-
-[node name="MenuPause" parent="." instance=ExtResource("7_ejps5")]
-visible = false

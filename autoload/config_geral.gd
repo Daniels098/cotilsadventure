@@ -6,6 +6,9 @@ var current_control = "Controle1"
 var is_canhoto
 var nome_player: String = "Aluno"
 var username: String
+var master = AudioServer.get_bus_index("Master")
+var music = AudioServer.get_bus_index("Music")
+var sfx = AudioServer.get_bus_index("SFX")
 
 const ControleGeral = {
 	"W": KEY_W,
@@ -38,7 +41,7 @@ func _ready():
 	load_window()
 	load_controles()
 
-# ------------------- Gerenciamento de Configurações -------------------
+## ------------------- Gerenciamento de Configurações -------------------
 
 # Carregar as configurações do arquivo 'settings.ini'
 func load_settings():
@@ -48,7 +51,7 @@ func load_settings():
 func save_settings():
 	ConfigFileHandler.save_settings(settings)
 
-# -------------------- Configurações de Display --------------------
+## -------------------- Configurações de Display --------------------
 
 # Aplicar o modo de display
 func set_display_mode(index: int):
@@ -86,7 +89,7 @@ func center_window():
 	var window_size = get_window().get_size_with_decorations()
 	get_window().set_position(screen - window_size / 2)
 
-# -------------------- Configuração de Brilho --------------------
+## -------------------- Configuração de Brilho --------------------
 
 # Ajustar o brilho
 func set_brightness(value: float):
@@ -96,14 +99,14 @@ func set_brightness(value: float):
 	RenderingServer.set_default_clear_color(Color(value, value, value))
 	save_settings()
 
-# -------------------- Configurações de Áudio --------------------
+## -------------------- Configurações de Áudio --------------------
 
 # Ajustar volume master
 func set_master_volume(value: float):
 	if not settings.has("audio"):
 		settings["audio"] = {}
 	settings["audio"]["volumeMaster"] = value
-	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	AudioServer.set_bus_volume_db(master, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume da música
@@ -111,7 +114,7 @@ func set_music_volume(value: float):
 	if not settings.has("audio"):
 		settings["audio"] = {}
 	settings["audio"]["volumeMusic"] = value
-	AudioServer.set_bus_volume_db(1, linear_to_db(value))
+	AudioServer.set_bus_volume_db(music, linear_to_db(value))
 	save_settings()
 
 # Ajustar volume dos efeitos sonoros (SFX)
@@ -119,10 +122,10 @@ func set_sfx_volume(value: float):
 	if not settings.has("audio"):
 		settings["audio"] = {}
 	settings["audio"]["volumeSFX"] = value
-	AudioServer.set_bus_volume_db(2, linear_to_db(value))
+	AudioServer.set_bus_volume_db(sfx, linear_to_db(value))
 	save_settings()
 
-# -------------------- Configuração de Vsync --------------------
+## -------------------- Configuração de Vsync --------------------
 
 # Ativar ou desativar Vsync
 func toggle_vsync():
@@ -136,7 +139,7 @@ func toggle_vsync():
 		settings["video"]["vsync"] = true
 	save_settings()
 
-# -------------------- Configuração do Keybinding --------------------
+## -------------------- Configuração do Keybinding --------------------
 func update_keybinding():
 	if settings and settings.has("Controle"):
 		var controle_key = "Controle1"
@@ -180,7 +183,7 @@ func set_canhoto(val: bool):
 	is_canhoto = val
 	save_settings()
 
-# -------------------- Funções Auxiliares --------------------
+## -------------------- Funções Auxiliares --------------------
 
 # Função do nome do jogador
 func set_name_player(nome: String):

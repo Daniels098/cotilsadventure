@@ -93,7 +93,8 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 		print("Arquivo de save local não encontrado. Tentando carregar da nuvem...")
 		var credentials = CredentialsManager.carregar_credenciais()
 		var cloud_data = HttpsRequest.load_cloud_save(credentials.get("username"))
-		if cloud_data:
+		# print(cloud_data)
+		if cloud_data != null:
 			print(cloud_data)
 			
 			name = cloud_data.get("player", name) if cloud_data.has("player") and cloud_data["player"] != null else name
