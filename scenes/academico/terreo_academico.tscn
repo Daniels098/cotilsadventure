@@ -3845,6 +3845,7 @@ disable_mode = 1
 
 [node name="ItemDocumento" parent="." instance=ExtResource("3_m6uhx")]
 position = Vector2(240, 208)
+dialogue_start = "pegar_documento"
 
 [node name="escada_terreo" parent="." instance=ExtResource("4_b7sux")]
 modulate = Color(0, 1, 0, 1)
