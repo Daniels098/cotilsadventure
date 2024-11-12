@@ -1,7 +1,7 @@
 extends Node
 
 signal data_receive
-var url = "https://api-mongodb-seven.vercel.app/" #"https://api-cotilsadventuredb.onrender.com/"
+var url = "https://api-mongodb-seven.vercel.app/"
 @onready var http_request: HTTPRequest = HTTPRequest.new()
 var json_string
 

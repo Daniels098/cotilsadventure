@@ -110,8 +110,21 @@ theme_override_fonts/font = ExtResource("6_6qjbt")
 theme_override_font_sizes/font_size = 12
 text = "SAIR"
 
+[node name="btn_loja" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 552.0
+offset_top = 192.0
+offset_right = 594.0
+offset_bottom = 219.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("4_ox82w")
+theme_override_fonts/font = ExtResource("6_6qjbt")
+theme_override_font_sizes/font_size = 12
+text = "LOJA"
+
 [node name="Animacao_Logo" parent="." instance=ExtResource("5_u8t1i")]
-position = Vector2(592, 296)
+position = Vector2(584, 304)
 scale = Vector2(1.2, 1.2)
 
 [node name="Label" type="Label" parent="."]
@@ -129,3 +142,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="btn_credits" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="btn_quit" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="btn_loja" to="." method="_on_button_4_pressed"]

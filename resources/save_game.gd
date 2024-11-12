@@ -24,6 +24,7 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 			"x": player.position.x,
 			"y": player.position.y
 		},
+		"collected_items": ItemManager.collected_items,
 	}
 	print(save_data)
 	# Preencher o inventário
@@ -80,6 +81,10 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 					print(data["missions"])
 					QuestsAt.load_quests(data["missions"])
 				
+				# Carregar os itens coletados
+				if data.has("collected_items"):
+					ItemManager.collected_items = data["collected_items"]
+				
 				file.close()
 				print("Jogo carregado com sucesso!")
 				return data
@@ -126,7 +131,11 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 			if cloud_data.has("missions"):
 				# print(cloud_data["missions"])
 				QuestsAt.load_quests(cloud_data["missions"])
-
+			
+			# Carregar os itens coletados da nuvem
+			if cloud_data.has("collected_items"):
+				ItemManager.collected_items = cloud_data["collected_items"]
+			
 			print("Jogo carregado com sucesso da nuvem!")
 			return cloud_data
 		else:

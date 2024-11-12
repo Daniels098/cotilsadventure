@@ -153,6 +153,7 @@ func _on_data_receive(): ## Tratar o "Username já está em uso"
 	# print(cloud)
 	if $Aviso.text == "Carregando dados da nuvem...":
 		$Aviso.text = "Login efetuado!"
+	
 	ConfigGeral.data_cloud = cloud["playerData"]
 	ConfigGeral.username = cloud["playerData"]["username"]
 	ConfigGeral.set_name_player(cloud["credential"]["name"])

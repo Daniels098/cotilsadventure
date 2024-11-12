@@ -18,7 +18,8 @@ func _ready() -> void:
 	menu.visible = false
 	QuestSystem.quest_accepted.connect(add_quest)
 	QuestSystem.quest_completed.connect(complete_quest)
-
+	QuestsAt.connect("quests_loaded", Callable(self, "load_active_quests"))
+	
 	# Inicializa a interface para ocultar missões e mostrar a missão atual
 	reset_ui()
 	update_current_mission()
@@ -34,19 +35,19 @@ func _process(_delta: float) -> void:
 
 func add_quest(quest: Quest) -> void:
 	# Adiciona uma nova missão, limitando o máximo a 3 ativas
-	if _active_quests.size() < 3:
-		_active_quests.append(quest)
+	if QuestManager._active_quests.size() < 3:
+		QuestManager._active_quests.append(quest)
 	update_current_mission()
 
 func complete_quest(quest: Quest) -> void:
 	# Remove a missão concluída e atualiza a interface
-	_active_quests.erase(quest)
+	QuestManager._active_quests.erase(quest)
 	update_current_mission()
 
 func update_current_mission() -> void:
 	# Atualiza a missão atual no canto da tela
-	if _active_quests.size() > 0:
-		var current_quest = _active_quests[0]
+	if QuestManager._active_quests.size() > 0:
+		var current_quest = QuestManager._active_quests[0]
 		mission_current_name.text = "Missão Atual: %s" % current_quest.quest_name
 		mission_current_progress.text = "Em progresso: %s/1" % current_quest.item
 		mission_current_name.show()
@@ -57,8 +58,8 @@ func update_current_mission() -> void:
 
 func update_menu_missions() -> void:
 	# Atualiza o menu com as informações de todas as missões ativas
-	for i in range(_active_quests.size()):
-		var quest = _active_quests[i]
+	for i in range(QuestManager._active_quests.size()):
+		var quest = QuestManager._active_quests[i]
 		quest_ui[i]["name"].text = "Missão: %s" % quest.quest_name
 		quest_ui[i]["description"].text = "Descrição: %s" % quest.quest_description
 		quest_ui[i]["objective"].text = "Objetivo: %s" % quest.quest_objective
@@ -71,7 +72,7 @@ func update_menu_missions() -> void:
 		quest_ui[i]["progress"].show()
 
 	# Esconde espaços de missões vazios se houver menos de 3 missões
-	for j in range(_active_quests.size(), quest_ui.size()):
+	for j in range(QuestManager._active_quests.size(), quest_ui.size()):
 		quest_ui[j]["name"].hide()
 		quest_ui[j]["description"].hide()
 		quest_ui[j]["objective"].hide()
@@ -86,7 +87,6 @@ func reset_ui() -> void:
 		element["progress"].hide()
 	mission_current_name.hide()
 	mission_current_progress.hide()
-
 
 func _on_volta_button_pressed():
 	menu.visible = !menu.visible

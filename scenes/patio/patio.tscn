@@ -1,11 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://co88akwnl8svw"]
+[gd_scene load_steps=24 format=3 uid="uid://co88akwnl8svw"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eenna"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_duy0y"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="3_j121s"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_10yvq"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="4_sygjx"]
 [ext_resource type="Texture2D" uid="uid://bs8oa5ip8666d" path="res://assets/arvorees.png" id="5_45c63"]
 [ext_resource type="Texture2D" uid="uid://b0j0r7fr68abl" path="res://assets/biblioteca-0.1.png" id="5_r20us"]
+[ext_resource type="PackedScene" uid="uid://cd1lmsy0ije4c" path="res://quests/gui/gui.tscn" id="6_l3imu"]
 [ext_resource type="Texture2D" uid="uid://d36h6272sysbf" path="res://assets/mapa-0.1-f.png" id="6_mil6w"]
 [ext_resource type="Texture2D" uid="uid://cwiywd5t3oo80" path="res://assets/patio-0.1-f.png" id="7_3bv5p"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="8_j0rix"]
@@ -38985,20 +38987,27 @@ sources/4 = SubResource("TileSetAtlasSource_2ktkv")
 sources/5 = SubResource("TileSetAtlasSource_y020f")
 sources/6 = SubResource("TileSetAtlasSource_b33oe")
 
-[node name="Patio" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 y_sort_enabled = true
 script = ExtResource("1_eenna")
 player = NodePath("Player")
 doors = [NodePath("entrada_academico"), NodePath("pass_leste_patio_1"), NodePath("pass_oeste_terr_1"), NodePath("saida_predio_adm_esquerda"), NodePath("saida_predio_adm_direita"), NodePath("pass_oeste_terr_2")]
 
-[node name="Inv_GUI" parent="." instance=ExtResource("2_duy0y")]
-visible = false
-
 [node name="MenuPause" parent="." instance=ExtResource("3_j121s")]
 visible = false
 
-[node name="ButtonLayer" parent="." instance=ExtResource("4_sygjx")]
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("4_sygjx")]
 visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_10yvq")]
+visible = false
+
+[node name="Inv_GUI" parent="." instance=ExtResource("2_duy0y")]
+layer = 3
+visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("6_l3imu")]
+layer = 101
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
