@@ -1,5 +1,7 @@
 extends Node
 
+signal quests_loaded
+
 const QUEST_PATH: String = "res://quests/missions/%s.tres"
 
 func start_quest(quest_name: String) -> void:
@@ -74,6 +76,7 @@ func load_quests(quest_data: Dictionary) -> void:
 				QuestSystem.mark_quest_as_available(quest) # Aqui você pode adicionar a quest como disponível
 			else:
 				print("Erro: Quest não encontrada com nome: ", quest_nome)
+	emit_signal("quests_loaded")
 
 func update_quest(quest_name: String) -> void:
 	var quest: Quest = ResourceLoader.load(QUEST_PATH % quest_name)

@@ -36,12 +36,14 @@ HttpsRequest="*res://autoload/https_request.gd"
 CredentialsManager="*res://autoload/credentials_manager.gd"
 ManagerSave="*res://resources/manager_save.gd"
 QuestsAt="*res://autoload/quests_at.gd"
+ItemManager="*res://autoload/item_manager.gd"
+QuestManager="*res://autoload/quest_manager.gd"
 
 [dialogue_manager]
 
 general/balloon_path="res://dialogue/balloon.tscn"
 general/new_with_template=false
-general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave"]
+general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave", "ItemManager"]
 general/include_notes_in_translation_exports=true
 general/wrap_lines=true
 
