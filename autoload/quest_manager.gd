@@ -18,15 +18,6 @@ func complete_quest(quest) -> void:
 	_active_quests.erase(quest)
 	emit_signal("quest_completed", quest)
 
-func check_item_in_inventory(item_id: String) -> bool:
-	var player = get_tree().get_nodes_in_group("players")[0]
-	var invi = player.invi  # Acessa o inventário do Player
-	
-	# Verifica se o jogador já possui o item no inventário
-	if invi and invi.check_item_in_slots(item_id) != null:
-		return true
-	return false
-
 # Retorna a lista de missões ativas
 func get_active_quests() -> Array:
 	return _active_quests

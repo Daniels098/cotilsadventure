@@ -132,6 +132,9 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				# print(cloud_data["missions"])
 				QuestsAt.load_quests(cloud_data["missions"])
 			
+			for quest in QuestsAt.view_quests_active():
+				quest.update()
+			
 			# Carregar os itens coletados da nuvem
 			if cloud_data.has("collected_items"):
 				ItemManager.collected_items = cloud_data["collected_items"]

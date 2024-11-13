@@ -1,25 +1,21 @@
 extends Node2D
 
-# Sinal para avisar o ItemManager que o item foi coletado
 signal item_collected(item_id)
 
 @export var item: InvItem
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String
 const baloon = preload("res://dialogue/balloon.tscn")
-var item_id = "documento"
 var invi: Inv
+var item_id = "documento"
 
 func _enter_tree():
-	# Garante que a verificação aconteça assim que o nó for inserido na árvore
-	var player = get_tree().get_nodes_in_group("players")[0]
-	invi = player.invi  # Acessa o inventário do Player
-	
-	# Verifica se o jogador já possui o item no inventário
-	if invi and invi.check_item_in_slots(item_id) != null:
-		queue_free()  # Remove o item se o jogador já o possui
-	else:
+	if !ItemManager.is_item_collected(item_id) or !ItemManager.check_item_in_inventory(item_id):
 		connect("item_collected", Callable(ItemManager, "register_item"))
+
+func _process(delta):
+	if ItemManager.is_item_collected(item_id) or ItemManager.check_item_in_inventory(item_id):
+		queue_free() # Remove o item se o jogador já o possui
 
 func _on_area_2d_body_entered(player: Player):
 	if QuestsAt.is_quest_active("matricula"):
@@ -27,7 +23,8 @@ func _on_area_2d_body_entered(player: Player):
 			return
 		var collected = item
 		player.collect(collected)
-		emit_signal("item_collected", item_id) # Emitindo o signal para o ItemManager
+		ItemManager.register_item(item_id)
+		emit_signal("item_collected", item_id)
 		action()
 		player.anim_exclama()
 		queue_free()

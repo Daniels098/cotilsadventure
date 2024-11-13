@@ -2,19 +2,19 @@
 Professor Salmazo: Eai estrupício, tudo bem?
 if is_quest_completed("matricula"):
 	Professor Salmazo: Quer mais algo? Pode deixar que entrego o documento na secretaria para você!
-elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_property(1,"documento_necessario") or is_quest_active("matricula") and is_item_collected("documento"):
+elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_property(1,"documento_necessario") or is_quest_active("matricula") and check_item_in_inventory("documento"):
 	{{nome_player}}: Eu tenho que entregar esse documento para quem?
 	Professor Salmazo: Pode ser para mim.
 	Entregar documento ao Professor Salmazo?
 	- Sim
+		do complete_quest("matricula")
 		{{nome_player}}: Aqui está.
 		Professor Salmazo: Obrigado!
-		do complete_quest("matricula")
-		do save_by_manager()
+		do remove_item("documento")
+		# do save_by_manager()
 	- Não
 		{{nome_player}}: Pode deixar, obrigado!
 		Professor Salmazo: Tudo bem, se precisar de ajudar é só chamar!
-		do remove_item("documento")
 elif is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
 	{{nome_player}}: Meu nome é {{nome_player}}
 	Professor Salmazo: Conseguiu achar o documento?

@@ -48,6 +48,8 @@ func update_current_mission() -> void:
 	# Atualiza a missão atual no canto da tela
 	if QuestManager._active_quests.size() > 0:
 		var current_quest = QuestManager._active_quests[0]
+		current_quest.update()  # Atualiza o progresso da missão
+
 		mission_current_name.text = "Missão Atual: %s" % current_quest.quest_name
 		mission_current_progress.text = "Em progresso: %s/1" % current_quest.item
 		mission_current_name.show()
@@ -56,10 +58,13 @@ func update_current_mission() -> void:
 		mission_current_name.hide()
 		mission_current_progress.hide()
 
+
 func update_menu_missions() -> void:
 	# Atualiza o menu com as informações de todas as missões ativas
 	for i in range(QuestManager._active_quests.size()):
 		var quest = QuestManager._active_quests[i]
+		quest.update()  # Atualiza o progresso da missão com base no inventário
+
 		quest_ui[i]["name"].text = "Missão: %s" % quest.quest_name
 		quest_ui[i]["description"].text = "Descrição: %s" % quest.quest_description
 		quest_ui[i]["objective"].text = "Objetivo: %s" % quest.quest_objective
@@ -77,6 +82,7 @@ func update_menu_missions() -> void:
 		quest_ui[j]["description"].hide()
 		quest_ui[j]["objective"].hide()
 		quest_ui[j]["progress"].hide()
+
 
 func reset_ui() -> void:
 	# Esconde todos os elementos da UI das missões ao iniciar

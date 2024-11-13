@@ -7,13 +7,9 @@ var inventory_data : Dictionary = {}
 var jso = JSON.new()
 var all_items: Dictionary = {}
 
-func _ready():
-	ItemManager.connect("remove_item_signal", Callable(self, "_on_remove_item_signal"))
-	print("Conectado ao sinal")
 
-func _on_remove_item_signal(item_id: String):
-	print("signal chegou com item_id: ", item_id)
-	remove_item(item_id)
+func _ready():
+	populate_all_items()
 
 func populate_all_items():
 	all_items["documento"] = preload("res://inventory/items/documento.tres")
@@ -22,7 +18,7 @@ func populate_all_items():
 	# print("Itens no dicionário: ", all_items.keys()) 
 
 ## Da pra usar
-func get_item_by_name(item_name: String) -> InvItem: 
+func get_item_by_name(item_name: String) -> InvItem:
 	if all_items.has(item_name):
 		var item_resource = all_items[item_name]
 		if item_resource is InvItem:
@@ -59,20 +55,22 @@ func insert(item: InvItem):
 
 func remove_item(item_name: String, amount: int = 1) -> bool:
 	# Procurar o item no inventário
-	var item = get_item_by_name(item_name)
-	if item == null:
-		return false  # O item não foi encontrado no inventário
+	if check_item_in_slots(item_name):
+		print("item existe no inventário do player")
+		var item = get_item_by_name(item_name)
+		if item == null:
+			return false  # O item não foi encontrado no inventário
 
-	# Encontrar o slot que contém esse item
-	for slot in slots:
-		if slot.item == item:
-			# Se a quantidade for maior que 1, diminui a quantidade
-			if slot.amount > amount:
-				slot.amount -= amount
-			else:
-				# Se a quantidade for 1 ou menor, remove o item do slot
-				slot.item = null
-				slot.amount = 0
-			update.emit()  # Emitir sinal de atualização
-			return true
+		# Encontrar o slot que contém esse item
+		for slot in slots:
+			if slot.item == item:
+				# Se a quantidade for maior que 1, diminui a quantidade
+				if slot.amount > amount:
+					slot.amount -= amount
+				else:
+					# Se a quantidade for 1 ou menor, remove o item do slot
+					slot.item = null
+					slot.amount = 0
+				update.emit()  # Emitir sinal de atualização
+				return true
 	return false  # Item não encontrado
