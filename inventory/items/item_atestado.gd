@@ -7,7 +7,7 @@ signal item_collected(item_id)
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String
 const baloon = preload("res://dialogue/balloon.tscn")
-var item_id = "documento"
+var item_id = "atestado"
 var invi: Inv
 
 func _enter_tree():
@@ -22,11 +22,11 @@ func _enter_tree():
 		connect("item_collected", Callable(ItemManager, "register_item"))
 
 func _on_area_2d_body_entered(player: Player):
-	if QuestsAt.is_quest_active("matricula"):
+	if QuestsAt.is_quest_active("matricula"): #trocar a missão
 		if not player is Player:
 			return
 		var collected = item
-		player.collect(collected)
+		player.coll-ect(collected)
 		emit_signal("item_collected", item_id) # Emitindo o signal para o ItemManager
 		action()
 		player.anim_exclama()

@@ -39303,6 +39303,14 @@ process_priority = 2
 z_index = 1
 position = Vector2(328, 328)
 disable_mode = 1
+speed = null
+input_enabled = null
+direction = null
+nome = null
+pos_player = null
+current_mission = null
+current_scene = null
+invi = null
 
 [node name="pass_norte_FPA" parent="." instance=ExtResource("13_ruijs")]
 modulate = Color(0, 1, 0, 1)

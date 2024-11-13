@@ -39455,7 +39455,7 @@ entry_door_name = "pass_norte_FPA"
 
 [node name="pass_sul_CPA2" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(112, 400)
+position = Vector2(112, 392)
 scale = Vector2(5, 5)
 entry_direction = 0
 transition_type = "zelda"
@@ -39465,7 +39465,7 @@ entry_door_name = "pass_norte_FPA2"
 
 [node name="frente_predio_esquerda" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(264, 392)
+position = Vector2(264, 384)
 scale = Vector2(4, 4)
 entry_direction = 0
 transition_type = "zelda"
@@ -39485,7 +39485,7 @@ entry_door_name = "cantina_escada_meio"
 
 [node name="frente_predio_direita" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(392, 392)
+position = Vector2(392, 384)
 scale = Vector2(4, 4)
 entry_direction = 0
 transition_type = "zelda"
@@ -39495,7 +39495,7 @@ entry_door_name = "cantina_escada_direita"
 
 [node name="pass_sul_CPA5" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(544, 392)
+position = Vector2(544, 384)
 scale = Vector2(4, 4)
 entry_direction = 0
 transition_type = "zelda"
@@ -39555,7 +39555,7 @@ entry_door_name = "pass_oeste_FPA"
 
 [node name="pass_leste_FB2" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(672, 112)
+position = Vector2(664, 112)
 scale = Vector2(4, 4)
 entry_direction = 3
 transition_type = "zelda"
@@ -39575,7 +39575,7 @@ entry_door_name = "pass_oeste_FPA3"
 
 [node name="pass_leste_FB4" parent="." instance=ExtResource("13_cuhmu")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(672, 272)
+position = Vector2(664, 272)
 scale = Vector2(4, 4)
 entry_direction = 3
 transition_type = "zelda"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c787hmu33x3ep"]
+[gd_scene load_steps=11 format=3 uid="uid://c787hmu33x3ep"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_n1btj"]
 [ext_resource type="Texture2D" uid="uid://coqrqlocn43l4" path="res://assets/sala-vermelha-in.png" id="2_02h4d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="6_10552"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_8kex1"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="7_ocxuj"]
+[ext_resource type="PackedScene" uid="uid://dfmryyo7ix3eh" path="res://inventory/items/item_atestado.tscn" id="8_ut5ut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whm1h"]
 texture = ExtResource("2_02h4d")
@@ -911,11 +912,24 @@ entry_door_name = "sala_13"
 
 [node name="Player" parent="." instance=ExtResource("7_ocxuj")]
 position = Vector2(328, 72)
+speed = null
+input_enabled = null
+direction = null
+nome = null
+pos_player = null
+current_mission = null
+current_scene = null
+invi = null
 
 [node name="ButtonLayer" parent="." instance=ExtResource("5_sq8xg")]
+visible = false
 
 [node name="Inv_GUI" parent="." instance=ExtResource("6_10552")]
 visible = false
 
 [node name="MenuPause" parent="." instance=ExtResource("7_8kex1")]
 visible = false
+
+[node name="item_atestado" parent="." instance=ExtResource("8_ut5ut")]
+position = Vector2(424, 248)
+dialogue_start = "pegar_documento"
