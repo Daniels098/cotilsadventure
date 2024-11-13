@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfmryyo7ix3eh"]
+
+[ext_resource type="Script" path="res://inventory/items/item_atestado.gd" id="1_gkkpw"]
+[ext_resource type="Resource" uid="uid://1of5xut3di3n" path="res://inventory/items/atestado.tres" id="2_3y2yn"]
+[ext_resource type="Resource" uid="uid://bvl1l13gnmmt3" path="res://dialogue/items_general.dialogue" id="3_mdo1s"]
+[ext_resource type="Texture2D" uid="uid://bfgexdj6tq4iy" path="res://assets/papel-f.png" id="4_b758x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3844"]
+size = Vector2(16, 16)
+
+[node name="item_atestado" type="Node2D"]
+script = ExtResource("1_gkkpw")
+item = ExtResource("2_3y2yn")
+dialogue_resource = ExtResource("3_mdo1s")
+dialogue_start = "pegar_atestado"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_b758x")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l3844")

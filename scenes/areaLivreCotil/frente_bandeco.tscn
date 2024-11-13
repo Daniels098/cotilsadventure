@@ -39435,7 +39435,7 @@ layer_1/tile_data = PackedInt32Array()
 [node name="Player" parent="." instance=ExtResource("11_th0vy")]
 process_priority = 2
 z_index = 1
-position = Vector2(304, 80)
+position = Vector2(160, 88)
 disable_mode = 1
 speed = null
 input_enabled = null

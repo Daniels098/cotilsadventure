@@ -22,8 +22,8 @@ do save_by_manager()
 if is_quest_active("medico"):
 	{{nome_player}}: Achei o meu atestado médico
 	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
-	if is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
-		do update_quest("matricula")
+	if is_quest_active("medico") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
+		do update_quest("medico")
 		# do start_quest("atestado")
 		do save_by_manager()
 else:
