@@ -14,9 +14,9 @@ func add_quest(quest) -> void:
 		emit_signal("quest_added", quest)
 
 # Marca uma missão como completa e a remove das ativas
-func complete_quest(quest) -> void:
-	_active_quests.erase(quest)
-	emit_signal("quest_completed", quest)
+#func complete_quest(quest) -> void:
+#	_active_quests.erase(quest)
+#	emit_signal("quest_completed", quest)
 
 # Retorna a lista de missões ativas
 func get_active_quests() -> Array:

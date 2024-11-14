@@ -10,7 +10,7 @@ elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_
 		do complete_quest("matricula")
 		{{nome_player}}: Aqui está.
 		Professor Salmazo: Obrigado!
-		do remove_item("documento")
+		# do remove_item("documento")
 		# do save_by_manager()
 	- Não
 		{{nome_player}}: Pode deixar, obrigado!

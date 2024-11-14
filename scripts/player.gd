@@ -40,8 +40,7 @@ func orient(input_direct: Vector2) -> void:
 			anim_player.play("Up")
 
 func collect(item: InvItem):
-	if invi != null:
-		invi.insert(item)
+	invi.insert(item)
 
 	# print("Invi (SAVE): ", invi)
 	# print("Slots no inventário (SAVE): ", invi.slots)

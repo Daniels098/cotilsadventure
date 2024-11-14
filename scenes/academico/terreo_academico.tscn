@@ -3823,7 +3823,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("2_4fyyy")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -3843,14 +3842,6 @@ process_priority = 2
 z_index = 1
 position = Vector2(336, 216)
 disable_mode = 1
-speed = null
-input_enabled = null
-direction = null
-nome = null
-pos_player = null
-current_mission = null
-current_scene = null
-invi = null
 
 [node name="ItemDocumento" parent="." instance=ExtResource("3_m6uhx")]
 position = Vector2(240, 208)
