@@ -22,7 +22,7 @@ func check_item_in_inventory(item_id: String) -> bool:
 	
 	var player = player_nodes[0]
 	var invi = player.invi
-	if invi.check_item_in_slots(item_id):
+	if invi and invi.check_item_in_slots(item_id):
 		return true
 	return false
 

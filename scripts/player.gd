@@ -40,7 +40,8 @@ func orient(input_direct: Vector2) -> void:
 			anim_player.play("Up")
 
 func collect(item: InvItem):
-	invi.insert(item)
+	if invi != null:
+		invi.insert(item)
 
 	# print("Invi (SAVE): ", invi)
 	# print("Slots no inventário (SAVE): ", invi.slots)
@@ -50,23 +51,9 @@ func save_player_data():
 	savgm.save_game(ConfigGeral.nome_player, self, ConfigGeral.username, invi, scene_path_name, missions)
 
 func load_player_data():
-	if not ManagerSave.game_loaded:
+	if not ManagerSave.game_loaded and invi != null:
 		savgm.load_game(nome, self, invi)
 		ManagerSave.game_loaded = true
-	# print("----------------------------------- CARREGANGO -----------------------------------")
-	# print("Invi (LOAD): ", invi)
-	# print("Slots no inventário (LOAD): ", invi.slots)
-	#var data = 
-	# var scene_path_name = get_tree().current_scene.scene_file_path
-	# var scene_name = data["scene"] if data.has("scene") and data["scene"] != null else scene_path_name
-	# Carrega a cena se for diferente da atual
-	#if scene_name != scene_path_name:
-	#	SceneManager.load_new_scene(scene_name)
-		# print("INVENTÁRIO PELO LOAD PLAYER DATA")
-		# print(data.get("inventory", []))
-	#else:
-	#	print(data)
-	#	print("Já está na cena atual")
 
 func get_save_data() -> Dictionary:
 	return {
