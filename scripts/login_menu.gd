@@ -131,6 +131,7 @@ func bloquear_login_por_tempo(segundos: float) -> void:
 func _on_timer_timeout():
 	$Aviso.text = "Clique em \"Entrar\" para começar a jogar!"
 	entrar_button.disabled = false
+	$Entrar.grab_focus()
 
 func _on_entrar_button_down():
 	username = $EmailLo.text
@@ -161,3 +162,22 @@ func _on_data_receive(): ## Tratar o "Username já está em uso"
 
 func _on_scene_change_timeout():
 	SceneManager.load_new_scene("res://scenes/menu/menu.tscn")
+
+# ------------------------- Switch Focus -------------------------
+func _on_nome_re_text_submitted(new_text) -> void:
+	$EmailRe.grab_focus()
+
+func _on_email_re_text_submitted(new_text) -> void:
+	$PasswordRe.grab_focus()
+
+func _on_password_re_text_submitted(new_text) -> void:
+	$RePasswordRe.grab_focus()
+
+func _on_re_password_re_text_submitted(new_text) -> void:
+	_on_registrar_button_down()
+
+func _on_password_lo_text_submitted(new_text) -> void:
+	_on_entrar_button_down()
+
+func _on_email_lo_text_submitted(new_text) -> void:
+	$PasswordLo.grab_focus()

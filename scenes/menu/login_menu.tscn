@@ -52,16 +52,19 @@ text = "Nome:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NomeRe" type="TextEdit" parent="."]
+[node name="NomeRe" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 236.0
 offset_top = 96.0
-offset_right = 412.0
-offset_bottom = 128.0
+offset_right = 416.0
+offset_bottom = 127.0
+focus_neighbor_right = NodePath("../EmailRe")
+focus_next = NodePath("../EmailRe")
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
 placeholder_text = "Digite seu nome"
-scroll_fit_content_height = true
+expand_to_text_length = true
+clear_button_enabled = true
 
 [node name="EmailReLabel" type="Label" parent="."]
 layout_mode = 0
@@ -71,17 +74,21 @@ offset_right = 233.0
 offset_bottom = 151.0
 text = "Usuário:"
 
-[node name="EmailRe" type="TextEdit" parent="."]
+[node name="EmailRe" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 236.0
 offset_top = 128.0
-offset_right = 412.0
-offset_bottom = 160.0
-theme_type_variation = &"*"
+offset_right = 416.0
+offset_bottom = 159.0
+focus_neighbor_left = NodePath("../NomeRe")
+focus_neighbor_right = NodePath("../PasswordRe")
+focus_next = NodePath("../PasswordRe")
+focus_previous = NodePath("../NomeRe")
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
-placeholder_text = "Digite seu username"
-scroll_fit_content_height = true
+placeholder_text = "Digite seu usuário"
+expand_to_text_length = true
+clear_button_enabled = true
 
 [node name="SenhaReLabel" type="Label" parent="."]
 layout_mode = 0
@@ -91,17 +98,18 @@ offset_right = 233.0
 offset_bottom = 183.0
 text = "Senha:"
 
-[node name="PasswordRe" type="TextEdit" parent="."]
+[node name="PasswordRe" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 236.0
 offset_top = 160.0
-offset_right = 412.0
-offset_bottom = 192.0
-scale = Vector2(1.00306, 0.941085)
+offset_right = 416.0
+offset_bottom = 191.0
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
 placeholder_text = "Digite sua senha"
-scroll_fit_content_height = true
+expand_to_text_length = true
+clear_button_enabled = true
+secret = true
 
 [node name="ReSenhaReLabel" type="Label" parent="."]
 layout_mode = 0
@@ -111,16 +119,18 @@ offset_right = 232.0
 offset_bottom = 215.0
 text = "Confirme sua Senha:"
 
-[node name="RePasswordRe" type="TextEdit" parent="."]
+[node name="RePasswordRe" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 236.0
 offset_top = 192.0
-offset_right = 412.0
-offset_bottom = 224.0
+offset_right = 416.0
+offset_bottom = 223.0
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
 placeholder_text = "Confirme sua senha"
-scroll_fit_content_height = true
+expand_to_text_length = true
+clear_button_enabled = true
+secret = true
 
 [node name="Registrar" type="Button" parent="."]
 layout_mode = 0
@@ -142,18 +152,19 @@ offset_right = 234.0
 offset_bottom = 151.0
 text = "Senha:"
 
-[node name="PasswordLo" type="TextEdit" parent="."]
+[node name="PasswordLo" type="LineEdit" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 237.0
 offset_top = 128.0
-offset_right = 413.0
-offset_bottom = 160.0
+offset_right = 408.0
+offset_bottom = 159.0
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
 placeholder_text = "Digite sua senha"
-scroll_fit_content_height = true
-structured_text_bidi_override = 6
+expand_to_text_length = true
+clear_button_enabled = true
+secret = true
 
 [node name="EmailLoLabel" type="Label" parent="."]
 visible = false
@@ -164,17 +175,17 @@ offset_right = 233.0
 offset_bottom = 127.0
 text = "Usuário:"
 
-[node name="EmailLo" type="TextEdit" parent="."]
+[node name="EmailLo" type="LineEdit" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 237.0
 offset_top = 96.0
-offset_right = 413.0
-offset_bottom = 128.0
+offset_right = 408.0
+offset_bottom = 127.0
 theme_override_fonts/font = ExtResource("2_21l0e")
 theme_override_font_sizes/font_size = 14
-placeholder_text = "Digite seu username"
-scroll_fit_content_height = true
+expand_to_text_length = true
+clear_button_enabled = true
 
 [node name="Entrar" type="Button" parent="."]
 visible = false
@@ -209,7 +220,13 @@ text = "Voltar"
 
 [node name="SceneChangeTimer" type="Timer" parent="."]
 
+[connection signal="text_submitted" from="NomeRe" to="." method="_on_nome_re_text_submitted"]
+[connection signal="text_submitted" from="EmailRe" to="." method="_on_email_re_text_submitted"]
+[connection signal="text_submitted" from="PasswordRe" to="." method="_on_password_re_text_submitted"]
+[connection signal="text_submitted" from="RePasswordRe" to="." method="_on_re_password_re_text_submitted"]
 [connection signal="button_down" from="Registrar" to="." method="_on_registrar_button_down"]
+[connection signal="text_submitted" from="PasswordLo" to="." method="_on_password_lo_text_submitted"]
+[connection signal="text_submitted" from="EmailLo" to="." method="_on_email_lo_text_submitted"]
 [connection signal="button_down" from="Entrar" to="." method="_on_entrar_button_down"]
 [connection signal="button_down" from="ToggleRegisterLogin" to="." method="_on_toggle_register_login_button_down"]
 [connection signal="button_down" from="Voltar" to="." method="_on_voltar_button_down"]
