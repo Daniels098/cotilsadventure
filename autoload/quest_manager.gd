@@ -13,10 +13,10 @@ func add_quest(quest) -> void:
 		_active_quests.append(quest)
 		emit_signal("quest_added", quest)
 
-# Marca uma missão como completa e a remove das ativas
-#func complete_quest(quest) -> void:
-#	_active_quests.erase(quest)
-#	emit_signal("quest_completed", quest)
+ # Marca uma missão como completa e a remove das ativas
+func completed_quest(quest) -> void: # Complete_quest porém tem o mesmo nome que outra função e da conflito ao chamar no DialogueManager
+	_active_quests.erase(quest)
+	emit_signal("quest_completed", quest)
 
 # Retorna a lista de missões ativas
 func get_active_quests() -> Array:

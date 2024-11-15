@@ -15,19 +15,18 @@ func _enter_tree():
 
 func _process(delta):
 	if ItemManager.is_item_collected(item_id) or ItemManager.check_item_in_inventory(item_id):
-		pass# queue_free() # Remove o item se o jogador já o possui
+		queue_free() # Remove o item se o jogador já o possui
 
 func _on_area_2d_body_entered(player: Player):
-	if QuestsAt.is_quest_active("matricula"):
-		if not player is Player:
+	if not player is Player:
 			return
-		var collected = item
-		player.collect(item_id)
+	if QuestsAt.is_quest_active("matricula"):
+		player.collect(item)
 		ItemManager.register_item(item_id)
 		emit_signal("item_collected", item_id)
 		action()
 		player.anim_exclama()
-		# queue_free()
+		queue_free()
 	else:
 		action()
 

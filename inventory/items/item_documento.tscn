@@ -1,55 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwhawgu1u82ks"]
 
 [ext_resource type="Texture2D" uid="uid://bcb8p606w2plt" path="res://assets/documento.png" id="1_7l8wo"]
+[ext_resource type="Script" path="res://inventory/items/item_documento.gd" id="1_dilr1"]
 [ext_resource type="Resource" uid="uid://bth58ik00vaai" path="res://inventory/items/documento.tres" id="2_6o8cl"]
 [ext_resource type="Resource" uid="uid://bvl1l13gnmmt3" path="res://dialogue/items_general.dialogue" id="3_xn03r"]
-
-[sub_resource type="GDScript" id="GDScript_h2ddg"]
-script/source = "extends Node2D
-
-signal item_collected(item_id)
-
-@export var item: InvItem
-@export var dialogue_resource: DialogueResource
-@export var dialogue_start: String
-const baloon = preload(\"res://dialogue/balloon.tscn\")
-var invi: Inv
-var item_id = \"documento\"
-
-func _enter_tree():
-	if !ItemManager.is_item_collected(item_id) or !ItemManager.check_item_in_inventory(item_id):
-		connect(\"item_collected\", Callable(ItemManager, \"register_item\"))
-
-func _process(delta):
-	if ItemManager.is_item_collected(item_id) or ItemManager.check_item_in_inventory(item_id):
-		queue_free() # Remove o item se o jogador já o possui
-
-func _on_area_2d_body_entered(player: Player):
-	if QuestsAt.is_quest_active(\"matricula\"):
-		if not player is Player:
-			return
-		var collected = item
-		player.collect(collected)
-		ItemManager.register_item(item_id)
-		emit_signal(\"item_collected\", item_id)
-		action()
-		player.anim_exclama()
-		queue_free()
-	else:
-		action()
-
-func action() -> void:
-	var ballon: Node = baloon.instantiate()
-	get_tree().current_scene.add_child(ballon)
-	ballon.start(dialogue_resource, dialogue_start)
-	
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72d7n"]
 size = Vector2(16, 16)
 
 [node name="ItemDocumento" type="Node2D"]
-script = SubResource("GDScript_h2ddg")
+script = ExtResource("1_dilr1")
 item = ExtResource("2_6o8cl")
 dialogue_resource = ExtResource("3_xn03r")
 dialogue_start = "pegar_documento"
