@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqnlyb14jm6hb"]
+
+[ext_resource type="Script" path="res://scenes/portasAnim/lojinha_apm.gd" id="1_6tv7d"]
+[ext_resource type="Resource" uid="uid://c87fmw47o38uh" path="res://dialogue/funcionarios.dialogue" id="2_ycu3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vimj7"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpw3h"]
+size = Vector2(24, 24)
+
+[node name="LojinhaAPM" type="CharacterBody2D"]
+script = ExtResource("1_6tv7d")
+dialogue_resource = ExtResource("2_ycu3d")
+dialogue_start = "lojinha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vimj7")
+
+[node name="LojinhaCollisor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LojinhaCollisor"]
+shape = SubResource("RectangleShape2D_vpw3h")
+
+[connection signal="body_entered" from="LojinhaCollisor" to="." method="_on_lojinha_collisor_body_entered"]

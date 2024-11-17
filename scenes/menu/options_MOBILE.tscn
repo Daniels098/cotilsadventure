@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ktkbg4bkafco"]
+[gd_scene load_steps=7 format=3 uid="uid://ktkbg4bkafco"]
 
 [ext_resource type="Script" path="res://scripts/options_MOBILE.gd" id="1_to8jf"]
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="2_bq7s3"]
 [ext_resource type="Texture2D" uid="uid://ccpdcum0eeytj" path="res://assets/grabber.png" id="3_4gvis"]
 [ext_resource type="Texture2D" uid="uid://cklng2hps6a0e" path="res://assets/grabbe_highlightr.png" id="4_05lp7"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_7q76i"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_yy1j4"]
 
@@ -46,7 +44,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 text = "Configurações"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -88,7 +86,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 button_pressed = true
 text = "Sincronização Vertical"
 
@@ -105,47 +103,18 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Modo Canhoto"
 
 [node name="Control3" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="HBox_Brilho" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
-layout_mode = 2
-alignment = 1
-
-[node name="title_brilho" type="Label" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho"]
-texture_filter = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
-text = "Brilho"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="spacer" type="Control" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho"]
-custom_minimum_size = Vector2(14, 0)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="slider_brilho" type="HSlider" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho"]
-custom_minimum_size = Vector2(247, 0)
-layout_mode = 2
-theme_override_icons/grabber = ExtResource("3_4gvis")
-theme_override_icons/grabber_highlight = ExtResource("4_05lp7")
-theme_override_icons/tick = SubResource("ImageTexture_7q76i")
-
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="title_vol" type="Label" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -157,7 +126,7 @@ layout_mode = 2
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Geral"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -184,7 +153,7 @@ layout_mode = 2
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Musica"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -211,7 +180,7 @@ layout_mode = 2
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Efeitos "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -236,24 +205,19 @@ texture_filter = 2
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 text = "Reset to default"
-
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_bq7s3")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 text = "Voltar"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync" to="." method="_on_vsync_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer3/ModeCanhoto" to="." method="_on_mode_canhoto_pressed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho" to="." method="_on_slider_brilho_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master" to="." method="_on_vol_master_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music" to="." method="_on_vol_music_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx" to="." method="_on_vol_sfx_value_changed"]

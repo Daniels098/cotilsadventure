@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var anim_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var walk_sound := $WalkSound
 @export var speed: int = 80
 @export var input_enabled: bool = true
 @export var direction = Vector2.ZERO
@@ -25,6 +26,7 @@ func _ready():
 	nome = ConfigGeral.get_name_player()
 	ManagerSave.connect("save_game_request", Callable(self, "save_player_data"))
 	# print(nome)
+
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
@@ -115,12 +117,16 @@ func _physics_process(delta):
 		else:
 			move(direction)
 			idle_animation()
-	
 	if Input.is_action_just_pressed("interact"):
 		save_player_data()
-	if Input.is_action_just_pressed("run"):
+	if Input.is_action_pressed("run"):
 		load_player_data()
-	in_dialogue()        
+	in_dialogue()
+	#walking()
+
+func walking():
+	walk_sound.pitch_scale = randf_range(0.9, 1.1)
+	walk_sound.play()
 
 func move(input_direct: Vector2):
 	if input_direct.x > 0:
