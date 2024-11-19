@@ -39477,7 +39477,7 @@ entry_door_name = "pass_leste_FB"
 
 [node name="pass_oeste_FPA2" parent="." instance=ExtResource("12_g7ngl")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(-32, 112)
+position = Vector2(-24, 112)
 scale = Vector2(4, 4)
 entry_direction = 1
 transition_type = "zelda"
@@ -39497,7 +39497,7 @@ entry_door_name = "pass_leste_FB3"
 
 [node name="pass_oeste_FPA4" parent="." instance=ExtResource("12_g7ngl")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(-32, 272)
+position = Vector2(-24, 272)
 scale = Vector2(4, 4)
 entry_direction = 1
 transition_type = "zelda"

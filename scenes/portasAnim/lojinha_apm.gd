@@ -1,4 +1,4 @@
-class_name NPC extends CharacterBody2D
+class_name APM extends CharacterBody2D
 
 @export var dialogue_resource: DialogueResource # Lojinha Diálogo
 @export var dialogue_start: String
