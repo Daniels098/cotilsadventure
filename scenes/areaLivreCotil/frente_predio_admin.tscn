@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dcnqm8846tosn"]
+[gd_scene load_steps=30 format=3 uid="uid://dcnqm8846tosn"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_arw2h"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_xslxq"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="12_iondb"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="13_cuhmu"]
 [ext_resource type="Texture2D" uid="uid://dw6tjqdq2qcq" path="res://assets/banco-1.png" id="15_d5fu5"]
+[ext_resource type="Texture2D" uid="uid://cj17fcwmd84i0" path="res://assets/teto-quiosque.png" id="16_ao6fn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("5_63538")
@@ -39390,6 +39391,69 @@ texture = ExtResource("15_d5fu5")
 0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, -4, -4, -2, -4, -0.5, -3, 0, -2, 1, -2, 1, 1, 3, 1, 3, -2, 4, -2, 5, -3, 5, -8, -5, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0xu5"]
+texture = ExtResource("16_ao6fn")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_kld44"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
@@ -39402,6 +39466,7 @@ sources/5 = SubResource("TileSetAtlasSource_y020f")
 sources/6 = SubResource("TileSetAtlasSource_b33oe")
 sources/7 = SubResource("TileSetAtlasSource_xdq4a")
 sources/8 = SubResource("TileSetAtlasSource_0g4n2")
+sources/9 = SubResource("TileSetAtlasSource_a0xu5")
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 y_sort_enabled = true
@@ -39440,7 +39505,7 @@ layer_0/tile_data = PackedInt32Array(7, 2293762, 27, 65543, 2293762, 28, 131079,
 layer_1/name = "Object"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(983058, 8, 0, 1048594, 8, 1, 786448, 8, 0, 851984, 8, 1)
+layer_1/tile_data = PackedInt32Array(983058, 8, 0, 1048594, 8, 1, 786448, 8, 0, 851984, 8, 1, 655361, 9, 0, 720897, 9, 1, 786433, 9, 2, 851969, 9, 3, 655362, 65545, 0, 720898, 65545, 1, 786434, 65545, 2, 851970, 65545, 3, 655363, 131081, 0, 720899, 131081, 1, 786435, 131081, 2, 851971, 131081, 3, 655364, 196617, 0, 720900, 196617, 1, 786436, 196617, 2, 851972, 196617, 3, 655365, 262153, 0, 720901, 262153, 1, 786437, 262153, 2, 851973, 262153, 3)
 
 [node name="Player" parent="." instance=ExtResource("12_iondb")]
 process_priority = 2
@@ -39607,7 +39672,7 @@ path_to_new_scene = "res://scenes/areaLivreCotil/frente_bandeco.tscn"
 entry_door_name = "pass_oeste_FPA5"
 
 [node name="oeste_frente_cotil_2" parent="." instance=ExtResource("13_cuhmu")]
-position = Vector2(-24, 176)
+position = Vector2(-32, 176)
 scale = Vector2(4, 4)
 entry_direction = 1
 transition_type = "zelda"

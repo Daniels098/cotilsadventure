@@ -39047,7 +39047,7 @@ path_to_new_scene = "res://scenes/academico/terreo_academico.tscn"
 entry_door_name = "saida_patio"
 
 [node name="pass_leste_patio1" parent="." instance=ExtResource("9_gf0q3")]
-position = Vector2(528, 128)
+position = Vector2(544, 128)
 scale = Vector2(5, 5)
 entry_direction = 3
 transition_type = "fade_to_white"
@@ -39056,7 +39056,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio1"
 
 [node name="pass_leste_patio2" parent="." instance=ExtResource("9_gf0q3")]
-position = Vector2(528, 208)
+position = Vector2(544, 208)
 scale = Vector2(5, 5)
 entry_direction = 3
 transition_type = "fade_to_white"
@@ -39065,7 +39065,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio2"
 
 [node name="pass_leste_patio3" parent="." instance=ExtResource("9_gf0q3")]
-position = Vector2(528, 288)
+position = Vector2(544, 288)
 scale = Vector2(5, 5)
 entry_direction = 3
 transition_type = "fade_to_white"
@@ -39074,7 +39074,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio3"
 
 [node name="pass_oeste_terr_1" parent="." instance=ExtResource("9_gf0q3")]
-position = Vector2(128, 120)
+position = Vector2(112, 120)
 scale = Vector2(3, 3)
 entry_direction = 1
 transition_type = "zelda"
@@ -39101,7 +39101,7 @@ path_to_new_scene = "res://scenes/administrativo/predio_admin.tscn"
 entry_door_name = "saida_predio_adm_direita"
 
 [node name="pass_oeste_terr_2" parent="." instance=ExtResource("9_gf0q3")]
-position = Vector2(112, 280)
+position = Vector2(96, 280)
 scale = Vector2(5, 5)
 entry_direction = 1
 transition_type = "zelda"
