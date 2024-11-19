@@ -39557,7 +39557,7 @@ layer_1/tile_data = PackedInt32Array(1048593, 6, 0, 1179665, 6, 2, 1245201, 6, 3
 [node name="Player" parent="." instance=ExtResource("12_2r755")]
 process_priority = 2
 z_index = 1
-position = Vector2(405, 104)
+position = Vector2(432, 16)
 disable_mode = 1
 speed = null
 input_enabled = null
@@ -39600,7 +39600,7 @@ entry_door_name = "frente_predio_esquerda"
 
 [node name="cantina_escada_meio" parent="." instance=ExtResource("13_ruijs")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(328, -24)
+position = Vector2(336, -24)
 scale = Vector2(4, 4)
 entry_direction = 2
 transition_type = "zelda"
@@ -39610,7 +39610,7 @@ entry_door_name = "frente_predio_meio"
 
 [node name="cantina_escada_direita" parent="." instance=ExtResource("13_ruijs")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(392, -32)
+position = Vector2(408, -32)
 scale = Vector2(4, 4)
 entry_direction = 2
 transition_type = "zelda"
