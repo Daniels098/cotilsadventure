@@ -1,34 +1,30 @@
 ~ salmazo
-Professor Salmazo: Eai estrupício, tudo bem?
-if is_quest_completed("matricula"):
-	Professor Salmazo: Quer mais algo? Pode deixar que entrego o documento na secretaria para você!
-elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_property(1,"documento_necessario") or is_quest_active("matricula") and check_item_in_inventory("documento"):
-	{{nome_player}}: Eu tenho que entregar esse documento para quem?
-	Professor Salmazo: Pode ser para mim.
-	Entregar documento ao Professor Salmazo?
+Professor Salmazo: Eai estrupício, seja bem vindo!
+Professor Salmazo: Hoje não teremos aula,[wait=0.5] estou liberando os alunos para poderem conhecer o campus.
+if is_quest_completed("bandeco"):
+	Professor Salmazo: Vamos continuar conhecendo o Cotil?
 	- Sim
-		do complete_quest("matricula")
-		{{nome_player}}: Aqui está.
-		Professor Salmazo: Obrigado!
+		Professor Salmazo: Vá até o CECOM.
+		do start_quest("cecom")
 	- Não
-		{{nome_player}}: Pode deixar, obrigado!
-		Professor Salmazo: Tudo bem, se precisar de ajudar é só chamar!
-	if is_quest_completed("matricula"):
-		do remove_item("documento")
-		do save_by_manager()
-elif is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
-	{{nome_player}}: Meu nome é {{nome_player}}
-	Professor Salmazo: Conseguiu achar o documento?
-	{{nome_player}}: Ainda não.
-	Professor Salmazo: Espero que você consiga achar logo.
+		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem alguns lugares importantes para você conhecer.
+		=> END
+elif is_quest_active("bandeco") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+	{{nome_player}}: Fui até o bandeco.
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	do complete_quest("bandeco")
+	do save_by_manager()
+elif is_quest_active("bandeco") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	Professor Salmazo: Conseguiu achar o bandeco?
+	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
+	Professor Salmazo: Fica à direita da saída do pátio leste.
 else:
-	Professor Salmazo: Precisa de alguma coisa?
-	{{nome_player}}: Eu perdi o meu documento e preciso achar ele logo!
-	Professor Salmazo: Calma, você já procurou no corredor?[wait=1] Ele pode ter caído no chão.
-	Procurar no corredor?
+	Você tem interesse em conhecer?
 	- Sim
-		do start_quest("matricula")
+		Professor Salmazo: Vá até o restaurante universitário, ou como é conhecido bandeco
+		do start_quest("bandeco")
 		do save_by_manager()
 	- Não
+		Professor Salmazo: Sem problemas![wait=0.8] Espero que você volte mais tarde.
 		=> END
 => END

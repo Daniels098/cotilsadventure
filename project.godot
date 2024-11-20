@@ -63,7 +63,7 @@ project/assembly_name="cotiladventures"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 
