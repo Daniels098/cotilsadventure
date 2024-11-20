@@ -10,6 +10,7 @@ var button_layer_canhoto = preload("res://scenes/controlsTouchCanhoto.tscn")
 var _save: SaveGame
 
 func _ready():
+	player = get_tree().get_nodes_in_group("players")[0]
 	if player != null:
 		player.disable_mode
 		player.visible = false

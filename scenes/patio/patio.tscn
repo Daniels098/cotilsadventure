@@ -39013,7 +39013,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_l3imu")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -39047,6 +39046,7 @@ path_to_new_scene = "res://scenes/academico/terreo_academico.tscn"
 entry_door_name = "saida_patio"
 
 [node name="pass_leste_patio1" parent="." instance=ExtResource("9_gf0q3")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(544, 128)
 scale = Vector2(5, 5)
 entry_direction = 3
@@ -39056,6 +39056,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio1"
 
 [node name="pass_leste_patio2" parent="." instance=ExtResource("9_gf0q3")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(544, 208)
 scale = Vector2(5, 5)
 entry_direction = 3
@@ -39065,6 +39066,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio2"
 
 [node name="pass_leste_patio3" parent="." instance=ExtResource("9_gf0q3")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(544, 288)
 scale = Vector2(5, 5)
 entry_direction = 3
@@ -39074,6 +39076,7 @@ path_to_new_scene = "res://scenes/patio/patio_leste.tscn"
 entry_door_name = "entrada_patio3"
 
 [node name="pass_oeste_terr_1" parent="." instance=ExtResource("9_gf0q3")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(112, 120)
 scale = Vector2(3, 3)
 entry_direction = 1
@@ -39101,6 +39104,7 @@ path_to_new_scene = "res://scenes/administrativo/predio_admin.tscn"
 entry_door_name = "saida_predio_adm_direita"
 
 [node name="pass_oeste_terr_2" parent="." instance=ExtResource("9_gf0q3")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(96, 280)
 scale = Vector2(5, 5)
 entry_direction = 1

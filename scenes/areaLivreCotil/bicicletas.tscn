@@ -39259,7 +39259,7 @@ sources/4 = SubResource("TileSetAtlasSource_2ktkv")
 sources/5 = SubResource("TileSetAtlasSource_y020f")
 sources/6 = SubResource("TileSetAtlasSource_b33oe")
 
-[node name="CorredorTerreoAcademico" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 y_sort_enabled = true
 script = ExtResource("1_sqg0n")
 player = NodePath("Player")
