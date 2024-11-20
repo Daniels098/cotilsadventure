@@ -17,9 +17,9 @@ func _ready():
 func _on_timer_timeout():
 	enable = true
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(player: Player) -> void:
 	if enable:
-		if not body is Player:
+		if not player is Player:
 			return
 		player_entered_door.emit(self)
 		if transition_type == "zelda":
