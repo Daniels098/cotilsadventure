@@ -25,8 +25,7 @@ var missoes
 func _ready():
 	nome = ConfigGeral.get_name_player()
 	ManagerSave.connect("save_game_request", Callable(self, "save_player_data"))
-	# print(nome)
-
+	sprite.texture = LojinhaManager.current_skin
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:

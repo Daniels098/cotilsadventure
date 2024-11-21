@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=3 uid="uid://c43jknsyy486c"]
+
+[ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="1_ajjgf"]
+[ext_resource type="Script" path="res://NPCs/lojinha/lojinhaAPM.gd" id="1_craqf"]
+[ext_resource type="PackedScene" uid="uid://caeck1ortarag" path="res://NPCs/lojinha/button.tscn" id="3_gxqcn"]
+[ext_resource type="Texture2D" uid="uid://fxqtmtpno445" path="res://assets/perso-02.png" id="4_gns2y"]
+[ext_resource type="Texture2D" uid="uid://y7lntsk663a1" path="res://assets/dorothi-0.1.png" id="4_k7l7v"]
+[ext_resource type="Texture2D" uid="uid://c48pfy5qrjy1h" path="res://assets/perso02_loja.png" id="4_x6orx"]
+[ext_resource type="Texture2D" uid="uid://yugtc5n2q4rj" path="res://assets/verinha-0.1.png" id="5_adjty"]
+[ext_resource type="Texture2D" uid="uid://dm8ku5a83t63d" path="res://assets/Salmazo-0.1.png" id="6_dq3q2"]
+
+[node name="LojinhaApm" type="CanvasLayer"]
+script = ExtResource("1_craqf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="titulo" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -32.0
+offset_right = 198.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_ajjgf")
+theme_override_font_sizes/font_size = 28
+text = "Loja de skins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="money" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = -24.0
+offset_right = 598.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_ajjgf")
+theme_override_font_sizes/font_size = 20
+text = "Moedas: %s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 105)
+layout_mode = 2
+theme_override_constants/separation = 180
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/Control"]
+texture_filter = 1
+position = Vector2(45, 110)
+scale = Vector2(7, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/Control/Node2D"]
+hframes = 3
+vframes = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(305, 148)
+layout_mode = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 40
+columns = 4
+
+[node name="Button1" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+view_text = ExtResource("4_x6orx")
+skin_text = ExtResource("4_gns2y")
+
+[node name="Button2" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+view_text = ExtResource("5_adjty")
+skin_text = ExtResource("5_adjty")
+skin_id = 1
+
+[node name="Button3" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+view_text = ExtResource("6_dq3q2")
+skin_text = ExtResource("6_dq3q2")
+skin_id = 2
+
+[node name="Button4" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+view_text = ExtResource("4_k7l7v")
+skin_text = ExtResource("4_k7l7v")
+skin_id = 3
+
+[node name="Button5" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+skin_id = 4
+
+[node name="Button6" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+skin_id = 5
+
+[node name="Button7" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+skin_id = 6
+
+[node name="Control2" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="voltar" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/Control2"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 620.0
+offset_bottom = 40.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_ajjgf")
+theme_override_font_sizes/font_size = 20
+text = "Voltar"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/Control2/voltar" to="." method="_on_voltar_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

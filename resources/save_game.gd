@@ -25,6 +25,8 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 			"y": player.position.y
 		},
 		"collected_items": ItemManager.collected_items,
+		"skins": LojinhaManager.skins, # Se caso não funcionar precisa preencher igual do inventário
+		"moedas": LojinhaManager.money,
 	}
 	print(save_data)
 	# Preencher o inventário
@@ -38,6 +40,8 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		print("Invi NÃO é nulo e possui slots.")
 	else:
 		print("Invi é nulo ou não possui slots.")
+	
+	# Preencher as skins
 	
 	# Salvar localmente no arquivo JSON
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -84,6 +88,9 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				# Carregar os itens coletados
 				if data.has("collected_items"):
 					ItemManager.collected_items = data["collected_items"]
+				
+				if data.has("skins"):
+					LojinhaManager.skins = data["skins"]
 				
 				file.close()
 				print("Jogo carregado com sucesso!")
@@ -138,6 +145,11 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 			# Carregar os itens coletados da nuvem
 			if cloud_data.has("collected_items"):
 				ItemManager.collected_items = cloud_data["collected_items"]
+			
+			if cloud_data.has("skins") and typeof(cloud_data["skins"]) == TYPE_DICTIONARY:
+				LojinhaManager.skins = cloud_data["skins"]
+			else:
+				print("Dado de skins inválido ou ausente na nuvem. Usando valor padrão.")
 			
 			print("Jogo carregado com sucesso da nuvem!")
 			return cloud_data

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47vhgi2dch51"
-path="res://.godot/imported/sprite-perso-t.png-58c47f45dd741850f32219c5e8632feb.ctex"
+uid="uid://ctyxqkrhqrrdu"
+path="res://.godot/imported/mesa-01-1.png-a89cfa50132b33ce5d4a749987eff3e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite-perso-t.png"
-dest_files=["res://.godot/imported/sprite-perso-t.png-58c47f45dd741850f32219c5e8632feb.ctex"]
+source_file="res://assets/mesa-01-1.png"
+dest_files=["res://.godot/imported/mesa-01-1.png-a89cfa50132b33ce5d4a749987eff3e4.ctex"]
 
 [params]
 

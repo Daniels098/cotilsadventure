@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://mh6ha2o6gw7r"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_74xad"]
-[ext_resource type="PackedScene" uid="uid://c43jknsyy486c" path="res://NPCs/lojinhaAPM.tscn" id="2_5jrc5"]
+[ext_resource type="PackedScene" uid="uid://c43jknsyy486c" path="res://NPCs/lojinha/lojinhaAPM.tscn" id="2_5jrc5"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_6jw1r"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="3_xo6xr"]
 [ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_8qcxt"]

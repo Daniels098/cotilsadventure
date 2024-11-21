@@ -403,5 +403,5 @@ parameters/walk/blend_position = Vector2(-0.791188, 1.07407)
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fx6xa")
-volume_db = -24.0
+volume_db = -26.0
 bus = &"SFX"

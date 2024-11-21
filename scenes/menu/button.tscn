@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxjbxi3ayxu4d"]
+[gd_scene load_steps=6 format=3 uid="uid://bxjbxi3ayxu4d"]
 
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="1_a4w1f"]
+[ext_resource type="Script" path="res://NPCs/lojinha/button.gd" id="1_ducgr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sow7f"]
 bg_color = Color(0, 0, 0, 0.666667)
@@ -20,6 +21,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sow7f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qxlg1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qxlg1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2lnp3")
+script = ExtResource("1_ducgr")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
