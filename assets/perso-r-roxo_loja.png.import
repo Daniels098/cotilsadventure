@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48pfy5qrjy1h"
-path="res://.godot/imported/perso02_loja.png-1df35579ab7b1e791e9588c07a7bc731.ctex"
+uid="uid://nstjtofpi838"
+path="res://.godot/imported/perso-r-roxo_loja.png-aec4c64ab78ab4950ea1f9fc82f5ae5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/perso02_loja.png"
-dest_files=["res://.godot/imported/perso02_loja.png-1df35579ab7b1e791e9588c07a7bc731.ctex"]
+source_file="res://assets/perso-r-roxo_loja.png"
+dest_files=["res://.godot/imported/perso-r-roxo_loja.png-aec4c64ab78ab4950ea1f9fc82f5ae5c.ctex"]
 
 [params]
 

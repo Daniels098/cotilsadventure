@@ -1,6 +1,6 @@
 extends Node
 
-var money: int = 8
+@export var money: int = 20
 var current_skin := load("res://assets/perso-02.png")
 @export var skins := {
 	"0": true,
@@ -18,6 +18,7 @@ func save_skins():
 
 func ver_lojinha():
 	if get_node("/root/LevelLojinha/LojinhaApm") != null:
+		var player = get_tree().get_first_node_in_group("players")
 		var lojinha = get_node("/root/LevelLojinha/LojinhaApm")
 		lojinha.visible = true
 	else:

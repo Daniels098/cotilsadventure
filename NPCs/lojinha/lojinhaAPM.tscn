@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://c43jknsyy486c"]
+[gd_scene load_steps=18 format=3 uid="uid://c43jknsyy486c"]
 
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="1_ajjgf"]
 [ext_resource type="Script" path="res://NPCs/lojinha/lojinhaAPM.gd" id="1_craqf"]
 [ext_resource type="PackedScene" uid="uid://caeck1ortarag" path="res://NPCs/lojinha/button.tscn" id="3_gxqcn"]
+[ext_resource type="Texture2D" uid="uid://d2q7vas5acjnj" path="res://assets/perso-02_loja.png" id="4_fh8l7"]
 [ext_resource type="Texture2D" uid="uid://fxqtmtpno445" path="res://assets/perso-02.png" id="4_gns2y"]
-[ext_resource type="Texture2D" uid="uid://y7lntsk663a1" path="res://assets/dorothi-0.1.png" id="4_k7l7v"]
-[ext_resource type="Texture2D" uid="uid://c48pfy5qrjy1h" path="res://assets/perso02_loja.png" id="4_x6orx"]
-[ext_resource type="Texture2D" uid="uid://yugtc5n2q4rj" path="res://assets/verinha-0.1.png" id="5_adjty"]
-[ext_resource type="Texture2D" uid="uid://dm8ku5a83t63d" path="res://assets/Salmazo-0.1.png" id="6_dq3q2"]
+[ext_resource type="Texture2D" uid="uid://nstjtofpi838" path="res://assets/perso-r-roxo_loja.png" id="6_nw3ql"]
+[ext_resource type="Texture2D" uid="uid://d25lxb5avce33" path="res://assets/perso-r-roxo.png" id="7_lnlru"]
+[ext_resource type="Texture2D" uid="uid://cjpf3w45evyfp" path="res://assets/perso-r-verde_loja.png" id="8_72yjy"]
+[ext_resource type="Texture2D" uid="uid://betuulvhtx8pu" path="res://assets/perso-r-verde.png" id="9_kdscf"]
+[ext_resource type="Texture2D" uid="uid://dc0r2dibyxjg4" path="res://assets/perso-r-vermelho_loja.png" id="10_6k41n"]
+[ext_resource type="Texture2D" uid="uid://de4cetx2uarwk" path="res://assets/perso-r-vermelho.png" id="11_7i0jx"]
+[ext_resource type="Texture2D" uid="uid://cdphkmy4s3g02" path="res://assets/jesus-0.1_loja.png" id="12_sx4ww"]
+[ext_resource type="Texture2D" uid="uid://dm7uuspwwojx0" path="res://assets/jesus-0.1.png" id="13_hc338"]
+[ext_resource type="Texture2D" uid="uid://b7wch3cwffecs" path="res://assets/samurai-0.1_loja.png" id="14_1stlc"]
+[ext_resource type="Texture2D" uid="uid://baaclnp2mc0ta" path="res://assets/samurai-0.1.png" id="15_5ktr4"]
+[ext_resource type="Texture2D" uid="uid://bw1klo3gpid4o" path="res://assets/ET-0.1_loja.png" id="16_obxd0"]
+[ext_resource type="Texture2D" uid="uid://bhu8xhvdsuc8a" path="res://assets/ET-0.1.png" id="17_kp6t4"]
 
 [node name="LojinhaApm" type="CanvasLayer"]
 script = ExtResource("1_craqf")
@@ -98,52 +107,53 @@ theme_override_constants/v_separation = 40
 columns = 4
 
 [node name="Button1" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
-custom_minimum_size = Vector2(56, 72)
+custom_minimum_size = Vector2(60.26, 72)
 layout_mode = 2
-view_text = ExtResource("4_x6orx")
+view_text = ExtResource("4_fh8l7")
 skin_text = ExtResource("4_gns2y")
 skin_id = "0"
 
 [node name="Button2" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-view_text = ExtResource("5_adjty")
-skin_text = ExtResource("5_adjty")
+view_text = ExtResource("6_nw3ql")
+skin_text = ExtResource("7_lnlru")
 skin_id = "1"
 
 [node name="Button3" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-view_text = ExtResource("6_dq3q2")
-skin_text = ExtResource("6_dq3q2")
+view_text = ExtResource("8_72yjy")
+skin_text = ExtResource("9_kdscf")
 skin_id = "2"
 
 [node name="Button4" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-view_text = ExtResource("4_k7l7v")
-skin_text = ExtResource("4_k7l7v")
+view_text = ExtResource("10_6k41n")
+skin_text = ExtResource("11_7i0jx")
 skin_id = "3"
 
 [node name="Button5" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
+view_text = ExtResource("12_sx4ww")
+skin_text = ExtResource("13_hc338")
 skin_id = "4"
 
 [node name="Button6" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
+view_text = ExtResource("14_1stlc")
+skin_text = ExtResource("15_5ktr4")
 skin_id = "5"
 
 [node name="Button7" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
+view_text = ExtResource("16_obxd0")
+skin_text = ExtResource("17_kp6t4")
 skin_id = "6"
-
-[node name="Button8" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
-custom_minimum_size = Vector2(56, 72)
-layout_mode = 2
-skin_id = "7"
 
 [node name="Control2" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

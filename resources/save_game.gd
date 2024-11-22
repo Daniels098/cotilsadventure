@@ -27,6 +27,7 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		"collected_items": ItemManager.collected_items,
 		"skins": LojinhaManager.skins, # Se caso não funcionar precisa preencher igual do inventário
 		"moedas": LojinhaManager.money,
+		"current_skin": player.sprite,
 	}
 	print(save_data)
 	# Preencher o inventário
@@ -65,6 +66,7 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				player.current_scene = data["scene"]
 				player.position.x = data["position"]["x"]
 				player.position.y = data["position"]["y"]
+				player.sprite = data["current_skin"]
 				player.device = OS.get_name()
 				
 				# Carregar o inventário
@@ -95,9 +97,9 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 					print("Skins carregadas: ", LojinhaManager.skins)
 				
 				# Carregar o dinheiro
-				if data.has("money"):
-					LojinhaManager.money = data["money"]
-					print("Dinheiro carregado: ", LojinhaManager.money)
+				if data.has("moedas"):
+					LojinhaManager.money = data["moedas"]
+					print("Moedas carregadas: ", LojinhaManager.money)
 				
 				file.close()
 				print("Jogo carregado com sucesso!")

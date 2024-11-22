@@ -14,4 +14,3 @@ func action() -> void:
 	var ballon: Node = baloon.instantiate()
 	get_tree().current_scene.add_child(ballon)
 	ballon.start(dialogue_resource, dialogue_start)
-

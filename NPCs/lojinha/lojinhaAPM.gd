@@ -8,8 +8,10 @@ extends CanvasLayer
 func _ready():
 	sprite.texture = LojinhaManager.current_skin
 	time.start(0.5)
-	money.text = "Moedas: %s" % LojinhaManager.money
 	connect_signal_buttons()
+
+func _process(delta):
+	money.text = "Moedas: %s" % LojinhaManager.money # Atualizar moedas no display
 
 func connect_signal_buttons():
 	var grid_container = $Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer

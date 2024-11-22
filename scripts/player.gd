@@ -77,10 +77,30 @@ func disable():
 	input_enabled = false
 	visible = false
 
-func in_dialogue():
+func stop_player():
+	# Inicialmente, o input está desativado
 	input_enabled = false
-	if !has_node("../DialogBalloon"):
-		input_enabled = true
+	
+	# Verifica se o nó do diálogo existe e está visível
+	if has_node("../DialogBalloon"):
+		var dialog_balloon = get_node("../DialogBalloon")
+		if dialog_balloon.visible:
+			# print("Em diálogo, input desativado.")
+			return  # Sai da função porque o input já deve estar desativado
+	
+	# Verifica se o nó da loja existe e está visível
+	var lojinha_path = "/root/LevelLojinha/LojinhaApm"
+	if has_node(lojinha_path):
+		var lojinha = get_node(lojinha_path)
+		if lojinha.visible:
+			# print("Na loja, input desativado.")
+			return  # Sai da função porque o input já deve estar desativado
+
+	# Se nenhuma das condições foi atendida, ativa o input
+	input_enabled = true
+	#print("Input ativado: nenhuma restrição ativa.")
+
+	
 
 func enable():
 	input_enabled = true
@@ -117,11 +137,9 @@ func _physics_process(delta):
 			idle_animation()
 	if Input.is_action_just_pressed("interact"):
 		save_player_data()
-	if Input.is_action_pressed("run"):
-		speed = 120 # 80 + 40
-	else:
-		speed = 80 # 120 - 40
-	in_dialogue()
+	if Input.is_action_pressed("run"): speed = 120 # 80 + 40
+	else: speed = 80 # 120 - 40
+	stop_player()
 	if sprite.texture != LojinhaManager.current_skin:
 		sprite.texture = LojinhaManager.current_skin
 
