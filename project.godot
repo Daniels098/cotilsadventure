@@ -44,7 +44,7 @@ LojinhaManager="*res://NPCs/lojinha/lojinha_manager.gd"
 
 general/balloon_path="res://dialogue/balloon.tscn"
 general/new_with_template=false
-general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave", "ItemManager"]
+general/states=["ConfigGeral", "QuestManager", "SceneManager", "QuestsAt", "ManagerSave", "ItemManager", "LojinhaManager"]
 general/include_notes_in_translation_exports=true
 general/wrap_lines=true
 
@@ -116,7 +116,7 @@ inventory={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/items_general.dialogue", "res://dialogue/funcionarios.dialogue", "res://dialogue/professores.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/items_general.dialogue", "res://dialogue/funcionarios.dialogue", "res://dialogue/professores.dialogue", "res://dialogue/lojinha.dialogue")
 
 [layer_names]
 

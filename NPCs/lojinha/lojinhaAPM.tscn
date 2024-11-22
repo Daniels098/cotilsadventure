@@ -102,42 +102,48 @@ custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
 view_text = ExtResource("4_x6orx")
 skin_text = ExtResource("4_gns2y")
+skin_id = "0"
 
 [node name="Button2" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
 view_text = ExtResource("5_adjty")
 skin_text = ExtResource("5_adjty")
-skin_id = 1
+skin_id = "1"
 
 [node name="Button3" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
 view_text = ExtResource("6_dq3q2")
 skin_text = ExtResource("6_dq3q2")
-skin_id = 2
+skin_id = "2"
 
 [node name="Button4" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
 view_text = ExtResource("4_k7l7v")
 skin_text = ExtResource("4_k7l7v")
-skin_id = 3
+skin_id = "3"
 
 [node name="Button5" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-skin_id = 4
+skin_id = "4"
 
 [node name="Button6" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-skin_id = 5
+skin_id = "5"
 
 [node name="Button7" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(56, 72)
 layout_mode = 2
-skin_id = 6
+skin_id = "6"
+
+[node name="Button8" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
+custom_minimum_size = Vector2(56, 72)
+layout_mode = 2
+skin_id = "7"
 
 [node name="Control2" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

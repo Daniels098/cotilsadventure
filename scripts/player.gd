@@ -25,7 +25,6 @@ var missoes
 func _ready():
 	nome = ConfigGeral.get_name_player()
 	ManagerSave.connect("save_game_request", Callable(self, "save_player_data"))
-	sprite.texture = LojinhaManager.current_skin
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
@@ -119,9 +118,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		save_player_data()
 	if Input.is_action_pressed("run"):
-		load_player_data()
+		speed = 120 # 80 + 40
+	else:
+		speed = 80 # 120 - 40
 	in_dialogue()
-	#walking()
+	if sprite.texture != LojinhaManager.current_skin:
+		sprite.texture = LojinhaManager.current_skin
 
 func walking():
 	walk_sound.pitch_scale = randf_range(0.9, 1.1)

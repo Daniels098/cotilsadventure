@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://xj2n0g1u2oux"
+path="res://.godot/imported/lojinha.dialogue-3a1bdb3dea1ce72aed6783522aad1517.tres"
+
+[deps]
+
+source_file="res://dialogue/lojinha.dialogue"
+dest_files=["res://.godot/imported/lojinha.dialogue-3a1bdb3dea1ce72aed6783522aad1517.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://mh6ha2o6gw7r"]
+[gd_scene load_steps=19 format=3 uid="uid://mh6ha2o6gw7r"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_74xad"]
 [ext_resource type="PackedScene" uid="uid://c43jknsyy486c" path="res://NPCs/lojinha/lojinhaAPM.tscn" id="2_5jrc5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="8_xvmwh"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="9_vah36"]
 [ext_resource type="PackedScene" uid="uid://cqnlyb14jm6hb" path="res://scenes/portasAnim/lojinha_apm.tscn" id="13_spc5e"]
+[ext_resource type="Resource" uid="uid://xj2n0g1u2oux" path="res://dialogue/lojinha.dialogue" id="14_l70kh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_affem"]
 texture = ExtResource("5_4ow5r")
@@ -38740,7 +38741,7 @@ sources/1 = SubResource("TileSetAtlasSource_affem")
 sources/2 = SubResource("TileSetAtlasSource_sdn4k")
 sources/3 = SubResource("TileSetAtlasSource_nn7j5")
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="LevelLojinha" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_74xad")
 player = NodePath("Player")
 doors = [NodePath("saida_predio_adm_esquerda"), NodePath("pass_leste_terr"), NodePath("pass_oeste_terr"), NodePath("saida_predio_adm_direita"), NodePath("saida_frente_cotil_esquerda"), NodePath("saida_frente_cotil_direita")]
@@ -38780,14 +38781,6 @@ process_priority = 2
 z_index = 1
 position = Vector2(248, 192)
 disable_mode = 1
-speed = null
-input_enabled = null
-direction = null
-nome = null
-pos_player = null
-current_mission = null
-current_scene = null
-invi = null
 
 [node name="saida_predio_adm_esquerda" parent="." instance=ExtResource("9_vah36")]
 position = Vector2(272, 56)
@@ -38845,3 +38838,4 @@ entry_door_name = "entrada_frente_cotil_direita"
 
 [node name="LojinhaAPM" parent="." instance=ExtResource("13_spc5e")]
 position = Vector2(424, 152)
+dialogue_resource = ExtResource("14_l70kh")

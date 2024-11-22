@@ -1,7 +1,7 @@
 extends Node
 
 signal data_receive
-var url = "http://localhost:3000/" #"https://api-mongodb-seven.vercel.app/"
+var url = "https://api-mongodb-seven.vercel.app/"
 @onready var http_request: HTTPRequest = HTTPRequest.new()
 var json_string
 
@@ -42,6 +42,8 @@ func load_cloud_save(username: String):
 
 
 func _on_http_request_completed(result, response_code, headers, body):
+	# print("RESULT: ",result)
+	# if result
 	json_string = JSON.parse_string(body.get_string_from_utf8())
 	print("Corpo da resposta:", body.get_string_from_utf8())
 	# print("Código de retorno da API: ", response_code)

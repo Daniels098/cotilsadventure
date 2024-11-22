@@ -2,8 +2,8 @@ class_name Level extends Node2D
 
 @export var player: Player
 @export var doors:Array[Door]
-var data: LevelDataHandoff
 @onready var pause_menu = $MenuPause
+var data: LevelDataHandoff
 var game_paused = false
 var button_layer = preload("res://scenes/controlsTouch.tscn")
 var button_layer_canhoto = preload("res://scenes/controlsTouchCanhoto.tscn")

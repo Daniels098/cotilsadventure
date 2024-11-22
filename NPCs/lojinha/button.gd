@@ -5,7 +5,7 @@ signal button_pressed(int, Texture)
 
 @export var view_text: Texture
 @export var skin_text: Texture
-@export var skin_id: int
+@export var skin_id: String
 
 func _ready():
 	if $TextureButton:
@@ -16,6 +16,9 @@ func _ready():
 		$Button.pressed.connect(_on_button_pressed)
 
 func _process(delta):
+	if not LojinhaManager.skins.has(skin_id):
+		print("Erro: skin_id %s não encontrado no dicionário 'LojinhaManager.skins'" % skin_id)
+	
 	$Button.text = "USAR" if LojinhaManager.skins[skin_id] else "COMPRAR"
 	$Selected.visible = LojinhaManager.current_skin == skin_text
 	

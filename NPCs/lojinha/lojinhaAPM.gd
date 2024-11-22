@@ -26,7 +26,7 @@ func _on_voltar_pressed():
 func change_skin(skin_text: Texture) -> void:
 	sprite.texture = skin_text
 
-func purchase_skin(skin_id: int, skin_text: Texture) -> void:
+func purchase_skin(skin_id: String, skin_text: Texture) -> void:
 	if not LojinhaManager.skins[skin_id]:
 		LojinhaManager.skins[skin_id] = true
 		LojinhaManager.money -= 2

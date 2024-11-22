@@ -89,8 +89,15 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				if data.has("collected_items"):
 					ItemManager.collected_items = data["collected_items"]
 				
+				# Carregar as skins
 				if data.has("skins"):
 					LojinhaManager.skins = data["skins"]
+					print("Skins carregadas: ", LojinhaManager.skins)
+				
+				# Carregar o dinheiro
+				if data.has("money"):
+					LojinhaManager.money = data["money"]
+					print("Dinheiro carregado: ", LojinhaManager.money)
 				
 				file.close()
 				print("Jogo carregado com sucesso!")
