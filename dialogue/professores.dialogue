@@ -1,11 +1,13 @@
-~ salmazo
+~ salmazo1
 Professor Salmazo: Eai estrupício, seja bem vindo!
-Professor Salmazo: Hoje não teremos aula,[wait=0.5] estou liberando os alunos para poderem conhecer o campus.
+Professor Salmazo: Hoje não teremos aula,[wait=0.3] estou liberando os alunos para poderem conhecer o campus.
 if is_quest_completed("bandeco"):
 	Professor Salmazo: Vamos continuar conhecendo o Cotil?
+	Quer continuar conhecendo o Cotil?
 	- Sim
 		Professor Salmazo: Vá até o CECOM.
 		do start_quest("cecom")
+		
 	- Não
 		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem alguns lugares importantes para você conhecer.
 		=> END
@@ -25,6 +27,50 @@ else:
 		do start_quest("bandeco")
 		do save_by_manager()
 	- Não
-		Professor Salmazo: Sem problemas![wait=0.8] Espero que você volte mais tarde.
+		Professor Salmazo: Sem problemas![wait=0.3] Espero que você volte mais tarde.
 		=> END
+=> END
+
+~ salmazo2
+Professor Salmazo: Eai estrupício,
+if is_quest_completed("cecom"):
+	Professor Salmazo: Tem mais um lugar para você conhecer
+	Quer continuar conhecendo o Cotil?
+	- Sim
+		Professor Salmazo: Vá até a cantina.
+		do start_quest("cantina")
+	- Não
+		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem um lugar para você conhecer.
+		=> END
+elif is_quest_active("cecom") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+	{{nome_player}}: Fui até o CECOM.
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	do complete_quest("cecom")
+	do save_by_manager()
+elif is_quest_active("cecom") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	Professor Salmazo: Conseguiu achar o CECOM?
+	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
+	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.
+=> END
+
+~ salmazo3
+Professor Salmazo: Eai estrupício,
+if is_quest_completed("cantina"):
+	Professor Salmazo: Você conheceu os lugares que creio que seja importante no começo.[wait=0.3] Você já conheceu da Dona Vera?
+	Você encontrou a Dona Vera?
+	- Sim
+		Professor Salmazo: Que bom.[wait=0.3] Ela irá te explicar sobre as salas de aulas.
+		=> END
+	- Não
+		Professor Salmazo: Você a encontra ao lado da escada do prédio acadêmico.[wait=0.3] Ela irá te explicar sobre as salas de aulas.
+		=> END
+elif is_quest_active("cantina") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+	{{nome_player}}: Fui até o cantina.
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	do complete_quest("cantina")
+	do save_by_manager()
+elif is_quest_active("cantina") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	Professor Salmazo: Conseguiu achar o CECOM?
+	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
+	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.
 => END

@@ -25,6 +25,7 @@ var missoes
 func _ready():
 	nome = ConfigGeral.get_name_player()
 	ManagerSave.connect("save_game_request", Callable(self, "save_player_data"))
+	# sprite.texture = LojinhaManager.get_current_skin_texture()
 
 func orient(input_direct: Vector2) -> void:
 	if anim_player != null:
@@ -62,7 +63,7 @@ func get_save_data() -> Dictionary:
 		"device": device,
 		"missions": {},
 		"current_scene": get_tree().current_scene.name,
-		 "position": position
+		"position": position
 		}
 
 func load_save_data(data: Dictionary) -> void:
@@ -99,8 +100,6 @@ func stop_player():
 	# Se nenhuma das condições foi atendida, ativa o input
 	input_enabled = true
 	#print("Input ativado: nenhuma restrição ativa.")
-
-	
 
 func enable():
 	input_enabled = true
@@ -140,8 +139,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("run"): speed = 120 # 80 + 40
 	else: speed = 80 # 120 - 40
 	stop_player()
-	if sprite.texture != LojinhaManager.current_skin:
-		sprite.texture = LojinhaManager.current_skin
+	sprite.texture = LojinhaManager.get_current_skin_texture()
 
 func walking():
 	walk_sound.pitch_scale = randf_range(0.9, 1.1)

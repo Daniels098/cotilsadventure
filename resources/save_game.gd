@@ -25,9 +25,9 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 			"y": player.position.y
 		},
 		"collected_items": ItemManager.collected_items,
-		"skins": LojinhaManager.skins, # Se caso não funcionar precisa preencher igual do inventário
+		"skins": LojinhaManager.skins,
 		"moedas": LojinhaManager.money,
-		"current_skin": player.sprite,
+		"current_skin": LojinhaManager.current_skin_id,
 	}
 	print(save_data)
 	# Preencher o inventário
@@ -41,8 +41,6 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 		print("Invi NÃO é nulo e possui slots.")
 	else:
 		print("Invi é nulo ou não possui slots.")
-	
-	# Preencher as skins
 	
 	# Salvar localmente no arquivo JSON
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -66,7 +64,6 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				player.current_scene = data["scene"]
 				player.position.x = data["position"]["x"]
 				player.position.y = data["position"]["y"]
-				player.sprite = data["current_skin"]
 				player.device = OS.get_name()
 				
 				# Carregar o inventário
@@ -84,7 +81,7 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				
 				# Carregar as missões
 				if data.has("missions"):
-					print(data["missions"])
+					# print(data["missions"])
 					QuestsAt.load_quests(data["missions"])
 				
 				# Carregar os itens coletados
@@ -94,12 +91,16 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 				# Carregar as skins
 				if data.has("skins"):
 					LojinhaManager.skins = data["skins"]
-					print("Skins carregadas: ", LojinhaManager.skins)
+					# print("Skins carregadas: ", LojinhaManager.skins)
+				
+				if data.has("current_skin"):
+					LojinhaManager.current_skin_id = data["current_skin"]
+					player.sprite.texture = LojinhaManager.get_current_skin_texture()
 				
 				# Carregar o dinheiro
 				if data.has("moedas"):
 					LojinhaManager.money = data["moedas"]
-					print("Moedas carregadas: ", LojinhaManager.money)
+					# print("Moedas carregadas: ", LojinhaManager.money)
 				
 				file.close()
 				print("Jogo carregado com sucesso!")
@@ -155,7 +156,7 @@ func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 			if cloud_data.has("collected_items"):
 				ItemManager.collected_items = cloud_data["collected_items"]
 			
-			if cloud_data.has("skins") and typeof(cloud_data["skins"]) == TYPE_DICTIONARY:
+			if cloud_data.has("skins") and typeof(cloud_data["skins"]) == TYPE_ARRAY:
 				LojinhaManager.skins = cloud_data["skins"]
 			else:
 				print("Dado de skins inválido ou ausente na nuvem. Usando valor padrão.")
