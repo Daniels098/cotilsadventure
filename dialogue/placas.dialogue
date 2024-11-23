@@ -1,0 +1,80 @@
+~ cecom
+CECOM (Centro de Saúde da Comunidade)\nAqui você pode ser atendido caso tiver algum problema de saúde.
+Atendimento Médico\:\nSegunda, Quarta, Quinta e Sexta-feira - 7h às 18h\nTerça-feira - 7h às 17h
+=> END
+
+~ bandeco
+Restaurante universitário\nCafé da manhã\: R$2,00\nAlmoço\: R$3,00\nJantar\: R$3,00
+=> END
+
+~ entrada_personagem
+{{nome_player}}: Finalmente chegou o dia de começar aqui no Cotil, estou muito animado para começar.
+=> END
+
+~ portaria_principal 
+Entrada principal do Cotil, dando acesso para a Rodovia Limeira Piracicaba.
+=> END
+
+~ biblioteca
+Entrada para a biblioteca.
+
+
+~ entrada_biblioteca
+Necessário carteirinha com o RA para poder entrar.
+Volte mais tarde.
+=> END
+
+~ localização_salas
+No primeiro corredor, à esquerda estão as salas verdes e à direita estão as salas azuis.
+No segundo corredor, à direita estão as salas amarelas e à esquerda estão as salas vermelhas ao subir as escadas.
+=> END
+
+~ patio
+Aqui é o patío central, você pode descansar entre as aulas e conversar com seus amigos ou até fazer suas tarefas escolas.
+Á esquerda está o patio oeste, que é caminho para o estacionamento dos professores.
+Á direita está o pátio leste, que é caminho para a quadra e mais abaixo o restaurante universitário.
+=> END
+
+~ secretaria
+Secretária do Cotil
+Onde você pode tirar dúvidas e entregar documentos.
+=> END
+
+~ lojinha
+Loja de roupas do cotil ou outras recompensas variadas.
+Entre e veja você mesmo!
+=> END
+
+~ frente_cotil
+ Colégio Técnido de Limeira 
+
+~ laboratorio_informatica
+Laboratórios de informática
+Usado pelo curso de Desenvolvimento de Sistemas.
+=> END
+
+~ cantina 
+Cantina, onde você pode comprar salgados, refrigerantes e sorvete.\nVocê também pode sentar para conversar com seus amigos.
+=> END
+
+~ quadra
+Para este lado é a quadra.
+Você tem outros lugares para conhecer antes.
+=> END
+
+~ estacionamento_professores
+Estacionamento dos professores
+=> END
+
+~ sar
+SAR (Secretária de Administração Regional)\nAqui você poderá tirar dúvidas sobre o campus e encontrar ou devolver um objeto perdido.
+À direita está o prédio principal da Faculdade de Tecnológia.
+=> END
+
+~ salas_ft
+Neste bloco de salas estão algumas salas de aulas da FT (Faculdade de Tecnológia) e tem um laboratório de qualidade.
+=> END
+
+~ oficina_mecanica
+Abaixo está a Oficina de Mecânica, utilizado pelo curso de Mecânica.
+=> END
