@@ -40,12 +40,12 @@ if is_quest_completed("sala_vermelha"):
 	- Não
 		Dona Vera: Tudo bem,[wait=0.3] ainda tem algumas salas para você conhecer.
 		=> END 
-elif is_quest_active("sala_vermelha") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_vermelha") and is_visited("sala_vermelha"):
 	{{nome_player}}: Fui até a sala vermelha.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_vermelha")
 	do save_by_manager()
-elif is_quest_active("sala_vermelha") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_vermelha") and is_visited("sala_vermelha") == false:
 	Dona Vera: Conseguiu achar a sala vermelha?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 13.
@@ -71,12 +71,12 @@ if is_quest_completed("sala_verde"):
 	- Não
 		Dona Vera: Tudo bem,[wait=0.3] ainda tem algumas salas para você conhecer.
 		=> END
-elif is_quest_active("sala_verde") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_verde") and is_visited("sala_verde"):
 	{{nome_player}}: Fui até a sala verde.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_verde")
 	do save_by_manager()
-elif is_quest_active("sala_verde") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado") or check_item_in_inventory("documento") == false:
+elif is_quest_active("sala_verde") and is_visited("sala_verde") == false:
 	Dona Vera: Conseguiu achar o sala verde?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me ajudar?
 	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 03
@@ -93,12 +93,12 @@ if is_quest_completed("sala_amarela"):
 	- Não
 		Dona Vera: Tudo bem,[wait=0.3] ainda tem mais uma sala para você conhecer.
 		=> END
-elif is_quest_active("sala_amarela") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_amarela") and is_visited("sala_amarela"):
 	{{nome_player}}: Fui até a sala amarela.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_amarela")
 	do save_by_manager()
-elif is_quest_active("sala_amarela") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_amarela") and is_visited("sala_amarela") == false:
 	Dona Vera: Conseguiu achar o sala amarela?
 	{{nome_player}}: Ainda não.[wait=0.3] Aonde que fica?
 	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala (definir)
@@ -115,12 +115,12 @@ if is_quest_completed("sala_azul"):
 	- Não
 		Dona Vera: Você a encontra logo ao entrar no prédio acadêmico, dentro da secretaria.[wait=0.3] Ela irá te explicar sobre a documentação que você precisa saber no começo do ano.
 		=> END
-elif is_quest_active("sala_amarela") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_azul") and is_visited("sala_azul"):
 	{{nome_player}}: Fui até a sala amarela.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_amarela")
 	do save_by_manager()
-elif is_quest_active("sala_azul") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_azul") and is_visited("sala_azul") == false:
 	Dona Vera: Conseguiu achar o sala azul?
 	{{nome_player}}: Ainda não.[wait=0.3] Aonde que fica?
 	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 06

@@ -1,6 +1,4 @@
 ~ salmazo1
-Professor Salmazo: Eai estrupício, seja bem vindo!
-Professor Salmazo: Hoje não teremos aula,[wait=0.3] estou liberando os alunos para poderem conhecer o campus.
 if is_quest_completed("bandeco"):
 	Professor Salmazo: Vamos continuar conhecendo o Cotil?
 	Quer continuar conhecendo o Cotil?
@@ -11,19 +9,22 @@ if is_quest_completed("bandeco"):
 	- Não
 		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem alguns lugares importantes para você conhecer.
 		=> END
-elif is_quest_active("bandeco") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("bandeco") and is_visited("bandeco"):
 	{{nome_player}}: Fui até o bandeco.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("bandeco")
 	do save_by_manager()
-elif is_quest_active("bandeco") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	=> salmazo1
+elif is_quest_active("bandeco") and is_visited("bandeco") == false:
 	Professor Salmazo: Conseguiu achar o bandeco?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Professor Salmazo: Fica à direita da saída do pátio leste.
 else:
+	Professor Salmazo: Eai estrupício, seja bem vindo!
+	Professor Salmazo: Hoje não teremos aula,[wait=0.3] estou liberando os alunos para poderem conhecer o campus.
 	Você tem interesse em conhecer?
 	- Sim
-		Professor Salmazo: Vá até o restaurante universitário, ou como é conhecido bandeco
+		Professor Salmazo: Vá até o restaurante universitário (RU), ou como é conhecido, bandeco.
 		do start_quest("bandeco")
 		do save_by_manager()
 	- Não
@@ -42,12 +43,14 @@ if is_quest_completed("cecom"):
 	- Não
 		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem um lugar para você conhecer.
 		=> END
-elif is_quest_active("cecom") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("cecom") and is_visited("bandeco"):
 	{{nome_player}}: Fui até o CECOM.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("cecom")
 	do save_by_manager()
-elif is_quest_active("cecom") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	=> salmazo2
+	## IGUAL DO OUTRO DIALOGO
+elif is_quest_active("cecom") and is_visited("bandeco") == false:
 	Professor Salmazo: Conseguiu achar o CECOM?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.
@@ -64,12 +67,14 @@ if is_quest_completed("cantina"):
 	- Não
 		Professor Salmazo: Você a encontra ao lado da escada do prédio acadêmico.[wait=0.3] Ela irá te explicar sobre as salas de aulas.
 		=> END
-elif is_quest_active("cantina") and get_quest_property(1,"item") == get_quest_property(1,"local_visitado"):
+elif is_quest_active("cantina") and is_visited("bandeco"):
 	{{nome_player}}: Fui até o cantina.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("cantina")
 	do save_by_manager()
-elif is_quest_active("cantina") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+	=> salmazo3
+	## IGUAL DO OUTRO DIALOGO
+elif is_quest_active("cantina") and is_visited("bandeco") == false:
 	Professor Salmazo: Conseguiu achar o CECOM?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.

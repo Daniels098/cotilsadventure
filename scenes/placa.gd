@@ -1,15 +1,14 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var dialogue_resource: DialogueResource
-@export var dialogue_start: String
+@export var dialogue_start: String # Terá instanciação diferente para cada local
 const baloon = preload("res://dialogue/balloon.tscn")
 
 func _on_area_2d_body_entered(player: Player):
-	if QuestsAt.is_quest_active("bandeco"):
-		if not player is Player:
-			return
-		player.anim_exclama() # Primeira vez vendo tal coisa
-		action()
+	if not player is Player:
+		return
+	player.anim_interr()
+	action()
 
 func action() -> void:
 	var ballon: Node = baloon.instantiate()

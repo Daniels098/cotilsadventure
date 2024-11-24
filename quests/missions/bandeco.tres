@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ob26g")
 nome = "bandeco"
-documento_necessario = 1
+local_visitado = 1
 id = 4
 quest_name = "Visitar o RU"
 quest_description = "Visitar o Restaurante Universitário, onde os alunos do COTIL e da FT fazem todas as refeições do dia."

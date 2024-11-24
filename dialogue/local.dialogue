@@ -1,0 +1,48 @@
+~ bandeco
+ACHEI O BANDECO
+if is_visited("bandeco") == false:
+	do ganhar_moedas(2)
+	do visit_local("bandeco") # Função nova do ItemManager (final do script)
+	do update_quest("bandeco")
+=> END
+
+~ cantina
+ACHEI A CANTINA
+if is_visited("cantina") == false:
+	do ganhar_moedas(2)
+	do visit_local("cantina")
+	do update_quest("cantina")
+=> END
+
+# ---------------- Salas ----------------
+~ sala_vermelha
+ACHEI A SALA VERMELHA
+if is_visited("vermelha") == false:
+	do ganhar_moedas(1)
+	do visit_local("vermelha")
+	do update_quest("sala_vermelha")
+=> END
+
+~ sala_verde
+ACHEI A SALA VERDE
+if is_visited("verde") == false:
+	do ganhar_moedas(1)
+	do visit_local("verde")
+	do update_quest("sala_verde")
+=> END
+
+~ sala_amarela
+ACHEI A SALA AMARELA
+if is_visited("amarela") == false:
+	do ganhar_moedas(1)
+	do visit_local("amarela")
+	do update_quest("sala_amarela")
+=> END
+
+~ sala_azul
+ACHEI A SALA AZUL
+if is_visited("azul") == false:
+	do ganhar_moedas(1)
+	do visit_local("azul")
+	do update_quest("sala_azul")
+=> END

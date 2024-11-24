@@ -8,7 +8,6 @@ const baloon = preload("res://dialogue/balloon.tscn")
 func _on_area_2d_body_entered(player: Player):
 	if not player is Player:
 		return
-	
 	action()
 	player.anim_interr()
 

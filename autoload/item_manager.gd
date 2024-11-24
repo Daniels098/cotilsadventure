@@ -3,7 +3,7 @@ extends Node
 signal remove_item_signal(item_id: String)
 
 var collected_items = []
-
+var locais := []
 
 # Função para registrar um item como coletado
 func register_item(item_id: String) -> void:
@@ -48,7 +48,16 @@ func remove_item(item_id: String) -> void:
 	else:
 		print("Item não encontrado no inventário.")
 
-
 # Carregar o estado dos itens coletados ao iniciar o jogo
 func load_collected_items() -> void:
 	pass # collected_items = SaveGame.load_collected_items()  # Carrega os itens coletados da última sessão
+
+## ------------------- Funções de Locais -------------------
+
+func visit_local(local_nome: String):
+	locais.push_back(local_nome)
+
+func is_visited(local_nome: String) -> bool:
+	if locais.has(local_nome):
+		return true
+	return false

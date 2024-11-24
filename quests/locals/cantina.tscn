@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp7o4u5qfpqhn"]
+
+[ext_resource type="Script" path="res://quests/locals/cantina.gd" id="1_ks7iv"]
+[ext_resource type="Resource" uid="uid://bwf8v76nfld3q" path="res://dialogue/local.dialogue" id="2_0bm1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwba0"]
+size = Vector2(16, 16)
+
+[node name="Cantina" type="Node2D"]
+script = ExtResource("1_ks7iv")
+dialogue_resource = ExtResource("2_0bm1l")
+dialogue_start = "cantina"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iwba0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,8 +1,7 @@
 ~ lojinha
-Ver a loja?
+Você quer ver a loja?
 - Sim
-	Aqui está!
-	do ver_lojinha() # Arrumar!
+	do ver_lojinha()
 - Não
 	Até mais!
 	=> END

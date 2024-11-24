@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c43jknsyy486c"]
+[gd_scene load_steps=19 format=3 uid="uid://c43jknsyy486c"]
 
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="1_ajjgf"]
 [ext_resource type="Script" path="res://NPCs/lojinha/lojinhaAPM.gd" id="1_craqf"]
 [ext_resource type="PackedScene" uid="uid://caeck1ortarag" path="res://NPCs/lojinha/button.tscn" id="3_gxqcn"]
+[ext_resource type="Texture2D" uid="uid://beuvybdxdcts6" path="res://moeda.png" id="3_nl4lg"]
 [ext_resource type="Texture2D" uid="uid://d2q7vas5acjnj" path="res://assets/perso-02_loja.png" id="4_fh8l7"]
 [ext_resource type="Texture2D" uid="uid://fxqtmtpno445" path="res://assets/perso-02.png" id="4_gns2y"]
 [ext_resource type="Texture2D" uid="uid://nstjtofpi838" path="res://assets/perso-r-roxo_loja.png" id="6_nw3ql"]
@@ -65,21 +66,26 @@ offset_right = 198.0
 offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("1_ajjgf")
 theme_override_font_sizes/font_size = 28
-text = "Loja de skins"
+text = "Loja de roupas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="money" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
 layout_mode = 0
-offset_left = 470.0
+offset_left = 422.0
 offset_top = -13.0
-offset_right = 598.0
+offset_right = 550.0
 offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("1_ajjgf")
 theme_override_font_sizes/font_size = 20
 text = "Moedas: %s"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
+position = Vector2(582, 3)
+scale = Vector2(3, 3)
+texture = ExtResource("3_nl4lg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 105)

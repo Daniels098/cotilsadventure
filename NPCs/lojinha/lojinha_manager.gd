@@ -1,6 +1,6 @@
 extends Node
 
-var money: int = 12
+var money: int
 var current_skin_id: int = 0  # ID da skin atual
 var current_skin: Texture  # Variável para armazenar a textura da skin
 var skins: Array = [true, true, true, true, false, false, false]  # Status de compra das skins
@@ -23,6 +23,9 @@ func _ready():
 func save_skins():
 	# Chame a função de salvar, você pode implementar a lógica de salvar conforme necessário
 	ManagerSave.save_by_manager()
+
+func ganhar_moedas(received: int):
+	money += received
 
 # Função para verificar se a lojinha está na cena e exibi-la
 func ver_lojinha():

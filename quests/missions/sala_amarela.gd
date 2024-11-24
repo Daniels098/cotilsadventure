@@ -1,6 +1,6 @@
-class_name Bandeco extends Quest
+class_name SalaAmarela extends Quest
 
-@export var nome = "bandeco"
+@export var nome = "sala_amarela"
 @export var local_visitado: int = 1
 var item: int = 0
 

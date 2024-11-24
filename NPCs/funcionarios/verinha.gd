@@ -1,4 +1,4 @@
-class_name NPC extends CharacterBody2D
+extends CharacterBody2D
 
 @export var nome: String
 @export var dialogue_resource: DialogueResource

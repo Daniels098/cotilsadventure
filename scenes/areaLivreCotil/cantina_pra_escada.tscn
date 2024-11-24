@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8sw8x236vp68"]
+[gd_scene load_steps=31 format=3 uid="uid://c8sw8x236vp68"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_r5quy"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_2kter"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="13_ruijs"]
 [ext_resource type="Texture2D" uid="uid://b0crybjn4m0f6" path="res://assets/tetao.png" id="14_sqgrh"]
 [ext_resource type="Texture2D" uid="uid://bmb5e3cdiiboc" path="res://assets/teto-predio-1.png" id="16_o443m"]
+[ext_resource type="PackedScene" uid="uid://cp7o4u5qfpqhn" path="res://quests/locals/cantina.tscn" id="19_awpmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("5_nhe23")
@@ -39658,7 +39659,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_6agwe")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -39833,3 +39833,7 @@ transition_type = "zelda"
 push_distance = 48
 path_to_new_scene = "res://scenes/academico/patio_oeste.tscn"
 entry_door_name = "pass_patio_2"
+
+[node name="Cantina" parent="." instance=ExtResource("19_awpmy")]
+position = Vector2(488, 32)
+scale = Vector2(12, 12)

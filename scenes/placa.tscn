@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://gf2y56r8f58p"]
+
+[ext_resource type="Script" path="res://scenes/placa.gd" id="1_f10wh"]
+[ext_resource type="Resource" uid="uid://bovb8l8bn42no" path="res://dialogue/placas.dialogue" id="2_eyoyv"]
+[ext_resource type="Texture2D" uid="uid://c4hc72ek0rvwu" path="res://assets/placa-madeira.png" id="3_kaki2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slg4k"]
+size = Vector2(32, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muw8h"]
+size = Vector2(29, 13)
+
+[node name="Placa" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_f10wh")
+dialogue_resource = ExtResource("2_eyoyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_slg4k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3.5)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_muw8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("3_kaki2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

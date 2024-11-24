@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SalaAzul" load_steps=2 format=3 uid="uid://pcxo3ec8vd1g"]
+
+[ext_resource type="Script" path="res://quests/missions/sala_azul.gd" id="1_2u4d3"]
+
+[resource]
+script = ExtResource("1_2u4d3")
+nome = "sala_azul"
+local_visitado = 1
+id = 8
+quest_name = "Visitar a sala tal"
+quest_description = "Visitar a sala azul de número tal."
+quest_objective = "Visitar a sala tal."
