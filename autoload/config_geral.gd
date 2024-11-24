@@ -89,16 +89,6 @@ func center_window():
 	var window_size = get_window().get_size_with_decorations()
 	get_window().set_position(screen - window_size / 2)
 
-## -------------------- Configuração de Brilho --------------------
-
-# Ajustar o brilho
-func set_brightness(value: float):
-	if not settings.has("video"):
-		settings["video"] = {}
-	settings["video"]["brightness"] = value
-	RenderingServer.set_default_clear_color(Color(value, value, value))
-	save_settings()
-
 ## -------------------- Configurações de Áudio --------------------
 
 # Ajustar volume master

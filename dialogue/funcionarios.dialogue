@@ -1,13 +1,12 @@
-~ dorothi
+~ dorothi1
 Dorothi: Bom dia {{ConfigGeral.nome_player}} tudo bem?
 {{nome_player}}: Tudo sim e você?
 Dorothi: Você veio entregar um atestado?
 {{nome_player}}: Não, estou aqui para entregar meus documentos da matrícula que foram solicitados pelo e-mail.
-if invi.has_item("documento"):
+if check_item_in_inventory("documento"):
 	Dorothi: Ah, entendi! Deixe-me ver os documentos, por favor[wait=1].[wait=1].[wait=1].
 	Dorothi: Perfeito, tudo está em ordem. Muito obrigada!
-	{{ConfigGeral.nome_player}}: Beleza, obrigad!
-	# Colocar uma variável para mudar o gênero do player
+	{{ConfigGeral.nome_player}}: Beleza, valeu!
 	do remove_item("documento") # Remove o item do inventário após a entrega
 else:
 	Dorothi: Ah, parece que você não tem os documentos necessários. Por favor, volte quando estiver com eles.
@@ -62,7 +61,7 @@ elif is_quest_active("sala_verde") and get_quest_property(1,"item") == get_quest
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_verde")
 	do save_by_manager()
-elif is_quest_active("sala_verde") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado"):
+elif is_quest_active("sala_verde") and get_quest_property(1,"item") < get_quest_property(1,"local_visitado") or check_item_in_inventory("documento") == false:
 	Dona Vera: Conseguiu achar o sala verde?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me ajudar?
 	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 03

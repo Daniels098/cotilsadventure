@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Bandeco" load_steps=2 format=3 uid="uid://107b0y6h0nc0"]
+
+[ext_resource type="Script" path="res://quests/missions/bandeco.gd" id="1_ob26g"]
+
+[resource]
+script = ExtResource("1_ob26g")
+nome = "bandeco"
+documento_necessario = 1
+id = 4
+quest_name = "Visitar o RU"
+quest_description = "Visitar o Restaurante Universitário, onde os alunos do COTIL e da FT fazem todas as refeições do dia."
+quest_objective = "Visitar o Restaurante Universitário."

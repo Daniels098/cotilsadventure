@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var vol_master = $MenuPauseMobile/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master
 @onready var vol_music = $MenuPauseMobile/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music
 @onready var vol_sfx = $MenuPauseMobile/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx
-@onready var brilho = $MenuPauseMobile/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho
 @onready var vsync = $PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
 @onready var canhoto = $MenuPauseMobile/PanelContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer3/ModeCanhoto
 @onready var main = $"."
@@ -24,7 +23,6 @@ func _ready():
 # ----------------------- Sliders --------------------------
 # Reset dos sliders do volume
 func vol_reset():
-	brilho.value = 50
 	vol_master.value = 100
 	vol_music.value = 100
 	vol_sfx.value = 100
@@ -41,7 +39,6 @@ func load_sliders():
 	var audio_settings = ConfigFileHandler.load_audio_settings()
 	var video_settings = ConfigFileHandler.load_video_settings()
 	
-	brilho.value = min(video_settings.get("brightness"), 1.0)*100
 	vol_master.value = min(audio_settings.get("master_volume"), 1.0)*100
 	vol_music.value = min(audio_settings.get("music_volume"), 1.0)*100
 	vol_sfx.value = min(audio_settings.get("sfx_volume"), 1.0)*100
@@ -67,10 +64,6 @@ func _on_vol_music_drag_ended(value_changed):
 # Salvar slider do sfx
 func _on_vol_sfx_drag_ended(value_changed):
 	ConfigFileHandler.save_audio_settings("sfx_volume", vol_sfx.value / 100)
-
-# Salvar slider do brilho
-func _on_slider_brilho_drag_ended(value_changed):
-	ConfigFileHandler.save_video_settings("brightness", brilho.value / 100)
 
 # ---------------------- Buttons Config esquerda ---------------------------
 # logica para o botao vsync

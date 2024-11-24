@@ -4,7 +4,6 @@ extends Control
 @onready var vol_master = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Master/vol_master
 @onready var vol_music = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/hBox_Music/vol_music
 @onready var vol_sfx = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_sfx/vol_sfx
-@onready var brilho = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBox_Brilho/slider_brilho
 @onready var display = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer/Display
 @onready var vsync = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/Vsync
 @onready var check_button = $PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer2/CheckButton
@@ -172,8 +171,6 @@ func load_sliders():
 		vol_master.value = settings["audio"].get("volumeMaster", 1) * 100
 		vol_music.value = settings["audio"].get("volumeMusic", 1) * 100
 		vol_sfx.value = settings["audio"].get("volumeSFX", 1) * 100
-	if settings.has("video"):
-		brilho.value = settings["video"].get("brightness", 1) * 100
 # ---------------------- Vsync ---------------------------
 func load_vsync():
 	var settings = ConfigFileHandler.load_settings()
@@ -190,10 +187,6 @@ func _on_vsync_pressed():
 	load_vsync()
 
 # ----------------------- Sliders --------------------------
-
-func _on_slider_brilho_value_changed(value):
-	var val = brilho.value/100
-	ConfigGeral.set_brightness(val)
 
 func _on_vol_master_value_changed(value):
 	var val = vol_master.value/100
@@ -215,10 +208,6 @@ func _on_reset_button_pressed():
 	ConfigGeral.set_master_volume(1)
 	ConfigGeral.set_music_volume(1)
 	ConfigGeral.set_sfx_volume(1)
-	
-	# Valor padrão para brilho
-	brilho.value = 50
-	ConfigGeral.set_brightness(0.5)
 	
 	# Valor padrão para Vsync e CheckButton
 	vsync.button_pressed = true

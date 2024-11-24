@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://djwq3u37lrixr"]
+[gd_scene load_steps=13 format=3 uid="uid://djwq3u37lrixr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_urcuv"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_s4hru"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="3_46nio"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_o6a5r"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="4_p717k"]
 [ext_resource type="PackedScene" uid="uid://drjs4upnb0lv8" path="res://scenes/portasAnim/door_vermelha_anim.tscn" id="5_0rf8b"]
+[ext_resource type="PackedScene" uid="uid://cd1lmsy0ije4c" path="res://quests/gui/gui.tscn" id="6_1mmlb"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="6_ugt0q"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="7_egwji"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="8_c6j01"]
@@ -3782,10 +3784,26 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_qjunc")
 
-[node name="Corredor1AndarAcademicoL" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_urcuv")
 player = NodePath("Player")
 doors = [NodePath("escada_leste_cima"), NodePath("pass_oeste_sup"), NodePath("sala_13")]
+
+[node name="MenuPause" parent="." instance=ExtResource("8_c6j01")]
+visible = false
+
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("6_ugt0q")]
+visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_o6a5r")]
+visible = false
+
+[node name="Inv_GUI" parent="." instance=ExtResource("7_egwji")]
+layer = 3
+visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("6_1mmlb")]
+layer = 101
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -3830,11 +3848,3 @@ entry_door_name = "saida_13"
 
 [node name="door_anim" parent="." instance=ExtResource("5_0rf8b")]
 position = Vector2(16, 176)
-
-[node name="ButtonLayer" parent="." instance=ExtResource("6_ugt0q")]
-
-[node name="Inv_GUI" parent="." instance=ExtResource("7_egwji")]
-visible = false
-
-[node name="MenuPause" parent="." instance=ExtResource("8_c6j01")]
-visible = false

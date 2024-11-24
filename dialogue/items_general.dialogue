@@ -11,7 +11,6 @@ else:
 	# Arrumar depois né kkkk
 => END
 
-
 ~ abrir_mochila
 {{ConfigGeral.nome_player}}: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
 do remove_item("documento")

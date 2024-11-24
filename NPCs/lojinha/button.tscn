@@ -6,42 +6,41 @@
 [node name="Button" type="Control"]
 layout_mode = 3
 anchor_right = 0.137
-anchor_bottom = 0.244
+anchor_bottom = 0.222
 offset_top = -3.0
 offset_right = 0.319992
-offset_bottom = 0.159996
+offset_bottom = 0.0799942
 script = ExtResource("1_1e320")
 
 [node name="Selected" type="TextureRect" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 0.313726)
 layout_mode = 0
-offset_left = 8.0
-offset_top = -16.0
-offset_right = 80.0
-offset_bottom = 56.0
+offset_top = -21.0
+offset_right = 88.0
+offset_bottom = 59.0
 texture = ExtResource("2_chnb1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = -13.0
-offset_right = 72.0
-offset_bottom = 59.0
+offset_left = 8.0
+offset_top = -21.0
+offset_right = 80.0
+offset_bottom = 67.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = -13.0
-offset_right = 72.0
-offset_bottom = 59.0
+offset_left = 8.0
+offset_top = -21.0
+offset_right = 80.0
+offset_bottom = 67.0
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_top = 56.0
 offset_right = 88.0
-offset_bottom = 88.0
+offset_bottom = 83.0
 icon_alignment = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
