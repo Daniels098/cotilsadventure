@@ -1,16 +1,31 @@
 ~ dorothi1
-Dorothi: Bom dia {{ConfigGeral.nome_player}} tudo bem?
-{{nome_player}}: Tudo sim e você?
-Dorothi: Você veio entregar um atestado?
-{{nome_player}}: Não, estou aqui para entregar meus documentos da matrícula que foram solicitados pelo e-mail.
-if check_item_in_inventory("documento"):
-	Dorothi: Ah, entendi! Deixe-me ver os documentos, por favor[wait=1].[wait=1].[wait=1].
-	Dorothi: Perfeito, tudo está em ordem. Muito obrigada!
-	{{ConfigGeral.nome_player}}: Beleza, valeu!
-	do remove_item("documento") # Remove o item do inventário após a entrega
+Dorothi: Bom dia! seja bem vindo,
+Dorothi: Você trouxe os documentos da matrícula?
+{{nome_player}}: Acabei deixando eles em algum lugar, porém não me lembro onde foi!
+Dorothi: Vá procurá-los, por favor.
+if is_quest_completed("matricula"):
+	Dorothi: Muito obrigada pelos documentos, caso não tiver mais nada para fazer procure o Professor Salmazo ou a Dona Vera para te ajudarem.
+=> END
+elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_property(1,"documento_necessario"):
+	{{nome_player}}: Consegui encontrar os documentos.\nAqui está.
+	Dorothi: Obrigada!/n Agora posso terminar o seu processo de matricula.
+=> END
+elif is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
+	{{nome_player}}: Não estou conseguindo encontrar os documentos.
+	Dorothi: Você precisa encontrar esses documentos, eles são muitos importantes!/nTente procurar nos lugares que você já passou.
 else:
-	Dorothi: Ah, parece que você não tem os documentos necessários. Por favor, volte quando estiver com eles.
-	{{ConfigGeral.nome_player}}: Ah, certo, vou buscar e já volto.
+	Gostaria de procurar os documentos agora?
+	- Sim
+		{{nome_player}}: Vou ir agora mesmo!
+		do start_quest("matricula")
+		do save_by_manager()
+	- Não
+		{{nome_player}}: No momento não consigo procurar, assim que possível vou irei.
+	=> END
+=> END
+
+~ dorothi2
+Dorothi: Estamos com uma demanda muito alta, por favor fale com a Dona Vera.
 => END
 
 ~ verinha1
