@@ -42,7 +42,6 @@ func _initialize_settings():
 	config.set_value("Controle2", "pause", "Escape")
 
 	config.set_value("video", "vsync", true)
-	config.set_value("video", "brightness", 0.5)
 	config.set_value("video", "display", 0)
 	
 	config.set_value("audio", "volumeMaster", 1.0)

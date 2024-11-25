@@ -39,6 +39,7 @@ QuestsAt="*res://autoload/quests_at.gd"
 ItemManager="*res://autoload/item_manager.gd"
 QuestManager="*res://autoload/quest_manager.gd"
 LojinhaManager="*res://NPCs/lojinha/lojinha_manager.gd"
+Music="*res://sounds/music.tscn"
 
 [dialogue_manager]
 

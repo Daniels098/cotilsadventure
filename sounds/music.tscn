@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://tomsobwxfmfc"]
+
+[ext_resource type="AudioStream" uid="uid://bigx3nhnptwaf" path="res://sounds/8BUT_Orchestra.mp3" id="1_1mps8"]
+[ext_resource type="Script" path="res://sounds/music.gd" id="2_f6ue6"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_1mps8")
+bus = &"Music"
+script = ExtResource("2_f6ue6")
