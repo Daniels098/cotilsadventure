@@ -1,6 +1,9 @@
 ~ entrada_personagem
 {{nome_player}}: Finalmente chegou o dia de começar aqui no Cotil, estou muito animado para começar!
-Comandos padrão:\nA - Esquerda    D - Direita     W - Cima     S - Baixo\nShift Esquerdo - Correr    F - Menu de missões\nB - Inventário     Esc - Pausar
+if current_control == "Controle1":
+	Comandos padrão:\nA - Esquerda    D - Direita     W - Cima     S - Baixo\nShift Esquerdo - Correr    F - Menu de missões\nB - Inventário     Esc - Pausar
+else:
+	Comandos padrão:\n⬅ - Esquerda    ➡️ - Direita     ⬆ - Cima     ⬇ - Baixo\nX - Correr    V - Menu de missões\nB - Inventário     Esc - Pausar
 => END
 
 ~ cecom
@@ -12,14 +15,13 @@ Atendimento Médico\:\nSegunda, Quarta, Quinta e Sexta-feira - 7h às 18h\nTerç
 Restaurante universitário\nCafé da manhã\: R$2,00\nAlmoço\: R$3,00\nJantar\: R$3,00
 => END
 
-
 ~ portaria_principal 
 Entrada principal do Cotil, dando acesso para a Rodovia Limeira Piracicaba.
 => END
 
 ~ biblioteca
 Entrada para a biblioteca à direita.
-
+=> END
 
 ~ entrada_biblioteca
 Necessário carteirinha com o RA para poder entrar.

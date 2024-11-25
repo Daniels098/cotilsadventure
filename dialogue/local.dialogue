@@ -57,3 +57,7 @@ if is_visited("azul") == false:
 ~ sala_fechada
 Está sala está fechada.
 => END
+
+~ sala_ft
+Está sala é da Faculdade de Tecnologia (FT).
+=> END

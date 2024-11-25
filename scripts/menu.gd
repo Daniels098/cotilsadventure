@@ -1,7 +1,7 @@
 class_name Menu extends Control
 
 var settings = {}
-var last_scene = "res://scenes/areaLivreCotil/cantina_pra_escada.tscn"  # Cena padrão
+var last_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"  # Cena padrão
 var jso = JSON.new()
 var inventory: Array
 var savgm := SaveGame.new()

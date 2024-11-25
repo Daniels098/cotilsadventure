@@ -38826,20 +38826,20 @@ entry_door_name = "pass_oeste_terr_2"
 
 [node name="pass_estacionamento" parent="." instance=ExtResource("9_alhve")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(16, 208)
+position = Vector2(10, 208)
 scale = Vector2(4, 4)
 entry_direction = 1
-transition_type = "zelda"
+transition_type = "fade_to_white"
 push_distance = 48
 path_to_new_scene = "res://scenes/areaLivreCotil/estacionamento_prof.tscn"
 entry_door_name = "pass_patio_oeste"
 
 [node name="pass_estacionamento2" parent="." instance=ExtResource("9_alhve")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(8, 272)
+position = Vector2(17, 272)
 scale = Vector2(4, 4)
 entry_direction = 1
-transition_type = "zelda"
+transition_type = "fade_to_white"
 push_distance = 48
 path_to_new_scene = "res://scenes/areaLivreCotil/estacionamento_prof.tscn"
 entry_door_name = "pass_patio_oeste"

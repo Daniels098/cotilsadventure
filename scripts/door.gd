@@ -17,7 +17,7 @@ func _ready():
 func _on_timer_timeout():
 	enable = true
 
-func _on_body_entered(player: Player) -> void:
+func _on_body_entered(player: Node) -> void:
 	if enable:
 		if not player is Player:
 			return

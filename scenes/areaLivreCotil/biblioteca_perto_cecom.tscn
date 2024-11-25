@@ -23424,7 +23424,7 @@ texture = ExtResource("12_86fnj")
 5:97/0 = 0
 5:97/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:97/0/physics_layer_0/angular_velocity = 0.0
-5:97/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 8, -8, 8, -5, -3, -5, -3, 8, -5, 8)
+5:97/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 8, -8, 8, -5, -2, -5, -3, -4, -5, -4)
 5:98/0 = 0
 5:98/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:98/0/physics_layer_0/angular_velocity = 0.0
@@ -44990,11 +44990,11 @@ sources/10 = SubResource("TileSetAtlasSource_t0c7j")
 sources/11 = SubResource("TileSetAtlasSource_44dds")
 sources/13 = SubResource("TileSetAtlasSource_ya4u8")
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+[node name="LevelInicial" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 y_sort_enabled = true
 script = ExtResource("1_cbgd4")
 player = NodePath("Player")
-doors = [NodePath("pass_norte_portariaA"), NodePath("pass_norte_portariaA2"), NodePath("pass_norte_portariaA3"), NodePath("pass_norte_portariaA4"), NodePath("pass_oficina"), NodePath("pass_biblioteca"), NodePath("pass_leste_bikes")]
+doors = [NodePath("pass_oficina"), NodePath("pass_biblioteca"), NodePath("pass_leste_bikes"), NodePath("pass_biblioteca_1"), NodePath("pass_biblioteca_2"), NodePath("pass_biblioteca_3"), NodePath("pass_biblioteca_4"), NodePath("pass_biblioteca_5")]
 
 [node name="MenuPause" parent="." instance=ExtResource("2_5605r")]
 visible = false
@@ -45027,62 +45027,32 @@ layer_0/tile_data = PackedInt32Array(13, 655362, 96, 65549, 2162690, 103, 131085
 layer_1/name = "Object"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(196616, 0, 0, 327694, 0, 0, 1048593, 0, 0, 1245191, 0, 0, 851985, 0, 0, 655372, 0, 0, 393225, 0, 0, 196620, 0, 0, 786437, 0, 0, 1179660, 0, 0, 720906, 0, 0, 589831, 0, 0, 917512, 0, 0, 851981, 0, 0, 589841, 0, 0, 393238, 0, 0, 327703, 0, 0, 655381, 0, 0, 458769, 0, 0, 458763, 0, 0, 589839, 0, 0, 1048599, 0, 0, 1310741, 0, 0, 983060, 0, 0, 1179662, 0, 0, 1048585, 0, 0, 983053, 0, 0, 983045, 0, 0, 393221, 0, 0, 327687, 0, 0, 655378, 0, 0, 786455, 0, 0, 262165, 0, 0, 196625, 0, 0, 327699, 0, 0)
+layer_1/tile_data = PackedInt32Array(196616, 0, 0, 327694, 0, 0, 1048593, 0, 0, 1245191, 0, 0, 851985, 0, 0, 655372, 0, 0, 393225, 0, 0, 196620, 0, 0, 786437, 0, 0, 1179660, 0, 0, 720906, 0, 0, 589831, 0, 0, 917512, 0, 0, 851981, 0, 0, 589841, 0, 0, 393238, 0, 0, 327703, 0, 0, 655381, 0, 0, 458769, 0, 0, 458763, 0, 0, 589839, 0, 0, 1048599, 0, 0, 1310741, 0, 0, 983060, 0, 0, 1179662, 0, 0, 1048585, 0, 0, 983053, 0, 0, 983045, 0, 0, 393221, 0, 0, 327687, 0, 0, 655378, 0, 0, 786455, 0, 0, 262165, 0, 0, 196625, 0, 0, 327699, 0, 0, 3, 2818049, 34, 2, 2818049, 34, 1, 2818049, 34, 65537, 2818049, 34, 131073, 2818049, 34, 196609, 2818049, 34, 196610, 2818049, 34, 196611, 2818049, 34, 196612, 2818049, 34, 4, 2818049, 34)
 
 [node name="Player" parent="." instance=ExtResource("20_yawfk")]
 process_priority = 2
 z_index = 1
-position = Vector2(39, 30)
+position = Vector2(320, 48)
 disable_mode = 1
 
-[node name="pass_norte_portariaA" parent="." instance=ExtResource("21_luwf8")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(176, -37)
-scale = Vector2(5, 5)
-entry_direction = 2
-transition_type = "zelda"
-push_distance = 48
-path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
-entry_door_name = "pass_sul_BPC"
+[node name="Placa" parent="." instance=ExtResource("22_w3lyq")]
+position = Vector2(500, 21)
+dialogue_start = "oficina_mecanica"
 
-[node name="pass_norte_portariaA2" parent="." instance=ExtResource("21_luwf8")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(264, -32)
-scale = Vector2(5, 5)
-entry_direction = 2
-transition_type = "zelda"
-push_distance = 48
-path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
-entry_door_name = "pass_sul_BPC2"
-
-[node name="pass_norte_portariaA3" parent="." instance=ExtResource("21_luwf8")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(352, -37)
-scale = Vector2(5, 5)
-entry_direction = 2
-transition_type = "zelda"
-push_distance = 48
-path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
-entry_door_name = "pass_sul_BPC3"
-
-[node name="pass_norte_portariaA4" parent="." instance=ExtResource("21_luwf8")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(440, -34)
-scale = Vector2(5, 5)
-entry_direction = 2
-transition_type = "zelda"
-push_distance = 48
-path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
-entry_door_name = "pass_sul_BPC4"
+[node name="Placa2" parent="." instance=ExtResource("22_w3lyq")]
+position = Vector2(101, 19)
+scale = Vector2(0.75, 0.75)
+dialogue_start = "portaria_principal"
 
 [node name="pass_biblioteca" parent="." instance=ExtResource("21_luwf8")]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(560, -14)
 scale = Vector2(2, 2)
 entry_direction = 2
 transition_type = "fade_to_black"
-push_distance = 40
-path_to_new_scene = "res://scenes/areaLivreCotil/bicicletas.tscn"
-entry_door_name = "pass_sul_cecom3"
+push_distance = 32
+path_to_new_scene = "res://scenes/biblioteca/inside_biblioteca.tscn"
+entry_door_name = "fora_bibli_leste"
 
 [node name="pass_oficina" parent="." instance=ExtResource("21_luwf8")]
 position = Vector2(480, 88)
@@ -45103,11 +45073,47 @@ push_distance = 32
 path_to_new_scene = "res://scenes/areaLivreCotil/bicicletas_perto_cecom.tscn"
 entry_door_name = "pass_oeste_bikes"
 
-[node name="Placa" parent="." instance=ExtResource("22_w3lyq")]
-position = Vector2(500, 21)
-dialogue_start = "oficina_mecanica"
+[node name="pass_biblioteca_1" parent="." instance=ExtResource("21_luwf8")]
+position = Vector2(160, -26)
+scale = Vector2(4, 4)
+entry_direction = 2
+transition_type = "fade_to_white"
+push_distance = 40
+path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
+entry_door_name = "pass_ofc_1"
 
-[node name="Placa2" parent="." instance=ExtResource("22_w3lyq")]
-position = Vector2(101, 19)
-scale = Vector2(0.75, 0.75)
-dialogue_start = "portaria_principal"
+[node name="pass_biblioteca_2" parent="." instance=ExtResource("21_luwf8")]
+position = Vector2(232, -30)
+scale = Vector2(4, 4)
+entry_direction = 2
+transition_type = "fade_to_white"
+push_distance = 48
+path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
+entry_door_name = "pass_ofc_2"
+
+[node name="pass_biblioteca_3" parent="." instance=ExtResource("21_luwf8")]
+position = Vector2(302, -27)
+scale = Vector2(4, 4)
+entry_direction = 2
+transition_type = "fade_to_white"
+push_distance = 48
+path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
+entry_door_name = "pass_ofc_3"
+
+[node name="pass_biblioteca_4" parent="." instance=ExtResource("21_luwf8")]
+position = Vector2(374, -30)
+scale = Vector2(4, 4)
+entry_direction = 2
+transition_type = "fade_to_white"
+push_distance = 48
+path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
+entry_door_name = "pass_ofc_4"
+
+[node name="pass_biblioteca_5" parent="." instance=ExtResource("21_luwf8")]
+position = Vector2(446, -27)
+scale = Vector2(4, 4)
+entry_direction = 2
+transition_type = "fade_to_white"
+push_distance = 48
+path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca.tscn"
+entry_door_name = "pass_ofc_5"
