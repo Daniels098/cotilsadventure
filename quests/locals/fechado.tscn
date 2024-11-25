@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2u50qcsidmiw"]
+
+[ext_resource type="Script" path="res://quests/locals/fechado.gd" id="1_t183k"]
+[ext_resource type="Resource" uid="uid://cl4ul16ymagqn" path="res://dialogue/local.dialogue" id="2_eqnto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3lj8"]
+
+[node name="Fechado" type="Node2D"]
+script = ExtResource("1_t183k")
+dialogue_resource = ExtResource("2_eqnto")
+dialogue_start = "sala_fechada"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b3lj8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

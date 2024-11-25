@@ -1,3 +1,8 @@
+~ entrada_personagem
+{{nome_player}}: Finalmente chegou o dia de começar aqui no Cotil, estou muito animado para começar!
+Comandos padrão:\nA - Esquerda    D - Direita     W - Cima     S - Baixo\nShift Esquerdo - Correr    F - Menu de missões\nB - Inventário     Esc - Pausar
+=> END
+
 ~ cecom
 CECOM (Centro de Saúde da Comunidade)\nAqui você pode ser atendido caso tiver algum problema de saúde.
 Atendimento Médico\:\nSegunda, Quarta, Quinta e Sexta-feira - 7h às 18h\nTerça-feira - 7h às 17h
@@ -7,16 +12,13 @@ Atendimento Médico\:\nSegunda, Quarta, Quinta e Sexta-feira - 7h às 18h\nTerç
 Restaurante universitário\nCafé da manhã\: R$2,00\nAlmoço\: R$3,00\nJantar\: R$3,00
 => END
 
-~ entrada_personagem
-{{nome_player}}: Finalmente chegou o dia de começar aqui no Cotil, estou muito animado para começar.
-=> END
 
 ~ portaria_principal 
 Entrada principal do Cotil, dando acesso para a Rodovia Limeira Piracicaba.
 => END
 
 ~ biblioteca
-Entrada para a biblioteca.
+Entrada para a biblioteca à direita.
 
 
 ~ entrada_biblioteca
@@ -24,7 +26,7 @@ Necessário carteirinha com o RA para poder entrar.
 Volte mais tarde.
 => END
 
-~ localização_salas
+~ localizacao_salas
 No primeiro corredor, à esquerda estão as salas verdes e à direita estão as salas azuis.
 No segundo corredor, à direita estão as salas amarelas e à esquerda estão as salas vermelhas ao subir as escadas.
 => END
@@ -72,9 +74,13 @@ SAR (Secretária de Administração Regional)\nAqui você poderá tirar dúvidas
 => END
 
 ~ salas_ft
-Neste bloco de salas estão algumas salas de aulas da FT (Faculdade de Tecnológia) e tem um laboratório de qualidade.
+Neste bloco de salas estão algumas salas de aulas da FT (Faculdade de Tecnológia) e tem um laboratório de qualidade à direita.
 => END
 
 ~ oficina_mecanica
-Abaixo está a Oficina de Mecânica, utilizado pelo curso de Mecânica.
+Abaixo está a Oficina de Mecânica, utilizado pelo curso de Mecânica.\n
+À direita está o CECOM.
 => END
+
+~ oficina
+Oficina de Mecânica

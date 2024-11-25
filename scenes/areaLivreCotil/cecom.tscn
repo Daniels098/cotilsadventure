@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://r18kwfk068dq"]
+[gd_scene load_steps=36 format=3 uid="uid://r18kwfk068dq"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_emhqq"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="2_lobd7"]
@@ -19,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://brlxr73lxb3r3" path="res://assets/negocios-teto.png" id="18_skfyt"]
 [ext_resource type="Texture2D" uid="uid://bmb5e3cdiiboc" path="res://assets/teto-predio-1.png" id="19_mrdij"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="20_logeo"]
+[ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="21_32iid"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="21_bgljr"]
+[ext_resource type="PackedScene" uid="uid://c0wphkg1gjnbp" path="res://quests/locals/cecom.tscn" id="22_nxuka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("7_sxb86")
@@ -44836,8 +44838,10 @@ layer = 101
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = 19.0
+offset_top = -26.0
+offset_right = 659.0
+offset_bottom = 334.0
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -44893,3 +44897,12 @@ transition_type = "zelda"
 push_distance = 32
 path_to_new_scene = "res://scenes/academico/patio_oeste.tscn"
 entry_door_name = "pass_cecom_OFC"
+
+[node name="Placa" parent="." instance=ExtResource("21_32iid")]
+position = Vector2(358, 294)
+scale = Vector2(0.75, 0.75)
+dialogue_start = "cecom"
+
+[node name="Cecom" parent="." instance=ExtResource("22_nxuka")]
+position = Vector2(232, 281)
+scale = Vector2(7, 7)

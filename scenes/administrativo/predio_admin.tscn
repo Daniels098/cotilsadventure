@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://mh6ha2o6gw7r"]
+[gd_scene load_steps=23 format=3 uid="uid://mh6ha2o6gw7r"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_74xad"]
 [ext_resource type="PackedScene" uid="uid://c43jknsyy486c" path="res://NPCs/lojinha/lojinhaAPM.tscn" id="2_5jrc5"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cqnlyb14jm6hb" path="res://scenes/portasAnim/lojinha_apm.tscn" id="13_spc5e"]
 [ext_resource type="Resource" uid="uid://xj2n0g1u2oux" path="res://dialogue/lojinha.dialogue" id="14_l70kh"]
 [ext_resource type="PackedScene" uid="uid://bt5sww83iyyyx" path="res://NPCs/funcionarios/dorothi.tscn" id="16_qfmue"]
+[ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="17_crcsj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mqc0"]
 texture = ExtResource("8_utiuh")
@@ -38786,6 +38787,7 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_gkkdc")]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -38844,4 +38846,14 @@ position = Vector2(410, 149)
 dialogue_resource = ExtResource("14_l70kh")
 
 [node name="Dorothi" parent="." instance=ExtResource("16_qfmue")]
-position = Vector2(216, 168)
+position = Vector2(219, 164)
+
+[node name="Placa" parent="." instance=ExtResource("17_crcsj")]
+position = Vector2(174, 163)
+scale = Vector2(0.6, 0.6)
+dialogue_start = "secretaria"
+
+[node name="Placa2" parent="." instance=ExtResource("17_crcsj")]
+position = Vector2(441, 163)
+scale = Vector2(0.6, 0.6)
+dialogue_start = "lojinha"

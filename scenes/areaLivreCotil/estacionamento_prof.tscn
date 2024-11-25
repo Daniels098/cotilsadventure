@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2m2spyaav1o8"]
+[gd_scene load_steps=27 format=3 uid="uid://d2m2spyaav1o8"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_j0ojp"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="2_q3qua"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cev5hmpkhqeeh" path="res://assets/Estaciona-0.1.png" id="14_w112t"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="15_n8ssv"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="16_dp7q5"]
+[ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="17_rf3w5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("7_ypgh0")
@@ -39506,3 +39507,7 @@ transition_type = "zelda"
 push_distance = 40
 path_to_new_scene = "res://scenes/areaLivreCotil/frente_predio_admin.tscn"
 entry_door_name = "oeste_frente_cotil_1"
+
+[node name="Placa" parent="." instance=ExtResource("17_rf3w5")]
+position = Vector2(319, 146)
+dialogue_start = "estacionamento_professores"

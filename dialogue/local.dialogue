@@ -1,5 +1,5 @@
 ~ bandeco
-ACHEI O BANDECO
+{{nome_player}}: Achei o bandeco!\n Assim que abrir para o almoço vou vir correndo.
 if is_visited("bandeco") == false:
 	do ganhar_moedas(2)
 	do visit_local("bandeco") # Função nova do ItemManager (final do script)
@@ -7,16 +7,23 @@ if is_visited("bandeco") == false:
 => END
 
 ~ cantina
-ACHEI A CANTINA
+{{nome_player}}: Então está é a cantina! \nEspero que os preços não sejam tão caros.
 if is_visited("cantina") == false:
 	do ganhar_moedas(2)
 	do visit_local("cantina")
 	do update_quest("cantina")
 => END
 
+~ cecom
+{{nome_player}}: Então aqui é CECOM! Parece um hospital,\nEspero que não aconteça nada para que eu venha parar aqui.
+if is_visited("cecom") == false:
+	do ganhar_moedas(2)
+	do visit_local("cecom")
+	do update_quest("cecom")
+=> END
 # ---------------- Salas ----------------
 ~ sala_vermelha
-ACHEI A SALA VERMELHA
+{{nome_player}}: Consegui localizar a sala vermelha que a Dona Vera disse!
 if is_visited("vermelha") == false:
 	do ganhar_moedas(1)
 	do visit_local("vermelha")
@@ -24,7 +31,7 @@ if is_visited("vermelha") == false:
 => END
 
 ~ sala_verde
-ACHEI A SALA VERDE
+{{nome_player}}: Consegui achar a sala verde aqui embaixo!
 if is_visited("verde") == false:
 	do ganhar_moedas(1)
 	do visit_local("verde")
@@ -32,7 +39,7 @@ if is_visited("verde") == false:
 => END
 
 ~ sala_amarela
-ACHEI A SALA AMARELA
+{{nome_player}}: Achei a sala amarela, fica realmente próxima das escadas!
 if is_visited("amarela") == false:
 	do ganhar_moedas(1)
 	do visit_local("amarela")
@@ -40,9 +47,13 @@ if is_visited("amarela") == false:
 => END
 
 ~ sala_azul
-ACHEI A SALA AZUL
+{{nome_player}}: Encontrei a sala azul, espero que eu estude nessa sala!
 if is_visited("azul") == false:
 	do ganhar_moedas(1)
 	do visit_local("azul")
 	do update_quest("sala_azul")
+=> END
+
+~ sala_fechada
+Está sala está fechada.
 => END
