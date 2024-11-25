@@ -1,0 +1,27 @@
+~ cantina
+{{nome_player}}: Então está é a cantina! \nEspero que os preços não sejam tão caros.
+=> END
+
+~ bandeco
+{{nome_player}}: Achei o bandeco!\n Assim que abrir para o almoço vou vir correndo.
+=> END
+
+~ cecom
+{{nome_player}}: Então aqui é CECOM! Parece um hospital,\nEspero que não aconteça nada para que eu venha parar aqui.
+=> END
+
+~ sala_vermelha
+{{nome_player}}: Consegui localizar a sala vermelha que a Dona Vera disse!
+=> END
+
+~ sala_verde
+{{nome_player}}: Consegui achar a sala verde aqui embaixo!
+=> END
+
+~ sala_amarela
+{{nome_player}}: Achei a sala amarela, fica realmente próxima das escadas!
+=> END
+
+~ sala_azul
+{{nome_player}}: Encontrei a sala azul, espero que eu estude nessa sala!
+=> END

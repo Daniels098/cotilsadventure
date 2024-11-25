@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b3vd2jvpw21yk"
+path="res://.godot/imported/missoes.dialogue-f9125f56543e428b365acbfedaf1276e.tres"
+
+[deps]
+
+source_file="res://dialogue/missoes.dialogue"
+dest_files=["res://.godot/imported/missoes.dialogue-f9125f56543e428b365acbfedaf1276e.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djwq3u37lrixr"]
+[gd_scene load_steps=14 format=3 uid="uid://djwq3u37lrixr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_urcuv"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_s4hru"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="6_ugt0q"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="7_egwji"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="8_c6j01"]
+[ext_resource type="PackedScene" uid="uid://d2u50qcsidmiw" path="res://quests/locals/fechado.tscn" id="11_dinoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjunc"]
 texture = ExtResource("2_s4hru")
@@ -3804,6 +3805,7 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_1mmlb")]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -3848,3 +3850,23 @@ entry_door_name = "saida_13"
 
 [node name="door_anim" parent="." instance=ExtResource("5_0rf8b")]
 position = Vector2(16, 176)
+
+[node name="Fechado" parent="." instance=ExtResource("11_dinoe")]
+position = Vector2(136, 187)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado2" parent="." instance=ExtResource("11_dinoe")]
+position = Vector2(248, 187)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado3" parent="." instance=ExtResource("11_dinoe")]
+position = Vector2(344, 187)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado4" parent="." instance=ExtResource("11_dinoe")]
+position = Vector2(488, 187)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado5" parent="." instance=ExtResource("11_dinoe")]
+position = Vector2(536, 187)
+scale = Vector2(0.8, 0.8)

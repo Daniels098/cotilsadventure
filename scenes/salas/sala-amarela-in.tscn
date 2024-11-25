@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2jah8fjbdnk0"]
+[gd_scene load_steps=15 format=3 uid="uid://2jah8fjbdnk0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eo43t"]
 [ext_resource type="Texture2D" uid="uid://cgxbis60pjbiy" path="res://assets/sala-verde-in.png" id="2_8rj7n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="7_8vq5u"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_m2dy2"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="8_eldyo"]
+[ext_resource type="PackedScene" uid="uid://c8nc61t7et8fi" path="res://quests/locals/salas.tscn" id="11_ogckw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmgp4"]
 texture = ExtResource("3_74uod")
@@ -1274,6 +1275,7 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_b4v56")]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -1291,3 +1293,7 @@ position = Vector2(312, 104)
 
 [node name="saida_02" parent="." instance=ExtResource("8_eldyo")]
 position = Vector2(232, 72)
+
+[node name="Salas" parent="." instance=ExtResource("11_ogckw")]
+position = Vector2(232, 94)
+dialogue_start = "sala_amarela"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://nepjt0j72qfi"]
+[gd_scene load_steps=39 format=3 uid="uid://nepjt0j72qfi"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_w6yaa"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="2_uc4mr"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bmb5e3cdiiboc" path="res://assets/teto-predio-1.png" id="19_ffctj"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="20_cqrly"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="21_u6u01"]
+[ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="23_ndduc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("7_2doo3")
@@ -45168,3 +45169,8 @@ transition_type = "zelda"
 push_distance = 40
 path_to_new_scene = "res://scenes/areaLivreCotil/cantina_pra_escada.tscn"
 entry_door_name = "pass_oeste_ESTQUI5"
+
+[node name="Placa" parent="." instance=ExtResource("23_ndduc")]
+position = Vector2(585, 242)
+scale = Vector2(0.5, 0.5)
+dialogue_start = "salas_ft"

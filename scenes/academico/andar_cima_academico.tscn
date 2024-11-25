@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhw3hnp4iim6k"]
+[gd_scene load_steps=15 format=3 uid="uid://dhw3hnp4iim6k"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_sostx"]
 [ext_resource type="Texture2D" uid="uid://b38a05xbrxpek" path="res://assets/Sprite-corredor01.png" id="2_lh0fg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="6_sdf44"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_jdqjl"]
 [ext_resource type="Texture2D" uid="uid://d36h6272sysbf" path="res://assets/mapa-0.1-f.png" id="8_k12ca"]
+[ext_resource type="PackedScene" uid="uid://d2u50qcsidmiw" path="res://quests/locals/fechado.tscn" id="11_rxjdo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjunc"]
 texture = ExtResource("2_lh0fg")
@@ -36345,6 +36346,7 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_ji0yx")]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -36397,3 +36399,19 @@ transition_type = "zelda"
 push_distance = 32
 path_to_new_scene = "res://scenes/academico/andar_cima_academico_oeste.tscn"
 entry_door_name = "pass_leste_sup"
+
+[node name="Fechado" parent="." instance=ExtResource("11_rxjdo")]
+position = Vector2(104, 186)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado2" parent="." instance=ExtResource("11_rxjdo")]
+position = Vector2(232, 186)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado3" parent="." instance=ExtResource("11_rxjdo")]
+position = Vector2(520, 186)
+scale = Vector2(0.8, 0.8)
+
+[node name="Fechado4" parent="." instance=ExtResource("11_rxjdo")]
+position = Vector2(408, 186)
+scale = Vector2(0.8, 0.8)
