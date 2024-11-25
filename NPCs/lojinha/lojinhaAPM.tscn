@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="1_ajjgf"]
 [ext_resource type="Script" path="res://NPCs/lojinha/lojinhaAPM.gd" id="1_craqf"]
 [ext_resource type="PackedScene" uid="uid://caeck1ortarag" path="res://NPCs/lojinha/button.tscn" id="3_gxqcn"]
-[ext_resource type="Texture2D" uid="uid://beuvybdxdcts6" path="res://moeda.png" id="3_nl4lg"]
+[ext_resource type="Texture2D" uid="uid://beuvybdxdcts6" path="res://assets/moeda.png" id="3_nl4lg"]
 [ext_resource type="Texture2D" uid="uid://d2q7vas5acjnj" path="res://assets/perso-02_loja.png" id="4_fh8l7"]
 [ext_resource type="Texture2D" uid="uid://fxqtmtpno445" path="res://assets/perso-02.png" id="4_gns2y"]
 [ext_resource type="Texture2D" uid="uid://nstjtofpi838" path="res://assets/perso-r-roxo_loja.png" id="6_nw3ql"]

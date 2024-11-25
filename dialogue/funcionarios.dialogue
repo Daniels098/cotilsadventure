@@ -52,7 +52,7 @@ elif is_quest_active("sala_vermelha") and is_visited("sala_vermelha") == false:
 else:
 	Você tem interesse em conhecer as salas?
 	- Sim
-		Dona Vera:  Vá até a sala vermelha, meu bem.
+		Dona Vera: Vá até a sala vermelha, meu bem.
 		do start_quest("sala_vermelha")
 		do save_by_manager()
 	- Não
@@ -79,7 +79,7 @@ elif is_quest_active("sala_verde") and is_visited("sala_verde"):
 elif is_quest_active("sala_verde") and is_visited("sala_verde") == false:
 	Dona Vera: Conseguiu achar o sala verde?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me ajudar?
-	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 03
+	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 03.
 => END
 
 ~ verinha3
@@ -101,7 +101,7 @@ elif is_quest_active("sala_amarela") and is_visited("sala_amarela"):
 elif is_quest_active("sala_amarela") and is_visited("sala_amarela") == false:
 	Dona Vera: Conseguiu achar o sala amarela?
 	{{nome_player}}: Ainda não.[wait=0.3] Aonde que fica?
-	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala (definir)
+	Dona Vera: Fica à direita no corredor de cima...[wait=0.3] Sala 10.
 => END
 
 ~ verinha4

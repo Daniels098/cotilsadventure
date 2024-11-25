@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cgl45j5023bai"]
+[gd_scene load_steps=28 format=3 uid="uid://cgl45j5023bai"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_fq5bd"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_v711w"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="12_g7ngl"]
 [ext_resource type="Texture2D" uid="uid://cev5hmpkhqeeh" path="res://assets/Estaciona-0.1.png" id="12_kikm2"]
 [ext_resource type="PackedScene" uid="uid://hu1urxey1tn1" path="res://quests/locals/bandeco.tscn" id="17_lp0ln"]
+[ext_resource type="PackedScene" uid="uid://dwhawgu1u82ks" path="res://inventory/items/item_documento.tscn" id="18_72olu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("4_45hmg")
@@ -39522,3 +39523,6 @@ entry_door_name = "pass_leste_FB5"
 [node name="Bandeco" parent="." instance=ExtResource("17_lp0ln")]
 position = Vector2(232, -96)
 scale = Vector2(24, 24)
+
+[node name="ItemDocumento" parent="." instance=ExtResource("18_72olu")]
+position = Vector2(440, 24)
