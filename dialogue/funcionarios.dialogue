@@ -125,7 +125,7 @@ if is_quest_completed("sala_azul"):
 elif is_quest_active("sala_azul") and is_visited("sala_azul"):
 	{{nome_player}}: Fui até a sala amarela.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda pra você.
-	do complete_quest("sala_amarela")
+	do complete_quest("sala_azul")
 	do ganhar_moedas(1)
 	do save_by_manager()
 elif is_quest_active("sala_azul") and is_visited("sala_azul") == false:

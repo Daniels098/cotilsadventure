@@ -61,7 +61,7 @@ position = Vector2(512, 240)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("5_iwtu2")
 texture_pressed = ExtResource("10_cq7kr")
-action = "inventory"
+action = "run"
 visibility_mode = 1
 
 [node name="button_a" type="TouchScreenButton" parent="."]
@@ -69,7 +69,7 @@ position = Vector2(408, 240)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("6_1vj1g")
 texture_pressed = ExtResource("12_hrn84")
-action = "interact"
+action = "inventory"
 visibility_mode = 1
 
 [node name="button_pause" type="TouchScreenButton" parent="."]
