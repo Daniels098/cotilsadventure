@@ -28,7 +28,6 @@ buses/default_bus_layout="res://sounds/default_bus.tres"
 
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
 ConfigGeral="*res://autoload/config_geral.gd"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://autoload/scene_manager.gd"
 ConfigFileHandler="*res://autoload/config_file_handler.gd"
@@ -40,6 +39,7 @@ ItemManager="*res://autoload/item_manager.gd"
 QuestManager="*res://autoload/quest_manager.gd"
 LojinhaManager="*res://NPCs/lojinha/lojinha_manager.gd"
 Music="*res://sounds/music.tscn"
+VerificaInternet="*res://autoload/verifica_internet.gd"
 
 [dialogue_manager]
 

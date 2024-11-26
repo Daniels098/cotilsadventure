@@ -6,7 +6,6 @@ extends Node2D
 @onready var img = $Sprite2D
 
 func _ready():
-	# HttpsRequest.ping_server()
 	# Tenta carregar as credenciais
 	var credentials = CredentialsManager.carregar_credenciais()
 	if credentials:
@@ -16,6 +15,7 @@ func _ready():
 		print("Nenhuma credencial salva encontrada.")
 	anim_letters()
 	terminar_inicio()
+	ConfigGeral.load_settings()
 
 func anim_letters() -> void:
 	godot.visible = true
