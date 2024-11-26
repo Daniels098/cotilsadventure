@@ -5,7 +5,7 @@ if is_quest_completed("bandeco"):
 	- Sim
 		Professor Salmazo: Vá até o CECOM.
 		do start_quest("cecom")
-		
+		do save_by_manager()
 	- Não
 		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem alguns lugares importantes para você conhecer.
 		=> END
@@ -46,7 +46,7 @@ if is_quest_completed("cecom"):
 		=> END
 elif is_quest_active("cecom") and is_visited("cecom"):
 	{{nome_player}}: Fui até o CECOM.
-	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda que eu achei por aqui.
 	do complete_quest("cecom")
 	do ganhar_moedas(2)
 	do save_by_manager()
@@ -71,7 +71,7 @@ if is_quest_completed("cantina"):
 		=> END
 elif is_quest_active("cantina") and is_visited("cantina"):
 	{{nome_player}}: Fui até o cantina.
-	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda que eu achei por aqui.
 	do complete_quest("cantina")
 	do ganhar_moedas(2)
 	do save_by_manager()

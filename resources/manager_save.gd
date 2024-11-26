@@ -6,7 +6,7 @@ var game_loaded := false
 
 func _ready():
 	save_timer = Timer.new()
-	save_timer.wait_time = 300 # 5 minutos
+	save_timer.wait_time = 240 # 4 minutos
 	save_timer.connect("timeout", Callable(self, "_on_save_timer_timeout"))
 	add_child(save_timer)
 	save_timer.start()

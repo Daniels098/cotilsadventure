@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://co88akwnl8svw"]
+[gd_scene load_steps=28 format=3 uid="uid://co88akwnl8svw"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eenna"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="2_duy0y"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://qqub2vwmxmd7" path="res://assets/porta-secretarias.png" id="10_wojt4"]
 [ext_resource type="Texture2D" uid="uid://bgeuga1dv7sgx" path="res://assets/toudo-guiche.png" id="11_an0fv"]
 [ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="17_102h5"]
+[ext_resource type="PackedScene" uid="uid://o5gon45s8khg" path="res://NPCs/professores/salmazo.tscn" id="18_lg2ls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("5_45c63")
@@ -39076,7 +39077,7 @@ entry_door_name = "entrada_patio2"
 
 [node name="pass_leste_patio3" parent="." instance=ExtResource("9_gf0q3")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(544, 288)
+position = Vector2(542, 288)
 scale = Vector2(5, 5)
 entry_direction = 3
 transition_type = "fade_to_white"
@@ -39126,3 +39127,6 @@ entry_door_name = "pass_patio_2"
 position = Vector2(344, 100)
 scale = Vector2(0.75, 0.75)
 dialogue_start = "patio"
+
+[node name="Salmazo" parent="." instance=ExtResource("18_lg2ls")]
+position = Vector2(229, 106)

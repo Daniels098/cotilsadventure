@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_1k5pq"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_axsjg"]
 [ext_resource type="Texture2D" uid="uid://d36h6272sysbf" path="res://assets/mapa-0.1-f.png" id="8_08avr"]
-[ext_resource type="PackedScene" uid="uid://o5gon45s8khg" path="res://NPCs/professores/salmazo.tscn" id="8_acoo4"]
 [ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="12_vaq0w"]
 [ext_resource type="PackedScene" uid="uid://d2u50qcsidmiw" path="res://quests/locals/fechado.tscn" id="13_fsvxn"]
+[ext_resource type="PackedScene" uid="uid://b8qfbtflegt75" path="res://NPCs/funcionarios/verinha.tscn" id="13_y30yd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbpvx"]
 texture = ExtResource("2_nep6t")
@@ -36383,14 +36383,19 @@ layer_1/y_sort_enabled = true
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(720925, 7733249, 29, 720899, 7733249, 30)
 
-[node name="Salmazo" parent="." instance=ExtResource("8_acoo4")]
-position = Vector2(312, 176)
-
 [node name="Player" parent="." instance=ExtResource("3_5ucg7")]
 process_priority = 2
 z_index = 1
 position = Vector2(336, 216)
 disable_mode = 1
+
+[node name="Placa" parent="." instance=ExtResource("12_vaq0w")]
+position = Vector2(279, 194)
+scale = Vector2(0.6, 0.6)
+dialogue_start = "localizacao_salas"
+
+[node name="Verinha" parent="." instance=ExtResource("13_y30yd")]
+position = Vector2(312, 181)
 
 [node name="escada_terreo" parent="." instance=ExtResource("4_b7sux")]
 modulate = Color(0, 1, 0, 1)
@@ -36431,12 +36436,6 @@ transition_type = "fade_to_white"
 push_distance = 32
 path_to_new_scene = "res://scenes/patio/patio.tscn"
 entry_door_name = "entrada_academico"
-
-[node name="Placa" parent="." instance=ExtResource("12_vaq0w")]
-position = Vector2(287, 193)
-rotation = -6.28319
-scale = Vector2(0.6, 0.6)
-dialogue_start = "localizacao_salas"
 
 [node name="Fechado" parent="." instance=ExtResource("13_fsvxn")]
 position = Vector2(232, 188)

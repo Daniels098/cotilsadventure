@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4hc72ek0rvwu" path="res://assets/placa-madeira.png" id="3_kaki2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slg4k"]
-size = Vector2(32, 11)
+size = Vector2(32, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muw8h"]
 size = Vector2(29, 13)
@@ -16,7 +16,7 @@ script = ExtResource("1_f10wh")
 dialogue_resource = ExtResource("2_eyoyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 2.25)
 shape = SubResource("RectangleShape2D_slg4k")
 
 [node name="Area2D" type="Area2D" parent="."]

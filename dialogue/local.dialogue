@@ -21,29 +21,29 @@ if is_visited("cecom") == false:
 # ---------------- Salas ----------------
 ~ sala_vermelha
 {{nome_player}}: Consegui localizar a sala vermelha que a Dona Vera disse!
-if is_visited("vermelha") == false:
-	do visit_local("vermelha")
+if is_visited("sala_vermelha") == false:
+	do visit_local("sala_vermelha")
 	do update_quest("sala_vermelha")
 => END
 
 ~ sala_verde
 {{nome_player}}: Consegui achar a sala verde aqui embaixo!
-if is_visited("verde") == false:
-	do visit_local("verde")
+if is_visited("sala_verde") == false:
+	do visit_local("sala_verde")
 	do update_quest("sala_verde")
 => END
 
 ~ sala_amarela
 {{nome_player}}: Achei a sala amarela, fica realmente próxima das escadas!
-if is_visited("amarela") == false:
-	do visit_local("amarela")
+if is_visited("sala_amarela") == false:
+	do visit_local("sala_amarela")
 	do update_quest("sala_amarela")
 => END
 
 ~ sala_azul
 {{nome_player}}: Encontrei a sala azul, espero que eu estude nessa sala!
-if is_visited("azul") == false:
-	do visit_local("azul")
+if is_visited("sala_azul") == false:
+	do visit_local("sala_azul")
 	do update_quest("sala_azul")
 => END
 
