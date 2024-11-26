@@ -85,9 +85,10 @@ func load_window():
 				print("Erro: display_mode fora dos limites válidos.")
 
 func center_window():
-	var screen = DisplayServer.screen_get_position() +  DisplayServer.screen_get_size() / 2
-	var window_size = get_window().get_size_with_decorations()
-	get_window().set_position(screen - window_size / 2)
+	pass
+	# var screen = DisplayServer.screen_get_position() +  DisplayServer.screen_get_size() / 2
+	# var window_size = get_window().get_size_with_decorations()
+	# get_window().set_position(screen - window_size / 2)
 
 ## -------------------- Configurações de Áudio --------------------
 
@@ -181,8 +182,8 @@ func set_name_player(nome: String):
 	return nome_player
 
 func get_name_player() -> String:
-	print("RETORNO DE NOME ABAIXO")
-	print(nome_player)
+	# print("RETORNO DE NOME ABAIXO")
+	# print(nome_player)
 	return nome_player
 
 # Converter valor linear para dB (usado em volumes)

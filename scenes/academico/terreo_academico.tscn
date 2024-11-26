@@ -36366,7 +36366,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("2_4fyyy")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -36382,7 +36381,7 @@ layer_0/tile_data = PackedInt32Array(589824, 1048576, 1, 655360, 1114112, 27, 72
 layer_1/name = "Object"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(720925, 7733249, 29, 720903, 7733249, 30, 720899, 7733249, 30, 720929, 7733249, 29)
+layer_1/tile_data = PackedInt32Array(720925, 7733249, 29, 720899, 7733249, 30)
 
 [node name="Salmazo" parent="." instance=ExtResource("8_acoo4")]
 position = Vector2(312, 176)
@@ -36444,5 +36443,5 @@ position = Vector2(232, 188)
 scale = Vector2(0.6, 0.6)
 
 [node name="Fechado2" parent="." instance=ExtResource("13_fsvxn")]
-position = Vector2(184, 189)
+position = Vector2(184, 187)
 scale = Vector2(0.6, 0.6)

@@ -45429,7 +45429,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_158nh")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0

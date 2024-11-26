@@ -47058,7 +47058,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_ydat4")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -47085,7 +47084,7 @@ disable_mode = 1
 [node name="Placa" parent="." instance=ExtResource("16_ahdej")]
 position = Vector2(280, 189)
 scale = Vector2(0.655, 0.655)
-dialogue_start = "entrada_biblioteca"
+dialogue_start = "dp_mecanica"
 
 [node name="parte2_mecanica" parent="." instance=ExtResource("15_tex31")]
 modulate = Color(0, 1, 0, 1)

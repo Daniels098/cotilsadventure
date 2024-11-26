@@ -1,6 +1,6 @@
 extends Control
 
-signal text_button(Texture)
+signal text_button(int)
 signal button_pressed(int)
 
 @export var view_text: Texture
@@ -28,15 +28,15 @@ func _process(delta):
 	$Button.disabled = (LojinhaManager.money < 3 and not LojinhaManager.skins[skin_id])
 
 func _on_texture_button_pressed():
-	emit_signal("text_button", skin_text)
+	emit_signal("text_button", skin_id)
 
 func _on_button_pressed():
 	if LojinhaManager.skins[skin_id]:
 		# Se a skin foi comprada, usa a skin
 		LojinhaManager.current_skin_id = skin_id
 		LojinhaManager.current_skin = skin_text
-		print("Skin %s usada!" % skin_id)
+		# print("Skin %s usada!" % skin_id)
 	else:
 		# Se a skin não foi comprada, realiza a compra
 		LojinhaManager.purchase_skin(skin_id)
-		print("Skin %s comprada!" % skin_id)
+		# print("Skin %s comprada!" % skin_id)

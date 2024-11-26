@@ -9,6 +9,9 @@ if is_quest_completed("matricula"):
 elif is_quest_active("matricula") and get_quest_property(1,"item") == get_quest_property(1,"documento_necessario"):
 	{{nome_player}}: Consegui encontrar os documentos.\nAqui está.
 	Dorothi: Obrigada!/n Agora posso terminar o seu processo de matricula.
+	do complete_quest("matricula")
+	do ganhar_moedas(3)
+	do save_by_manager()
 => END
 elif is_quest_active("matricula") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
 	{{nome_player}}: Não estou conseguindo encontrar os documentos.
@@ -44,6 +47,7 @@ elif is_quest_active("sala_vermelha") and is_visited("sala_vermelha"):
 	{{nome_player}}: Fui até a sala vermelha.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_vermelha")
+	do ganhar_moedas(1)
 	do save_by_manager()
 elif is_quest_active("sala_vermelha") and is_visited("sala_vermelha") == false:
 	Dona Vera: Conseguiu achar a sala vermelha?
@@ -75,6 +79,7 @@ elif is_quest_active("sala_verde") and is_visited("sala_verde"):
 	{{nome_player}}: Fui até a sala verde.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_verde")
+	do ganhar_moedas(1)
 	do save_by_manager()
 elif is_quest_active("sala_verde") and is_visited("sala_verde") == false:
 	Dona Vera: Conseguiu achar o sala verde?
@@ -97,6 +102,7 @@ elif is_quest_active("sala_amarela") and is_visited("sala_amarela"):
 	{{nome_player}}: Fui até a sala amarela.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_amarela")
+	do ganhar_moedas(1)
 	do save_by_manager()
 elif is_quest_active("sala_amarela") and is_visited("sala_amarela") == false:
 	Dona Vera: Conseguiu achar o sala amarela?
@@ -119,6 +125,7 @@ elif is_quest_active("sala_azul") and is_visited("sala_azul"):
 	{{nome_player}}: Fui até a sala amarela.
 	Dona Vera: Que bom meu bem![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("sala_amarela")
+	do ganhar_moedas(1)
 	do save_by_manager()
 elif is_quest_active("sala_azul") and is_visited("sala_azul") == false:
 	Dona Vera: Conseguiu achar o sala azul?

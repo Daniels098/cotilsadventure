@@ -42,11 +42,11 @@ func load_cloud_save(username: String):
 
 
 func _on_http_request_completed(result, response_code, headers, body):
-	# print("RESULT: ",result)
 	# if result
 	json_string = JSON.parse_string(body.get_string_from_utf8())
 	print("Corpo da resposta:", body.get_string_from_utf8())
-	# print("Código de retorno da API: ", response_code)
+	print("Código de retorno da API: ", response_code)
+	print("RESULT: ",result)
 	emit_signal("data_receive")
 
 func mostra_json():

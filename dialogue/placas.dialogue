@@ -29,8 +29,8 @@ Volte mais tarde.
 => END
 
 ~ localizacao_salas
-No primeiro corredor, à esquerda estão as salas verdes e à direita estão as salas azuis.
-No segundo corredor, à direita estão as salas amarelas e à esquerda estão as salas vermelhas ao subir as escadas.
+No térreo, à esquerda estão as salas verdes e à direita estão as salas azuis.
+No primeiro andar, ao subir as escadas, à direita estão as salas amarelas e à esquerda estão as salas vermelhas.
 => END
 
 ~ patio
@@ -50,7 +50,8 @@ Entre e veja você mesmo!
 => END
 
 ~ frente_cotil
- Colégio Técnido de Limeira 
+Colégio Técnido de Limeira 
+=> END
 
 ~ laboratorio_informatica
 Laboratórios de informática
@@ -86,3 +87,8 @@ Abaixo está a Oficina de Mecânica, utilizado pelo curso de Mecânica.\n
 
 ~ oficina
 Oficina de Mecânica
+=> END
+
+~ dp_mecanica
+Salas do curso de Mecânica.
+=> END

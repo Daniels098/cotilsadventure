@@ -1,6 +1,6 @@
 extends Node
 
-var money: int
+var money: int = 20
 var current_skin_id: int = 0  # ID da skin atual
 var current_skin: Texture  # Variável para armazenar a textura da skin
 var skins: Array = [true, true, true, true, false, false, false]  # Status de compra das skins

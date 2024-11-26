@@ -13,6 +13,7 @@ elif is_quest_active("bandeco") and is_visited("bandeco"):
 	{{nome_player}}: Fui até o bandeco.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("bandeco")
+	do ganhar_moedas(2)
 	do save_by_manager()
 	=> salmazo1
 elif is_quest_active("bandeco") and is_visited("bandeco") == false:
@@ -43,14 +44,15 @@ if is_quest_completed("cecom"):
 	- Não
 		Professor Salmazo: Tudo bem, volte mais tarde, ainda tem um lugar para você conhecer.
 		=> END
-elif is_quest_active("cecom") and is_visited("bandeco"):
+elif is_quest_active("cecom") and is_visited("cecom"):
 	{{nome_player}}: Fui até o CECOM.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("cecom")
+	do ganhar_moedas(2)
 	do save_by_manager()
 	=> salmazo2
 	## IGUAL DO OUTRO DIALOGO
-elif is_quest_active("cecom") and is_visited("bandeco") == false:
+elif is_quest_active("cecom") and is_visited("cecom") == false:
 	Professor Salmazo: Conseguiu achar o CECOM?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.
@@ -67,14 +69,15 @@ if is_quest_completed("cantina"):
 	- Não
 		Professor Salmazo: Você a encontra ao lado da escada do prédio acadêmico.[wait=0.3] Ela irá te explicar sobre as salas de aulas.
 		=> END
-elif is_quest_active("cantina") and is_visited("bandeco"):
+elif is_quest_active("cantina") and is_visited("cantina"):
 	{{nome_player}}: Fui até o cantina.
 	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
 	do complete_quest("cantina")
+	do ganhar_moedas(2)
 	do save_by_manager()
 	=> salmazo3
 	## IGUAL DO OUTRO DIALOGO
-elif is_quest_active("cantina") and is_visited("bandeco") == false:
+elif is_quest_active("cantina") and is_visited("cantina") == false:
 	Professor Salmazo: Conseguiu achar o CECOM?
 	{{nome_player}}: Ainda não.[wait=0.3] Pode me dar uma referência?
 	Professor Salmazo: Desça o campus inteiro que você chegará no cecom.

@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c787hmu33x3ep"]
+[gd_scene load_steps=13 format=3 uid="uid://c787hmu33x3ep"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_n1btj"]
 [ext_resource type="Texture2D" uid="uid://coqrqlocn43l4" path="res://assets/sala-vermelha-in.png" id="2_02h4d"]
+[ext_resource type="PackedScene" uid="uid://dmry8ltc3cb7j" path="res://scenes/controlsTouchCanhoto.tscn" id="4_nbodv"]
 [ext_resource type="PackedScene" uid="uid://b45r27waol4ke" path="res://scenes/controlsTouch.tscn" id="5_sq8xg"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="6_3cvlf"]
 [ext_resource type="PackedScene" uid="uid://u2t4rh2p0qy8" path="res://inventory/inv_GUI.tscn" id="6_10552"]
+[ext_resource type="PackedScene" uid="uid://cd1lmsy0ije4c" path="res://quests/gui/gui.tscn" id="6_r7s5t"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="7_8kex1"]
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="7_ocxuj"]
 [ext_resource type="PackedScene" uid="uid://c8nc61t7et8fi" path="res://quests/locals/salas.tscn" id="8_tl4iq"]
@@ -892,6 +894,22 @@ script = ExtResource("1_n1btj")
 player = NodePath("Player")
 doors = [NodePath("saida_13")]
 
+[node name="MenuPause" parent="." instance=ExtResource("7_8kex1")]
+visible = false
+
+[node name="ButtonLayerDestro" parent="." instance=ExtResource("5_sq8xg")]
+visible = false
+
+[node name="ButtonLayerCanhoto" parent="." instance=ExtResource("4_nbodv")]
+visible = false
+
+[node name="Inv_GUI" parent="." instance=ExtResource("6_10552")]
+layer = 3
+visible = false
+
+[node name="QuestGUI" parent="." instance=ExtResource("6_r7s5t")]
+layer = 101
+
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
@@ -920,15 +938,6 @@ pos_player = null
 current_mission = null
 current_scene = null
 invi = null
-
-[node name="ButtonLayer" parent="." instance=ExtResource("5_sq8xg")]
-visible = false
-
-[node name="Inv_GUI" parent="." instance=ExtResource("6_10552")]
-visible = false
-
-[node name="MenuPause" parent="." instance=ExtResource("7_8kex1")]
-visible = false
 
 [node name="Salas" parent="." instance=ExtResource("8_tl4iq")]
 position = Vector2(232, 77)

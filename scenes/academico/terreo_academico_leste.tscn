@@ -4025,19 +4025,19 @@ path_to_new_scene = "res://scenes/salas/sala_azul.tscn"
 entry_door_name = "saida_06"
 
 [node name="Fechado" parent="." instance=ExtResource("12_lhcsr")]
-position = Vector2(152, 187)
+position = Vector2(152, 185)
 scale = Vector2(0.8, 0.8)
 
 [node name="Fechado2" parent="." instance=ExtResource("12_lhcsr")]
-position = Vector2(40, 187)
+position = Vector2(40, 186)
 scale = Vector2(0.8, 0.8)
 
 [node name="Fechado3" parent="." instance=ExtResource("12_lhcsr")]
-position = Vector2(504, 190)
+position = Vector2(504, 186)
 scale = Vector2(0.8, 0.8)
 
 [node name="Fechado4" parent="." instance=ExtResource("12_lhcsr")]
-position = Vector2(392, 190)
+position = Vector2(392, 186)
 scale = Vector2(0.8, 0.8)
 
 [node name="door" parent="." instance=ExtResource("5_dyoni")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cnet6352jo47v"]
+[gd_scene load_steps=26 format=3 uid="uid://cnet6352jo47v"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_chxgs"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="2_u21ue"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="14_6b5i3"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="15_vfg2h"]
 [ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="16_uf066"]
+[ext_resource type="PackedScene" uid="uid://d2u50qcsidmiw" path="res://quests/locals/fechado.tscn" id="17_5uvpg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44dds"]
 texture = ExtResource("7_slv42")
@@ -47141,7 +47142,6 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_8lx0i")]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -47196,6 +47196,43 @@ path_to_new_scene = "res://scenes/biblioteca/andar1_biblioteca.tscn"
 entry_door_name = "parte2_mecanica"
 
 [node name="Placa" parent="." instance=ExtResource("16_uf066")]
-position = Vector2(293, 114)
+position = Vector2(403, 294)
 scale = Vector2(0.655, 0.655)
-dialogue_start = "entrada_biblioteca"
+dialogue_start = "dp_mecanica"
+
+[node name="Fechado" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(425, 344)
+
+[node name="Fechado2" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(425, 280)
+
+[node name="Fechado3" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(425, 216)
+
+[node name="Fechado4" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(425, 136)
+
+[node name="Fechado5" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(425, 90)
+
+[node name="Fechado6" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(393, 71)
+
+[node name="Fechado7" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(248, 90)
+dialogue_start = "sala_ft"
+
+[node name="Fechado8" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(247, 136)
+dialogue_start = "sala_ft"
+
+[node name="Fechado9" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(247, 217)
+dialogue_start = "sala_ft"
+
+[node name="Fechado10" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(247, 280)
+dialogue_start = "sala_ft"
+
+[node name="Fechado11" parent="." instance=ExtResource("17_5uvpg")]
+position = Vector2(247, 346)

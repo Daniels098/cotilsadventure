@@ -4,7 +4,6 @@ if is_quest_active("matricula"):
 	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
 	if is_quest_active("matricula") and check_item_in_inventory("documento"):
 		do update_quest("matricula")
-		# do start_quest("atestado")
 		do save_by_manager()
 else:
 	{{nome_player}}: Um documento perdido... Não parece o documento que eu perdi...
@@ -13,7 +12,8 @@ else:
 
 ~ abrir_mochila
 {{ConfigGeral.nome_player}}: Eu achei minha mochila, [wait=0.7] melhor guardar o documento.
-do remove_item("documento")
+if check_item_in_inventory("documento"):
+	do remove_item("documento")
 do save_by_manager()
 => END
 
@@ -23,7 +23,6 @@ if is_quest_active("medico"):
 	{{nome_player}}: Acho melhor guardar na minha mochila para não perder.
 	if is_quest_active("medico") and get_quest_property(1,"item") < get_quest_property(1,"documento_necessario"):
 		do update_quest("medico")
-		# do start_quest("atestado")
 		do save_by_manager()
 else:
 	{{nome_player}}: Um documento perdido... Não parece o documento que eu perdi...
