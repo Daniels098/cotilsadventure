@@ -3,6 +3,7 @@ extends CanvasLayer
 var _active_quests: Array = []  # Lista de missões ativas (até 3)
 @onready var menu = $Panel
 @onready var mission = $Mission
+@onready var moedas = $Mission/Moedas
 
 # Referências para a missão atual e para as três posições do menu de missões
 @onready var quest_ui = [
@@ -15,6 +16,7 @@ var _active_quests: Array = []  # Lista de missões ativas (até 3)
 @onready var mission_current_progress = $%Progress
 
 func _ready() -> void:
+	moedas.visible = true
 	menu.visible = false
 	QuestSystem.quest_accepted.connect(add_quest)
 	QuestSystem.quest_completed.connect(complete_quest)
@@ -32,6 +34,7 @@ func _unhandled_input(event):
 func _process(_delta: float) -> void:
 	update_current_mission()
 	update_menu_missions()
+	moedas.text = "Moedas: %s" % str(LojinhaManager.money)
 
 func add_quest(quest: Quest) -> void:
 	# Adiciona uma nova missão, limitando o máximo a 3 ativas

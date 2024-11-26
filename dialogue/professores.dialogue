@@ -11,7 +11,7 @@ if is_quest_completed("bandeco"):
 		=> END
 elif is_quest_active("bandeco") and is_visited("bandeco"):
 	{{nome_player}}: Fui até o bandeco.
-	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda de (alguma coisa).
+	Professor Salmazo: Ótimo![wait=0.3] Pega essa moeda que eu achei por aqui.
 	do complete_quest("bandeco")
 	do ganhar_moedas(2)
 	do save_by_manager()
