@@ -13,11 +13,17 @@ var skins_texts := {  # Dicionário de texturas, agora carregando texturas corre
 	5: preload("res://assets/samurai-0.1.png"),
 	6: preload("res://assets/ET-0.1.png"),
 }
+var lojinha
+var esq
+var direi
 
 # Função chamada quando o nó é carregado
 func _ready():
 	# Carrega a textura da skin atual com base no ID
 	current_skin = skins_texts[current_skin_id]
+	lojinha = get_node("/root/LevelLojinha/LojinhaApm")
+	esq = get_node("/root/LevelLojinha/ButtonLayerCanhoto")
+	direi = get_node("/root/LevelLojinha/ButtonLayerDestro")
 
 # Função para salvar as skins
 func save_skins():
@@ -30,9 +36,21 @@ func ganhar_moedas(received: int):
 # Função para verificar se a lojinha está na cena e exibi-la
 func ver_lojinha():
 	if get_node("/root/LevelLojinha/LojinhaApm") != null:
+		lojinha = get_node("/root/LevelLojinha/LojinhaApm")
+		esq = get_node("/root/LevelLojinha/ButtonLayerCanhoto")
+		direi = get_node("/root/LevelLojinha/ButtonLayerDestro")
 		var player = get_tree().get_first_node_in_group("players")
-		var lojinha = get_node("/root/LevelLojinha/LojinhaApm")
-		lojinha.visible = true
+		var pause = get_node("/root/LevelLojinha/MenuPause")
+		var inv = get_node("/root/LevelLojinha/Inv_GUI")
+		var quest = get_node("/root/LevelLojinha/QuestGUI/Panel")
+		if pause.visible or inv.visible or quest.visible:
+			return
+		else:
+			lojinha.visible = true
+			if ConfigGeral.is_canhoto:
+				esq.visible = false
+			else:
+				direi.visible = false
 	else:
 		print("LOJINHAAPM NÃO ESTÁ NA CENA")
 

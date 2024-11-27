@@ -2,21 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://362nku5ne8gm" path="res://assets/desfoque.jpg" id="1_78211"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_l17ku"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_xwngl"]
+[ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="3_l3o43"]
 [ext_resource type="Theme" uid="uid://w3u0d2w854ih" path="res://temas/menu.tres" id="4_qk8pv"]
 [ext_resource type="PackedScene" uid="uid://b5weuv7hnaoig" path="res://scenes/animacao_logo.tscn" id="5_g02cp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_65jak"]
-font = ExtResource("2_xwngl")
-font_size = 32
 font_color = Color(0, 0, 0, 1)
-outline_size = 5
+outline_size = 3
 outline_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1w0a"]
 line_spacing = 0.0
-font = ExtResource("2_xwngl")
-font_size = 96
+font = ExtResource("3_l3o43")
+font_size = 56
 font_color = Color(0, 0, 0, 1)
 outline_size = 5
 outline_color = Color(1, 0, 0, 1)
@@ -43,6 +41,8 @@ offset_left = 24.0
 offset_top = 128.0
 offset_right = 328.0
 offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("3_l3o43")
+theme_override_font_sizes/font_size = 16
 text = "Bruno Oliveira Francischetti
 cl201024@g.unicamp.br
 @brunoo_francischetti"
@@ -54,6 +54,8 @@ offset_left = 48.0
 offset_top = 248.0
 offset_right = 370.0
 offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("3_l3o43")
+theme_override_font_sizes/font_size = 16
 text = "Eduardo dos Santos de Araujo
 cl201105@g.unicamp.br
 @edu2311araujo"
@@ -65,6 +67,8 @@ offset_left = 352.0
 offset_top = 160.0
 offset_right = 618.0
 offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_l3o43")
+theme_override_font_sizes/font_size = 16
 text = "Daniel de Sousa Ferreira
 cl201117@g.unicamp.br
 @daniiels098"
@@ -72,18 +76,22 @@ label_settings = SubResource("LabelSettings_65jak")
 
 [node name="btn_back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 320.0
-offset_right = 330.0
-offset_bottom = 335.0
+offset_left = 303.0
+offset_top = 300.0
+offset_right = 348.0
+offset_bottom = 325.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("4_qk8pv")
+theme_override_fonts/font = ExtResource("3_l3o43")
 text = "BACK"
 
 [node name="title" type="Label" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("3_l3o43")
+theme_override_font_sizes/font_size = 16
 text = "Cotil's Adventure
 "
 label_settings = SubResource("LabelSettings_i1w0a")

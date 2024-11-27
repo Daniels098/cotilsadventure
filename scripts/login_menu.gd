@@ -21,7 +21,7 @@ func _ready():
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	$Aviso.visible = true
 	$Aviso.text = "Aviso: O nome de usuário é único e instransferível"
-	HttpsRequest.connect("data_receive", Callable(self, "_on_data_receive"))
+	#HttpsRequest.connect("data_receive", Callable(self, "_on_data_receive"))
 	
 	scene_change_timer.wait_time = 2
 	scene_change_timer.one_shot = true
@@ -92,7 +92,8 @@ func _on_registrar_button_down():
 				Carregando... Espere 3s"
 				nome = $NomeRe.text
 				username = $EmailRe.text
-				password = $PasswordRe.text
+				# Salvando local
+				CredentialsManager.salvar_credenciais(username, nome, password)
 				created = true
 				$NomeRe.text = ""
 				$EmailRe.text = ""
@@ -105,7 +106,7 @@ func _on_registrar_button_down():
 				"password": password
 				}
 				print(data)
-				HttpsRequest.send_request_register(data)
+				# HttpsRequest.send_request_register(data)
 				toggle_register_login()
 				$PasswordLo.text = password
 				$EmailLo.text = username
@@ -116,7 +117,7 @@ func _on_registrar_button_down():
 		else:
 			$Aviso.visible = true
 			$Aviso.text = "Uma conta já foi criada!
-			Se você esqueceu sua senha vá ao \'cotils-adventure.render.com\' e mude"
+			Se você esqueceu sua senha vá ao \'cotils-adventure.vercel.app\' e mude"
 	else:
 		$Aviso.visible = true
 		$Aviso.text = "Preencha todos os campos!"
@@ -134,23 +135,30 @@ func _on_timer_timeout():
 	$Entrar.grab_focus()
 
 func _on_entrar_button_down():
-	username = $EmailLo.text
-	password = $PasswordLo.text
-	data = {
-		"username": username,
-		"password": password
-	}
-	HttpsRequest.send_request_login(data)
-	carregando_data()
-	scene_change_timer.start()
+	username = $EmailLo.text.strip_edges()
+	password = $PasswordLo.text.strip_edges()
+	
+	var credentials = CredentialsManager.carregar_credenciais()
+	
+	# Validar credenciais salvas
+	if credentials.get("username", "") == username and credentials.get("password", "") == password:
+		$Aviso.visible = true
+		$Aviso.text = "Login efetuado com sucesso! Carregando dados..."
+		ConfigGeral.set_name_player(credentials.get("name", ""))
+		ConfigGeral.username = username
+		carregando_data()
+		scene_change_timer.start()
+	else:
+		$Aviso.visible = true
+		$Aviso.text = "Usuário ou senha incorretos!"
 
 func carregando_data():
 	$Aviso.visible = true
-	$Aviso.text = "Carregando dados da nuvem..."
+	$Aviso.text = "Carregando dados locais..."
 
 func _on_data_receive(): ## Tratar o "Username já está em uso"
 	print("DATA RECEBIDA")
-	cloud = HttpsRequest.mostra_json() # não ta salvo
+	# cloud = HttpsRequest.mostra_json() # não ta salvos
 	# print(cloud)
 	if $Aviso.text == "Carregando dados da nuvem...":
 		$Aviso.text = "Login efetuado!"

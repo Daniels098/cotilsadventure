@@ -43,67 +43,67 @@ func save_game(nome: String, player: Player, user: String, invi: Inv, scene_name
 	if file:
 		file.store_string(jso.stringify(save_data, "\t"))
 		file.close()
+		print("Jogo salvo localmente.")
+		# HttpsRequest.send_data_game(save_data)
 		# Salvar na nuvem somente se estiver conectado
-		if await HttpsRequest.is_internet_available():
-			HttpsRequest.send_data_game(save_data)
-			print("Jogo salvo na nuvem com sucesso!")
-		else:
-			print("Sem conexão com a internet. Jogo salvo localmente.")
+		#if await HttpsRequest.is_internet_available():
+		#	print("Jogo salvo na nuvem com sucesso!")
+		#else:
 	else:
 		print("Falha ao salvar o jogo localmente!")
 
 # Função para carregar os dados do jogador
 func load_game(name: String, player: Player, invi: Inv) -> Dictionary:
 	# Carregar dados da nuvem se conectado à internet
-	if await HttpsRequest.is_internet_available():
-		var credentials = CredentialsManager.carregar_credenciais()
-		var cloud_data = HttpsRequest.load_cloud_save(credentials.get("username"))
-		if cloud_data != null:
-			name = cloud_data.get("player", name)
-			if cloud_data.has("scene") and cloud_data["scene"] != null:
-				player.current_scene = cloud_data["scene"]
-			player.device = OS.get_name()
-			
-			var position_data = cloud_data.get("position", null)
-			if position_data and (position_data.get("x", 0) != 0 or position_data.get("y", 0) != 0):
-				player.position.x = position_data["x"]
-				player.position.y = position_data["y"]
-			
-			# Carregar o inventário da nuvem
-			var saved_inventory = cloud_data.get("inventory", [])
-			invi.populate_all_items()
-			for slot in invi.slots:
-				slot.item = null
-				slot.amount = 0
-			
-			for i in range(min(saved_inventory.size(), invi.slots.size())):
-				var item_data = saved_inventory[i]
-				var item = invi.get_item_by_name(item_data.get("item_name", ""))
-				if item:
-					invi.slots[i].item = item
-					invi.slots[i].amount = item_data.get("amount", 0)
+	#if await HttpsRequest.is_internet_available():
+	"""var cloud_data = HttpsRequest.load_cloud_save(credentials.get("username"))
+	if cloud_data != null:
+		name = cloud_data.get("player", name)
+		if cloud_data.has("scene") and cloud_data["scene"] != null:
+			player.current_scene = cloud_data["scene"]
+		player.device = OS.get_name()
+		
+		var position_data = cloud_data.get("position", null)
+		if position_data and (position_data.get("x", 0) != 0 or position_data.get("y", 0) != 0):
+			player.position.x = position_data["x"]
+			player.position.y = position_data["y"]
+		
+		# Carregar o inventário da nuvem
+		var saved_inventory = cloud_data.get("inventory", [])
+		invi.populate_all_items()
+		for slot in invi.slots:
+			slot.item = null
+			slot.amount = 0
+		
+		for i in range(min(saved_inventory.size(), invi.slots.size())):
+			var item_data = saved_inventory[i]
+			var item = invi.get_item_by_name(item_data.get("item_name", ""))
+			if item:
+				invi.slots[i].item = item
+				invi.slots[i].amount = item_data.get("amount", 0)
 
-			# Carregar as missões da nuvem
-			if cloud_data.has("missions"):
-				QuestsAt.load_quests(cloud_data["missions"])
-			
-			for quest in QuestsAt.view_quests_active():
-				quest.update()
-			
-			# Carregar os itens coletados da nuvem
-			if cloud_data.has("collected_items"):
-				ItemManager.collected_items = cloud_data["collected_items"]
-			
-			# Carregar as skins
-			if cloud_data.has("skins") and typeof(cloud_data["skins"]) == TYPE_ARRAY:
-				LojinhaManager.skins = cloud_data["skins"]
-			
-			print("Jogo carregado da nuvem com sucesso!")
-			return cloud_data
-		else:
-			print("Erro ao carregar da nuvem, carregando localmente...")
-
+		# Carregar as missões da nuvem
+		if cloud_data.has("missions"):
+			QuestsAt.load_quests(cloud_data["missions"])
+		
+		for quest in QuestsAt.view_quests_active():
+			quest.update()
+		
+		# Carregar os itens coletados da nuvem
+		if cloud_data.has("collected_items"):
+			ItemManager.collected_items = cloud_data["collected_items"]
+		
+		# Carregar as skins
+		if cloud_data.has("skins") and typeof(cloud_data["skins"]) == TYPE_ARRAY:
+			LojinhaManager.skins = cloud_data["skins"]
+		
+		print("Jogo carregado da nuvem com sucesso!")
+		return cloud_data
+	else:
+		print("Erro ao carregar da nuvem, carregando localmente...")"""
+	
 	# Carregar localmente
+	var credentials = CredentialsManager.carregar_credenciais()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()

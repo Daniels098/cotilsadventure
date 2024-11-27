@@ -17,6 +17,12 @@ func update_slots():
 func _process(_delta):
 	update_slots()
 	if Input.is_action_just_pressed("inventory"):
+		if $"../LojinhaApm" != null:
+			if $"../QuestGUI/Panel".visible or $"../MenuPause".visible or $"../LojinhaApm".visible:
+				return
+		else:
+			if $"../QuestGUI/Panel".visible or $"../MenuPause".visible:
+				return
 		if is_open:
 			close()
 		else:

@@ -174,6 +174,11 @@ func set_canhoto(val: bool):
 	is_canhoto = val
 	save_settings()
 
+func is_canhoto_func() -> bool:
+	if is_canhoto:
+		return true
+	return false
+
 ## -------------------- Funções Auxiliares --------------------
 
 # Função do nome do jogador

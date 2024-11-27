@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b0jwdnes87knh" path="res://assets/inventory_slot.png" id="1_cj830"]
 [ext_resource type="Script" path="res://inventory/inventory.gd" id="1_h518h"]
 [ext_resource type="PackedScene" uid="uid://cncjqfx6cknw4" path="res://inventory/inv_slot.tscn" id="2_x0ytm"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="3_gsxyn"]
+[ext_resource type="FontFile" uid="uid://wqtr35w1bqsc" path="res://fonte/Poppins-Bold.ttf" id="4_y3au0"]
 
 [node name="Inv_GUI" type="CanvasLayer"]
 script = ExtResource("1_h518h")
@@ -82,8 +82,8 @@ layout_mode = 0
 offset_left = 56.0
 offset_right = 120.0
 offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_gsxyn")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_y3au0")
+theme_override_font_sizes/font_size = 20
 text = "BOLSA"
 horizontal_alignment = 1
 vertical_alignment = 1

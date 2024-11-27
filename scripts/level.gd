@@ -20,19 +20,15 @@ func _ready():
 		enter_level()
 	load_button_layout()
 
-func load_button_layout(): ## Arrumar
-	if ConfigGeral.is_canhoto:
-		var canhoto_layer = preload("res://scenes/controlsTouchCanhoto.tscn").instantiate()
+func load_button_layout():
+	if ConfigGeral.is_canhoto_func():
 		if $ButtonLayerDestro != null:
-			$ButtonLayerDestro.queue_free() # Remove o layout de destro
-		add_child(canhoto_layer)
-		canhoto_layer.visible = true
+			$ButtonLayerDestro.visible = false
+		$ButtonLayerCanhoto.visible = true
 	else:
-		var destro_layer = preload("res://scenes/controlsTouch.tscn").instantiate()
 		if $ButtonLayerCanhoto != null:
-			$ButtonLayerCanhoto.queue_free() # Remove o layout de canhoto
-		add_child(destro_layer)
-		destro_layer.visible = true
+			$ButtonLayerCanhoto.visible = false
+		$ButtonLayerDestro.visible = true
 
 func enter_level() -> void:
 	if data != null:
@@ -42,7 +38,23 @@ func enter_level() -> void:
 	_connect_to_doors()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_released("pause"):
+		if $LojinhaApm != null:
+			if $Inv_GUI.visible or $QuestGUI/Panel.visible or $LojinhaApm.visible:
+				return
+		else:
+			if $Inv_GUI.visible or $QuestGUI/Panel.visible:
+				return
+		if $MenuPause.visible or $Inv_GUI.visible or $QuestGUI/Panel.visible:
+			if ConfigGeral.is_canhoto_func():
+				$ButtonLayerCanhoto.visible = false
+			else:
+				$ButtonLayerDestro.visible = false
+		else:
+			if ConfigGeral.is_canhoto_func():
+				$ButtonLayerCanhoto.visible = true
+			else:
+				$ButtonLayerDestro.visible = true
 		game_paused = !game_paused
 		if game_paused:
 			Engine.time_scale = 0
@@ -50,6 +62,7 @@ func _unhandled_input(event):
 		else:
 			Engine.time_scale = 1
 			pause_menu.visible = false
+			load_button_layout()
 		get_tree().root.get_viewport().set_input_as_handled()
 
 func init_player_location() -> void:

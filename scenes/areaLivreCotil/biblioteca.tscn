@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bq0hqq2f2h7eq"]
+[gd_scene load_steps=39 format=3 uid="uid://bq0hqq2f2h7eq"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_bv44i"]
 [ext_resource type="PackedScene" uid="uid://bxiqclm36vook" path="res://scenes/menu/pause_menu.tscn" id="2_40ttm"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bb78rp30ssm5l" path="res://scenes/player.tscn" id="20_gb3ht"]
 [ext_resource type="PackedScene" uid="uid://gjgvv588hh4h" path="res://scenes/door.tscn" id="21_36opp"]
 [ext_resource type="PackedScene" uid="uid://gf2y56r8f58p" path="res://scenes/placa.tscn" id="22_i044w"]
+[ext_resource type="PackedScene" uid="uid://d2u50qcsidmiw" path="res://quests/locals/fechado.tscn" id="23_gbi1c"]
+[ext_resource type="Resource" uid="uid://bovb8l8bn42no" path="res://dialogue/placas.dialogue" id="24_w48ls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exn5s"]
 texture = ExtResource("7_naduc")
@@ -45015,6 +45017,7 @@ visible = false
 
 [node name="QuestGUI" parent="." instance=ExtResource("6_crq1i")]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -45156,3 +45159,9 @@ transition_type = "fade_to_white"
 push_distance = 48
 path_to_new_scene = "res://scenes/areaLivreCotil/biblioteca_perto_cecom.tscn"
 entry_door_name = "pass_biblioteca_5"
+
+[node name="Fechado" parent="." instance=ExtResource("23_gbi1c")]
+position = Vector2(194, 306)
+scale = Vector2(2, 2)
+dialogue_resource = ExtResource("24_w48ls")
+dialogue_start = "entrada_personagem"

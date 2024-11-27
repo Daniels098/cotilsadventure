@@ -26,9 +26,11 @@ func _on_buttons_options_pressed():
 
 func _on_buttons_menu_principal_pressed():
 	if game_paused:
+		ManagerSave.save_by_manager()
 		Engine.time_scale = 1
 		pause_menu.visible = false
 		SceneManager.load_new_scene("res://scenes/menu/menu.tscn", "wipe_to_right")
 
 func _on_buttons_quit_pressed():
+	ManagerSave.save_by_manager()
 	get_tree().quit()

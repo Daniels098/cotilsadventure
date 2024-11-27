@@ -51,7 +51,7 @@ func automatic_login(credentials: Dictionary) -> void:
 			"username": username,
 			"password": password
 		}
-		HttpsRequest.send_request_login(data)
+		# HttpsRequest.send_request_login(data)
 	else:
 		print("Credenciais salvas estão incompletas. Iniciando animação.")
 		anim_letters()

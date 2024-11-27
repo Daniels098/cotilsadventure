@@ -12,11 +12,15 @@ func _ready():
 	# connect_signal_buttons()
 
 func _process(delta):
-	money.text = "Moedas: %s" % LojinhaManager.money  # Atualizar moedas no display
+	money.text = "%s" % LojinhaManager.money  # Atualizar moedas no display
 
 func _on_voltar_pressed():
 	# Oculta a interface da lojinha
 	main.visible = false
+	if ConfigGeral.is_canhoto:
+		$"../ButtonLayerCanhoto".visible = true
+	else:
+		$"../ButtonLayerDestro".visible = true
 	# Salva as mudanças ao sair da loja
 	LojinhaManager.save_skins()
 
@@ -39,14 +43,14 @@ func _on_button_2_button_pressed(int):
 	sprite.texture = LojinhaManager.get_current_skin_texture()
 
 func _on_button_2_text_button(int):
-	sprite.texture = LojinhaManager.skins_texts[1]
+	sprite.texture = LojinhaManager.skins_texts[2]
 
 func _on_button_3_button_pressed(int):
 	LojinhaManager.purchase_skin(3)
 	sprite.texture = LojinhaManager.get_current_skin_texture()
 
 func _on_button_3_text_button(int):
-	sprite.texture = LojinhaManager.skins_texts[2]
+	sprite.texture = LojinhaManager.skins_texts[3]
 
 func _on_button_4_button_pressed(int):
 	LojinhaManager.purchase_skin(4)

@@ -199,6 +199,7 @@ theme_override_font_sizes/font_size = 14
 text = "Entrar"
 
 [node name="ToggleRegisterLogin" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 408.0
 offset_top = 304.0

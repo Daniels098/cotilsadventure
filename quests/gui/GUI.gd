@@ -28,13 +28,21 @@ func _ready() -> void:
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
-		menu.visible = !menu.visible
-		mission.visible = !menu.visible
+		if $"../LojinhaApm" != null:
+			if $"../Inv_GUI".visible or $"../MenuPause".visible or $"../LojinhaApm".visible:
+				return
+			menu.visible = !menu.visible
+			mission.visible = !menu.visible
+		else:
+			if $"../Inv_GUI".visible or $"../MenuPause".visible:
+				return
+			menu.visible = !menu.visible
+			mission.visible = !menu.visible
 
 func _process(_delta: float) -> void:
 	update_current_mission()
 	update_menu_missions()
-	moedas.text = "Moedas: %s" % str(LojinhaManager.money)
+	moedas.text = "        %s" % str(LojinhaManager.money)
 
 func add_quest(quest: Quest) -> void:
 	# Adiciona uma nova missão, limitando o máximo a 3 ativas

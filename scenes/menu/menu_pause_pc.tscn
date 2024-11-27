@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://duhcbfmihcxcu"]
+[gd_scene load_steps=9 format=3 uid="uid://duhcbfmihcxcu"]
 
 [ext_resource type="Shader" path="res://scenes/menu/pause_menu.gdshader" id="1_0mk3f"]
 [ext_resource type="Script" path="res://scripts/menu_pause_pc.gd" id="1_1jq53"]
-[ext_resource type="FontFile" uid="uid://xg2eku68amxe" path="res://fonte/Gamer.ttf" id="2_bebhb"]
 [ext_resource type="Texture2D" uid="uid://ccpdcum0eeytj" path="res://assets/grabber.png" id="3_3ly7k"]
 [ext_resource type="FontFile" uid="uid://cjtxrc0chsxxg" path="res://fonte/Poppins-Regular.ttf" id="3_qfhj0"]
 [ext_resource type="Texture2D" uid="uid://cklng2hps6a0e" path="res://assets/grabbe_highlightr.png" id="4_0fetc"]
@@ -113,8 +112,8 @@ mouse_filter = 1
 [node name="Display" type="OptionButton" parent="Control/PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_bebhb")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qfhj0")
+theme_override_font_sizes/font_size = 10
 
 [node name="Control3" type="Control" parent="Control/PanelContainer/MarginContainer/MarginContainer/MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer/action_list_configs"]
 custom_minimum_size = Vector2(0, 10)

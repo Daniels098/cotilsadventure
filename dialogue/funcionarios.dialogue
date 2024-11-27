@@ -6,14 +6,14 @@ if is_quest_completed("matricula"):
 elif is_quest_active("matricula") and check_item_in_inventory("documento"):
 	{{nome_player}}: Consegui encontrar os documentos.\nAqui está.
 	Dorothi: Obrigada!\n Agora posso terminar o seu processo de matricula.
-	do remove_item("documento")
 	do complete_quest("matricula")
+	do remove_item("documento")
 	do ganhar_moedas(3)
 	do save_by_manager()
 => END
 elif is_quest_active("matricula") and check_item_in_inventory("documento") == false:
 	{{nome_player}}: Não estou conseguindo encontrar os documentos.
-	Dorothi: Você precisa encontrar esses documentos, eles são muitos importantes!/nTente procurar nos lugares que você já passou.
+	Dorothi: Você precisa encontrar esses documentos, eles são muitos importantes!\nTente procurar nos lugares que você já passou.
 else:
 	Dorothi: Você trouxe os documentos da matrícula?
 	{{nome_player}}: Acabei deixando eles em algum lugar, porém não me lembro onde foi!

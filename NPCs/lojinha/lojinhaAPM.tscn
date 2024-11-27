@@ -72,18 +72,18 @@ vertical_alignment = 1
 
 [node name="money" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
 layout_mode = 0
-offset_left = 422.0
-offset_top = -13.0
-offset_right = 550.0
-offset_bottom = 19.0
+offset_left = 543.0
+offset_top = -18.0
+offset_right = 591.0
+offset_bottom = 14.0
 theme_override_fonts/font = ExtResource("1_ajjgf")
 theme_override_font_sizes/font_size = 20
-text = "Moedas: %s"
+text = "%s"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/Control"]
-position = Vector2(582, 3)
+position = Vector2(518, -3)
 scale = Vector2(3, 3)
 texture = ExtResource("3_nl4lg")
 
@@ -146,6 +146,20 @@ view_text = ExtResource("12_sx4ww")
 skin_text = ExtResource("13_hc338")
 skin_id = 4
 
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button5"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 90.0
+offset_bottom = 57.0
+text = "       3"
+
+[node name="Node2D" type="Node2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button5/Label"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button5/Label/Node2D"]
+position = Vector2(21, 11)
+texture = ExtResource("3_nl4lg")
+
 [node name="Button6" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(88, 80)
 layout_mode = 2
@@ -153,12 +167,40 @@ view_text = ExtResource("14_1stlc")
 skin_text = ExtResource("15_5ktr4")
 skin_id = 5
 
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button6"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 90.0
+offset_bottom = 57.0
+text = "       3"
+
+[node name="Node2D" type="Node2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button6/Label"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button6/Label/Node2D"]
+position = Vector2(21, 11)
+texture = ExtResource("3_nl4lg")
+
 [node name="Button7" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_gxqcn")]
 custom_minimum_size = Vector2(88, 80)
 layout_mode = 2
 view_text = ExtResource("16_obxd0")
 skin_text = ExtResource("17_kp6t4")
 skin_id = 6
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button7"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 90.0
+offset_bottom = 57.0
+text = "       3"
+
+[node name="Node2D" type="Node2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button7/Label"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Button7/Label/Node2D"]
+position = Vector2(21, 11)
+texture = ExtResource("3_nl4lg")
 
 [node name="Control2" type="Control" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
