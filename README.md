@@ -19,8 +19,8 @@
 - [📖 Sobre o Projeto](#sobre-o-projeto)
 - [🛠️ Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [🚀 Primeiros Passos](#primeiros-passos)
-- [🤝 Contribuir](#🤝contribuir)
-- [📄 Licença](#📄licença)
+- [🤝 Contribuir](#🤝-contribuir)
+- [📄 Licença](#licença)
 
 <br>
 
