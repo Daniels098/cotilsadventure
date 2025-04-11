@@ -19,8 +19,8 @@
 - [📖 Sobre o Projeto](#sobre-o-projeto)
 - [🛠️ Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [🚀 Primeiros Passos](#primeiros-passos)
-- [🤝 Contribuir](#contribuir)
-- [📄 Licença](#licença)
+- [🤝 Contribuir](#🤝contribuir)
+- [📄 Licença](#📄licença)
 
 <br>
 
@@ -67,7 +67,7 @@ Siga estas etapas para configurar o projeto na sua máquina:
 
 <br>
 
-## Contribuir
+## 🤝 Contribuir
 
 1. **Faça um fork do projeto**
 2. **Crie sua branch** (git checkout -b feature/NovaFeature)
@@ -79,7 +79,7 @@ Siga estas etapas para configurar o projeto na sua máquina:
 
 <br>
 
-## Licença
+## 📄 Licença
 
 Distribuído sob a licença GNU General Public License v3.0. Veja `LICENSE` para mais informações.
 
