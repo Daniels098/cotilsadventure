@@ -16,7 +16,7 @@
 
 ## 📜 Índice
 
-- [Sobre o Projeto](#sobre-o-projeto) 📖
+- [📖 Sobre o Projeto](#sobre-o-projeto)
 - [🛠️ Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [🚀 Primeiros Passos](#primeiros-passos)
 - [🤝 Contribuir](#🤝contribuir)
@@ -24,7 +24,7 @@
 
 <br>
 
-## 📖 Sobre o Projeto
+## 📖 Sobre o Projeto <a id="-sobre-o-projeto"></a>
 
 Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explorar o campus do Colégio Técnico de Limeira (COTIL), inspirado por jogos clássicos. O jogador embarca em uma jornada pelo campus, interagindo com professores e funcionários, enquanto resolve puzzles e completa missões para avançar na história. Cada personagem oferece dicas e missões que ajudam o jogador a entender melhor o ambiente do COTIL, trazendo uma mistura de aprendizado e diversão.
 
@@ -32,7 +32,7 @@ Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explora
 
 <br>
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas <a id="-tecnologias-utilizadas"></a>
 
 - <img src="https://godotengine.org/assets/press/icon_color.png" width="16"> **Godot Engine 4.2.2**
 - <img src="https://www.aseprite.org/assets/images/header-logo.png" width="16"> **Aseprite**
@@ -41,7 +41,7 @@ Cotil's Adventure é um jogo 2D no estilo top-down, onde os alunos podem explora
 
 <br>
 
-## 🚀 Primeiros Passos
+## 🚀 Primeiros Passos <a id="-primeiros-passos"></a>
 
 Siga estas etapas para configurar o projeto na sua máquina:
 
@@ -67,7 +67,7 @@ Siga estas etapas para configurar o projeto na sua máquina:
 
 <br>
 
-## 🤝 Contribuir
+## 🤝 Contribuir <a id="-contribuir"></a>
 
 1. **Faça um fork do projeto**
 2. **Crie sua branch** (git checkout -b feature/NovaFeature)
@@ -79,7 +79,7 @@ Siga estas etapas para configurar o projeto na sua máquina:
 
 <br>
 
-## 📄 Licença
+## 📄 Licença <a id="-licença"></a>
 
 Distribuído sob a licença GNU General Public License v3.0. Veja `LICENSE` para mais informações.
 
