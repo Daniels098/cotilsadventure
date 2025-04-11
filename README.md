@@ -19,7 +19,7 @@
 - [📖 Sobre o Projeto](#sobre-o-projeto)
 - [🛠️ Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [🚀 Primeiros Passos](#primeiros-passos)
-- [🤝 Contribuir](#🤝-contribuir)
+- [🤝 Contribuir](#contribuir)
 - [📄 Licença](#licença)
 
 <br>
@@ -79,7 +79,7 @@ Siga estas etapas para configurar o projeto na sua máquina:
 
 <br>
 
-## 📄 Licença <a id="-licença"></a>
+📄 ## Licença
 
 Distribuído sob a licença GNU General Public License v3.0. Veja `LICENSE` para mais informações.
 
